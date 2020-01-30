@@ -250,20 +250,9 @@ body {
 }
 
 .Search__list__header {
-  position: relative;
+  padding: 5px 14px;
   background: #eeede4;
   font-size: 12px;
-}
-.Search__list__header::before {
-  content: "";
-  display: block;
-  border-top: 1px solid #ccc4a7;
-  transform: scaleY(.5);
-  transform-origin: 100% 0;
-}
-.Search__list__header span {
-  display: block;
-  padding: 5px 14px;
 }
 .Search__list__wrap {
   padding-top: 15px;

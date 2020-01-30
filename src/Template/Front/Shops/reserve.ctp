@@ -27,546 +27,627 @@ const RESERVE_TABLE = [
     'WEEK_OPTIONS_JP' => ['日','月','火','水','木','金','土']
 ];
 ?>
-
-<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMXTyYIMqJTZPtem60iMfu3ZKYn3Nj0wI"></script>
-
-<?php
-echo $this->Html->script(
-    [
-        '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js',
-        '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js',
-        '/js/front/reserve.js',
-        '/js/front/jquery-ui-timepicker-addon.min.js',
-        '/js/jquery-ui-timepicker-ja.js',
-    ],
-    ['type'=> 'text/javascript','defer' => true]);?>
-
-<?= $this->Html->css('front/jquery-ui-timepicker-addon.min.css') ?>
-
-<style type="text/css">
-    .send_error {
-        color: red;
-    }
-
-    .terms {
-        color: gray;
-        font-size: 8px;
-    }
-
-    .saturday_en {
-        background-color: #bdd3eb !important;
-    }
-    .sunday_en {
-        background-color: #f1c5cf !important;
-    }
-    .saturday_jp {
-        background-color: #d3e3f3 !important;
-    }
-    .sunday_jp {
-        background-color: #f5dce7 !important;
-    }
-
-    #pm_scroll, #night_scroll {
-        margin: 0px 5px;
-        /*color: rgb(0, 0, 238);*/
-        color: #4885bc;
-        text-decoration-line: underline;
-    }
-</style>
-
-<div id="bread">
-    <div class="inner cf">
-        <span class="breaditem"><a href="<?=Router::url('/')?>"><span>Purilトップ</span></a></span>
-        <span class="breaditem"><?php echo $this->Html->link("<span>全国の脱毛施設</span>", ['controller'=> 'searchs'], ['escape'=> false])?></span>
-        <span class="breaditem"><?php echo $this->Html->link("<span>全国の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false])?></span>
-        <span class="breaditem"><?php echo $this->Html->link("<span>{$shop['pref']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false])?></span>
-        <span class="breaditem"><?php echo $this->Html->link("<span>{$shop['Area']['name']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], URLUtil::CITY.$shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false])?></span>
-        <span class="breaditem"><?php echo $this->Html->link("<span>{$shop['name']}</span>", ['controller' => 'shops', 'action' => 'detail', $shop['shop_id']], ['escape' => false]) ?></span>
-        <span class="breaditem">予約フォーム</span>
-    </div>
-</div>
-
-<div id="container">
-    <div class="inner no-sp-padding">
-        <div class="undercontentwrap cf">
-            <div id="reserve_form">
-                <h1>
-                    Purilから<span class="clinic-name"><?= $shop['name'] ?></span>を今スグ予約する
-                </h1>
-                <h2 id="reserve_help">
-                    第1希望日を選択してください
-                    <?php if (!empty($shop['business_hours'])) { ?>
-                    <br><br>
-                    <span style="font-size: 14px;font-weight: normal;">営業時間<?php echo $shop['business_hours']; ?></span>
-                    <?php } ?>
-                </h2>
-
-                <?= '<font color="red">'.$this->Flash->render().'</font>'; ?>
-
-                <section class="reserve_section">
-                    <div class="prev disabled">
-                        < 前の1週間
-                    </div>
-                    <div class="next">
-                        次の1週間 >
-                    </div>
-                </section>
-
-                <table
-                        id="reserve_table"
-                        data-date-options="<?=    RESERVE_TABLE['DATE_OPTIONS']  ?>"
-                        data-time-start="<?=      RESERVE_TABLE['TIME_START']    ?>"
-                        data-time-end="<?=        RESERVE_TABLE['TIME_END']      ?>"
-                        data-probability="<?=     RESERVE_TABLE['PROBABILITY']   ?>"
-                        data-visit-options="<?=   RESERVE_TABLE['VISIT_OPTIONS'] ?>"
-                        data-week-options-en="<?= implode(',', RESERVE_TABLE['WEEK_OPTIONS_EN']) ?>"
-                        data-week-options-jp="<?= implode(',', RESERVE_TABLE['WEEK_OPTIONS_JP']) ?>">
-                    <thead>
-                    <tr>
-                        <th rowspan="2">
-                            日時
-                        </th>
-                        <?php for ($d = 2; $d <= RESERVE_TABLE['DATE_OPTIONS']; $d++): ?>
-                            <th scope="col" class="<?= RESERVE_TABLE['WEEK_OPTIONS_EN'][date('w', strtotime('+'.$d.'day'))] ?>_en">
-                                <?= date('m/d', strtotime('+'.$d.'day')) ?>
-                            </th>
-                        <?php endfor; ?>
-                    </tr>
-                    <tr>
-                        <?php for ($d = 2; $d <= RESERVE_TABLE['DATE_OPTIONS']; $d++): ?>
-                            <th scope="col" class="<?= RESERVE_TABLE['WEEK_OPTIONS_EN'][date('w', strtotime('+'.$d.'day'))] ?>_jp">
-                                <?= RESERVE_TABLE['WEEK_OPTIONS_JP'][date('w', strtotime('+'.$d.'day'))] ?>
-                            </th>
-                        <?php endfor; ?>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th colspan="<?= RESERVE_TABLE['DATE_OPTIONS'] ?>">
-                            <span id="pm_scroll" data-target="#time_12">午後（12:00-18:00）</span>
-                            <span id="night_scroll" data-target="#time_18">夜（18:00-）</span>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach (range(RESERVE_TABLE['TIME_START'], RESERVE_TABLE['TIME_END']) as $H): ?>
-                        <tr>
-                            <th scope="row" id="time_<?= $H ?>">
-                                <?= $H.':00' ?>
-                            </th>
-                            <?php for ($d = 2; $d <= RESERVE_TABLE['DATE_OPTIONS']; $d++): ?>
-                                <td data-time="<?= date('Y/m/d', strtotime('+'.$d.'day')).' '.$H.':00' ?>">
-                                    □
-                                </td>
-                            <?php endfor; ?>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-
-                <section class="reserve_section">
-                    <div class="prev disabled">
-                        < 前の1週間
-                    </div>
-                    <div class="next">
-                        次の1週間 >
-                    </div>
-                </section>
-                <h2 style="margin-top: 20px;">仮予約フォーム</h2>
-                <?= $this->ExForm->create('Contact', [
-                    'url'  => [
-                        'controller' => 'Contacts',
-                        'action'     => 'reserve'
-                    ],
-                    'type' => 'post',
-                    'id'   => 'reserve_exform'
-                ]) ?>
-                <table class="contact_form">
-                    <tr>
-                        <th scope="row">
-                            <span class="imp">必須</span>
-                            <span class="reserve-text">店舗名</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->text(
-                                'shop_name', [
-                                    'value'       => $shop['name'],
-                                    'placeholder' => '例）サンプル店舗東京',
-                                    'required'    => true
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="any">任意</span>
-                            <span class="reserve-text">来店希望日時</span>
-                        </th>
-                        <td>
-                            <?php for ($i = 1; $i <= RESERVE_TABLE['VISIT_OPTIONS']; $i++): ?>
-                                <div style="margin: 10px 0;">
-                                    <?php
-                                    echo $this->ExForm->text(
-                                        'visit_date_'.$i, [
-                                            'placeholder' => '第'.$i.'希望 例）'.date('Y/m/d H:00'),
-                                            'id'          => 'visit_date_'.$i,
-                                            'class'       => 'datetimepicker visit_dates',
-                                            'required'    => $i
-                                        ]
-                                    );
-                                    ?>
-                                </div>
-                            <?php endfor; ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="imp">必須</span>
-                            <span class="reserve-text">氏名</span>
-                        </th>
-                        <td>
-                            <div style="display: flex;">
-                                <?php
-                                echo $this->ExForm->text(
-                                    'last_name', [
-                                        'placeholder' => '例）脱毛',
-                                        'required'    => true,
-                                        'style'       => 'margin-right: 10px;'
-                                    ]
-                                );
-                                ?>
-                                <?php
-                                echo $this->ExForm->text(
-                                    'first_name', [
-                                        'placeholder' => '例）花子',
-                                        'required'    => true,
-                                        'style'       => 'margin-left: 10px;'
-                                    ]
-                                );
-                                ?>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="imp">必須</span>
-                            <span class="reserve-text">フリガナ</span>
-                        </th>
-                        <td>
-                            <div style="display: flex;">
-                                <?php
-                                echo $this->ExForm->text(
-                                    'last_kana', [
-                                        'placeholder' => '例）ダツモウ',
-                                        'required'    => true,
-                                        'style'       => 'margin-right: 10px;'
-                                    ]
-                                );
-                                ?>
-                                <?php
-                                echo $this->ExForm->text(
-                                    'first_kana', [
-                                        'placeholder' => '例）ハナコ',
-                                        'required'    => true,
-                                        'style'       => 'margin-left: 10px;'
-                                    ]
-                                );
-                                ?>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="query-type query-type-<?=ContactType::$REVIEW[CodePattern::$CODE]?>">
-                        <th scope="row">
-                            <span class="imp">必須</span>
-                            <span class="reserve-text">生年月日</span>
-                        </th>
-                        <td>
-                            <div class="birthday">
-                                <?php
-                                // echo $this->ExForm->text(
-                                // 	'birthday', [
-                                // 		'placeholder' => '例）'.date('Y/m/d'),
-                                // 		'class'       => 'datepicker',
-                                // 		'required'    => true
-                                // 	]
-                                // );
-                                ?>
-
-                                <?php
-                                $options_y = [];
-                                foreach (range(date('Y')-100, date('Y')) as $y) {
-                                    $options_y[$y] = $y;
-                                };
-
-                                echo $this->ExForm->control(
-                                    'birthday_y', [
-                                        'type'     => 'select',
-                                        'options'  => $options_y,
-                                        'empty'    => '--',
-                                        'default'  => date('Y')-25,
-                                        'label'    => false,
-                                        'style'    => 'margin-right: 10px;',
-                                        'required' => true
-                                    ]
-                                );
-                                ?>
-                                <div class="birthday__unit">年</div>
-                                <?php
-                                $options_m = [];
-                                foreach (range(1, 12) as $m) {
-                                    $options_m[$m] = $m;
-                                };
-
-                                echo $this->ExForm->control(
-                                    'birthday_m', [
-                                        'type'     => 'select',
-                                        'options'  => $options_m,
-                                        'empty'    => '--',
-                                        'label'    => false,
-                                        'style'    => 'margin-right: 10px;',
-                                        'required' => true
-                                    ]
-                                );
-                                ?>
-                                <div class="birthday__unit">月</div>
-                                <?php
-                                $options_d = [];
-                                foreach (range(1, 31) as $d) {
-                                    $options_d[$d] = $d;
-                                };
-
-                                echo $this->ExForm->control(
-                                    'birthday_d', [
-                                        'type'     => 'select',
-                                        'options'  => $options_d,
-                                        'empty'    => '--',
-                                        'label'    => false,
-                                        'style'    => 'margin-right: 10px;',
-                                        'required' => true
-                                    ]
-                                );
-                                ?>
-                                <div class="birthday__unit">日</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="query-type query-type-<?=ContactType::$REVIEW[CodePattern::$CODE]?>">
-                        <th>
-                            <span class="imp">必須</span>
-                            <span class="reserve-text">性別</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->sex(
-                                'sex', [
-                                    'required' => true,
-                                    'default'  => 2
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="imp">必須</span>
-                            <span class="reserve-text">脱毛希望部位</span>
-                        </th>
-                        <td class="">
-                            <div class="depilation-box">
-                            <?php
-                            echo $this->ExForm->depilationSite(
-                                'depilation_site', [
-                                    'required' => true,
-                                    'multiple' => 'checkbox',
-                                    'style'    => 'height: 100%;',
-                                    'class' => 'depilation-check'
-                                ]
-                            );
-                            ?>
-                            </div>
-                            <p class="depilation-more">
-                                <span class="depilation-more-text">脱毛部位をもっと見る</span>
-                                <?php echo $this->Html->image('/img/Shop/blue_down_arrow.png', ['class'=> 'depilation-more-img','alt'=> '']); ?>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <span class="imp">必須</span>
-                            <span class="reserve-text">連絡先番号</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->text(
-                                'tell', [
-                                    'placeholder' => '例）03-1234-5678',
-                                    'required'    => true
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="imp">必須</span>
-                            <span class="reserve-text">メールアドレス</span>
-                        </th>
-                        <td class="mailform">
-                            <?php
-                            echo $this->ExForm->text(
-                                'mail', [
-                                    'placeholder' => '例）info@tsuru-tsuru.co.jp',
-                                    'required'    => true
-                                ]
-                            );
-                            ?>
-                            <p class="atention">
-                                ※docomo.ne.jp、softbank.jp、ezweb.ne.jpなどの携帯メールアドレスでは、パソコンからのメールを受信拒否する初期設定をされている場合がございます。tsuru-tsuru.co.jpからの受信許可の設定をお願いいたします。
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="any">任意</span>
-                            <span class="reserve-text">住所</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->text(
-                                'address', [
-                                    'placeholder' => '例）サンプル住所'
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="any">任意</span>
-                            <span class="reserve-text">利用人数</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->control(
-                                'customer_count', [
-                                    'label'   => false,
-                                    'type'    => 'select',
-                                    'options' => [
-                                        '1名'    => '1名',
-                                        '2名'    => '2名',
-                                        '3名以上' => '3名以上'
-                                    ]
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="any">任意</span>
-                            <span class="reserve-text">当日の施術を希望されますか？</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->control(
-                                'is_same_date', [
-                                    'label'   => false,
-                                    'type'    => 'select',
-                                    'options' => [
-                                        'いいえ' => 'いいえ',
-                                        'はい'   => 'はい'
-                                    ]
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="any">任意</span>
-                            <span class="reserve-text">脱毛経験はございますか？</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->control(
-                                'is_experienced', [
-                                    'label'   => false,
-                                    'type'    => 'select',
-                                    'options' => [
-                                        'いいえ' => 'いいえ',
-                                        'はい'   => 'はい'
-                                    ]
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="any">任意</span>
-                            <span class="reserve-text">キャンペーンの通知を希望しますか？</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->control(
-                                'is_campaign', [
-                                    'label'   => false,
-                                    'type'    => 'select',
-                                    'options' => [
-                                        'いいえ' => 'いいえ',
-                                        'はい'   => 'はい'
-                                    ]
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="any">任意</span>
-                            <span class="reserve-text">質問など</span>
-                        </th>
-                        <td>
-                            <?php
-                            echo $this->ExForm->textarea(
-                                'question', [
-                                    'placeholder' => '例）料金について'
-                                ]
-                            );
-                            ?>
-                        </td>
-                    </tr>
-                </table>
-
-                <div>
-                    <?php
-                    // echo $this->ExForm->input(
-                    // 	'送信する', [
-                    // 		'type'  => 'submit',
-                    // 		'name'  => 'contact_user',
-                    // 		'class' => 'submit_button'
-                    // 	]
-                    // );
-                    echo $this->Form->button(
-                        '<div class="terms" style="margin-bottom: 10px;">利用規約に同意して</div>無料カウンセリングを申し込む', [
-                            'id'       => 'reserve_submit',
-                            'class'    => 'submit_button',
-                            // 'disabled' => true
-                        ]
-                    );
-
-                    // echo $this->element('Front/Contact/agreement');
-                    ?>
-                </div>
-                <?= $this->ExForm->end() ?>
-
-                <div style="">
-                    <a href="/regulation/" class="terms" target="_blank">
-                        利用規約はこちら
-                    </a>
-                </div>
-            </div>
+  <body>
+  <?php
+    echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/brand/common',  'datsumou/kuchikomi-entry']);
+    ?>
+    <header class="brand-header">
+      <div class="brand-header-inner"><a class="brand-header-back" href="/datsumou/"><i class="fas fa-chevron-left"></i></a>
+        <div class="brand-header-title">キレイモ</div>
+        <div class="brand-header-void"></div>
+      </div>
+    </header>
+    <h1 class="content kuchikomi-entry-title">キレイモ 新宿本店</h1>
+    <form action="#">
+      <div class="content middle-content rating-area">
+        <div class="rating-star"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png">
         </div>
-    </div>
-</div>
+        <div class="rating-number"><span id="rating-number-span"></span></div>
+      </div>
+      <div class="content question-title">合計9つのご質問にお答えください</div>
+      <div class="content-base question-area">
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">1</div>
+                  <div class="question-text">受けた施術等の名前を教えてください。</div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <input type="text" placeholder="（回答例）全身脱毛">
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">2</div>
+                  <div class="question-text">あなたの性別と、生年月日を教えてください。</div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="gender">
+                      <option value="">性別</option>
+                      <option value="woman">女性</option>
+                      <option value="man">男性</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="age">
+                      <option value="">生年月日</option>
+                      <option value="2010">2010</option>
+                      <option value="2009">2009</option>
+                      <option value="2008">2008</option>
+                      <option value="2007">2007</option>
+                      <option value="2006">2006</option>
+                      <option value="2005">2005</option>
+                      <option value="2004">2004</option>
+                      <option value="2003">2003</option>
+                      <option value="2002">2002</option>
+                      <option value="2001">2001</option>
+                      <option value="2000">2000</option>
+                      <option value="1999">1999</option>
+                      <option value="1998">1998</option>
+                      <option value="1997">1997</option>
+                      <option value="1996">1996</option>
+                      <option value="1995">1995</option>
+                      <option value="1994">1994</option>
+                      <option value="1993">1993</option>
+                      <option value="1992">1992</option>
+                      <option value="1991">1991</option>
+                      <option value="1990">1990</option>
+                      <option value="1989">1989</option>
+                      <option value="1988">1988</option>
+                      <option value="1987">1987</option>
+                      <option value="1986">1986</option>
+                      <option value="1985">1985</option>
+                      <option value="1984">1984</option>
+                      <option value="1983">1983</option>
+                      <option value="1982">1982</option>
+                      <option value="1981">1981</option>
+                      <option value="1980">1980</option>
+                      <option value="1979">1979</option>
+                      <option value="1978">1978</option>
+                      <option value="1977">1977</option>
+                      <option value="1976">1976</option>
+                      <option value="1975">1975</option>
+                      <option value="1974">1974</option>
+                      <option value="1973">1973</option>
+                      <option value="1972">1972</option>
+                      <option value="1971">1971</option>
+                      <option value="1970">1970</option>
+                      <option value="1969">1969</option>
+                      <option value="1968">1968</option>
+                      <option value="1967">1967</option>
+                      <option value="1966">1966</option>
+                      <option value="1965">1965</option>
+                      <option value="1964">1964</option>
+                      <option value="1963">1963</option>
+                      <option value="1962">1962</option>
+                      <option value="1961">1961</option>
+                      <option value="1960">1960</option>
+                      <option value="1959">1959</option>
+                      <option value="1958">1958</option>
+                      <option value="1957">1957</option>
+                      <option value="1956">1956</option>
+                      <option value="1955">1955</option>
+                      <option value="1954">1954</option>
+                      <option value="1953">1953</option>
+                      <option value="1952">1952</option>
+                      <option value="1951">1951</option>
+                      <option value="1950">1950</option>
+                    </select>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">3</div>
+                  <div class="question-text">あなたが現在居住している都道府県や、最寄り駅を教えてください。</div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="prefecture">
+                      <option value="">居住している都道府県</option>
+                      <option value="1">北海道</option>
+                      <option value="2">青森県</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="station">
+                      <option value="">最寄駅</option>
+                      <option value="1">〇〇駅</option>
+                      <option value="2">◇◇駅</option>
+                    </select>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">4</div>
+                  <div class="question-text">この店舗の総合的な感想を、20文字程度で感想を教えてください。</div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <textarea name="comment" cols="30" rows="10" placeholder="（回答例）駅近で好立地で、仕事帰りに通いやすいのがとても良いです。スタッフの皆さんも親切で、施術に関する不安もありませんでした！"></textarea>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">5</div>
+                  <div class="question-text">この店舗を選んだ理由を教えてください。</div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <textarea name="reason" cols="30" rows="10" placeholder="（回答例）HPやインスタで拝見し、技術の高い○○先生にお願いしたいと思いました。"></textarea>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">6</div>
+                  <div class="question-text">
+                    <p>店舗の「接客／サービス」はいかがでしたか？</p>
+                    <p>「5点満点の数字＆100文字以上の感想」をお願いします！</p>
+                  </div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="rating-1" id="rating1">
+                      <option value="">評価点</option>
+                      <option value="5">5</option>
+                      <option value="4.9">4.9</option>
+                      <option value="4.8">4.8</option>
+                      <option value="4.7">4.7</option>
+                      <option value="4.6">4.6</option>
+                      <option value="4.5">4.5</option>
+                      <option value="4.4">4.4</option>
+                      <option value="4.3">4.3</option>
+                      <option value="4.2">4.2</option>
+                      <option value="4.1">4.1</option>
+                      <option value="4">4</option>
+                      <option value="3.9">3.9</option>
+                      <option value="3.8">3.8</option>
+                      <option value="3.7">3.7</option>
+                      <option value="3.6">3.6</option>
+                      <option value="3.5">3.5</option>
+                      <option value="3.4">3.4</option>
+                      <option value="3.3">3.3</option>
+                      <option value="3.2">3.2</option>
+                      <option value="3.1">3.1</option>
+                      <option value="3">3</option>
+                      <option value="2.9">2.9</option>
+                      <option value="2.8">2.8</option>
+                      <option value="2.7">2.7</option>
+                      <option value="2.6">2.6</option>
+                      <option value="2.5">2.5</option>
+                      <option value="2.4">2.4</option>
+                      <option value="2.3">2.3</option>
+                      <option value="2.2">2.2</option>
+                      <option value="2.1">2.1</option>
+                      <option value="2">2</option>
+                      <option value="1.9">1.9</option>
+                      <option value="1.8">1.8</option>
+                      <option value="1.7">1.7</option>
+                      <option value="1.6">1.6</option>
+                      <option value="1.5">1.5</option>
+                      <option value="1.4">1.4</option>
+                      <option value="1.3">1.3</option>
+                      <option value="1.2">1.2</option>
+                      <option value="1.1">1.1</option>
+                      <option value="1">1</option>
+                      <option value="0.9">0.9</option>
+                      <option value="0.8">0.8</option>
+                      <option value="0.7">0.7</option>
+                      <option value="0.6">0.6</option>
+                      <option value="0.5">0.5</option>
+                      <option value="0.4">0.4</option>
+                      <option value="0.3">0.3</option>
+                      <option value="0.2">0.2</option>
+                      <option value="0.1">0.1</option>
+                      <option value="0">0</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <textarea name="comment-1" cols="30" rows="10" placeholder="スタッフさんの対応に大変好感が持てました。質問に対しても丁寧に答えてくださるほか、気さくに話かけてくれるので、楽しく通うことができています！"></textarea>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">7</div>
+                  <div class="question-text">
+                    <p>受けたサービスの「メニューや料金」についてはいかがでしたか？</p>
+                    <p>「5点満点の数字＆100文字以上の感想」をお願いします！</p>
+                  </div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="rating-2" id="rating2">
+                      <option value="">評価点</option>
+                      <option value="5">5</option>
+                      <option value="4.9">4.9</option>
+                      <option value="4.8">4.8</option>
+                      <option value="4.7">4.7</option>
+                      <option value="4.6">4.6</option>
+                      <option value="4.5">4.5</option>
+                      <option value="4.4">4.4</option>
+                      <option value="4.3">4.3</option>
+                      <option value="4.2">4.2</option>
+                      <option value="4.1">4.1</option>
+                      <option value="4">4</option>
+                      <option value="3.9">3.9</option>
+                      <option value="3.8">3.8</option>
+                      <option value="3.7">3.7</option>
+                      <option value="3.6">3.6</option>
+                      <option value="3.5">3.5</option>
+                      <option value="3.4">3.4</option>
+                      <option value="3.3">3.3</option>
+                      <option value="3.2">3.2</option>
+                      <option value="3.1">3.1</option>
+                      <option value="3">3</option>
+                      <option value="2.9">2.9</option>
+                      <option value="2.8">2.8</option>
+                      <option value="2.7">2.7</option>
+                      <option value="2.6">2.6</option>
+                      <option value="2.5">2.5</option>
+                      <option value="2.4">2.4</option>
+                      <option value="2.3">2.3</option>
+                      <option value="2.2">2.2</option>
+                      <option value="2.1">2.1</option>
+                      <option value="2">2</option>
+                      <option value="1.9">1.9</option>
+                      <option value="1.8">1.8</option>
+                      <option value="1.7">1.7</option>
+                      <option value="1.6">1.6</option>
+                      <option value="1.5">1.5</option>
+                      <option value="1.4">1.4</option>
+                      <option value="1.3">1.3</option>
+                      <option value="1.2">1.2</option>
+                      <option value="1.1">1.1</option>
+                      <option value="1">1</option>
+                      <option value="0.9">0.9</option>
+                      <option value="0.8">0.8</option>
+                      <option value="0.7">0.7</option>
+                      <option value="0.6">0.6</option>
+                      <option value="0.5">0.5</option>
+                      <option value="0.4">0.4</option>
+                      <option value="0.3">0.3</option>
+                      <option value="0.2">0.2</option>
+                      <option value="0.1">0.1</option>
+                      <option value="0">0</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <textarea name="comment-2" cols="30" rows="10" placeholder="料金には大変満足しています。私は学生で美容にあまりお金が掛けられないため、一番安いプランを選びました。しかし、Web上に書かれているプラン内容がややわかりづらいところはマイナスポイントです。"></textarea>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">8</div>
+                  <div class="question-text">
+                    <p>施術の「効果（技術や仕上がり）」はいかがでしたか？</p>
+                    <p>「5点満点の数字＆100文字以上の感想」をお願いします！</p>
+                  </div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="rating-3" id="rating3">
+                      <option value="">評価点</option>
+                      <option value="5">5</option>
+                      <option value="4.9">4.9</option>
+                      <option value="4.8">4.8</option>
+                      <option value="4.7">4.7</option>
+                      <option value="4.6">4.6</option>
+                      <option value="4.5">4.5</option>
+                      <option value="4.4">4.4</option>
+                      <option value="4.3">4.3</option>
+                      <option value="4.2">4.2</option>
+                      <option value="4.1">4.1</option>
+                      <option value="4">4</option>
+                      <option value="3.9">3.9</option>
+                      <option value="3.8">3.8</option>
+                      <option value="3.7">3.7</option>
+                      <option value="3.6">3.6</option>
+                      <option value="3.5">3.5</option>
+                      <option value="3.4">3.4</option>
+                      <option value="3.3">3.3</option>
+                      <option value="3.2">3.2</option>
+                      <option value="3.1">3.1</option>
+                      <option value="3">3</option>
+                      <option value="2.9">2.9</option>
+                      <option value="2.8">2.8</option>
+                      <option value="2.7">2.7</option>
+                      <option value="2.6">2.6</option>
+                      <option value="2.5">2.5</option>
+                      <option value="2.4">2.4</option>
+                      <option value="2.3">2.3</option>
+                      <option value="2.2">2.2</option>
+                      <option value="2.1">2.1</option>
+                      <option value="2">2</option>
+                      <option value="1.9">1.9</option>
+                      <option value="1.8">1.8</option>
+                      <option value="1.7">1.7</option>
+                      <option value="1.6">1.6</option>
+                      <option value="1.5">1.5</option>
+                      <option value="1.4">1.4</option>
+                      <option value="1.3">1.3</option>
+                      <option value="1.2">1.2</option>
+                      <option value="1.1">1.1</option>
+                      <option value="1">1</option>
+                      <option value="0.9">0.9</option>
+                      <option value="0.8">0.8</option>
+                      <option value="0.7">0.7</option>
+                      <option value="0.6">0.6</option>
+                      <option value="0.5">0.5</option>
+                      <option value="0.4">0.4</option>
+                      <option value="0.3">0.3</option>
+                      <option value="0.2">0.2</option>
+                      <option value="0.1">0.1</option>
+                      <option value="0">0</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <textarea name="comment-3" cols="30" rows="10" placeholder="念入りに施術していただき、ほとんど寝てしまっていたくらい気持ち良かったです。本当にありがとうございました。これからの季節、冷えなどで体がまた固くなると思いますので、またお世話になると思います。"></textarea>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">9</div>
+                  <div class="question-text">
+                    <p>店舗の「雰囲気」はいかがでしたか？</p>
+                    <p>「5点満点の数字＆100文字以上の感想」をお願いします！</p>
+                  </div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="rating-4" id="rating4">
+                      <option value="">評価点</option>
+                      <option value="5">5</option>
+                      <option value="4.9">4.9</option>
+                      <option value="4.8">4.8</option>
+                      <option value="4.7">4.7</option>
+                      <option value="4.6">4.6</option>
+                      <option value="4.5">4.5</option>
+                      <option value="4.4">4.4</option>
+                      <option value="4.3">4.3</option>
+                      <option value="4.2">4.2</option>
+                      <option value="4.1">4.1</option>
+                      <option value="4">4</option>
+                      <option value="3.9">3.9</option>
+                      <option value="3.8">3.8</option>
+                      <option value="3.7">3.7</option>
+                      <option value="3.6">3.6</option>
+                      <option value="3.5">3.5</option>
+                      <option value="3.4">3.4</option>
+                      <option value="3.3">3.3</option>
+                      <option value="3.2">3.2</option>
+                      <option value="3.1">3.1</option>
+                      <option value="3">3</option>
+                      <option value="2.9">2.9</option>
+                      <option value="2.8">2.8</option>
+                      <option value="2.7">2.7</option>
+                      <option value="2.6">2.6</option>
+                      <option value="2.5">2.5</option>
+                      <option value="2.4">2.4</option>
+                      <option value="2.3">2.3</option>
+                      <option value="2.2">2.2</option>
+                      <option value="2.1">2.1</option>
+                      <option value="2">2</option>
+                      <option value="1.9">1.9</option>
+                      <option value="1.8">1.8</option>
+                      <option value="1.7">1.7</option>
+                      <option value="1.6">1.6</option>
+                      <option value="1.5">1.5</option>
+                      <option value="1.4">1.4</option>
+                      <option value="1.3">1.3</option>
+                      <option value="1.2">1.2</option>
+                      <option value="1.1">1.1</option>
+                      <option value="1">1</option>
+                      <option value="0.9">0.9</option>
+                      <option value="0.8">0.8</option>
+                      <option value="0.7">0.7</option>
+                      <option value="0.6">0.6</option>
+                      <option value="0.5">0.5</option>
+                      <option value="0.4">0.4</option>
+                      <option value="0.3">0.3</option>
+                      <option value="0.2">0.2</option>
+                      <option value="0.1">0.1</option>
+                      <option value="0">0</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <textarea name="comment-4" cols="30" rows="10" placeholder="雑居ビル内にあるので、少し入るときに抵抗がありました。しかし、店内に入るとすごくキレイで清潔感があって、よかったです！女性用のアメニティもそろっていたので、その辺の気遣いも感じられました♪"></textarea>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <div class="th-inner">
+                  <div class="question-number">10</div>
+                  <div class="question-text">
+                    <p>店舗の「通いやすさ／予約の取りやすさ」はいかがでしたか？</p>
+                    <p>「5点満点の数字＆100文字以上の感想」をお願いします！</p>
+                  </div>
+                </div>
+              </th>
+              <td>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <select name="rating-5" id="rating5">
+                      <option value="">評価点</option>
+                      <option value="5">5</option>
+                      <option value="4.9">4.9</option>
+                      <option value="4.8">4.8</option>
+                      <option value="4.7">4.7</option>
+                      <option value="4.6">4.6</option>
+                      <option value="4.5">4.5</option>
+                      <option value="4.4">4.4</option>
+                      <option value="4.3">4.3</option>
+                      <option value="4.2">4.2</option>
+                      <option value="4.1">4.1</option>
+                      <option value="4">4</option>
+                      <option value="3.9">3.9</option>
+                      <option value="3.8">3.8</option>
+                      <option value="3.7">3.7</option>
+                      <option value="3.6">3.6</option>
+                      <option value="3.5">3.5</option>
+                      <option value="3.4">3.4</option>
+                      <option value="3.3">3.3</option>
+                      <option value="3.2">3.2</option>
+                      <option value="3.1">3.1</option>
+                      <option value="3">3</option>
+                      <option value="2.9">2.9</option>
+                      <option value="2.8">2.8</option>
+                      <option value="2.7">2.7</option>
+                      <option value="2.6">2.6</option>
+                      <option value="2.5">2.5</option>
+                      <option value="2.4">2.4</option>
+                      <option value="2.3">2.3</option>
+                      <option value="2.2">2.2</option>
+                      <option value="2.1">2.1</option>
+                      <option value="2">2</option>
+                      <option value="1.9">1.9</option>
+                      <option value="1.8">1.8</option>
+                      <option value="1.7">1.7</option>
+                      <option value="1.6">1.6</option>
+                      <option value="1.5">1.5</option>
+                      <option value="1.4">1.4</option>
+                      <option value="1.3">1.3</option>
+                      <option value="1.2">1.2</option>
+                      <option value="1.1">1.1</option>
+                      <option value="1">1</option>
+                      <option value="0.9">0.9</option>
+                      <option value="0.8">0.8</option>
+                      <option value="0.7">0.7</option>
+                      <option value="0.6">0.6</option>
+                      <option value="0.5">0.5</option>
+                      <option value="0.4">0.4</option>
+                      <option value="0.3">0.3</option>
+                      <option value="0.2">0.2</option>
+                      <option value="0.1">0.1</option>
+                      <option value="0">0</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="td-inner-wrap">
+                  <div class="td-inner">
+                    <textarea name="comment-5" cols="30" rows="10" placeholder="施術時に次回の予約案内があるため、スムーズに通えています。ただし、直前の変更がなかなか難しいこと、直前にキャンセルした場合にはなかなか予約が空いていない点は、少し注意が必要です。"></textarea>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="content question-thanks">
+        <p>お疲れ様でした！</p>
+        <p>ご回答、誠にありがとうございました♪</p>
+      </div>
+      <div class="content question-thanks">
+        <p>次は写真を投稿してください☆</p>
+      </div>
+      <div class="content middle-content image-upload">
+        <ul class="image-upload-area">
+          <li class="image-upload-item" id="image-preview1">
+            <label class="input-image"><img src="/puril/images/img/datsumou/camera.png">
+              <input type="file" accept="image/*" name="image1" id="image-add1">
+            </label>
+          </li>
+          <li class="image-upload-item" id="image-preview2">
+            <label class="input-image"><img src="/puril/images/img/datsumou/camera.png">
+              <input type="file" accept="image/*" name="image2" id="image-add2">
+            </label>
+          </li>
+          <li class="image-upload-item" id="image-preview3">
+            <label class="input-image"><img src="/puril/images/img/datsumou/camera.png">
+              <input type="file" accept="image/*" name="image3" id="image-add3">
+            </label>
+          </li>
+          <li class="image-upload-item" id="image-preview4">
+            <label class="input-image"><img src="/puril/images/img/datsumou/camera.png">
+              <input type="file" accept="image/*" name="image4" id="image-add4">
+            </label>
+          </li>
+          <li class="image-upload-item" id="image-preview5">
+            <label class="input-image"><img src="/puril/images/img/datsumou/camera.png">
+              <input type="file" accept="image/*" name="image5" id="image-add5">
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="content question-thanks">
+        <p>お疲れ様でした！</p>
+      </div>
+      <div class="content question-thanks">
+        <p>内容に問題がなければ、下の「口コミを投稿する」ボタンを押してください。</p>
+      </div>
+      <div class="content kuchikomi-entry-post">
+        <button class="button-base kuchikomi-entry-button" type="submit"><i class="fas fa-comments kuchikomi-entry-button-icon"></i>
+          <div class="kuchikomi-entry-button-text">口コミを投稿する</div>
+        </button>
+      </div>
+    </form>
+    <nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
+      <ul class="breadcrumbs-list">
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#">脱毛</a></li>
+        <li><a href="#">全国脱</a></li>
+        <li><a href="#">全国脱毛サ</a></li>
+        <li><a href="#">東京脱</a></li>
+        <li><a href="#">キレイモ新宿</a></li>
+      </ul>
+    </nav>
+    <script type="text/javascript" src="/js/datsumou/kuchikomi-entry.js"></script>
+  </body>
