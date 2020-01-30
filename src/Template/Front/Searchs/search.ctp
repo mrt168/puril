@@ -76,7 +76,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             <?php
                             $nearStations = '';
                             foreach ($shop->station_name as $key => $stationName) {
-                                $nearStations .= $this->Html->link($stationName, '/search/'.$shop->PrefData['url_text'].'/'. URLUtil::CITY. $shop->area_id[$key]. "/". URLUtil::STATION_G. $shop->station_g_cd[$key]);
+                                $nearStations .= $this->Html->link($stationName, '/datsumou/search/'.$shop->PrefData['url_text'].'/'. URLUtil::CITY. $shop->area_id[$key]. "/". URLUtil::STATION_G. $shop->station_g_cd[$key]);
                                 $nearStations .= '/';
                             }
                             echo mb_substr($nearStations, 0, mb_strlen($nearStations) - 1);
@@ -173,7 +173,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                                         <?php
                                         $nearStations = '';
                                         foreach ($shop->station_name as $key => $stationName) {
-                                            $nearStations .= $this->Html->link($stationName, '/search/'.$shop->PrefData['url_text'].'/'. URLUtil::CITY. $shop->area_id[$key]. "/". URLUtil::STATION_G. $shop->station_g_cd[$key]);
+                                            $nearStations .= $this->Html->link($stationName, '/datsumou/search/'.$shop->PrefData['url_text'].'/'. URLUtil::CITY. $shop->area_id[$key]. "/". URLUtil::STATION_G. $shop->station_g_cd[$key]);
                                             $nearStations .= '、';
                                         }
                                         echo mb_substr($nearStations, 0, mb_strlen($nearStations) - 1);
@@ -232,7 +232,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     <ul class="breadcrumbs-list">
         <li><a href="<?=Router::url('/')?>">ホーム</a></li>
         <li><a href="<?=Router::url('/datsumou')?>">脱毛</a></li>
-        <li><a href="<?=Router::url('/'. URLUtil::SEARCH. "/")?>">全国の脱毛施設</a></li>
+        <li><a href="<?=Router::url('/datsumou'. URLUtil::SEARCH. "/")?>">全国の脱毛施設</a></li>
         <?php
         $i = 1;
         $pankzuCnt = count($pankuzus);
