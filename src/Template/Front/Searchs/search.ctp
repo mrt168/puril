@@ -120,37 +120,40 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                         endwhile;?>
                     </div>
                     <!--                <div class="search-shop-tips">--><?php //echo $shop->description_subject;?><!--</div>-->
-                    <div class="search-shop-label">
-                        <div class="search-shop-review">
-                            <div class="shop-star-area">
-                                <div class="shop-star">
-                                    <?php
-                                    $star = empty($shop->star) ? 0 : $shop->star;
-                                    $reviewCount = 0;
-                                    while($reviewCount < $star):
-                                        echo '<img src="/puril/images/img/star-on.png">';
-                                        $reviewCount++;
-                                    endwhile;
-                                    ?>
-                                    <?php
-                                    while(5 - $reviewCount > 0):
-                                        echo '<img src="/puril/images/img/star-off.png">';
-                                        $reviewCount++;
-                                    endwhile;
-                                    ?>
+                    <?php
+                    if($shop->review_cnt > 0):?>
+                        <div class="search-shop-label">
+                            <div class="search-shop-review">
+                                <div class="shop-star-area">
+                                    <div class="shop-star">
+                                        <?php
+                                        $star = empty($shop->star) ? 0 : $shop->star;
+                                        $reviewCount = 0;
+                                        while($reviewCount < $star):
+                                            echo '<img src="/puril/images/img/star-on.png">';
+                                            $reviewCount++;
+                                        endwhile;
+                                        ?>
+                                        <?php
+                                        while(5 - $reviewCount > 0):
+                                            echo '<img src="/puril/images/img/star-off.png">';
+                                            $reviewCount++;
+                                        endwhile;
+                                        ?>
+                                    </div>
+                                    <div class="shop-point"><?= number_format($star, 2) ?></div>
                                 </div>
-                                <div class="shop-point"><?= number_format($star, 2) ?></div>
+                                <?php
+                                if ($shop->review_cnt > 0) {
+                                    ?>
+                                    <div class="shop-comment-area"><i class="shop-comment-icon fas fa-comments"></i>
+                                        <div class="shop-comment-count"><?php echo $shop->review_cnt; ?>件</div>
+                                    </div>
+                                <?php } ?>
                             </div>
-                            <?php
-                            if ($shop->review_cnt > 0) {
-                                ?>
-                                <div class="shop-comment-area"><i class="shop-comment-icon fas fa-comments"></i>
-                                    <div class="shop-comment-count"><?php echo $shop->review_cnt; ?>件</div>
-                                </div>
-                            <?php } ?>
+                            <!--                    <div class="datsumou-shop-tag-button datsumou-shop-tag-campaign">キャンペーン対象</div>-->
                         </div>
-                        <!--                    <div class="datsumou-shop-tag-button datsumou-shop-tag-campaign">キャンペーン対象</div>-->
-                    </div>
+                    <?php endif;?>
                     <div class="search-shop-desc">
                         <h3 class="search-shop-desc-title"><?php echo $shop->description_subject;?></h3>
                         <div class="search-shop-desc-text">
@@ -183,19 +186,19 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                                 <?php
                             }
                             if (!empty($shop['business_hours'])) { ?>
-                            <tr>
-                                <th>営業時間</th>
-                                <td><?php echo $shop['business_hours']; ?></td>
-                            </tr>
+                                <tr>
+                                    <th>営業時間</th>
+                                    <td><?php echo $shop['business_hours']; ?></td>
+                                </tr>
 
                                 <?php
                             }
                             if (!empty($shop['holiday'])) { ?>
-                            <tr>
-                                <th>定休日</th>
-                                <td><?php echo $shop['holiday']; ?></td>
-                            </tr>
-                            <?php
+                                <tr>
+                                    <th>定休日</th>
+                                    <td><?php echo $shop['holiday']; ?></td>
+                                </tr>
+                                <?php
                             }
                             ?>
                             </tbody>
