@@ -107,6 +107,9 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             <div class="search-shop-photo"><img src="<?php echo $url;?>" alt="<?php echo $shop->name;?>"></div>
                             <?php
                             $img_count++;
+                            if($img_count > 2) {
+                                break;
+                            }
                         }
                         ?>
                         <?php while($img_count < 3):?>
