@@ -23,22 +23,66 @@ echo $this->Html->css(['css/main', 'css/search']);
             <a href="" class="Search__btn" data-color="default">脱毛サロン</a>
             <a href="" class="Search__btn" data-color="white">医療脱毛クリニック</a>
         </div>
-        <div class="Search__list__header"><span>あ行</span></div>
-        <ul class="Search__list">
-            <li><a href="">アドラーブル(adrable)</a></li>
-            <li><a href="">アダムワン</a></li>
-            <li><a href="">Hair remobal salon Air（アイル）</a></li>
-            <li><a href="">ADONIS</a></li>
-            <li><a href="">アンジェリーナ</a></li>
-            <li><a href="">男性専用店ange（アンジェ）</a></li>
-            <li><a href="">ADONIS（メンズ）</a></li>
-            <li><a href="">YES（メンズ）</a></li>
-            <li><a href="">IBERIS（イベリス）</a></li>
-            <li><a href="">Vitule（ヴィトゥレ）</a></li>
-            <li><a href="">Virgin Wax </a></li>
-            <li><a href="">エルセーヌ</a></li>
-        </ul>
+        <?php
+        $jaBlock = 1;
+        foreach ($salons['JA'] as $line => $japanesSyllabary) {
+            ?>
+            <div class="list_block">
+
+                <div class="Search__list__header"><span><?=$line?></span></div>
+                <ul class="Search__list">
+                <?php
+                foreach ($japanesSyllabary as $japanes) {
+                    ?>
+                    <li>
+                        <?php
+                        if (!empty($japanes['data'])) {
+                            foreach ($japanes['data'] as $brand) {
+                                echo $this->Html->link($brand['name'], ['controller'=> 'brands', 'action'=> 'detail', $brand['brand_id']]);
+                            }
+                        }
+                        ?>
+                    </li>
+                    <?php
+                }
+                ?>
+                </ul>
+            </div>
+            <?php
+            $jaBlock++;
+        }
+        ?>
+        <?php
+        $jaBlock = 1;
+        foreach ($clinics['JA'] as $line => $japanesSyllabary) {
+            ?>
+            <div class="list_block">
+
+                <div class="Search__list__header"><span><?=$line?></span></div>
+                <ul class="Search__list">
+                    <?php
+                    foreach ($japanesSyllabary as $japanes) {
+                        ?>
+                        <li>
+                            <?php
+                            if (!empty($japanes['data'])) {
+                                foreach ($japanes['data'] as $brand) {
+                                    echo $this->Html->link($brand['name'], ['controller'=> 'brands', 'action'=> 'detail', $brand['brand_id']]);
+                                }
+                            }
+                            ?>
+                        </li>
+                        <?php
+                    }
+                    ?>
+                </ul>
+            </div>
+            <?php
+            $jaBlock++;
+        }
+        ?>
     </div>
+
     <div class="Search__breadcrumbs">
         <ol itemscope itemtype="http://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
