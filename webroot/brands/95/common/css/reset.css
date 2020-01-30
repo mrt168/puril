@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	font-style: normal;
+	-webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+	line-break: strict;
+	word-wrap: break-word;
+}
+html{
+	font-family: "メイリオ", Meiryo, "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, 
+	"ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-size-adjust: 100%;
+}
+article, aside, details, figcaption, figure, 
+footer, main, header, hgroup, menu, nav, section {
+	display: block;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table{
+	border-collapse: separate;
+	border-spacing: 0;
+}
+ul,ol{
+	list-style: none;
+}
+p,li,dt,dd,th,td,pre{
+	-ms-line-break:strict;
+	line-break:strict;
+	-ms-word-break:break-strict;
+	word-break:break-strict;
+}
+input, button, select, textarea{
+    -webkit-appearance: none;
+	border-radius: 0;
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	font-size: 16px;
+}
+input[type="text"], input[type="email"] {
+	line-height: 1;
+}
+select::-ms-expand {
+    display: none;
+}
+select::-ms-value {
+    background: none;
+    color: #222;
+}
+a{
+	-webkit-text-decoration-skip: none;
+}
+img{
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}

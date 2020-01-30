@@ -1,0 +1,121 @@
+.Influencers__title{
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.Influencers__list{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.InfluencersBox {
+	background-color: white;
+	border: 1px solid #e7e7e7;
+	display: block;
+	margin: 0 -1px -1px 0;
+	padding: 15px 15px 15px 15px;
+	position: relative;
+	width: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.InfluencersBox__link {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	text-decoration: none;
+	color: #434343;
+}
+
+.InfluencersBox__link__img {
+	border: 1px solid #e7e7e7;
+	border-radius: 100%;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+}
+.InfluencersBox__link__img img{
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}
+
+
+.InfluencersBox__link__text {
+	width: calc( 100% - 100px);
+	padding-left: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.InfluencersBox__link__text__name {
+	text-align: left;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+.InfluencersBox__link__text__description {
+	text-align: left;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.Influencers .wp-pagenavi {
+	margin-top: 40px;
+}
+
+.Influencers .wp-pagenavi .current {
+	background-color: #333;
+	border: 1px solid #333;
+	color: #fff;
+	display: inline-block;
+	font-size: 12px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 50px;
+}
+
+.Influencers .wp-pagenavi a {
+	background-color: white;
+	border: solid #e7e7e7;
+	border-width: 1px 1px 1px 1px;
+	color: #333;
+	display: inline-block;
+	font-size: 12px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 50px;
+}
+
+.Influencers .wp-pagenavi a:hover {
+	background-color: #333;
+	color: white;
+}
+
+@media ( max-width: 767px) {
+	.Influencers__title{
+		font-size: 16px;
+	}
+	.InfluencersBox {
+		width: 100%;
+	}
+	.Influencers .wp-pagenavi {
+		margin: 20px 0;
+	}
+}

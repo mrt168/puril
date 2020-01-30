@@ -1,0 +1,763 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, menu, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+	display: block;
+}
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+    display: none;
+}
+body {
+  line-height: 1;
+}
+menu, ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+  max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  background: #f0f0f0;
+  font-family: Helvetica Neue, Helvetica, Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-serif;
+}
+header,
+main,
+footer {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* header */
+
+.home-header {
+  background: #fff;
+}
+.home-header-inner {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+          align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 40px;
+}
+.home-header-mv {
+  background: url(../images/header-bg-sp.png) no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.home-header-mv-inner {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.home-header-mv-inner__title {
+  text-align: center;
+  padding-top: 30px;
+}
+.home-header-mv-inner__text {
+  margin-left: 55%;
+  padding-top: 30px;
+  padding-right: 1em;
+  font-size: 3.8vw;
+}
+.home-header-mv-inner__text--large {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-bottom: 0.9em;
+}
+.home-header-mv-inner__text--large-orange {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  padding-top: 18px;
+  padding-bottom: 0.4em;
+  border-top: 1px solid #FFA700;
+  border-bottom: 1px solid #FFA700;
+  font-size: 1.3em;
+  color: #FFA700;
+}
+.home-header-mv-inner__text--large-right {
+  text-align: right;
+}
+.home-header-mv-inner__text--middle {
+  font-size: 0.9em;
+  font-weight: 600;
+  padding-bottom: 2em;
+}
+.home-header-mv-inner__text--middle p {
+  margin-bottom: 0.8em;
+}
+.home-header-mv-inner__text--middle .home-header-mv-inner__text--middle-center {
+  text-align: center;
+  margin-bottom: 1.3em;
+}
+.home-header-mv-inner__text--middle-blue-large {
+  position: relative;
+  font-size: 2em;
+  color: #6AADBF;
+}
+.home-header-mv-inner__text--middle-blue-large::before {
+  content: '\30FB\a0\30FB\30FB\30FB';
+  position: absolute;
+  top: -0.5em;
+  left: 0;
+  display: inline-block;
+  font-size: 0.6em;
+  font-weight: normal;
+}
+
+.home-header-mv-inner__text--middle-blue-middle {
+  font-size: 2em;
+  color: #6AADBF;
+}
+
+/* home-search */
+/* 近くの店舗を探す */
+.home-main {
+  background: #FBF9F7;
+}
+.home-search {
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.home-search__btn {
+  display: block;
+  padding: 20px 15px;
+  border-radius: 4px;
+  background: #6AADBF;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ジャンルから探す */
+.home-genre {
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  font-size: 14px;
+}
+.home-genre__title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.home-genre__list {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+.home-genre__list li {
+  width: 48%;
+  margin-top: 1em;
+  border: 1px solid #E1DDCC;
+  border-radius: 4px;
+  background: #fff;
+  overflow: hidden;
+}
+
+
+.home-genre__list a {
+  display: -webkit-box;
+  display: flex;
+  color: #13121E;
+  text-decoration: none;
+}
+.home-genre__list li p {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+
+/* 地域から探す */
+.home-area {
+  padding-top: 20px;
+  border-top: 1px solid #E1DDCC;
+  border-bottom: 1px solid #E1DDCC;
+  background: #fff;
+  font-size: 14px;
+}
+.home-area__title {
+  display: -webkit-box;
+  display: flex;
+  padding-left: 1em;
+  font-size: 16px;
+}
+.home-area__title img {
+  margin-right: 0.5em;
+}
+.home-area__title .small {
+  font-size: 14px;
+}
+.home-area__list {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+}
+.home-area__list > li {
+  width: 50%;
+  border-top: 1px solid #E1DDCC;
+  background: #fff;
+}
+.home-area__list > li:nth-child(odd) {
+  border-right: 1px solid #E1DDCC;
+}
+.home-area__list > li a {
+  position: relative;
+  display: block;
+  padding: 20px 15px;
+  color: #13121E;
+  text-decoration: none;
+}
+.home-area__list > li a::after {
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 16px;
+  color: #d6ceb4;
+  font-size: 16px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f054";
+}
+
+/* ランキングから探す */
+.home-ranking {
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  border-top: 1px solid #E1DDCC;
+  background: #fff;
+  font-size: 14px;
+}
+.home-ranking__title {
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-ranking__tab {
+  
+}
+.home-ranking__tab input {
+  display:none;
+}
+.home-ranking__tab-area {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+.home-ranking__tab-area label {
+  width: 24%;
+  border: 1px solid #E1DDCC;
+  border-radius: 4px;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 11px;
+  text-align:center;
+  cursor:pointer;
+  -webkit-transition:ease 0.3s;
+  transition:ease 0.3s;
+}
+.home-ranking-panel-inner {
+  display: none;
+}
+.home-ranking__tab-area label:hover,
+#tab01-01:checked ~ .home-ranking__tab-area > .tab01-01_label,
+#tab01-02:checked ~ .home-ranking__tab-area > .tab01-02_label,
+#tab01-03:checked ~ .home-ranking__tab-area > .tab01-03_label,
+#tab01-04:checked ~ .home-ranking__tab-area > .tab01-04_label {
+  border: 0;
+  background: #6AADBF;
+  color: #fff;
+}
+
+#tab01-01:checked ~ .home-ranking-panel #panel01,
+#tab01-02:checked ~ .home-ranking-panel #panel02,
+#tab01-03:checked ~ .home-ranking-panel #panel03,
+#tab01-04:checked ~ .home-ranking-panel #panel04 {
+  display: block;
+}
+
+.home-ranking-panel__list {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  padding-top: 20px;
+}
+.home-ranking-panel__list > li {
+  width: 32%;
+  text-align: center;
+}
+.home-ranking-panel__list > li img {
+  padding-top: 1em;
+}
+.home-ranking-panel__text {
+  padding-top: 1em;
+  font-weight: 600;
+  font-size:13px;
+}
+.home-ranking-panel__evaluation {
+  color: #E10000;
+  font-size:18px;
+  font-weight: 600;
+}
+.home-ranking-panel__evaluation::before {
+  margin-right: 0.3em;
+  color: #C4A63B;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size:16px;
+  content: "\f521";
+}
+.home-ranking-panel__evaluation.first::before {
+  color: #C4A63B;
+}
+.home-ranking-panel__evaluation.second::before {
+  color: #A9ACB9;
+}
+.home-ranking-panel__evaluation.third::before {
+  color: #BC8F6A;
+}
+
+.home-ranking__btn {
+  display: block;
+  margin-top: 20px;
+  padding: 1.1em;
+  border-radius: 4px;
+  background: #6AADBF;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* 新着口コミから探す */
+.home-evaluation {
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E1DDCC;
+  background: #fff;
+  font-size: 14px;
+}
+.home-evaluation__title {
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-evaluation__tab {
+  
+}
+.home-evaluation__tab input {
+  display:none;
+}
+.home-evaluation__tab-area {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+.home-evaluation__tab-area label {
+  width: 24%;
+  border: 1px solid #E1DDCC;
+  border-radius: 4px;
+  padding-top: 0.9em;
+  padding-bottom: 0.9em;
+ font-size: 11px;
+  text-align:center;
+  cursor:pointer;
+  -webkit-transition:ease 0.3s;
+  transition:ease 0.3s;
+}
+.home-evaluation-panel-inner {
+  display: none;
+}
+.home-evaluation__tab-area label:hover,
+#tab02-01:checked ~ .home-evaluation__tab-area > .tab02-01_label,
+#tab02-02:checked ~ .home-evaluation__tab-area > .tab02-02_label,
+#tab02-03:checked ~ .home-evaluation__tab-area > .tab02-03_label,
+#tab02-04:checked ~ .home-evaluation__tab-area > .tab02-04_label {
+  border: 0;
+  background: #6AADBF;
+  color: #fff;
+}
+
+#tab02-01:checked ~ .home-evaluation-panel #panel01,
+#tab02-02:checked ~ .home-evaluation-panel #panel02,
+#tab02-03:checked ~ .home-evaluation-panel #panel03,
+#tab02-04:checked ~ .home-evaluation-panel #panel04 {
+  display: block;
+}
+
+.home-evaluation-panel__list {
+  padding-top: 20px;
+}
+.home-evaluation-panel__list > li {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  padding: 10px;
+  padding-bottom: 0.6em;
+  margin-bottom: 0.7em;
+  background: #FAF8F6;
+}
+.home-evaluation-panel__list > li::after {
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 16px;
+  color: #d6ceb4;
+  font-size: 16px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f054";
+}
+.home-evaluation-panel__list > li a {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  color: #13121E;
+  text-decoration: none;
+}
+.home-evaluation-panel__list > li img {
+  margin-right: 1em;
+}
+.home-evaluation-panel__text {
+  font-size:12px;
+}
+.home-evaluation-panel__title {
+  font-size:14px;
+  font-weight: bold;
+}
+.home-evaluation-panel__thin {
+  margin-top: 0.5em;
+  color: #797152;
+  font-weight: bold;
+}
+.home-evaluation-panel__star {
+  margin-top: 0.5em;
+  color: #E1E1E1;
+  font-size:14px;
+}
+.home-evaluation-panel__star .orange {
+  color: #FF6A00;
+}
+.home-evaluation-panel__star .red {
+  margin-right: 20px;
+  margin-left: 1em;
+  color: #E10000;
+  font-weight: 600;
+}
+.home-evaluation-panel__star .date {
+  font-size: 11px;
+  color: #595961;
+}
+.home-evaluation__btn {
+  display: block;
+  margin-top: 1.4em;
+  padding: 20px;
+  border-radius: 4px;
+  background: #6AADBF;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+/* Puril認定店舗 */
+.home-certified-store {
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  border-top: 1px solid #E1DDCC;
+  border-bottom: 1px solid #E1DDCC;
+  background: #fff;
+  font-size: 14px;
+}
+.home-certified-store__title {
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-certified-store__tab {
+  
+}
+.home-certified-store__tab input {
+  display:none;
+}
+.home-certified-store__tab-area {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+.home-certified-store__tab-area label {
+  width: 24%;
+  border: 1px solid #E1DDCC;
+  border-radius: 4px;
+  padding-top: 0.9em;
+  padding-bottom: 0.9em;
+ font-size: 11px;
+  text-align:center;
+  cursor:pointer;
+  -webkit-transition:ease 0.3s;
+  transition:ease 0.3s;
+}
+.home-certified-store-panel-inner {
+  display: none;
+}
+.home-certified-store__tab-area label:hover,
+#tab03-01:checked ~ .home-certified-store__tab-area > .tab03-01_label,
+#tab03-02:checked ~ .home-certified-store__tab-area > .tab03-02_label,
+#tab03-03:checked ~ .home-certified-store__tab-area > .tab03-03_label,
+#tab03-04:checked ~ .home-certified-store__tab-area > .tab03-04_label {
+  border: 0;
+  background: #6AADBF;
+  color: #fff;
+}
+
+#tab03-01:checked ~ .home-certified-store-panel #panel01,
+#tab03-02:checked ~ .home-certified-store-panel #panel02,
+#tab03-03:checked ~ .home-certified-store-panel #panel03,
+#tab03-04:checked ~ .home-certified-store-panel #panel04 {
+  display: block;
+}
+
+.home-certified-store-panel__list {
+  padding-top: 20px;
+}
+.home-certified-store-panel__list > li {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  padding: 10px;
+  padding-bottom: 0.6em;
+  background: #FAF8F6;
+}
+.home-certified-store-panel__list > li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.home-certified-store-panel__list > li::after {
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 16px;
+  color: #d6ceb4;
+  font-size: 16px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f054";
+}
+
+.home-certified-store-panel__list > li a {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  color: #13121E;
+  text-decoration: none;
+}
+.home-certified-store-panel__list > li img {
+  margin-right: 1em;
+}
+
+.home-certified-store-panel__text {
+  font-size: 12px;
+}
+.home-certified-store-panel__title {
+  font-size: 14px;
+  font-weight: bold;
+}
+.home-certified-store-panel__thin {
+  margin-top: 0.5em;
+  color: #797152;
+  font-weight: bold;
+}
+.home-certified-store-panel__star {
+  margin-top: 0.5em;
+  color: #E1E1E1;
+  font-size:14px;
+}
+.home-certified-store-panel__star .orange {
+  color: #FF6A00;
+}
+.home-certified-store-panel__star .red {
+  margin-right: 2em;
+  margin-left: 1em;
+  color: #E10000;
+  font-weight: 600;
+}
+.home-certified-store-panel__star .date {
+  font-size:11px;
+  color: #595961;
+}
+
+/* Purilの3つの特徴 */
+.home-characteristic {
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  border-top: 1px solid #E1DDCC;
+  background: #fff;
+  font-size: 14px;
+}
+.home-characteristic__title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-characteristic-inner {
+  padding-top: 4px;
+  padding-right: 9%;
+  padding-left: 9%;
+  text-align: center;
+}
+.home-characteristic-inner img {
+  padding-top: 35px;
+}
+.home-characteristic-inner__title {
+  padding-top: 26px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-characteristic-inner__text {
+  padding-top: 35px;
+  text-align: left;
+  line-height: 18px;
+}
+
+/* バナー */
+.home-bnr {
+  width: 100%;
+}
+
+
+.Footer {
+  background: #FBF9F7;
+}
+.Footer__category01,
+.Footer__category02,
+.Footer__category03 {
+  padding-right: 15px;
+  padding-left: 15px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+}
+.Footer__category01 {
+  padding-top: 20px;
+}
+.Footer__category03 {
+  padding-bottom: 20px;
+}
+.Footer__category:not(:last-child) {
+  -webkit-box-orient: inherit;
+  -webkit-box-direction: inherit;
+          flex-direction: inherit;
+  -webkit-box-pack: center;
+          justify-content: center;
+  height: auto;
+}
+
+.Footer__category--type {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  padding: 0;
+  border: 0;
+}
+
+.Footer__category__li__link {
+  font-size: 10px;
+  color: #007CD6;
+  margin: 0 10px;
+  text-decoration: none;
+  line-height: 2em;
+}
+
+.Footer__category__li.last {
+  width: 100%;
+  text-align: center;
+}
+
+.Footer__credit {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 1em;
+  font-size: 10px;
+  background: #6AADBF;
+  color: #fff;
+}
+@media screen and (min-width: 600px) {
+  .home-header-mv-inner__text {
+    font-size: 21px;
+  }
+}

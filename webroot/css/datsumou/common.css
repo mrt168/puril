@@ -1,0 +1,332 @@
+.content-base, .content {
+  margin: 0 auto;
+  max-width: 1080px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.content {
+  background-color: #ffffff; }
+
+.middle-content {
+  margin: 5px auto; }
+
+.shop-star-area {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .shop-star-area .shop-star img {
+    padding-right: .25em; }
+  .shop-star-area .shop-point {
+    color: #FF4E4E;
+    font-size: 18px;
+    font-weight: bold; }
+
+.shop-comment-area {
+  padding-left: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .shop-comment-area .shop-comment-icon {
+    padding: 0 .25em;
+    color: #BCB18A; }
+  .shop-comment-area .shop-comment-count {
+    font-size: 13px; }
+
+.kuchikomi-button {
+  background-color: #FF4E4E;
+  color: #ffffff;
+  border-radius: .5em;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em 0;
+  text-decoration: none; }
+  .kuchikomi-button .kuchikomi-button-text {
+    padding-left: .5em; }
+
+.twitter-icon {
+  color: #1DA1F2; }
+
+.content-title {
+  font-size: 16px;
+  font-weight: bold; }
+
+.show-more {
+  text-align: center;
+  padding: 1em 0;
+  font-size: 14px;
+  border-top: 1px solid #E0DCCC; }
+
+.button-base {
+  padding: 1em 0;
+  color: #ffffff;
+  border-radius: .5em;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none; }
+
+.crown-first {
+  color: #C4A63B; }
+
+.crown-second {
+  color: #A9ACB9; }
+
+.crown-third {
+  color: #BC8F6A; }
+
+.datsumou-header, .datsumou-search-header {
+  background-color: #ffffff; }
+  .datsumou-header .datsumou-header-inner, .datsumou-search-header .datsumou-header-inner, .datsumou-search-header .datsumou-search-header-inner {
+    padding: 0 16px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 45px;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+
+.datsumou-search-header .datsumou-search-header-inner .datsumou-search-header-input-area {
+  position: relative;
+  width: 100%;
+  margin: 0 1em; }
+  .datsumou-search-header .datsumou-search-header-inner .datsumou-search-header-input-area .datsumou-search-header-input-search {
+    position: absolute;
+    left: .5em;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+       -moz-transform: translateY(-50%);
+            transform: translateY(-50%);
+    color: #B5B5B5; }
+  .datsumou-search-header .datsumou-search-header-inner .datsumou-search-header-input-area .datsumou-search-header-input {
+    font-size: 16px;
+    padding: 0 1.5em;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    border: none; }
+  .datsumou-search-header .datsumou-search-header-inner .datsumou-search-header-input-area .datsumou-search-header-input-cancel {
+    position: absolute;
+    right: .5em;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+       -moz-transform: translateY(-50%);
+            transform: translateY(-50%);
+    color: #B5B5B5; }
+
+.datsumou-footer {
+  padding: 1em 16px; }
+  .datsumou-footer .datsumou-footer-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    .datsumou-footer .datsumou-footer-list .datsumou-footer-item.active {
+      color: #6AADBF; }
+    .datsumou-footer .datsumou-footer-list .datsumou-footer-item {
+      text-align: center; }
+      .datsumou-footer .datsumou-footer-list .datsumou-footer-item a {
+        color: #595960;
+        text-decoration: none; }
+      .datsumou-footer .datsumou-footer-list .datsumou-footer-item a:visited {
+        color: transparent; }
+      .datsumou-footer .datsumou-footer-list .datsumou-footer-item .datsumou-footer-item-icon {
+        font-size: 18px; }
+      .datsumou-footer .datsumou-footer-list .datsumou-footer-item .datsumou-footer-item-text {
+        font-size: 10px;
+        padding-top: .5em; }
+
+.datsumou-shop-tag-button {
+  margin-left: 1em;
+  padding: .5em 1em;
+  border-radius: .25em;
+  font-size: 10px; }
+
+.datsumou-shop-tag-puril {
+  background-color: #6AADBF;
+  color: #ffffff; }
+
+.datsumou-shop-tag-campaign {
+  border: 1px solid #E0DCCC; }
+
+.datsumou-kuchikomi-item-detail-button-area {
+  padding: 1em 16px;
+  border-top: 1px solid #E0DCCC;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px; }
+  .datsumou-kuchikomi-item-detail-button-area .datsumou-kuchikomi-item-detail-button {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 1em; }
+    .datsumou-kuchikomi-item-detail-button-area .datsumou-kuchikomi-item-detail-button .datsumou-kuchikomi-item-detail-button-icon {
+      color: #B5B5B5; }
+    .datsumou-kuchikomi-item-detail-button-area .datsumou-kuchikomi-item-detail-button .datsumou-kuchikomi-item-detail-button-text {
+      padding-left: .5em; }
+
+.share-twitter {
+  padding-top: 1em; }
+  .share-twitter .share-twitter-button {
+    border: 1px solid #E0DCCC;
+    border-radius: .25em;
+    padding: 1em 0;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-weight: bold; }
+    .share-twitter .share-twitter-button .share-twitter-text {
+      padding-left: .5em; }
+
+.shop-reviewer-area {
+  padding: 1em 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .shop-reviewer-area .shop-reviewer-name-area {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .shop-reviewer-area .shop-reviewer-good-area {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 1em; }
+    .shop-reviewer-area .shop-reviewer-good-area .shop-reviewer-good-icon {
+      color: #FF4E4E; }
+    .shop-reviewer-area .shop-reviewer-good-area .shop-reviewer-good-count {
+      padding-left: .25em; }
+
+.shop-footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em .5em; }
+  .shop-footer .kuchikomi-button {
+    width: 60%;
+    background-color: #FF4E4E; }
+    .shop-footer .kuchikomi-button .kuchikomi-button-text {
+      padding-left: .5em; }
+  .shop-footer .reservatopn-button {
+    width: 40%;
+    background-color: #6AADBF;
+    margin-left: 1em; }
+    .shop-footer .reservatopn-button .reservatopn-button-text {
+      padding-left: .5em; }
+
+.datsumou-photo-header {
+  background-color: #000000; }
+  .datsumou-photo-header .datsumou-photo-header-inner {
+    padding: 0 16px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 45px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #ffffff; }
+    .datsumou-photo-header .datsumou-photo-header-inner .datsumou-photo-header-cancel {
+      font-size: 18px; }
+
+.datsumou-photo-footer {
+  background-color: #000000;
+  border-top: 1px solid #333333; }
+  .datsumou-photo-footer .datsumou-photo-footer-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em 16px;
+    color: #ffffff; }

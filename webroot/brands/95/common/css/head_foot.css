@@ -1,0 +1,286 @@
+@charset "utf-8";
+
+header,footer{
+	line-height: 1.6;
+	letter-spacing: 1px;
+	text-size-adjust: 100%;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;/* Chrome */
+}
+a{
+	text-decoration: none;
+}
+a:hover,#form_submit:hover{
+	opacity: 0.8;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+}
+img{
+	border-style: none;/* IE10 */
+}
+
+.pc{
+	display: block;
+}
+.sp{
+	display:none;
+}
+
+header a{
+	text-decoration: none;
+}
+
+/*======================================================
+
+header
+
+=======================================================*/
+header{
+	width: 100%;
+	background: #0c2a4a;
+}
+header .inner,
+header h1,
+header .contact{
+	display: flex;
+	height: 94px;
+	margin: 0 auto;
+}
+header .inner{
+	width: 1020px;
+}
+/*** ロゴ ***/
+header h1{
+	width: 178px;
+	height: 94px;
+	align-items: center;
+}
+header h1 img:first-of-type{
+	width: 178px;
+	display: block;
+}
+header h1 img:last-of-type{
+	display: none;
+}
+/*** お問い合わせ ***/
+header .contact{
+	width: 842px;
+	justify-content: flex-end;
+}
+/* 各店舗 */
+header .contact .tel.pc{
+	width: 600px;
+	display: flex;
+}
+header .contact .tel.pc > p{
+	color: #dfd2a9;
+	font-size: 12px;
+	width: 290px;
+	padding: 20px 0 0;
+}
+header .contact .tel.pc div{
+	width: 310px;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1;
+	padding: 10px 0 0;
+}
+header .contact .tel.pc div p:first-of-type{
+	font-size: 17px;
+	margin: 0 0 8px;
+}
+header .contact .tel.pc div p:nth-of-type(2)::before{
+	content: "";
+	display: block;
+	width: 34px;
+	height: 21px;
+	background: url("../img/header_tel.svg") center / 34px 21px no-repeat;
+	position: absolute;
+	top: 2px;
+	left: 22px;
+}
+header .contact .tel.pc div p:nth-of-type(2){
+	font-size: 26px;
+	margin: 0 0 8px;
+	padding: 0 0 0 35px;
+	position: relative;
+}
+header .contact .tel.pc div p:nth-of-type(3){
+	font-size: 14px;
+}
+/* メール */
+header .contact .mail li{
+	width: 207px;
+	height: 94px;
+	background: url("../../trial/img/common_mail_icon.svg") top 18px center / 38px 23px no-repeat,#a4903e;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	padding: 53px 0 0;
+}
+/*======================================================
+
+footer
+
+=======================================================*/
+footer{
+	background: #011932;
+	text-align: center;
+	padding: 20px 0 15px;
+}
+footer p:first-of-type{
+	margin: 0 0 10px;
+	color: #dfd2a9;
+}
+footer p:first-of-type a{
+	font-size: 15px;
+	color: #dfd2a9;
+}
+footer p small{
+	font-size: 13px;
+	color: #fff;
+	font-family: Verdana;/* Android */
+}
+
+@media screen and (max-width:750px){	
+	header,footer{
+		line-height: 1.4;
+		letter-spacing: 1.5px;
+		text-size-adjust: 100%;
+	}
+	a:hover,button:hover,#pagetop:hover{
+		opacity: 1;
+	}
+	.pc{
+		display: none;
+	}
+	.sp{
+		display: block;
+	}
+/*======================================================
+
+header
+
+=======================================================*/
+	header{
+		width: 750px;
+		height: 128px;
+		box-shadow: 0 0 1px 2px rgba(0,0,0,0.35);
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+	}
+	header .inner{
+		width: 750px;
+		height: 128px;
+	}
+	/*** ロゴ ***/
+	header h1{
+		width: 300px;
+		height: 127px;
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	header h1 img{
+		width: 237px;
+	}
+	header h1 img:first-of-type{
+		display: none;
+	}
+	header h1 img:last-of-type{
+		display: inline;
+	}
+	/*** お問い合わせ ***/
+	header .contact{
+		width: 450px;
+		height: 127px;
+		margin: 0;
+	}
+	header .contact .tel.pc{
+		display: none;
+	}
+	header .contact .tel .store a{
+		pointer-events: auto;
+	}
+	header .contact .tel .store li p:first-of-type{
+		font-weight: bold;
+		color: #fff;
+		text-align: center;
+		font-size: 26px;
+		background: none;
+		width: auto;
+		height: auto;
+	}
+	/*** お問い合わせ ***/
+	header .contact{
+		width: 400px;
+		height: 127px;
+		position: absolute;
+		top: 0;
+		left:350px;
+		z-index: 1100;
+		display: flex;
+	}
+	header .contact li{
+		font-weight: bold;
+		color: #fff;
+		text-align: center;
+	}
+	/** 各店舗・メール **/
+	header .contact .tel > p,
+	header .contact .mail li{
+		width: 200px;
+		height: 127px;
+		padding: 15px 0 0;
+		font-size: 26px;
+	}
+	/* 各店舗 */
+	header .contact .tel.sp a{
+		color: #fff;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 15px 0 0;
+	}
+	header .contact .tel.sp > p{
+		background: url("../img/tel_icon_sp.svg") center bottom 20px / 44px 48px no-repeat,#378fa8;
+		position: relative;
+	}
+	/* メール */
+	header .contact .mail li{
+		background: url("../../sp/trial/img/common_mail_icon.svg") bottom 29px center / 52px 31px no-repeat,#a4903e;
+	}
+	header .contact .mail li span{
+		display: none;
+	}
+/*======================================================
+
+footer
+
+=======================================================*/
+	footer{
+		padding: 35px 0 25px;
+	}
+	footer p:first-of-type{
+		font-size: 20px;
+		margin: 0 0 20px;
+	}
+	footer p:first-of-type a{
+		font-size: 27px;
+	}
+	footer p small{
+		font-size: 23px;
+	}	
+}

@@ -1,0 +1,161 @@
+.search-condition {
+  border-top: 1px solid #E0DCCC;
+  border-bottom: 1px solid #E0DCCC;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1em 16px; }
+  .search-condition .search-condition-text {
+    font-size: 13px; }
+  .search-condition .button-base.search-condition-change {
+    padding: 1em;
+    background-color: #82AE25; }
+    .search-condition .button-base.search-condition-change .search-condition-change-text {
+      padding-left: .5em; }
+
+.search-shop {
+  background-color: #ffffff; }
+  .search-shop .search-shop-list {
+    background-color: #F9F7F5; }
+    .search-shop .search-shop-list .search-shop-item:not(:first-child) {
+      margin-top: 5px; }
+    .search-shop .search-shop-list .search-shop-item .search-shop-title {
+      padding: 1em 16px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+         -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .search-shop .search-shop-list .search-shop-item .search-shop-title .search-shop-title-text {
+        font-size: 16px;
+        font-weight: bold; }
+      .search-shop .search-shop-list .search-shop-item .search-shop-title .search-shop-title-tags {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex; }
+    .search-shop .search-shop-list .search-shop-item .search-shop-title-sub {
+      padding: 0 16px 1em 16px; }
+    .search-shop .search-shop-list .search-shop-item .search-shop-photo-area {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .search-shop .search-shop-list .search-shop-item .search-shop-photo-area .search-shop-photo {
+        width: 100%; }
+        .search-shop .search-shop-list .search-shop-item .search-shop-photo-area .search-shop-photo img {
+          width: 100%;
+          display: block; }
+    .search-shop .search-shop-list .search-shop-item .search-shop-tips {
+      padding: 1em 16px 0 16px;
+      color: #595960; }
+    .search-shop .search-shop-list .search-shop-item .search-shop-label {
+      padding: 1em 16px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+         -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      .search-shop .search-shop-list .search-shop-item .search-shop-label .search-shop-review {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+    .search-shop .search-shop-list .search-shop-item .search-shop-desc {
+      padding: 0.5em 16px 0 16px; }
+      .search-shop .search-shop-list .search-shop-item .search-shop-desc .search-shop-desc-title {
+        font-size: 14px;
+        font-weight: bold; }
+      .search-shop .search-shop-list .search-shop-item .search-shop-desc .search-shop-desc-text {
+        padding: 1em 0; }
+    .search-shop .search-shop-list .search-shop-item .search-shop-info {
+      padding: 0em 16px 1em 16px; }
+      .search-shop .search-shop-list .search-shop-item .search-shop-info table {
+        width: 100%; }
+        .search-shop .search-shop-list .search-shop-item .search-shop-info table th, .search-shop .search-shop-list .search-shop-item .search-shop-info table td {
+          padding: 1em;
+          border: 1px solid #E0DCCC; }
+        .search-shop .search-shop-list .search-shop-item .search-shop-info table th {
+          width: 130px;
+          background-color: #F9F7F5; }
+
+.search-shop-best {
+  padding: 1.5em 16px; }
+  .search-shop-best .search-shop-best-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .search-shop-best .search-shop-best-list .search-shop-best-item {
+      text-align: center; }
+      .search-shop-best .search-shop-best-list .search-shop-best-item .search-shop-best-rank {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+           -moz-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: baseline;
+        -webkit-align-items: baseline;
+           -moz-box-align: baseline;
+            -ms-flex-align: baseline;
+                align-items: baseline;
+        font-size: 18px; }
+        .search-shop-best .search-shop-best-list .search-shop-best-item .search-shop-best-rank .search-shop-best-rank-point {
+          padding-left: .25em;
+          color: #FF4E4E;
+          font-weight: bold; }
+      .search-shop-best .search-shop-best-list .search-shop-best-item .search-shop-best-img {
+        padding: 1.5em 0; }
+      .search-shop-best .search-shop-best-list .search-shop-best-item .search-shop-best-name {
+        padding-bottom: 1.5em; }
+  .search-shop-best .search-shop-ranking .search-shop-rainking-button {
+    background-color: #ffffff;
+    color: #13131E;
+    font-weight: bold;
+    border: 1px solid #6AADBF; }

@@ -1,0 +1,46 @@
+# CakePHP specific files #
+##########################
+/config/app.php
+/config/.env
+/config/Migrations/schema-dump-default.lock
+/logs/*
+/tmp/*
+/vendor/*
+/webroot/column/*
+/src/outside_webroot/*
+/config/*
+
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Tool specific files #
+#######################
+# vim
+*~
+*.swp
+*.swo
+# sublime text & textmate
+*.sublime-*
+*.stTheme.cache
+*.tmlanguage.cache
+*.tmPreferences.cache
+# Eclipse
+.settings/*
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+.idea/*
+# NetBeans
+nbproject/*
+# Visual Studio Code
+.vscode
+webroot/column/wp-content/ai1wm-backups/
+
+schema-dump-default.lock

@@ -1,0 +1,153 @@
+.attention {
+	color: #428bca;
+}
+
+.required-mark {
+	color: #f00;
+}
+
+div.checkbox {
+	float: left;
+	margin-top: -5px;
+	padding-right: 15px;
+}
+
+.btn-toolbar {
+	clear: both;
+}
+
+.form-group input[type="radio"] {
+	margin-left: 10px;
+}
+
+.area, .price {
+	width: 30%;
+	display: inline;
+}
+
+.pagination2 {
+	margin: 0;
+}
+
+.def_image {
+	height: 100px;
+}
+
+.def_movie {
+	width: 200px;
+}
+
+.inline {
+	display: inline;
+}
+
+.half {
+	width: 50%;
+}
+
+
+
+ul.dragdrop {
+	list-style-type: none;
+	min-height: 400px;
+	-webkit-padding-start: 0px;
+	padding: 5px 10px;
+}
+
+ul.dragdrop li {
+	padding: 5px;
+	cursor: pointer;
+}
+
+.disable {
+	background: #ddd;
+}
+
+.none {
+	display: none;
+}
+
+.not {
+	color: #428bca;
+}
+
+button.on {
+	color: #428bca;
+}
+
+.border-top {
+	border-top: 3px solid #ccc;
+	padding-top: 5px;
+}
+
+.replace-lang {
+	list-style-type: none;
+	float: left;
+	padding: 5px;
+	margin: 0;
+}
+.replace-lang li {
+	float: left;
+	padding: 5px 3px;
+}
+
+.csv-items tr th:nth-child(3),
+.csv-items tr td:nth-child(3) {
+	text-align: center;
+}
+
+.board-wrapper .table:nth-child(even) {
+	background-color: rgba(180,180,180,0.2);
+}
+
+.write-character {
+	margin-left: 7px;
+	background-color: rgba(208,208,214,0.2);
+	width: 100%;
+}
+
+.write-user {
+	margin-left: 7px;
+	background-color: rgba(120,120,120,0.2);
+	width: 100%;
+}
+
+.LINE {
+	color: #3fc500;
+	font-weight: bolder;
+}
+
+.FROOM {
+	color: #00b900;
+	font-weight: bolder;
+}
+
+.KAKAO {
+	color: #ffda2f;
+	font-weight: bolder;
+}
+
+.SKYPE {
+	color: #0065aa;
+	font-weight: bolder;
+}
+
+.Twitter {
+	color: #2290bf;
+	font-weight: bolder;
+}
+
+.Facebook {
+	color: #3b5998;
+	font-weight: bolder;
+}
+
+.Instagram {
+	color: #517fa4;
+	font-weight: bolder;
+}
+
+.Mail {
+	color: #999;
+	font-weight: bolder;
+}

@@ -1,0 +1,56 @@
+<?php
+use App\Vendor\Code\CodePattern;
+use App\Vendor\Code\Alphabet;
+use Cake\Routing\Router;
+?>
+<body>
+<?php
+echo $this->Html->css(['css/main', 'css/search']);
+?>
+<div class="Search">
+    <header class="Search__header">
+        <div class="Search__header__inner">
+            <a href="#" class="Search__header__back"><i class="fas fa-chevron-left"></i></a>
+            <div class="Search__header__input">
+                <input type="" name="" placeholder="サロン・クリニック名検索" class="input">
+                <button class="cancel"><img src="/puril/images/ico_cancel.svg" alt="キャンセル"></button>
+            </div>
+            <div class="Search__header__refine"><button><img src="/puril/images/ico_refine.svg" alt="絞込み"></button></div>
+        </div>
+    </header>
+    <div class="Search__contents">
+        <div class="Search__btns">
+            <a href="" class="Search__btn" data-color="default">脱毛サロン</a>
+            <a href="" class="Search__btn" data-color="white">医療脱毛クリニック</a>
+        </div>
+        <div class="Search__list__header">あ行</div>
+        <ul class="Search__list">
+            <li><a href="">アドラーブル(adrable)</a></li>
+            <li><a href="">アダムワン</a></li>
+            <li><a href="">Hair remobal salon Air（アイル）</a></li>
+            <li><a href="">ADONIS</a></li>
+            <li><a href="">アンジェリーナ</a></li>
+            <li><a href="">男性専用店ange（アンジェ）</a></li>
+            <li><a href="">ADONIS（メンズ）</a></li>
+            <li><a href="">YES（メンズ）</a></li>
+            <li><a href="">IBERIS（イベリス）</a></li>
+            <li><a href="">Vitule（ヴィトゥレ）</a></li>
+            <li><a href="">Virgin Wax </a></li>
+            <li><a href="">エルセーヌ</a></li>
+        </ul>
+    </div>
+    <div class="Search__breadcrumbs">
+        <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href=""><span itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <span itemprop="name">脱毛</span>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
+    </div>
+</div>
+</body>
+</html>

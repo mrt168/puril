@@ -1,0 +1,88 @@
+.photo-detail-wrap {
+  background-color: #000000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.photo-detail-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px; }
+  .photo-detail-main .photo-detail-img {
+    width: 100%;
+    display: block; }
+
+.photo-detail-below {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+     -moz-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px; }
+  .photo-detail-below .photo-detail-info {
+    padding: 0 16px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+       -moz-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    color: #ffffff; }
+    .photo-detail-below .photo-detail-info .photo-detail-info-name {
+      padding-left: 1em; }
+  .photo-detail-below .photo-detail-like {
+    padding: 1.5em 16px;
+    color: #ffffff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .photo-detail-below .photo-detail-like .photo-detail-like-area {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding-left: 1em; }
+      .photo-detail-below .photo-detail-like .photo-detail-like-area .photo-detail-like-text {
+        padding-left: .5em; }
+    .photo-detail-below .photo-detail-like .photo-detail-like-kuchikomi {
+      padding-right: 1em;
+      color: inherit; }
+  .photo-detail-below .photo-detail-see-all {
+    padding: 1em 16px;
+    color: #ffffff;
+    text-align: center;
+    border-top: 1px solid #E0DCCC; }
+
+.photo-modal {
+  display: none; }

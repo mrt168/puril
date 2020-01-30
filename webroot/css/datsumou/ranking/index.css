@@ -1,0 +1,165 @@
+.ranking-title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 1em;
+  border-top: 1px solid #E0DCCC;
+  border-bottom: 1px solid #E0DCCC; }
+
+.ranking-text {
+  padding: 1em 16px; }
+
+.ranking-category .ranking-category-item-wrap:last-child {
+  border-bottom: 1px solid #E0DCCC; }
+
+.ranking-category .ranking-category-item-wrap {
+  border-top: 1px solid #E0DCCC; }
+  .ranking-category .ranking-category-item-wrap .ranking-category-item {
+    padding: 2em 16px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .ranking-category .ranking-category-item-wrap .ranking-category-item .ranking-category-item-icon {
+      color: #A9ACB9; }
+    .ranking-category .ranking-category-item-wrap .ranking-category-item .ranking-category-item-text {
+      font-size: 14px;
+      padding-left: .5em; }
+
+.ranking-searchfrom .ranking-searchfrom-item-wrap:last-child {
+  border-bottom: 1px solid #E0DCCC; }
+
+.ranking-searchfrom .ranking-searchfrom-item-wrap {
+  border-top: 1px solid #E0DCCC; }
+  .ranking-searchfrom .ranking-searchfrom-item-wrap .ranking-searchfrom-item {
+    padding: 2em 16px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .ranking-searchfrom .ranking-searchfrom-item-wrap .ranking-searchfrom-item .ranking-searchfrom-item-icon {
+      color: #A9ACB9; }
+    .ranking-searchfrom .ranking-searchfrom-item-wrap .ranking-searchfrom-item .ranking-searchfrom-item-text {
+      font-size: 14px;
+      padding-left: .5em; }
+
+.ranking-search-salon {
+  padding: 1.5em 16px; }
+  .ranking-search-salon .ranking-search-salon-title {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 1em; }
+  .ranking-search-salon .ranking-search-salon-options {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .ranking-search-salon .ranking-search-salon-options .ranking-search-salon-option {
+      border: 2px solid #E0DCCC;
+      border-radius: .5em;
+      text-align: center;
+      padding: 1.5em 1em;
+      width: 50%; }
+    .ranking-search-salon .ranking-search-salon-options .ranking-search-salon-areastation {
+      margin-right: .5em; }
+    .ranking-search-salon .ranking-search-salon-options .ranking-search-salon-currentsite {
+      margin-left: .5em; }
+    .ranking-search-salon .ranking-search-salon-options .ranking-search-salon-option-text {
+      font-size: 14px;
+      padding-top: 1em; }
+
+.ranking-shop {
+  background-color: #ffffff; }
+  .ranking-shop .ranking-shop-list {
+    background-color: #F9F7F5; }
+    .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-title {
+      padding: 1.5em 16px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-title .ranking-shop-title-icon-forth, .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-title .ranking-shop-title-icon-fifth {
+        background-color: #E1E1E1;
+        padding: .25em;
+        color: #595960; }
+      .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-title .ranking-shop-title-text {
+        font-size: 16px;
+        font-weight: bold;
+        padding-left: .5em; }
+    .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-photo-area {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-photo-area .ranking-shop-photo {
+        width: 100%; }
+        .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-photo-area .ranking-shop-photo img {
+          width: 100%;
+          display: block; }
+    .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-label {
+      padding: 1em 16px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+         -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-label .ranking-shop-review {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+      .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-label .ranking-shop-tag {
+        border: 1px solid #E0DCCC;
+        border-radius: .25em;
+        padding: .5em; }
+    .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-comment {
+      padding: 0em 16px 1em 16px; }
+      .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-comment .ranking-shop-comment-list {
+        background-color: #F9F7F5;
+        border-radius: .25em;
+        padding: .5em; }
+        .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-comment .ranking-shop-comment-list .ranking-shop-comment-item {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: flex;
+          padding: .5em; }
+          .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-comment .ranking-shop-comment-list .ranking-shop-comment-item .ranking-shop-comment-text {
+            color: #B5B5B5;
+            border-bottom: 1px dotted #B5B5B5; }
+          .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-comment .ranking-shop-comment-list .ranking-shop-comment-item .ranking-shop-comment-user {
+            padding-left: 1em;
+            color: #595960; }

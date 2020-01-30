@@ -1,0 +1,35 @@
+.shop-plan .shop-plan-count {
+  padding: 1em 16px; }
+
+.shop-plan .shop-plan-line-item:last-child {
+  border-bottom: none !important; }
+
+.shop-page-plan-reservation {
+  padding: 1em 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F9F7F5;
+  border-top: 1px solid #E0DCCC;
+  border-bottom: 1px solid #E0DCCC; }
+  .shop-page-plan-reservation .shop-page-plan-reservation-text {
+    font-weight: bold;
+    font-size: 14px; }
+  .shop-page-plan-reservation a.shop-page-plan-reservation-button {
+    background-color: #6AADBF;
+    color: #ffffff;
+    padding: 1em;
+    border-radius: .25em;
+    text-decoration: none; }

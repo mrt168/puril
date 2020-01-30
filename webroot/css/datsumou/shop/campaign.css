@@ -1,0 +1,61 @@
+.shop-campaign-ticket {
+  padding: 0 16px; }
+  .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item:last-child {
+    padding-bottom: 1em; }
+  .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item {
+    padding-top: 1em; }
+    .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-main {
+      background-color: #ffffff;
+      border-bottom: 1px dashed #E0DCCC; }
+      .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-main .shop-campaign-ticket-item-main-puril {
+        background-color: #6AADBF;
+        padding: 1em;
+        text-align: center; }
+      .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-main .shop-campaign-ticket-item-main-content {
+        border-left: 1px solid #E0DCCC;
+        border-right: 1px solid #E0DCCC;
+        padding: 0 1em; }
+        .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-main .shop-campaign-ticket-item-main-content .shop-campaign-ticket-item-main-title {
+          font-size: 14px;
+          font-weight: bold;
+          text-align: center;
+          padding: 1.5em 0; }
+        .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-main .shop-campaign-ticket-item-main-content .shop-campaign-ticket-item-main-text {
+          padding-bottom: 1em; }
+    .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-sub {
+      background-color: #ffffff;
+      position: relative;
+      padding: 1em;
+      border-left: 1px solid #E0DCCC;
+      border-right: 1px solid #E0DCCC;
+      border-bottom: 1px solid #E0DCCC; }
+      .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-sub a.shop-campaign-ticket-item-sub-detail {
+        padding: 1em 0;
+        border: 1px solid #E0DCCC;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        color: #13131E; }
+      .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-sub .circle-left {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        border-right: 1px solid #E0DCCC;
+        background-color: #F9F7F5;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px; }
+      .shop-campaign-ticket .shop-campaign-ticket-list .shop-campaign-ticket-item .shop-campaign-ticket-item-sub .circle-right {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        border-left: 1px solid #E0DCCC;
+        background-color: #F9F7F5;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px; }
+
+.shop-campaign-noticket {
+  padding: 4em 16px;
+  text-align: center;
+  color: #B5B5B5; }

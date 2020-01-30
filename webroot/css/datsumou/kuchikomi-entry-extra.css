@@ -1,0 +1,66 @@
+.kuchikomi-entry-extra-wrap {
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 100vh;
+  width: 100%;
+  position: relative; }
+
+.kuchikomi-entry-extra-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 750px; }
+  .kuchikomi-entry-extra-content .kuchikomi-entry-extra-main {
+    padding: 0 16px; }
+    .kuchikomi-entry-extra-content .kuchikomi-entry-extra-main .kuchikomi-entry-extra-main-above {
+      padding: 0 16px;
+      background-color: #6AADBF;
+      color: #ffffff;
+      border-radius: .5em .5em 0 0; }
+      .kuchikomi-entry-extra-content .kuchikomi-entry-extra-main .kuchikomi-entry-extra-main-above .kuchikomi-entry-extra-main-title {
+        font-size: 24px;
+        padding-top: 1.5em;
+        padding-bottom: .5em;
+        text-align: center; }
+      .kuchikomi-entry-extra-content .kuchikomi-entry-extra-main .kuchikomi-entry-extra-main-above .kuchikomi-entry-extra-main-subtitle {
+        font-size: 14px;
+        padding: 1em 0; }
+      .kuchikomi-entry-extra-content .kuchikomi-entry-extra-main .kuchikomi-entry-extra-main-above .kuchikomi-entry-extra-main-img img {
+        width: 100%; }
+      .kuchikomi-entry-extra-content .kuchikomi-entry-extra-main .kuchikomi-entry-extra-main-above .kuchikomi-entry-extra-main-desc {
+        font-size: 16px;
+        text-align: center;
+        padding: 1em 0; }
+    .kuchikomi-entry-extra-content .kuchikomi-entry-extra-main .kuchikomi-entry-extra-main-below {
+      padding: 0 16px;
+      background-color: #ffffff;
+      color: #6AADBF;
+      border-radius: 0 0 .5em .5em; }
+      .kuchikomi-entry-extra-content .kuchikomi-entry-extra-main .kuchikomi-entry-extra-main-below .kuchikomi-entry-extra-main-note {
+        font-size: 16px;
+        text-align: center;
+        padding: 1em 0; }
+  .kuchikomi-entry-extra-content .kuchikomi-entry-extra-sub {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 2em 0;
+    font-size: 14px;
+    color: #ffffff; }
+    .kuchikomi-entry-extra-content .kuchikomi-entry-extra-sub .kuchikomi-entry-extra-sub-text {
+      padding-left: 1em; }

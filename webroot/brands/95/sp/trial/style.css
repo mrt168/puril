@@ -1,0 +1,740 @@
+@charset "utf-8";
+
+/*=======================================================
+reset
+=======================================================*/
+html{
+	font-size: 28px;
+	line-height: 1.4;
+	letter-spacing: 1.5px;
+	text-size-adjust: 100%;
+	color: #333; 
+}
+footer small{
+	font-family: Verdana;/* Android */
+}
+a{
+	text-decoration: none;
+}
+body{
+	width: 750px;
+	max-width: 750px;
+	overflow-x: hidden;
+}
+/*======================================================
+
+header
+
+=======================================================*/
+/****** head固定 *****/
+header::before,
+header h1,
+header .contact{
+	position: fixed;
+	top: 0;
+}
+header::before{
+	content: "";
+	display: block;
+	left: 0;
+	z-index: 1000;
+	width: 750px;
+	height: 128px;
+	background: #0c2a4a;
+	box-shadow: 0 0 1px 2px rgba(0,0,0,0.35);
+}
+/*** ロゴ ***/
+header h1{
+	width: 300px;
+	height: 127px;
+	left: 0;
+	z-index: 1100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+header h1 img{
+	width: 237px;
+}
+/*** お問い合わせ ***/
+header .contact{
+	width: 400px;
+	height: 127px;
+	left:350px;
+	z-index: 1100;
+	display: flex;
+}
+header .contact li{
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	font-size: 26px;
+}
+/** 各店舗・メール **/
+header .contact .tel > p,
+header .contact .mail li{
+	width: 200px;
+	height: 127px;
+	padding: 15px 0 0;
+}
+/* 各店舗 */
+header .contact .tel > p,
+main .contact .tel > p{
+	background: url("../../common/img/tel_icon_sp.svg") center bottom 20px / 44px 48px no-repeat,#378fa8;
+	position: relative;
+}
+header .contact .tel a,
+main .contact .tel a{
+		color: #fff;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 15px 0 0;
+}
+/* メール */
+header .contact .mail li{
+	background: url("img/common_mail_icon.svg") bottom 29px center / 52px 31px no-repeat,#a4903e;
+}
+/****** メインビジュアル *****/
+header{
+	height: 1415px;
+	padding: 50px 0 0;
+	background: url("img/main_bg.jpg") top 172px center / 750px no-repeat,#fff;
+	position: relative;
+}
+header h1 + p{
+	width: 710px;
+	margin: 190px 0 112px 15px;
+}
+header h1 + p + p {
+	width: 681px;
+	position: absolute;
+	top: 225px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+/****** ヒゲ脱毛のメリット *****/
+header h2{
+	position: absolute;
+	width: 737px;
+	top: 940px;
+	left: 6.5px;
+	z-index: 15;
+}
+header .box{
+	width: 718px;
+	height: 561px;
+	margin: 0 0 0 32px;
+	padding: 95px 0 0 70px;
+	background: url("img/main_box_bg.png") center / 718px 561px no-repeat;
+	position: relative;
+	z-index: 10;
+}
+header .box li:first-of-type{
+	width: 482px;
+}
+header .box li:nth-of-type(2){
+	width: 562px;
+	margin: 20px 0 0;
+	padding: 20px 0;
+	border-top:2px solid #d7d6d1;
+}
+header .box li:nth-of-type(2) img{
+	width: 373px;
+}
+header .box li:nth-of-type(3){
+	width: 522px;
+	border-top:2px solid #d7d6d1;
+	padding: 20px 0 0;
+}
+header .box li:nth-of-type(3) img{
+	width: 478px;
+}
+/***店舗一覧***/
+header > p:last-of-type{
+	width: 100%;
+	height: 75px;
+	background: #021223;
+	font-size: 20px;
+	line-height: 1.5;
+	color: #dfd2a9;
+	padding: 0 25px;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 127px;
+	left: 0;
+}
+/*======================================================
+
+main
+
+=======================================================*/
+/****** [共通] お問い合わせ ******/
+.contactBox{
+	width: 100%;
+	height: 785px;
+	margin: 0 auto;
+	padding: 30px 0 0;
+	position: relative;
+	background: #0c2a4a;
+}
+/*** カウンセリングは無料 追加料金等～ ***/
+.contactBox > p{
+	color: #fff;
+	font-weight: bold;
+}
+.contactBox > p:first-of-type{
+	width: 515px;
+	height: 74px;
+	background: #bf4205;
+	font-size: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin: 0 auto 20px;
+}
+.contactBox > p:first-of-type::before,
+.contactBox > p:first-of-type::after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	position: absolute;
+	top: 0;
+}
+.contactBox > p:first-of-type::before{
+	border-width: 37px 0 37px 35px;
+	border-color: transparent transparent transparent #0c2a4a;
+	left:-1px;
+}
+.contactBox > p:first-of-type::after{
+	border-width: 37px 35px 37px 0;
+	border-color: transparent #0c2a4a transparent transparent;
+	right:-1px;
+}
+.contactBox > p:nth-of-type(2){
+	margin: 0 0 235px;
+	font-size: 30px;
+	text-align: center;
+}
+/*** 赤ちゃん ***/
+.contactBox::after{
+	content: "";
+	display: block;
+	width: 100%;
+	height: 324px;
+	background: url("img/contactBox_baby.png") center / 393px 324px no-repeat;
+	position: absolute;
+	top: 160px;
+	left: 0;
+}
+/*** お問い合わせ先 ***/
+.contactBox .contact{
+	width: 590px;
+	margin: 0 auto;
+}
+.contactBox .contact a{
+	font-weight: bold;
+	color: #fff;
+}
+/* 電話 */
+.contactBox .contact .tel > p{
+	width: 589px;
+	height: 124px;
+	margin:  0 0 25px;
+    background: url(../../common/img/tel_icon_sp.svg) left 160px center / 58px 61px no-repeat,#378fa8;
+	border-radius: 10px;
+	font-size: 40px;
+	color: #fff;
+	font-weight: bold;
+}
+.contactBox .contact .tel > p a{
+	display: flex;
+	align-items: center;
+	padding: 0 0 0 260px;
+}
+.contactBox .contact .tel .store{
+	width: 676px;
+	height: 711px;
+	top: 104px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 900;
+}
+/* メール */
+.contactBox .contact .mail li{
+	width: 100%;
+	height: 124px;
+	border-radius: 10px;
+	margin: 0 auto;
+	padding: 0 0 0 175px;
+    background: url(img/common_mail_icon.svg) center left 80px / 60px 35px no-repeat,#a4903e;
+	border-bottom: 5px solid #79692e;
+    font-size: 40px;
+    display: flex;
+	align-items: center;
+}
+/****** [共通] 見出し ******/
+#info h2,
+#beginner .faq h3{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(to right,#75610c,#ae9324,#75610c);
+}
+/****** sec01 メリット *****/
+#merit .box::after{
+	content: "";
+	display: block;
+	width: 254px;
+	height: 153px;
+	background: url("img/main_box_arrow.png") center / contain;
+	position: absolute;
+	top: -306px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+#merit{
+	height: 5190px;
+	background: url("img/sec01_bg.png") top center;
+	padding: 225px 0 80px;
+	margin: 121px 0 0;
+}
+#merit .box{
+	width: 670px;
+	margin: 0 auto;
+	position: relative;
+}
+#merit .box > li{
+	background: #fff;
+	position: relative;
+	margin: 0 0 205px;
+}
+#merit .box > li:last-of-type{
+	margin: 0;
+}
+/*** MERIT ***/
+#merit .box > li h2{
+	width: 670px;
+	height:  146px;
+	background: url("img/sec01_ttl_bg.png") center / 670px 146px no-repeat;
+	padding: 39px 0 0 25px;
+	position: absolute;
+	top: -146px;
+	left: 0;
+}
+/*** BA ***/
+#merit .box > li h3{
+	width: 100%;
+	background: linear-gradient(#0c2a4a,#123870);
+	margin: 0 auto 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+#merit .box > li h3::after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 21px 31px 0 31px;
+	border-color: #123870 transparent transparent transparent;
+	position: absolute;
+	bottom:-20px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+#merit .box > li .box02{
+	width: 590px;
+	display: flex;
+	margin: 0 auto 55px;
+}
+#merit .box > li .box02 p{
+	height: 208px;
+	position: relative;
+}
+/* Before */
+#merit .box > li .box02 p:first-of-type{
+	width: 280px;
+	padding: 20px 0 0 24px;
+	background: url("img/sec01_li_img_txt.png") center bottom 8px / 61px 21px no-repeat,#e2e1de;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+#merit .box > li .box02 p:first-of-type::after{
+	content: "";
+	display: block;
+	width: 35px;
+	height: 208px;
+	background: url("img/sec01_li_img_bg.png") center;
+	position: absolute;
+	top:0;
+	left: 275px;
+	z-index: 10;
+}
+/* after */
+#merit .box > li .box02 p:nth-of-type(2){
+	width: 310px;
+	padding: 20px 0 0 50px;
+	background: url("img/sec01_li_img_txt02.png") left 150px bottom 8px / 48px 21px no-repeat,linear-gradient(#be9a1c,#efd161);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+/* point */
+#merit .box > li .point{
+	width: 590px;
+	margin: 0 auto;
+	padding: 30px 40px 0;
+	border:2px solid #a28b2c;
+	border-radius: 10px;
+	position: relative;
+}
+#merit .box > li .point::before{
+	content: "";
+	display: block;
+	width: 170px;
+	height: 74px;
+	background: url("img/sec01_li_txt.png") center / 170px 74px no-repeat;
+	position: absolute;
+	top: -35px;
+	left: -22px;
+}
+#merit .box > li .point strong{
+	background: linear-gradient(transparent 75%, #ffe84c 75%);
+}
+/*** メリット1 ***/
+#merit .box > li:first-of-type{
+	padding: 0 0 1px;
+}
+#merit .box > li:first-of-type h2 img{
+	width: 613px;
+}
+#merit .box > li:first-of-type h2 + p{
+	padding: 360px 55px 35px 40px;
+	background: url("img/sec01_li_bg.jpg") top left 80px no-repeat;
+}
+#merit .box > li h3{
+	height: 96px;
+}
+#merit .box > li:first-of-type h3 img{
+	width: 590px;
+}
+#merit .box > li:first-of-type .point{
+	height: 245px;
+	margin: 0 auto 40px;
+}
+#merit .box > li .contactBox{
+	width: 670px;
+	height: 784px;
+	background: url("img/sec01_li_contactBnr.png") , #0c2a4a;
+}
+#merit .box > li .contactBox .store{
+    left: -3px;
+}
+/*** メリット2 ***/
+#merit .box > li:nth-of-type(2){
+	padding: 0 0 40px;
+}
+#merit .box > li:nth-of-type(2) h2 img{
+	width: 542px;
+}
+#merit .box > li:nth-of-type(2) h2 + p{
+	background: url("img/sec01_li02_bg.jpg") top center no-repeat;
+	padding: 365px 55px 35px 40px;
+}
+#merit .box > li:nth-of-type(2) h3{
+	height: 116px;
+}
+#merit .box > li:nth-of-type(2) h3 img{
+	width: 417px;
+}
+#merit .box > li:nth-of-type(2) .point{
+	height: 330px;
+}
+/*** メリット3 ***/
+#merit .box > li:nth-of-type(3) h2 img{
+	width: 609px;
+}
+#merit .box > li:nth-of-type(3) h2 + p{
+	background: url("img/sec01_li03_bg.jpg") top 5px center no-repeat;
+	padding: 375px 55px 35px 40px;
+}
+/****** sec02 お試し脱毛できる箇所 *****/
+#info{
+	background: url("img/sec02_bg.png") top center;
+	padding: 60px 0 75px;
+}
+#info .box{
+	box-shadow: 0 0 3px 2px rgba(0,0,0,0.1);
+	background: #fff;
+	width: 670px;
+	margin: 0 auto;
+}
+#info h2{
+	width: 670px;
+	height: 111px;
+	margin: 0 auto 45px;
+}
+#info h2 img{
+	width: 531px;
+}
+#info h2 + p{
+	width: 599px;
+	margin: 0 auto 40px;
+}
+#info .box > ul{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 570px;
+	margin: 0 auto 30px;
+}
+#info .box > ul > li{
+	width: 261px;
+	margin: 0 0 30px;
+}
+#info .contactBox .store{
+	left: -3px;
+}
+/****** sec03 500円でも安心 *****/
+#flow{
+	height: 1249px;
+	background: url("img/sec01_bg.png") top center;
+	padding: 70px 0 0;
+}
+#flow h2{
+	width: 671px;
+	margin: 0 auto 15px;
+}
+#flow ol{
+	width: 670px;
+	height: 900px;
+	margin: 0 auto;
+}
+#flow ol li{
+	width: 670px;
+	position: relative;
+}
+#flow ol li h3{
+	font-size: 32px;
+	margin: 0 0 3px;
+}
+#flow ol li h3 + p{
+	font-size: 26px;
+}
+#flow ol li:first-of-type{
+	height: 270px;
+	background: url("img/sec03_li_bg.jpg") left 40px center no-repeat,#f6f2d8;
+	padding: 28px 30px 0 330px;
+}
+#flow ol li:nth-of-type(2){
+	height: 315px;
+	background: url("img/sec03_li02_bg.jpg") left 40px top 70px no-repeat,#fcec89;
+	padding: 60px 30px 0 330px;
+}
+#flow ol li:nth-of-type(3){
+	height: 315px;
+	background: url("img/sec03_li03_bg.jpg") left 40px top 70px no-repeat,#ecd64e;
+	padding: 60px 30px 0 330px;
+	z-index: 10;
+}
+/* 背景矢印 */
+#flow ol li::after{
+	content: "";
+	display: block;
+	width: 670px;
+	height: 42px;
+	position: absolute;
+	bottom: -41px;
+	left: 0;
+}
+#flow ol li:first-of-type::after{
+	z-index: 15;
+	background: url("img/sec03_li_bg02.png") center no-repeat;
+}
+#flow ol li:nth-of-type(2)::after{
+	z-index: 20;
+	background: url("img/sec03_li02_bg02.png") center no-repeat;
+}
+/****** sec04 脱毛がはじめての方へ *****/
+#beginner{
+	background: url("img/sec04_bg.jpg") top 340px center no-repeat,
+	linear-gradient(#DEE9EE 20%,#fefef4 40%,#dcdace);
+	padding: 67px 0 70px;
+}
+/* メッセージボックス */
+#beginner .box{
+	width: 670px;
+	height: 567px;
+	background: linear-gradient(#00438a,#002053);
+	margin: 0 auto 165px;
+	position: relative;
+	padding: 14px;
+}
+#beginner .box h2{
+	width: 655px;
+}
+#beginner .box p{
+	position: absolute;
+	left: 40px;
+	color: #fff;
+}
+#beginner .box p:first-of-type{
+	top: 130px;
+	width: 445px;
+}
+#beginner .box p:nth-of-type(2){
+	top: 370px;
+	width: 380px;
+}
+#beginner .box p strong{
+	color: #ffea65;
+}
+/*** よくある質問 ***/
+#beginner .faq{
+	width: 670px;
+	margin: 0 auto;
+	background: #fff;
+	box-shadow: 0 0 3px 2px rgba(0,0,0,0.1);
+}
+#beginner .faq h3{
+	height: 92px;
+	margin: 0 0 40px;
+	font-size: 44px;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 0 9px rgba(0,0,0,0.4);
+}
+#beginner .faq > ul{
+	margin: 0 20px;
+}
+#beginner .faq > ul > li{
+	margin: 0 0 35px;
+	padding: 0 0 35px;
+	border-bottom: 1px solid #a28b2c;
+}
+#beginner .faq > ul > li:last-of-type{
+	border: none;
+	margin: 0;
+	padding: 0 0 50px;
+}
+/* Q */
+#beginner .faq > ul > li h4{
+	font-weight: bold;
+	color: #a28b2c;
+	margin: 0 0 25px;
+	padding: 0 0 0 70px;
+	position: relative;
+}
+/* A */
+#beginner .faq > ul > li p{
+	padding: 0 25px 0 70px;
+	position: relative;
+}
+/* QAアイコン */
+#beginner .faq > ul > li h4::before,
+#beginner .faq > ul > li p:first-of-type::before{
+	width: 48px;
+	height: 48px;
+	border-radius: 48px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 0 0 2px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#beginner .faq > ul > li h4::before{
+	content: "Q";
+	background: #a28b2c;
+	bottom: 0;
+	margin: auto 0;
+}
+#beginner .faq > ul > li p:first-of-type::before{
+	content: "A";
+	background: #0f527f;
+}
+/****** sec05 お早めにお問い合わせください *****/
+#contact{
+	height: 1320px;
+	padding: 60px 0 0;
+	background: url("img/sec05_bg.jpg") top center no-repeat;
+	border-top: 3px solid #fff;
+}
+/* 透明枠 */
+#contact > .box{
+	width: 670px;
+	height: 1187px;
+	border:1px solid #53c5e1;
+	margin: 0 auto;
+	padding: 12px 0;
+	background: rgba(33,123,183,0.54);
+	position: relative;
+}
+/* 白box */
+#contact > .box > span{
+	display: block;
+    width: 650px;
+    height: 1160px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 165px 0 0;
+	box-shadow: 0 0 2px 3px rgba(0,0,0,0.1);
+}
+#contact > .box > span h2{
+	position: absolute;
+	top: -40px;
+	left: -15px;
+}
+#contact > .box > span h2 img{
+	width: 649px;
+}
+#contact > .box > span h2 + p{
+	width: 557px;
+	margin: 0 auto 40px;
+}
+#contact > .box > span .contactBox{
+	width: 650px;
+}
+#contact > .box > span .contactBox .store{
+	left: -13px;
+}
+/*======================================================
+
+footer
+
+=======================================================*/
+footer{
+	background: #011932;
+	text-align: center;
+	padding: 35px 0 25px;
+}
+footer p:first-of-type{
+	font-size: 18px;
+	margin: 0 0 20px;
+	color: #dfd2a9;
+}
+footer p:first-of-type a{
+	font-size: 27px;
+	color: #dfd2a9;
+}
+footer p small{
+	font-size: 23px;
+	color: #fff;
+}
