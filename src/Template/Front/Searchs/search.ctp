@@ -104,7 +104,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             }
                             $imgUrl = Router::url("/shop_img/" . $shopImage['shop_image_id'], true);
                             ?>
-                            <div class="search-shop-photo"><img src="<?php echo $url;?>" alt="<?php echo $shop->name;?>"></div>
+                            <div class="search-shop-photo"><img src="<?php echo $imgUrl;?>" alt="<?php echo $shop->name;?>"></div>
                             <?php
                             $img_count++;
                             if($img_count > 2) {
