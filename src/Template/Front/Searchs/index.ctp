@@ -27,33 +27,17 @@ echo $this->Html->css(['css/main', 'css/search']);
             <a href="" class="Search__btn" data-color="white">医療脱毛クリニック</a>
         </div>
         <ul class="Search__list">
-            <li><a href="">東京都 (618)</a></li>
-            <li><a href="">神奈川県 (618)</a></li>
-            <li><a href="">埼玉県 (618)</a></li>
-            <li><a href="">千葉県 (618)</a></li>
-            <li><a href="">栃木県 (618)</a></li>
-            <li><a href="">茨城県 (618)</a></li>
-            <li><a href="">群馬県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
-            <li><a href="">○○県 (618)</a></li>
+            <?php
+            foreach ($prefs as $pref) {
+                ?>
+                <li>
+                    <?php
+                    echo $this->Html->link($pref['pref'].'('.$pref['salon_cnt'].')', ['controller'=> 'searchs', 'action'=> 'search', $pref['url_text']]);
+                    ?>
+                </li>
+                <?php
+            }
+            ?>
         </ul>
     </div>
     <div class="Search__breadcrumbs">

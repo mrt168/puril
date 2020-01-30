@@ -3,6 +3,7 @@ use App\Vendor\Constants;
 use Cake\Routing\Router;
 ?>
 <div id="afbkwjs" style="display:none;"><script type="text/javascript" src="//track.affiliate-b.com/or/kw.js?ps=j648053O" async></script></div>
+
 <header id="header">
     <div class="inner">
         <div class="headwrap cf">

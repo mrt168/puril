@@ -297,10 +297,15 @@ class BrandsTable extends AppTable
     		if (!empty($wheres['name'])) {
     			array_push($options['conditions'], parent::likeContain('Brands.name', $wheres['name']));
     		}
+
+            if (!empty($wheres['shop_type'])) {
+                array_push($options['conditions'], parent::eq('Brands.shop_type', $wheres['shop_type']));
+            }
     	}
 
     	return $options;
     }
+
 
     /**
      * ブランド名の昇順で未削除のエンティティを検索します.

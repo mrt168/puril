@@ -70,7 +70,7 @@ use Cake\Routing\Router;
         <h2 class="home-area__title"><img src="puril/images/area-title-ico-sp.png" alt=""><p>地域<span class="small">から探す</span></p></h2>
         <ul class="home-area__list">
           <li>
-            <p><a href="">脱毛</a></p>
+            <p><a href="<?php echo Router::url('/datsumou/')?>">脱毛</a></p>
           </li>
           <li>
             <p><a href="">リラク</a></p>

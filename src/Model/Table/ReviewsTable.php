@@ -372,11 +372,18 @@ class ReviewsTable extends AppTable
      * 識別子で未削除のデータを検索します.
      */
     public function findByShopTypeOrdeByPostDate($shopType, $limit = null) {
-    	$conditions = array (
-    			'Shop.shop_type'=> $shopType,
-    			'Reviews.show_flg'=> ShowFlg::$SHOW[CodePattern::$CODE],
-    			'Reviews.del_flg'=> DelFlg::$MI_SAKUJO[CodePattern::$CODE]
-    	);
+        if($shopType == null) {
+            $conditions = array (
+                'Reviews.show_flg'=> ShowFlg::$SHOW[CodePattern::$CODE],
+                'Reviews.del_flg'=> DelFlg::$MI_SAKUJO[CodePattern::$CODE]
+            );
+        } else {
+            $conditions = array (
+                'Shop.shop_type'=> $shopType,
+                'Reviews.show_flg'=> ShowFlg::$SHOW[CodePattern::$CODE],
+                'Reviews.del_flg'=> DelFlg::$MI_SAKUJO[CodePattern::$CODE]
+            );
+        }
 
     	$joins=[
     			[
