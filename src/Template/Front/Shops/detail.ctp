@@ -461,7 +461,7 @@ if (!empty($shop['reviews'])) {
 </section>
 <section class="content shop-share">
     <h2 class="content-title">シェア</h2>
-    <div class="share-twitter"><a class="clickable-button share-twitter-button" href="#"><i class="fab fa-twitter twitter-icon"></i>
+    <div class="share-twitter"><a class="clickable-button share-twitter-button" href="//twitter.com/share?url=https://puril.net"><i class="fab fa-twitter twitter-icon"></i>
             <div class="share-twitter-text">Twitter</div></a></div>
 </section>
 <nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
