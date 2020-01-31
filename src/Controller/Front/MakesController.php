@@ -45,7 +45,7 @@ class MakesController extends FrontAppController {
 		}
 
 		// セットしてきた各値でURLを生成
-		$url = '/';
+		$url = '/datsumou/';
 		if (isset($this->request->data['search']) || isset($this->request->data['free_word_search'])) {
 			$url .= URLUtil::SEARCH;
 		} else if (isset($this->request->data['ranking_search'])) {
@@ -132,7 +132,7 @@ class MakesController extends FrontAppController {
 
 			$freeWord = implode('&', $freeWords);
 
-			$url = "/". URLUtil::SEARCH. "/". URLUtil::FREE_WORD ."{$freeWord}/";
+			$url = "/datsumou/". URLUtil::SEARCH. "/". URLUtil::FREE_WORD ."{$freeWord}/";
 		} else {
 			$url = Router::url(['controller'=> 'searchs', 'action'=> 'index'], true);
 // 			$url = "/". URLUtil::SEARCH. "/". ShopType::$DEPILATION_SALON[CodePattern::$VALUE2]. "/". ShopType::$MEDICAL_DEPILATION_CLINIC[CodePattern::$VALUE2]. "/";

@@ -79,6 +79,10 @@
         color:#fff;
         transition: .3s ease;
     }
+    .popup_content_img {
+        margin: 0 auto;
+        display: block;
+    }
     .no-link {
     }
     /*ポップアップココまで*/

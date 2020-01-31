@@ -60,7 +60,7 @@ echo $this->Html->css('datsumou');
         </div>
         -->
         <button type="button" class="datsumou-header-inner__navToggle">
-          <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
         </button>
         <nav class="datsumou-header-inner__globalmenusp">
             <p class="datsumou-header-inner__globalmenusp__logo">
@@ -89,13 +89,20 @@ echo $this->Html->css('datsumou');
 <main class="datsumou-main">
     <div class="datsumou-search">
         <div class="Search__input">
+            <?php
+            echo $this->ExForm->create('Make', ['url'=> ['controller' => 'Makes', 'action'=> 'index'], 'type'=> 'post', 'novalidate' => true, 'id'=> 'form01', 'class'=> 'cf', 'templates'=> ['submitContainer'=> '{{content}}']]);
+            ?>
             <div class="Search__input__inner">
-                <div class="input1"><input type="" name="" placeholder="エリア、駅、サロン・クリニック名で検索する"></div>
+                <div class="input1"><?php echo $this->ExForm->text('Make.free_word', ['id'=> 'input01', 'placeholder'=> 'エリア、駅、サロン・クリニック名で検索する']);?></div>
                 <!--
                 <div class="input2"><input type="" name="" placeholder="サロン・クリニック名"></div>
                 -->
-                <button class="search"><img src="/puril/images/ico_search_wht.png" alt="絞込み"></button>
+                <button class="search" type="submit" name="free_word_search"><img src="/puril/images/ico_search_wht.png" alt="絞込み"></button>
+
             </div>
+            <?php
+            echo $this->ExForm->end();
+            ?>
         </div>
         <div class="datsumou-search__inner">
             <h2 class="datsumou-search__title">サロン・クリニックを探す</h2>
@@ -149,78 +156,101 @@ echo $this->Html->css('datsumou');
                 <div class="datsumou-ranking-panel">
                     <div id="panel01" class="datsumou-ranking-panel-inner panel01">
                         <ul class="datsumou-ranking-panel__list">
-<!--                            --><?php
-//                            foreach ($rank_brand_salon as $salon) {
-//                                if (!empty($salon['ShopImg']['shop_image_id'])) {
-//                                    $imgUrl = Router::url(['controller' => 'images', 'action' => 'shopImage', $salon['ShopImg']['shop_image_id']]);
-//                                } else {
-//                                    $imgUrl = "img/image_empty.jpg";
-//                                }
-//                                $shopUrl = "";
-//                                $blank = "";
-//                                if (!empty($salon['Shop']['affiliate_page_url'])) {
-//                                    $shopUrl = $salon['Shop']['affiliate_page_url'];
-//                                    $blank = "target='blank'";
-//                                } else {
-//                                    $shopUrl = Router::url(['controller'=> 'shops', 'action'=> 'detail', $salon['Shop']['shop_id']]). "/";
-//                                }
-//                                ?>
-<!--                                <li>-->
-<!--                                    <a href="--><?php //echo $shopUrl;?><!--">-->
-<!--                                    <p class="datsumou-ranking-panel__evaluation first">--><?//=number_format($salon['star'],2)?><!--</p>-->
-<!--                                    <img src="--><?php //echo $imgUrl;?><!--" alt="">-->
-<!--                                    <p class="datsumou-ranking-panel__text">--><?//= $salon['name'];?><!--</p>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                            --><?php
-//                            }
-//                            ?>
-                            <li>
-                                <p class="datsumou-ranking-panel__evaluation first">4.25</p>
-                                <img src="/puril/images/ranking-panel01-01-sp.png" alt="">
-                                <p class="datsumou-ranking-panel__text">キレイモ</p>
-                            </li>
-                            <li>
-                                <p class="datsumou-ranking-panel__evaluation second">3.96</p>
-                                <img src="/puril/images/ranking-panel01-02-sp.png" alt="">
-                                <p class="datsumou-ranking-panel__text">ミュゼプラチナム</p>
-                            </li>
-                            <li>
-                                <p class="datsumou-ranking-panel__evaluation third">3.91</p>
-                                <img src="/puril/images/ranking-panel01-03-sp.png" alt="">
-                                <p class="datsumou-ranking-panel__text">STLASSH</p>
-                            </li>
+                            <?php
+                            $osusumes = [
+                                '恋肌'=> [
+                                    'url'=> 'https://t.afi-b.com/visit.php?guid=ON&a=a6684E-M243966D&p=j648053O',
+                                    'img'=> '/img/Top/koihada_top.jpg',
+                                    'star' => '4.87',
+                                ],
+                                'ストラッシュ'=> [
+                                    'url'=> 'https://track.affiliate-b.com/visit.php?guid=ON&a=47719r-V298788m&p=j648053O',
+                                    'img'=> '/img/stlassh.jpg',
+                                    'star' => '4.82',
+                                ],
+                                'ラココ'=> [
+                                    'url'=> 'https://www.tcs-asp.net/alink?AC=C102738&LC=MBTY1&SQ=0&isq=100',
+                                    'img'=> '/shop_img/466',
+                                    'star' => '4.71',
+                                ],
+                            ];
+
+                            $count = 0;
+                            foreach ($osusumes as $name => $osusume) {
+                                $countCss = '';
+                                switch ($count):
+                                    case 0:
+                                        $countCss = 'first';
+                                        break;
+                                    case 1:
+                                        $countCss = 'second';
+                                        break;
+                                    case 2:
+                                        $countCss = 'third';
+                                        break;
+                                endswitch;
+                                ?>
+                                <li>
+                                    <a href="<?=$osusume['url']?>">
+                                        <p class="datsumou-ranking-panel__evaluation <?php echo $countCss;?>"><?=number_format($osusume['star'],2)?></p>
+                                        <?php echo $this->Html->image($osusume['img'], ['alt'=> ''])?>
+                                        <p class="datsumou-ranking-panel__text"><?=$name?></p>
+                                    </a>
+                                </li>
+                                <?php
+                                $count++;
+                            }
+                            ?>
                         </ul>
                         <a href="" class="datsumou-ranking__btn">ランキングを見る</a>
                     </div>
                     <div id="panel02" class="datsumou-ranking-panel-inner panel02">
                         <ul class="datsumou-ranking-panel__list">
-<!--                            --><?php
-//                            foreach ($rank_brand_clinic as $salon) {
-//                                if (!empty($salon['ShopImg']['shop_image_id'])) {
-//                                    $imgUrl = Router::url(['controller' => 'images', 'action' => 'shopImage', $salon['ShopImg']['shop_image_id']]);
-//                                } else {
-//                                    $imgUrl = "img/image_empty.jpg";
-//                                }
-//                                $shopUrl = "";
-//                                $blank = "";
-//                                if (!empty($salon['Shop']['affiliate_page_url'])) {
-//                                    $shopUrl = $salon['Shop']['affiliate_page_url'];
-//                                    $blank = "target='blank'";
-//                                } else {
-//                                    $shopUrl = Router::url(['controller'=> 'shops', 'action'=> 'detail', $salon['Shop']['shop_id']]). "/";
-//                                }
-//                                ?>
-<!--                                <li>-->
-<!--                                    <a href="--><?php //echo $shopUrl;?><!--">-->
-<!--                                        <p class="datsumou-ranking-panel__evaluation first">--><?//=number_format($salon['star'],2)?><!--</p>-->
-<!--                                        <img src="--><?php //echo $imgUrl;?><!--" alt="">-->
-<!--                                        <p class="datsumou-ranking-panel__text">--><?//= $salon['name'];?><!--</p>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                --><?php
-//                            }
-//                            ?>
+                            <?php
+                            $osusumes = [
+                                'レジーナクリニック'=> [
+                                    'url'=> 'https://t.afi-b.com/visit.php?guid=ON&a=B8551a-G303613s&p=j648053O',
+                                    'img'=> 'https://www.afi-b.com/upload_image/8551-1511707642-3.png',
+                                    'star' => '4.89',
+                                ],
+                                'HMRクリニック'=> [
+                                    'url'=> 'https://t.afi-b.com/visit.php?guid=ON&a=x10802l-5364750L&p=j648053O',
+                                    'img'=> 'https://www.afi-b.com/upload_image/10802-1553274671-3.jpg',
+                                    'star' => '4.74',
+                                ],
+                                'リゼクリニック'=> [
+                                    'url'=> 'https://track.affiliate-b.com/visit.php?guid=ON&a=O5974K-t195506G&p=j648053O',
+                                    'img'=> 'https://www.affiliate-b.com/upload_image/5974-1379886349-3.gif',
+                                    'star' => '4.66',
+                                ],
+                            ];
+
+                            $count = 0;
+                            foreach ($osusumes as $name => $osusume) {
+                                $countCss = '';
+                                switch ($count):
+                                    case 0:
+                                        $countCss = 'first';
+                                        break;
+                                    case 1:
+                                        $countCss = 'second';
+                                        break;
+                                    case 2:
+                                        $countCss = 'third';
+                                        break;
+                                endswitch;
+                                ?>
+                                <li>
+                                    <a href="<?=$osusume['url']?>">
+                                        <p class="datsumou-ranking-panel__evaluation <?php echo $countCss;?>"><?=number_format($osusume['star'],2)?></p>
+                                        <?php echo $this->Html->image($osusume['img'], ['alt'=> ''])?>
+                                        <p class="datsumou-ranking-panel__text"><?=$name?></p>
+                                    </a>
+                                </li>
+                                <?php
+                                $count++;
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
