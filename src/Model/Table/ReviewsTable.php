@@ -408,6 +408,7 @@ class ReviewsTable extends AppTable
     	];
 
     	$selects = [
+            'Reviews.title',
     			'Reviews.content',
     			'Reviews.post_date',
     			'Reviews.evaluation',

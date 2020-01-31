@@ -210,7 +210,7 @@ use Cake\Routing\Router;
                                         <img src="<?php echo $imgUrl?> alt="">
                                         <div class="datsumou-evaluation-panel__text">
                                             <h3 class="home-evaluation-panel__title"><?php echo $salon['Shop']['name']?></h3>
-                                            <p class="home-evaluation-panel__thin"><?php echo $salon['content']?></p>
+                                            <p class="home-evaluation-panel__thin"><?php echo $salon['title']?></p>
                                             <p class="home-evaluation-panel__star">
                                       <span class="orange">
                                           <?php
