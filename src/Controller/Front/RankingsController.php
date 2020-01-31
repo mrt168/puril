@@ -39,7 +39,7 @@ class RankingsController extends FrontAppController {
 		}
 
 		$this->paginate = $shopTable->makeFindForRankingFront($wheres, PagingUtil::FRON_SEARCH);
-		$shops = $this->paginate('Shops');
+		$shops = $this->paginate('Shops')->toArray();
 
         // 口コミ取得
         $reviewTable = TableRegistry::get('Reviews');
