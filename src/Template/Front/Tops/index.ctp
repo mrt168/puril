@@ -31,6 +31,7 @@ echo $this->Html->css('datsumou');
 <header class="datsumou-header">
     <div class="datsumou-header-inner">
         <img class="datsumou-header-inner__img" src="/puril/images/header-logo-sp.png" srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x" alt="puril">
+        <!--
         <div class="menu-area">
             <input type="checkbox" id="menu">
             <label for="menu"></label>
@@ -57,6 +58,21 @@ echo $this->Html->css('datsumou');
                 </li>
             </ul>
         </div>
+        -->
+        <button type="button" class="datsumou-header-inner__navToggle">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="datsumou-header-inner__globalmenusp">
+            <p class="datsumou-header-inner__globalmenusp__logo">
+                <img src="/puril/images/header-logo-sp.png" srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x" alt="puril" />
+            </p>
+
+            <ul class="datsumou-header-inner__globalmenusp__linkboxs">
+                <li class="datsumou-header-inner__globalmenusp__linkbox">
+                    <a href="#" class="datsumou-header-inner__globalmenusp__link">Pupil TOP</a>
+                </li>
+            </ul>
+        </nav>
     </div>
     <div class="datsumou-header-mv">
         <div class="datsumou-header-mv-inner">
@@ -288,14 +304,14 @@ echo $this->Html->css('datsumou');
             </li>
             <li>
                 <h3 class="datsumou-characteristic-inner__title">ステマは一切おことわり</h3>
-                <img src="/puril/images/characteristic-ico02-sp.jpg" alt="">
+                <img src="/puril/images/characteristic-ico02-sp.png" alt="">
                 <p class="datsumou-characteristic-inner__text">
                     ユーザー様からのリアルな口コミだけを使って情報をご提供！ステマを一切排除することをお約束します。
                 </p>
             </li>
             <li>
                 <h3 class="datsumou-characteristic-inner__title">超充実の口コミ内容</h3>
-                <img src="/puril/images/characteristic-ico03-sp.jpg" alt="">
+                <img src="/puril/images/characteristic-ico03-sp.png" alt="">
                 <p class="datsumou-characteristic-inner__text">
                     口コミの質には徹底的なこだわりアリ！店舗探しで本当に役に立つ情報を提供してまいります。
                 </p>

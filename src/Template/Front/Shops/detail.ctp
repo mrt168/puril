@@ -22,11 +22,13 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 </header>
 <nav class="content shop-nav">
     <div class="shop-nav-item active"><a class="shop-nav-item-text" href="/datsumou/shop/">トップ</a></div>
-    <div class="shop-nav-item"><a class="shop-nav-item-text" href="/datsumou/shop/plan.html">料金プラン</a></div>
-    <div class="shop-nav-item"><a class="shop-nav-item-text" href="/datsumou/shop/photo.html">写真</a></div>
-    <div class="shop-nav-item"><a class="shop-nav-item-text" href="/datsumou/shop/kuchikomi.html">口コミ</a></div>
+    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#price">料金プラン</a></div>
+    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#photo">写真</a></div>
+    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#kuchikomi">口コミ</a></div>
+    <!--
     <div class="shop-nav-item"><a class="shop-nav-item-text" href="/datsumou/shop/campaign.html">キャンペーン</a></div>
-    <div class="shop-nav-item"><a class="shop-nav-item-text" href="/datsumou/shop/map.html">地図</a></div>
+    -->
+    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#address">地図</a></div>
 </nav>
 <section class="content shop-top">
     <div class="shop-top-img-area">
@@ -123,7 +125,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 <?php
 if (!empty($shop['price_plan_html'])) {
     ?>
-    <section class="content middle-content shop-plan">
+    <section class="content middle-content shop-plan" id="price">
         <h2 class="content-title">料金プラン</h2>
         <div>
             <?php
@@ -166,7 +168,7 @@ if (!empty($shop['price_plan_html'])) {
 $imagenum = count($shop['shop_images']);
 if($imagenum > 0):
     ?>
-    <section class="content middle-content shop-photo">
+    <section class="content middle-content shop-photo" id="photo">
         <h2 class="content-title">投稿写真</h2>
         <div class="shop-photo-list">
             <ul class="shop-photo-list-sub">
@@ -210,7 +212,7 @@ endif;
 <?php
 if (!empty($shop['reviews'])) {
     ?>
-    <section class="content middle-content shop-kuchikomi">
+    <section class="content middle-content shop-kuchikomi" id="kuchikomi">
         <h2 class="content-title">口コミ</h2>
         <ul class="shop-kuchikomi-list">
             <?php
@@ -321,7 +323,7 @@ if (!empty($shop['reviews'])) {
     <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="#"><i class="fas fa-comments kuchikomi-button-icon"></i>
             <div class="kuchikomi-button-text">口コミを書く</div></a></div>
 </section>
-<section class="content middle-content shop-address">
+<section class="content middle-content shop-address" id="address">
     <h2 class="content-title">住所</h2>
     <div class="shop-address-fix">修正</div><a class="clickable-button shop-address-detail" href="/datsumou/shop/map.html">
         <div class="shop-address-text"><?php echo $shop['address']?></div><i class="fas fa-chevron-right shop-address-arrow"></i></a>
