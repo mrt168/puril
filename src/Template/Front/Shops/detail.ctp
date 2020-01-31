@@ -29,7 +29,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 </header>
 <nav class="content shop-nav">
     <div class="shop-nav-item active"><a class="shop-nav-item-text" href="/datsumou/shop/">トップ</a></div>
-    <?php if(!empty($shop['price_plan_html'])):?>
+    <?php if(false):?>
     <div class="shop-nav-item"><a class="shop-nav-item-text" href="#price">料金プラン</a></div>
     <?php endif;
 
@@ -57,6 +57,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             elseif($imagenum > 1):
                 foreach ($shop['shop_images'] as $shopImage) {
                     echo $this->Html->image(['controller'=> 'images', 'action'=> 'shopImage', $shopImage['shop_image_id']],array('class'=>'shop-top-img', ));
+                    break;
                 }
             else:
                 echo '<img class="shop-top-img" src="/puril/images/img/datsumou/no-photo.jpg" alt="'.$shop->name.'">';
@@ -138,7 +139,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     <p class="content-text"><?php echo nl2br($shop['description_content']); ?></p>
 </section>
 <?php
-if (!empty($shop['price_plan_html'])) {
+if (false) {
     ?>
     <section class="content middle-content shop-plan" id="price">
         <h2 class="content-title">料金プラン</h2>
@@ -416,7 +417,7 @@ if (!empty($shop['reviews'])) {
             </div>
         <?php } ?>
         <?php
-        if (!empty($shop['price_plan_html'])) {
+        if (false) {
             ?>
             <div class="shop-info-detail-area">
                 <h3 class="shop-info-detail-title">料金プラン</h3>
