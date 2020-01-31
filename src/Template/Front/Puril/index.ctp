@@ -104,17 +104,26 @@ use Cake\Routing\Router;
                     <div id="panel01" class="home-ranking-panel-inner panel01">
                         <ul class="home-ranking-panel__list">
                             <?php
+                            $osusumes = [
+                                '恋肌'=> [
+                                    'url'=> 'https://t.afi-b.com/visit.php?guid=ON&a=a6684E-M243966D&p=j648053O',
+                                    'img'=> '/img/Top/koihada_top.jpg',
+                                    'star' => '4.87',
+                                ],
+                                'ストラッシュ'=> [
+                                    'url'=> 'https://track.affiliate-b.com/visit.php?guid=ON&a=47719r-V298788m&p=j648053O',
+                                    'img'=> '/img/stlassh.jpg',
+                                    'star' => '4.82',
+                                ],
+                                'ラココ'=> [
+                                    'url'=> 'https://www.tcs-asp.net/alink?AC=C102738&LC=MBTY1&SQ=0&isq=100',
+                                    'img'=> '/shop_img/466',
+                                    'star' => '4.71',
+                                ],
+                            ];
+
                             $count = 0;
-                            foreach ($rank_brand as $salon) {
-                                $imgUrl = '/shop_img/'.$salon['brand_id'];
-                                $shopUrl = "";
-                                $blank = "";
-                                if (!empty($salon['Shop']['affiliate_page_url'])) {
-                                    $shopUrl = $salon['Shop']['affiliate_page_url'];
-                                    $blank = "target='blank'";
-                                } else {
-                                    $shopUrl = Router::url(['controller'=> 'brands', 'action'=> 'detail', $salon['brand_id']]). "/";
-                                }
+                            foreach ($osusumes as $name => $osusume) {
                                 $countCss = '';
                                 switch ($count):
                                     case 0:
@@ -126,13 +135,13 @@ use Cake\Routing\Router;
                                     case 2:
                                         $countCss = 'third';
                                         break;
-                                    endswitch;
+                                endswitch;
                                 ?>
                                 <li>
-                                    <a href="<?php echo $shopUrl;?>">
-                                        <p class="home-ranking-panel__evaluation <?php echo $countCss;?>"><?=number_format($salon['star'],2)?></p>
-                                        <img src="<?php echo $imgUrl;?>" alt="">
-                                        <p class="home-ranking-panel__text"><?= $salon['name'];?></p>
+                                    <a href="<?=$osusume['url']?>">
+                                        <p class="home-ranking-panel__evaluation <?php echo $countCss;?>"><?=number_format($osusume['star'],2)?></p>
+                                        <?php echo $this->Html->image($osusume['img'], ['alt'=> ''])?>
+                                        <p class="home-ranking-panel__text"><?=$name?></p>
                                     </a>
                                 </li>
                                 <?php
