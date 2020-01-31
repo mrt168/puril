@@ -188,7 +188,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             if (!empty($shop['business_hours'])) { ?>
                                 <tr>
                                     <th>営業時間</th>
-                                    <td><?php echo $shop['business_hours']; ?></td>
+                                    <td><?php echo $shop->business_hours; ?></td>
                                 </tr>
 
                                 <?php
@@ -196,7 +196,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             if (!empty($shop['holiday'])) { ?>
                                 <tr>
                                     <th>定休日</th>
-                                    <td><?php echo $shop['holiday']; ?></td>
+                                    <td><?php echo $shop->holiday; ?></td>
                                 </tr>
                                 <?php
                             }
