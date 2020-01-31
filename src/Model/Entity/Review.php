@@ -10,18 +10,25 @@ use Cake\ORM\Entity;
  * @property int $shop_id
  * @property float $evaluation
  * @property int $question1
+ * @property int $question1_evaluation
  * @property int $question2
+ * @property int $question2_evaluation
  * @property int $question3
+ * @property int $question3_evaluation
  * @property int $question4
+ * @property int $question4_evaluation
  * @property int $question5
+ * @property int $question5_evaluation
  * @property int $question6
  * @property string $nickname
  * @property int $age
  * @property int $sex
+ * @property string $station
  * @property string $instagram_account
  * @property string $twitter_account
  * @property string $title
  * @property string $content
+ * @property \Cake\I18n\FrozenTime $birthday
  * @property \Cake\I18n\FrozenTime $created
  * @property int $create_user
  * @property \Cake\I18n\FrozenTime $modified
@@ -51,9 +58,16 @@ class Review extends Entity
         'question4' => true,
         'question5' => true,
         'question6' => true,
+        'question1_evaluation' => true,
+        'question2_evaluation' => true,
+        'question3_evaluation' => true,
+        'question4_evaluation' => true,
+        'question5_evaluation' => true,
         'nickname' => true,
         'age' => true,
         'sex' => true,
+        'birthday' => true,
+        'station' => true,
         'instagram_account' => true,
         'twitter_account' => true,
         'title' => true,

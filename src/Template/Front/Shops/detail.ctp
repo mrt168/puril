@@ -266,7 +266,7 @@ if (!empty($shop['reviews'])) {
                                     <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
                                     <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question1'], CodePattern::$VALUE) ?></div>
                                 </div>
-                                <p class="shop-kuchikomi-item-detail-text">スタッフさんの対応に大変好感が持てました。質問に対しても丁寧に答えてくださるほか、気さくに話かけてくれるので、楽しく通うことができています！</p>
+                                <p class="shop-kuchikomi-item-detail-text"><?= $review['question1_evaluation']?></p>
                             </div>
                             <div class="shop-kuchikomi-item-detail">
                                 <div class="shop-kuchikomi-item-detail-title">受けたサービスの「メニューや料金」についてはいかがでしたか？</div>
@@ -274,7 +274,7 @@ if (!empty($shop['reviews'])) {
                                     <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
                                     <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question2'], CodePattern::$VALUE) ?></div>
                                 </div>
-                                <p class="shop-kuchikomi-item-detail-text">料金には大変満足しています。私は学生で美容にあまりお金が掛けられないため、一番安いプランを選びました。しかし、Web上に書かれているプラン内容がややわかりづらいところはマイナスポイントです。</p>
+                                <p class="shop-kuchikomi-item-detail-text"><?= $review['question2_evaluation']?></p>
                             </div>
                             <div class="shop-kuchikomi-item-detail">
                                 <div class="shop-kuchikomi-item-detail-title">施術の「効果（技術や仕上がり）」はいかがでしたか？</div>
@@ -282,7 +282,7 @@ if (!empty($shop['reviews'])) {
                                     <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
                                     <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question3'], CodePattern::$VALUE) ?></div>
                                 </div>
-                                <p class="shop-kuchikomi-item-detail-text">念入りに施術していただき、ほとんど寝てしまっていたくらい気持ち良かったです。本当にありがとうございました。これからの季節、冷えなどで体がまた固くなると思いますので、またお世話になると思います。</p>
+                                <p class="shop-kuchikomi-item-detail-text"><?= $review['question3_evaluation']?></p>
                             </div>
                             <div class="shop-kuchikomi-item-detail">
                                 <div class="shop-kuchikomi-item-detail-title">店舗の「雰囲気」はいかがでしたか？</div>
@@ -290,7 +290,7 @@ if (!empty($shop['reviews'])) {
                                     <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
                                     <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question4'], CodePattern::$VALUE) ?></div>
                                 </div>
-                                <p class="shop-kuchikomi-item-detail-text">念入りに施術していただき、ほとんど寝てしまっていたくらい気持ち良かったです。本当にありがとうございました。これからの季節、冷えなどで体がまた固くなると思いますので、またお世話になると思います。</p>
+                                <p class="shop-kuchikomi-item-detail-text"><?= $review['question4_evaluation']?></p>
                             </div>
                             <div class="shop-kuchikomi-item-detail">
                                 <div class="shop-kuchikomi-item-detail-title">店舗の「通いやすさ／予約の取りやすさ」はいかがでしたか？</div>
@@ -298,12 +298,9 @@ if (!empty($shop['reviews'])) {
                                     <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
                                     <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question5'], CodePattern::$VALUE) ?></div>
                                 </div>
-                                <p class="shop-kuchikomi-item-detail-text">念入りに施術していただき、ほとんど寝てしまっていたくらい気持ち良かったです。本当にありがとうございました。これからの季節、冷えなどで体がまた固くなると思いますので、またお世話になると思います。</p>
+                                <p class="shop-kuchikomi-item-detail-text"><?= $review['question5_evaluation']?></p>
                             </div>
                         </div>
-                        <div class="datsumou-kuchikomi-item-detail-button-area"><a class="clickable-button datsumou-kuchikomi-item-detail-button" href="#"><i class="fas fa-reply datsumou-kuchikomi-item-detail-button-icon"></i>
-                                <div class="datsumou-kuchikomi-item-detail-button-text">返信</div></a><a class="clickable-button datsumou-kuchikomi-item-detail-button" href="#"><i class="fas fa-heart datsumou-kuchikomi-item-detail-button-icon"></i>
-                                <div class="datsumou-kuchikomi-item-detail-button-text">いいね！</div></a></div>
                     </div>
                 </li>
             <?php } ?>
@@ -322,8 +319,8 @@ if (!empty($shop['reviews'])) {
 </section>
 <section class="content middle-content shop-address" id="address">
     <h2 class="content-title">住所</h2>
-    <div class="shop-address-fix">修正</div><a class="clickable-button shop-address-detail" href="/datsumou/shop/map.html">
-        <div class="shop-address-text"><?php echo $shop['address']?></div><i class="fas fa-chevron-right shop-address-arrow"></i></a>
+    <a class="clickable-button shop-address-detail" href="">
+        <div class="shop-address-text"><?php echo $shop['address']?></div></a>
     <div class="shop-address-map">
         <div id="map"></div>
     </div>
@@ -439,7 +436,8 @@ if (!empty($shop['reviews'])) {
         ?>
     </div>
     <div class="shop-info-detail-remark"><?php echo $shop['name'];?>の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</div>
-    <div class="shop-info-detail-report"><a class="clickable-button shop-info-detail-report-button" href="#">誤りを報告する</a></div>
+    <div class="shop-info-detail-report">
+        <?php echo $this->Html->link('誤りを報告する', ['controller'=> 'contacts', 'action'=> 'contact'],['class'=>'clickable-button shop-info-detail-report-button']);?></div>
 </section>
 <section class="content shop-share">
     <h2 class="content-title">シェア</h2>

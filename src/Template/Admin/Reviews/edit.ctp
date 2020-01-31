@@ -32,46 +32,60 @@ use App\Vendor\Code\ShowFlg;
 				</div>
 				<hr>
 				<div class="form-group">
-					<label>治療前の説明は十分でしたか？</label><br>
+					<label>店舗の「接客／サービス」はいかがでしたか？</label><br>
 					<?php
 					echo $this->ExForm->satisfaction('Reviews.question1', array('id'=> 'question1', 'type'=> 'radio'));
 					echo $this->ExForm->error('Reviews.question1');
 					?>
+                    <?php
+                    echo $this->ExForm->textarea('Reviews.question1_evaluation', array('id'=> 'question1_evaluation', 'class'=> 'form-control'));
+                    echo $this->ExForm->error('Reviews.question1_evaluation');
+                    ?>
 				</div>
 				<div class="form-group">
-					<label>痛みへの配慮はいかがでしたか？</label><br>
+					<label>受けたサービスの「メニューや料金」についてはいかがでしたか？</label><br>
 					<?php
 					echo $this->ExForm->satisfaction('Reviews.question2', array('id'=> 'question2', 'type'=> 'radio'));
 					echo $this->ExForm->error('Reviews.question2');
 					?>
+
+                    <?php
+                    echo $this->ExForm->textarea('Reviews.question2_evaluation', array('id'=> 'question2_evaluation', 'class'=> 'form-control'));
+                    echo $this->ExForm->error('Reviews.question2_evaluation');
+                    ?>
 				</div>
 				<div class="form-group">
-					<label>スタッフの態度、対応はいかがでしたか？</label><br>
+					<label>施術の「効果（技術や仕上がり）」はいかがでしたか？</label><br>
 					<?php
 					echo $this->ExForm->satisfaction('Reviews.question3', array('id'=> 'question3', 'type'=> 'radio'));
 					echo $this->ExForm->error('Reviews.question3');
 					?>
+                    <?php
+                    echo $this->ExForm->textarea('Reviews.question3_evaluation', array('id'=> 'question3_evaluation', 'class'=> 'form-control'));
+                    echo $this->ExForm->error('Reviews.question3_evaluation');
+                    ?>
 				</div>
 				<div class="form-group">
-					<label>店舗の雰囲気、設備、清潔感はいかがでしたか？</label><br>
+					<label>店舗の「雰囲気」はいかがでしたか？</label><br>
 					<?php
 					echo $this->ExForm->satisfaction('Reviews.question4', array('id'=> 'question4', 'type'=> 'radio'));
 					echo $this->ExForm->error('Reviews.question4');
 					?>
+                    <?php
+                    echo $this->ExForm->textarea('Reviews.question4_evaluation', array('id'=> 'question4_evaluation', 'class'=> 'form-control'));
+                    echo $this->ExForm->error('Reviews.question4_evaluation');
+                    ?>
 				</div>
 				<div class="form-group">
-					<label>待ち時間、予約対応はいかがでしたか？</label><br>
+					<label>店舗の「通いやすさ／予約の取りやすさ」はいかがでしたか？</label><br>
 					<?php
 					echo $this->ExForm->satisfaction('Reviews.question5', array('id'=> 'question5', 'type'=> 'radio'));
 					echo $this->ExForm->error('Reviews.question5');
 					?>
-				</div>
-				<div class="form-group">
-					<label>術前、術中、術後の対応はいかがでしたか？</label><br>
-					<?php
-					echo $this->ExForm->satisfaction('Reviews.question6', array('id'=> 'question6', 'type'=> 'radio'));
-					echo $this->ExForm->error('Reviews.question6');
-					?>
+                    <?php
+                    echo $this->ExForm->textarea('Reviews.question5_evaluation', array('id'=> 'question5_evaluation', 'class'=> 'form-control'));
+                    echo $this->ExForm->error('Reviews.question5_evaluation');
+                    ?>
 				</div>
 				<hr>
 				<div class="form-group">
@@ -82,31 +96,17 @@ use App\Vendor\Code\ShowFlg;
 					?>
 				</div>
 				<div class="form-group">
-					<label>年齢<span class="required-mark">※</span></label><br>
-					<?php
-					echo $this->ExForm->age('Reviews.age', array('id'=> 'age', 'class'=> 'form-control inline', 'style'=> 'width: 80px;')). " 歳";
-					echo $this->ExForm->error('Reviews.age');
-					?>
+					<label>生年月日<span class="required-mark">※</span></label><br>
+                    <?php
+                    echo $this->ExForm->text('Reviews.birthday', array('class'=> 'form-control inline datetimepicker', 'style'=>'width: 40%'));
+                    echo $this->ExForm->error('Reviews.birthday');
+                    ?>
 				</div>
 				<div class="form-group">
 					<label>性別<span class="required-mark">※</span></label><br>
 					<?php
 					echo $this->ExForm->sex('Reviews.sex', array('id'=> 'sex', 'type'=> 'radio', 'default'=> Sex::$MAN[CodePattern::$CODE]));
 					echo $this->ExForm->error('Reviews.sex');
-					?>
-				</div>
-				<div class="form-group">
-					<label>Instagramアカウント</label><br>
-					<?php
-					echo $this->ExForm->text('Reviews.instagram_account', array('id'=> 'instagram_account', 'class'=> 'form-control'));
-					echo $this->ExForm->error('Reviews.instagram_account');
-					?>
-				</div>
-				<div class="form-group">
-					<label>Twitterアカウント</label><br>
-					<?php
-					echo $this->ExForm->text('Reviews.twitter_account', array('id'=> 'twitter_account', 'class'=> 'form-control'));
-					echo $this->ExForm->error('Reviews.twitter_account');
 					?>
 				</div>
 				<div class="form-group">
@@ -124,14 +124,14 @@ use App\Vendor\Code\ShowFlg;
 					?>
 				</div>
 				<div class="form-group">
-					<label>口コミ タイトル<span class="required-mark">※</span></label><br>
+					<label>受けた施術等の名前<span class="required-mark">※</span></label><br>
 					<?php
 					echo $this->ExForm->text('Reviews.title', array('id'=> 'title', 'class'=> 'form-control'));
 					echo $this->ExForm->error('Reviews.title');
 					?>
 				</div>
 				<div class="form-group">
-					<label>口コミ 本文<span class="required-mark">※</span></label><br>
+					<label>この店舗の総合的な感想を、20文字程度で感想を教えてください。<span class="required-mark">※</span></label><br>
 					<?php
 					echo $this->ExForm->textarea('Reviews.content', array('id'=> 'content', 'class'=> 'form-control'));
 					echo $this->ExForm->error('Reviews.content');
