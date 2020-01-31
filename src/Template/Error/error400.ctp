@@ -51,7 +51,7 @@ echo $this->Html->css('sitemap');
             お手数では御座いますが、以下の情報より、再度目的のページをお探しいただけますと幸いです。
         </p>
         <p class="not-found-back-to-top">
-            <img src="puril/images/arrow-right.png" alt=""><a href="">トップページへ</a>
+            <img src="puril/images/arrow-right.png" alt=""><a href="/">トップページへ</a>
         </p>
     </div>
     <ul class="area-search__list">
