@@ -31,95 +31,10 @@ echo $this->Html->link($pref['pref'], ['controller'=> 'searchs', 'action'=> 'sea
 echo $this->Html->css('datsumou');
 ?>
     <header class="datsumou-header">
-        <div class="datsumou-header-inner">
-            <img class="datsumou-header-inner__img" src="/puril/images/header-logo-sp.png"
-                srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x" alt="puril">
-            <!--
-        <div class="menu-area">
-            <input type="checkbox" id="menu">
-            <label for="menu"></label>
-            <ul class="menu-item">
-                <li>
-                    <a href="">
-                        <p>テキスト</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <p>テキスト</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <p>テキスト</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <p>テキスト</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        -->
-            <button type="button" class="datsumou-header-inner__navToggle">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="datsumou-header-inner__globalmenusp">
-                <p class="datsumou-header-inner__globalmenusp__logo">
-                    <a href="/">
-                        <img src="/puril/images/header-logo-sp.png"
-                            srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x"
-                            alt="puril" />
-                    </a>
-                </p>
+        <?php
+        echo $this->element('Front/header')
+        ?>
 
-                <ul class="datsumou-header-inner__globalmenusp__linkboxs">
-                    <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <a href="/" class="datsumou-header-inner__globalmenusp__link" data-icon="home">Pupil TOP</a>
-                    </li>
-                    <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <span class="datsumou-header-inner__globalmenusp__link close js-spmenu_acc" data-icon="search">脱毛店舗を検索</span>
-                        <ul class="datsumou-header-inner__globalmenusp__submenu">
-                             <li><a href="/">検索TOP</a></li>
-                             <li><a href="/">脱毛サロンを探す</a></li>
-                             <li><a href="/">医療脱毛クリニックを探す</a></li>
-                         </ul> 
-                    </li>
-                    <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <span class="datsumou-header-inner__globalmenusp__link close js-spmenu_acc" data-icon="search_shop">店舗名から探す</span>
-                        <ul class="datsumou-header-inner__globalmenusp__submenu">
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                         </ul> 
-                    </li>
-                    <!-- <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <span class="datsumou-header-inner__globalmenusp__link close js-spmenu_acc" data-icon="ranking">口コミランキング</span>
-                        <ul class="datsumou-header-inner__globalmenusp__submenu">
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                         </ul> 
-                    </li> -->
-                    <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <a href="/" class="datsumou-header-inner__globalmenusp__link" data-icon="contact">お問い合わせ</a>
-                    </li>
-                </ul>
-                <div class="datsumou-header-inner__globalmenusp__sns">
-                    <a href="/" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><i class="fab fa-twitter"></i><span>ツイート</span></a>
-                    <a href="/" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><i class="fab fa-facebook-f"></i></i><span>シェア</span></a>
-                    <a href="/" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><img src="/puril/images/ico_hatena.svg" alt=""></i><span>はてぶ</span></a>
-                    <a href="/" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><img src="/puril/images/ico_line.svg" alt=""></i><span>シェア</span></a>
-                </div>
-            </nav>
-        </div>
         <div class="datsumou-header-mv">
             <div class="datsumou-header-mv-inner">
                 <p><span class="datsumou-header-mv-inner__text--large">みんな</span>の</p>
@@ -129,7 +44,6 @@ echo $this->Html->css('datsumou');
                     <p class="datsumou-header-mv-inner__text--middle">10000件以上！</p>
                 </div>
             </div>
-        </div>
         </div>
     </header>
     <main class="datsumou-main">
@@ -146,7 +60,6 @@ echo $this->Html->css('datsumou');
                 -->
                     <button class="search" type="submit" name="free_word_search"><img
                             src="/puril/images/ico_search_wht.png" alt="絞込み"></button>
-
                 </div>
                 <?php
             echo $this->ExForm->end();
@@ -183,11 +96,11 @@ echo $this->Html->css('datsumou');
                     <!--                <li>-->
                     <!--                    <a href="">脱毛部位<span class="small">から探す</span></a>-->
                     <!--                </li>-->
-                    <li>
-                        <a
-                            href="<?php echo Router::url('/datsumou/brands')?>">脱毛サロン・クリニック一覧<span
-                                class="small">から探す</span></a>
-                    </li>
+<!--                    <li>-->
+<!--                        <a-->
+<!--                            href="--><?php //echo Router::url('/datsumou/brands')?><!--">脱毛サロン・クリニック一覧<span-->
+<!--                                class="small">から探す</span></a>-->
+<!--                    </li>-->
                     <!--                <li>-->
                     <!--                    <a href=""><img src="/puril/images/datsumou-area-ico02-sp.png" alt="">こだわり条件<span class="small">から探す</span></a>-->
                     <!--                </li>-->
@@ -417,74 +330,26 @@ echo $this->Html->css('datsumou');
             </ul>
         </div>
     </main>
+    <a href="https://puril.net/campaign/">
+        <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+    </a>
 
-    <footer class="datsumou-footer">
-        <a href="https://puril.net/campaign/">
-            <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
-        </a>
-        <div class="Search__breadcrumbs">
-            <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-                        href="<?=Router::url('/')?>"><span
+    <div class="Search__breadcrumbs">
+        <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+                   href="<?=Router::url('/')?>"><span
                             itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
-                    <meta itemprop="position" content="1">
-                </li>
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <span itemprop="name">脱毛</span>
-                    <meta itemprop="position" content="2">
-                </li>
-            </ol>
-        </div>
-        <div class="datsumou-footer__inner">
-            <ul class="datsumou-footer__category01">
-                <li class="datsumou-footer__category__li no-link">
-                    <a href="/datsumou/" class="datsumou-footer__category__li__link">脱毛</a>
-                </li>
-                <li class="datsumou-footer__category__li no-link">
-                    <a href="" class="datsumou-footer__category__li__link">リラク</a>
-                </li>
-                <li class="datsumou-footer__category__li no-link">
-                    <a href="" class="datsumou-footer__category__li__link">痩身</a>
-                </li>
-                <li class="datsumou-footer__category__li no-link">
-                    <a href="" class="datsumou-footer__category__li__link">フェイシャル</a>
-                </li>
-            </ul>
-
-            <ul class="datsumou-footer__category02">
-                <li class="datsumou-footer__category__li">
-                    <a href="https://tsuru-tsuru.co.jp/" target="_blank"
-                        class="datsumou-footer__category__li__link">運営企業</a>
-                </li>
-                <li class="datsumou-footer__category__li">
-                    <a href="/regulation" class="datsumou-footer__category__li__link">利用規約</a>
-                </li>
-                <li class="datsumou-footer__category__li">
-                    <a href="/privacy-policy" class="datsumou-footer__category__li__link">プライバシーポリシー</a>
-                </li>
-                <li class="datsumou-footer__category__li">
-                    <a href="/sitemap" class="datsumou-footer__category__li__link">サイトマップ</a>
-                </li>
-            </ul>
-            <ul class="datsumou-footer__category03">
-                <li class="datsumou-footer__category__li">
-                    <a href="https://puril.net/campaign/" class="datsumou-footer__category__li__link">口コミキャッシュバック</a>
-                </li>
-                <li class="datsumou-footer__category__li">
-                    <a href="/form_user" class="datsumou-footer__category__li__link">ユーザーレビューのお問い合わせ</a>
-                </li>
-                <li class="datsumou-footer__category__li last">
-                    <a href="/form_facility" class="datsumou-footer__category__li__link">施設情報掲載のお問い合わせ</a>
-                </li>
-            </ul>
-        </div>
-        <div class="datsumou-footer__credit">
-            <img src="/puril/images/footer-logo-sp.png" alt="">
-            <p>Copyright © ツルツル株式会社 All rights reserved.</p>
-        </div>
-    </footer>
+                <meta itemprop="position" content="1">
+            </li>
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                <span itemprop="name">脱毛</span>
+                <meta itemprop="position" content="2">
+            </li>
+        </ol>
+    </div>
     <?php
+<<<<<<< HEAD
     echo $this->element('Front/no_voice_modal') ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -516,4 +381,7 @@ echo $this->Html->css('datsumou');
 
         });
     </script>
+=======
+    echo $this->element('Front/footer') ?>
+>>>>>>> 59813b262bb24b22cc99b2292a0aa6b666a2f5ea
 </body>

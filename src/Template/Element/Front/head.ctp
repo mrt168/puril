@@ -70,15 +70,15 @@ echo $this->Html->script(
 		['type'=> 'text/javascript']);
 echo $this->Html->script(
 		[
-				'https://puril.net/js/front/swiper.min.js',
-				'https://puril.net/js/front/drawer.min.js',
+				'/js/front/swiper.min.js',
+				'/js/front/drawer.min.js',
 				'//cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js',
-				'https://puril.net/js/front/animatedModal.min.js',
-				'https://puril.net/js/front/all.js',
+				'/js/front/animatedModal.min.js',
+				'/js/front/all.js',
 				'//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js',
 				'//code.jquery.com/ui/1.12.1/jquery-ui.min.js',
-				'https://puril.net/js/front/datepicker-ja.js',
-				'https://puril.net/js/front/gmaps.min.js',
+				'/js/front/datepicker-ja.js',
+				'/js/front/gmaps.min.js',
 		],
 		['type'=> 'text/javascript','defer' => true]);
 

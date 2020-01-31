@@ -12,22 +12,37 @@ use App\Vendor\Code\ImageType;
 use App\Vendor\Code\ImagePositionType;
 ?>
 <body>
+<style>
+    #map {
+        height: 200px;
+    }
+</style>
 <?php
+echo $this->Html->css('datsumou');
 echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/shop/common', 'datsumou/shop/index', 'datsumou/photodetail']);
 ?>
-<header class="shop-header">
-    <div class="shop-header-inner"><a class="shop-header-back" href="/datsumou/brand"><i class="fas fa-chevron-left"></i></a>
-        <div class="shop-header-title">キレイモ新宿本店</div><a class="shop-header-post" href="#">投稿</a>
-    </div>
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMXTyYIMqJTZPtem60iMfu3ZKYn3Nj0wI"></script>
+<header class="datsumou-header">
+    <?php
+    echo $this->element('Front/header')
+    ?>
 </header>
 <nav class="content shop-nav">
     <div class="shop-nav-item active"><a class="shop-nav-item-text" href="/datsumou/shop/">トップ</a></div>
+    <?php if(!empty($shop['price_plan_html'])):?>
     <div class="shop-nav-item"><a class="shop-nav-item-text" href="#price">料金プラン</a></div>
+    <?php endif;
+
+    $imagenum = count($shop['shop_images']);
+    if ($imagenum > 0):
+    ?>
     <div class="shop-nav-item"><a class="shop-nav-item-text" href="#photo">写真</a></div>
+    <?php
+    endif;
+    if (!empty($shop['reviews'])) {
+    ?>
     <div class="shop-nav-item"><a class="shop-nav-item-text" href="#kuchikomi">口コミ</a></div>
-    <!--
-    <div class="shop-nav-item"><a class="shop-nav-item-text" href="/datsumou/shop/campaign.html">キャンペーン</a></div>
-    -->
+    <?php } ?>
     <div class="shop-nav-item"><a class="shop-nav-item-text" href="#address">地図</a></div>
 </nav>
 <section class="content shop-top">
@@ -162,7 +177,6 @@ if (!empty($shop['price_plan_html'])) {
 <!--    </ul><a class="show-more clickable-button" href="/datsumou/shop/campaign.html">キャンペーンをもっと見る（4件）</a>-->
 <!--</section>-->
 <?php
-$imagenum = count($shop['shop_images']);
 if($imagenum > 0):
     ?>
     <section class="content middle-content shop-photo" id="photo">
@@ -444,18 +458,10 @@ if (!empty($shop['reviews'])) {
     <div class="share-twitter"><a class="clickable-button share-twitter-button" href="//twitter.com/share?url=https://puril.net"><i class="fab fa-twitter twitter-icon"></i>
             <div class="share-twitter-text">Twitter</div></a></div>
 </section>
-<nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
-    <ul class="breadcrumbs-list">
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">脱毛</a></li>
-        <li><a href="#">全国脱</a></li>
-        <li><a href="#">全国脱毛サ</a></li>
-        <li><a href="#">東京脱</a></li>
-        <li><a href="#">キレイモ新宿</a></li>
-    </ul>
-</nav>
-<footer class="content shop-footer"><a class="button-base kuchikomi-button" href="/datsumou/kuchikomi-entry.html"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
-        <div class="kuchikomi-button-text">口コミを書く</div></a><a class="button-base reservatopn-button" href="#"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
+<footer class="content shop-footer">
+    <a class="button-base kuchikomi-button" href=""><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
+        <div class="kuchikomi-button-text">口コミを書く</div></a>
+    <a class="button-base reservatopn-button" href="/form_user"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
         <div class="reservatopn-button-text">電話・ネット予約</div></a></footer>
 <div class="content photo-modal" id="photo-modal">
     <div class="photo-detail-wrap">
@@ -575,5 +581,50 @@ if (!empty($shop['reviews'])) {
         });
     });
 </script>
+<a href="https://puril.net/campaign/">
+    <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+</a>
+
+<div class="Search__breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/')?>"><span
+                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/datsumou')?>"><span itemprop="name">脱毛</span></a>
+            <meta itemprop="position" content="2">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name">全国の脱毛施設</span></a>
+            <meta itemprop="position" content="3">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name">全国の<?php echo ShopType::convert($shop['shop_type'], CodePattern::$VALUE)?></span></a>
+            <meta itemprop="position" content="4">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <?php echo $this->Html->link("<span>全国の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
+            <meta itemprop="position" content="5">
+        </li>
+
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <?php echo $this->Html->link("<span>{$shop['Area']['name']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], URLUtil::CITY.$shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
+            <meta itemprop="position" content="6">
+        </li>
+
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <?php echo "<span itemprop='name'>{$shop['name']}</span>"?>
+            <meta itemprop="position" content="7">
+        </li>
+    </ol>
+</div>
+<?php
+echo $this->element('Front/footer') ?>
 </body>
 </html>

@@ -39,14 +39,14 @@ class RankingsController extends FrontAppController {
 		}
 
 		$this->paginate = $shopTable->makeFindForRankingFront($wheres, PagingUtil::FRON_SEARCH);
-		$shops = $this->paginate('Shops')->toArray();
+		$shops = $this->paginate('Shops');
 
         // 口コミ取得
         $reviewTable = TableRegistry::get('Reviews');
         foreach ($shops as $key => $brand) {
             $reviews = [];
             $reviews = $reviewTable->findByShopIds($brand['shop_id'], 3)->toArray();
-            $shops[$key]['reviews'] = $reviews;
+            $shopss[$key]['reviews'] = $reviews;
         }
 
 		// 最寄駅取得
@@ -82,6 +82,13 @@ class RankingsController extends FrontAppController {
 			$this->getStation($addShops);
 			$this->set('addShops', $addShops);
 		}
+        // 口コミ取得
+//        $reviewTable = TableRegistry::get('Reviews');
+//        foreach ($shops as $key => $brand) {
+//            $reviews = [];
+//            $reviews = $reviewTable->findByShopIds($brand['shop_id'],3)->toArray();
+//            $shops->toArray($key)['reviews'] = $reviews;
+//        }
 
 		$isBrandRanking = false;
 		$this->set(compact('shops', 'isBrandRanking'));

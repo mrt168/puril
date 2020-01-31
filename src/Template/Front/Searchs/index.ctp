@@ -1,18 +1,31 @@
 <?php
 use App\Vendor\Code\ShopType;
 use App\Vendor\Code\CodePattern;
+use Cake\Routing\Router;
 ?>
 <body>
 <?php
+echo $this->Html->css('datsumou');
 echo $this->Html->css(['css/main', 'css/search']);
 ?>
-<div class="Search">
-    <header class="Search__header">
-        <div class="Search__header__inner">
-            <a href="#" class="Search__header__close"><img src="/puril/images/ico_close.svg" alt="閉じる"></a>
-            <div class="Search__header__title">全国から探す</div>
+<header class="datsumou-header">
+    <?php
+    echo $this->element('Front/header')
+    ?>
+
+    <div class="datsumou-header-mv">
+        <div class="datsumou-header-mv-inner">
+            <p><span class="datsumou-header-mv-inner__text--large">みんな</span>の</p>
+            <p><span class="datsumou-header-mv-inner__text--middle">脱毛口コミ</span>サイト</p>
+            <div class="datsumou-header-mv-inner__text-search__list">
+                <p>掲載件数</p>
+                <p class="datsumou-header-mv-inner__text--middle">10000件以上！</p>
+            </div>
         </div>
-    </header>
+    </div>
+</header>
+<div class="Search">
+
     <div class="Search__contents">
         <div class="Search__title"><span>脱毛サロン・クリニックを全国から探す</span></div>
         <div class="Search__input">
@@ -42,21 +55,44 @@ echo $this->Html->css(['css/main', 'css/search']);
             ?>
         </ul>
     </div>
-    <div class="Search__breadcrumbs">
-        <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href=""><span itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
-                <meta itemprop="position" content="1" />
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href=""><span itemprop="name">脱毛</span></a>
-                <meta itemprop="position" content="2" />
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <span itemprop="name">全国の脱毛施設</span>
-                <meta itemprop="position" content="3" />
-            </li>
-        </ol>
-    </div>
 </div>
+<a href="https://puril.net/campaign/">
+    <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+</a>
+
+<div class="Search__breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/')?>"><span
+                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <span itemprop="name">脱毛</span>
+            <meta itemprop="position" content="2">
+        </li>
+    </ol>
+</div>
+<div class="Search__breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/')?>"><span
+                    itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/datsumou')?>"><span itemprop="name">脱毛</span></a>
+            <meta itemprop="position" content="2">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <?php echo "<span itemprop='name'>全国の脱毛施設</span>"?>
+            <meta itemprop="position" content="3">
+        </li>
+    </ol>
+</div>
+<?php
+echo $this->element('Front/footer') ?>
 </body>

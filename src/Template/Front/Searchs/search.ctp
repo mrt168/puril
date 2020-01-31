@@ -48,18 +48,17 @@ if (!empty($conditions)) {
 ?>
 <body>
 <?php
+echo $this->Html->css('datsumou');
 echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/search/index']);
 ?>
-<header class="datsumou-search-header">
-    <div class="datsumou-search-header-inner"><a href="#"><i class="fas fa-chevron-left datsumou-search-header-arrow"></i></a>
-        <div class="datsumou-search-header-input-area"><i class="fas fa-search datsumou-search-header-input-search"></i>
-            <input class="datsumou-search-header-input" type="text" placeholder="サロン・クリニック名を…"><i class="fas fa-times-circle datsumou-search-header-input-cancel"></i>
-        </div><a href="#"><img class="datsumou-search-header-twobar" src="/puril/images/img/datsumou/twobar.png"></a>
-    </div>
+<header class="datsumou-header">
+    <?php
+    echo $this->element('Front/header')
+    ?>
 </header>
 <div class="content search-condition">
     <div class="search-condition-text"><?php echo $placeName;?> <?php echo $shopTypeVal;	?> <?php echo $condition;?></div>
-    <div class="button-base search-condition-change"><i class="fas fa-search search-condition-change-icon"></i><a class="plain-link search-condition-change-text" href="#">条件変更</a></div>
+    <div class="button-base search-condition-change"><a class="plain-link search-condition-change-text" href="/datsumou/search"><i class="fas fa-search search-condition-change-icon"></i>条件変更</a></div>
 </div>
 <div class="content-base search-shop">
     <ul class="search-shop-list">
@@ -176,7 +175,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                                         <?php
                                         $nearStations = '';
                                         foreach ($shop->station_name as $key => $stationName) {
-                                            $nearStations .= $this->Html->link($stationName, '/datsumou/search/'.$shop->PrefData['url_text'].'/'. URLUtil::CITY. $shop->area_id[$key]. "/". URLUtil::STATION_G. $shop->station_g_cd[$key]);
+                                            $nearStations .= $stationName;
                                             $nearStations .= '、';
                                         }
                                         echo mb_substr($nearStations, 0, mb_strlen($nearStations) - 1);
@@ -185,7 +184,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                                 </tr>
                                 <?php
                             }
-                            if (!empty($shop['business_hours'])) { ?>
+                            if (!empty($shop->business_hours)) { ?>
                                 <tr>
                                     <th>営業時間</th>
                                     <td><?php echo $shop->business_hours; ?></td>
@@ -193,7 +192,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 
                                 <?php
                             }
-                            if (!empty($shop['holiday'])) { ?>
+                            if (!empty($shop->holiday)) { ?>
                                 <tr>
                                     <th>定休日</th>
                                     <td><?php echo $shop->holiday; ?></td>
@@ -262,11 +261,24 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     </ul>
     <div class="search-shop-ranking"><a class="button-base search-shop-rainking-button" href="<?php echo Router::url('/datsumou/ranking')?>">ランキングを見る</a></div>
 </div>
-<nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
-    <ul class="breadcrumbs-list">
-        <li><a href="<?=Router::url('/')?>">ホーム</a></li>
-        <li><a href="<?=Router::url('/datsumou')?>">脱毛</a></li>
-        <li><a href="<?=Router::url('/datsumou'. URLUtil::SEARCH. "/")?>">全国の脱毛施設</a></li>
+<div class="Search__breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/')?>"><span
+                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/datsumou')?>"><span itemprop="name">脱毛</span></a>
+            <meta itemprop="position" content="2">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name">全国の脱毛施設</span></a>
+            <meta itemprop="position" content="3">
+        </li>
         <?php
         $i = 1;
         $pankzuCnt = count($pankuzus);
@@ -274,26 +286,25 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             if ($i == $pankzuCnt) {
 
                 ?>
-                <span class="breaditem"><span><?php echo $pankuzu['val']?></span></span>
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <?php echo "<span itemprop='name'>{$pankuzu['val']}</span>"?>
+                    <meta itemprop="position" content="<?php echo $i + 3;?>">
+                </li>
                 <?php
                 continue;
             }
             ?>
-            <li><a href="<?=$pankuzu['url']. "/"?>"><?php echo $pankuzu['val']?></a></li>
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+                   href="<?=$pankuzu['url']. "/"?>"><span itemprop="name"><?php echo $pankuzu['val']?></span></a>
+                <meta itemprop="position" content="<?php echo $i + 3;?>">
+            </li>
             <?php
             $i++;
         }
         ?>
-    </ul>
-</nav>
-<footer class="content datsumou-footer">
-    <ul class="datsumou-footer-list">
-        <li class="datsumou-footer-item active"><a href="/datsumou/search/"><i class="fas fa-search datsumou-footer-item-icon"></i>
-                <div class="datsumou-footer-item-text">探す</div></a></li>
-        <li class="datsumou-footer-item"><a href="#"><i class="fas fa-comments datsumou-footer-item-icon"></i>
-                <div class="datsumou-footer-item-text">口コミ</div></a></li>
-        <li class="datsumou-footer-item"><a href="/datsumou/ranking/"><i class="fas fa-crown datsumou-footer-item-icon"></i>
-                <div class="datsumou-footer-item-text">ランキング</div></a></li>
-    </ul>
-</footer>
+    </ol>
+</div>
+<?php
+echo $this->element('Front/footer') ?>
 </body>

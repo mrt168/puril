@@ -156,8 +156,7 @@
             transform: translateY(-50%);
     color: #B5B5B5; }
 
-.datsumou-footer {
-  padding: 1em 16px; }
+.datsumou-footer {}
   .datsumou-footer .datsumou-footer-list {
     display: -webkit-box;
     display: -webkit-flex;

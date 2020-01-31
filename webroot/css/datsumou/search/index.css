@@ -132,13 +132,9 @@
     -webkit-justify-content: space-between;
        -moz-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-       -moz-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
+            justify-content: space-between;}
     .search-shop-best .search-shop-best-list .search-shop-best-item {
+      width: 33%;
       text-align: center; }
       .search-shop-best .search-shop-best-list .search-shop-best-item .search-shop-best-rank {
         display: -webkit-box;
@@ -162,7 +158,8 @@
           color: #FF4E4E;
           font-weight: bold; }
       .search-shop-best .search-shop-best-list .search-shop-best-item .search-shop-best-img {
-        padding: 1.5em 0; }
+        padding: 1em 0;
+        height: 100px; }
       .search-shop-best .search-shop-best-list .search-shop-best-item .search-shop-best-name {
         padding-bottom: 1.5em; }
   .search-shop-best .search-shop-ranking .search-shop-rainking-button {

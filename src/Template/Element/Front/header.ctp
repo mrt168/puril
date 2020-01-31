@@ -3,37 +3,66 @@ use App\Vendor\Constants;
 use Cake\Routing\Router;
 ?>
 <div id="afbkwjs" style="display:none;"><script type="text/javascript" src="//track.affiliate-b.com/or/kw.js?ps=j648053O" async></script></div>
+<div class="datsumou-header-inner">
+    <a href="/">
+    <img class="datsumou-header-inner__img" src="/puril/images/header-logo-sp.png"
+         srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x" alt="puril">
+    </a>
+    <button type="button" class="datsumou-header-inner__navToggle">
+        <span></span><span></span><span></span>
+    </button>
+    <nav class="datsumou-header-inner__globalmenusp">
+        <p class="datsumou-header-inner__globalmenusp__logo">
+            <a href="/">
+                <img src="/puril/images/header-logo-sp.png"
+                     srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x"
+                     alt="puril" />
+            </a>
+        </p>
 
-<header id="header">
-    <div class="inner">
-        <div class="headwrap cf">
-            <div class="snsshare cf">
-                <ul>
-                    <li class="in"><a href="//www.instagram.com/datsumou.love?ref=badge" target="_blank"><?php echo $this->Html->image('/img/home/header_icon_insta.png', ['fullBase' => true,'alt'=> 'instagram']);?></a></li>
-                    <li class="tw"><a href="//twitter.com/share?url=https://puril.net" target="_blank"><?php echo $this->Html->image('/img/home/header_icon_twitter.png', ['fullBase' => true,'alt'=> 'twitter']);?></a></li>
-                    <li class="fb"><a href="//www.facebook.com/sharer/sharer.php?u=https://puril.net" target="_blank"><?php echo $this->Html->image('/img/home/header_icon_fb.png', ['fullBase' => true,'alt'=> 'facebook']);?></a></li>
-                    <li class="hb"><a href="//b.hatena.ne.jp/add?mode=confirm&url=https://puril.net" target="_blank" rel="nofollow"><?php echo $this->Html->image('/img/home/header_icon_hatebu.png', ['fullBase' => true,'alt'=> 'hatebu']);?></a></li>
-                    <li class="li"><a href="//line.me/R/msg/text/?https://puril.net" target="_blank"><?php echo $this->Html->image('/img/home/header_icon_line.png', ['fullBase' => true,'alt'=> 'line']);?></a></li>
+        <ul class="datsumou-header-inner__globalmenusp__linkboxs">
+            <li class="datsumou-header-inner__globalmenusp__linkbox">
+                <a href="/" class="datsumou-header-inner__globalmenusp__link" data-icon="home">Pupil TOP</a>
+            </li>
+            <li class="datsumou-header-inner__globalmenusp__linkbox">
+                <span class="datsumou-header-inner__globalmenusp__link close js-spmenu_acc" data-icon="search">脱毛店舗を検索</span>
+                <ul class="datsumou-header-inner__globalmenusp__submenu">
+                    <li><a href="/datsumou/search">検索TOP</a></li>
+                    <li><a href="/datsumou/search/salon">脱毛サロンを探す</a></li>
+                    <li><a href="/datsumou/search/clinic">医療脱毛クリニックを探す</a></li>
                 </ul>
-            </div>
-            <div class="logarea">
-                <?php
-                if ($this->name == "Searchs" || $this->name == "Shops") {
-                    ?>
-                    <a href="javascript:history.back()" class="backbtn sp"><?php echo $this->Html->image('/img/btn_back.png', ['class'=>'header_back_pc','alt'=> '戻る']);?><?php echo $this->Html->image('/img/btn_back_sp.jpg', ['class'=>'header_back_sp','alt'=> '戻る']);?></a>
-                    <?php
-                }
-                ?>
-                <div class="logarea__left">
-                    <div class="logarea__left__box">
-                        <h1 class="log"><a href="<?php echo Router::url('/')?>"><?php echo $this->Html->image('/img/home/header_logo.png', ['alt'=> Constants::CONSUME_TITLE]);?></a></h1>
-                    </div>
-                </div>
-                <button type="button" class="drawer-toggle drawer-hamburger menubtn sp">
-                    <span class="sr-only">toggle navigation</span>
-                    <span class="drawer-hamburger-icon"></span>
-                </button>
-            </div>
+            </li>
+            <li class="datsumou-header-inner__globalmenusp__linkbox">
+                <?php echo $this->Html->link('お問い合わせ', ['controller'=> 'contacts', 'action'=> 'contact_user'],['class'=>'datsumou-header-inner__globalmenusp__link']);?>
+            </li>
+        </ul>
+        <div class="datsumou-header-inner__globalmenusp__sns">
+            <a href="//twitter.com/share?url=https://puril.net" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><i class="fab fa-twitter"></i><span>ツイート</span></a>
+            <a href="//www.facebook.com/sharer/sharer.php?u=https://puril.net" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><i class="fab fa-facebook-f"></i></i><span>シェア</span></a>
+            <a href="//b.hatena.ne.jp/add?mode=confirm&url=https://puril.net" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><img src="/puril/images/ico_hatena.svg" alt=""></i><span>はてぶ</span></a>
+            <a href="//line.me/R/msg/text/?https://puril.net" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><img src="/puril/images/ico_line.svg" alt=""></i><span>シェア</span></a>
         </div>
-    </div>
-</header>
+    </nav>
+</div>
+<script>
+    //ハンバーガーメニュー
+    $(function() {
+        $(document).on("click", ".datsumou-header-inner__navToggle", function() {
+            console.log("hoge");
+            $(".datsumou-header-inner__navToggle").toggleClass("active");
+            $(".datsumou-header-inner__globalmenusp").toggleClass("active");
+        });
+
+        $(".datsumou-header-inner__globalmenusp__link").on("click", function() {
+            if (window.innerWidth <= 768) {
+                // $(".datsumou-header-inner__navToggle").click();
+            }
+        });
+
+        //　アコーディオン
+        $('.js-spmenu_acc').on('click',function(){
+            $('.datsumou-header-inner__globalmenusp__submenu').slideToggle();
+        });
+
+    });
+</script>
