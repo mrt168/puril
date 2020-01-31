@@ -21,7 +21,7 @@ use Cake\Routing\Router;
             <p class="home-header-mv-inner__text--middle-center">さらに…</p>
             <p>Purilからの予約で</p>
             <p><span class="home-header-mv-inner__text--middle-blue-large">5,000</span><span class="home-header-mv-inner__text--middle-blue-middle">円</span>の</p>
-            <p></p>キャッシュバックも！</p>
+            <p>キャッシュバックも！</p>
           </div>
         </div>
       </div>

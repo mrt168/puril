@@ -286,14 +286,14 @@ echo $this->Html->css('datsumou');
             </li>
             <li>
                 <h3 class="datsumou-characteristic-inner__title">ステマは一切おことわり</h3>
-                <img src="/puril/images/characteristic-ico02-sp.png" alt="">
+                <img src="/puril/images/characteristic-ico02-sp.jpg" alt="">
                 <p class="datsumou-characteristic-inner__text">
                     ユーザー様からのリアルな口コミだけを使って情報をご提供！ステマを一切排除することをお約束します。
                 </p>
             </li>
             <li>
                 <h3 class="datsumou-characteristic-inner__title">超充実の口コミ内容</h3>
-                <img src="/puril/images/characteristic-ico03-sp.png" alt="">
+                <img src="/puril/images/characteristic-ico03-sp.jpg" alt="">
                 <p class="datsumou-characteristic-inner__text">
                     口コミの質には徹底的なこだわりアリ！店舗探しで本当に役に立つ情報を提供してまいります。
                 </p>
