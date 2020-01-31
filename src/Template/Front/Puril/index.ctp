@@ -44,19 +44,19 @@ use Cake\Routing\Router;
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="no-link">
                         <img src="puril/images/genre02-sp.png" alt="リラク">
                         <p>リラク</p>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="no-link">
                         <img src="puril/images/genre03-sp.png" alt="フェイシャル">
                         <p>フェイシャル</p>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="no-link">
                         <img src="puril/images/genre04-sp.png" alt="痩身">
                         <p>痩身</p>
                     </a>
@@ -73,13 +73,13 @@ use Cake\Routing\Router;
                     <p><a href="<?php echo Router::url('/datsumou/')?>">脱毛</a></p>
                 </li>
                 <li>
-                    <p><a href="">リラク</a></p>
+                    <p><a href="" class="no-link">リラク</a></p>
                 </li>
                 <li>
-                    <p><a href="">フェイシャル</a></p>
+                    <p><a href="" class="no-link">フェイシャル</a></p>
                 </li>
                 <li>
-                    <p><a href="">痩身</a></p>
+                    <p><a href="" class="no-link">痩身</a></p>
                 </li>
             </ul>
         </div>
@@ -288,13 +288,13 @@ use Cake\Routing\Router;
                 <a href="/datsumou/" class="Footer__category__li__link">脱毛</a>
             </li>
             <li class="Footer__category__li nolink">
-                <a href="" class="Footer__category__li__link">リラク</a>
+                <a href="" class="Footer__category__li__link no-link">リラク</a>
             </li>
             <li class="Footer__category__li nolink">
-                <a href="" class="Footer__category__li__link">痩身</a>
+                <a href="" class="Footer__category__li__link no-link">痩身</a>
             </li>
             <li class="Footer__category__li nolink">
-                <a href="" class="Footer__category__li__link">フェイシャル</a>
+                <a href="" class="Footer__category__li__link no-link">フェイシャル</a>
             </li>
         </ul>
 
@@ -329,5 +329,6 @@ use Cake\Routing\Router;
         <p>Copyright © ツルツル株式会社 All rights reserved.</p>
     </div>
 </footer>
-
+<?php
+echo $this->element('Front/no_voice_modal') ?>
 </body>
