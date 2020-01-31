@@ -1,0 +1,66 @@
+.reserve-confirm-head {
+  padding: 15px 16px;
+  text-align: center;
+  border-bottom: 1px solid #E0DCCC; }
+  .reserve-confirm-head .reserve-confirm-head-shop {
+    color: #463E2C;
+    padding-bottom: 10px; }
+  .reserve-confirm-head .reserve-confirm-head-date {
+    font-size: 14px; }
+
+.reserve-confirm-main {
+  padding: 0 16px; }
+  .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-title {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-weight: bold; }
+  .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-info {
+    border: 1px solid #E0DCCC;
+    border-radius: .25em;
+    background-color: #ffffff;
+    padding: 5px 1em 15px 1em; }
+    .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-info .reserve-confirm-content-name {
+      padding-top: 10px;
+      font-size: 16px; }
+    .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-info .reserve-confirm-content-row {
+      font-size: 13px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding-top: 10px; }
+      .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-info .reserve-confirm-content-row .reserve-confirm-content-term {
+        color: #797152; }
+      .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-info .reserve-confirm-content-row .reserve-confirm-content-data {
+        padding-left: 1em; }
+    .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-info .reserve-confirm-content-tel {
+      padding-top: 10px; }
+    .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-info .reserve-confirm-content-email {
+      padding-top: 10px; }
+    .reserve-confirm-main .reserve-confirm-content .reserve-confirm-content-info .reserve-confirm-content-question {
+      padding-top: 10px; }
+  .reserve-confirm-main .reserve-confirm-content-policy-area {
+    padding: 30px 0;
+    text-align: center; }
+    .reserve-confirm-main .reserve-confirm-content-policy-area .reserve-confirm-content-policy {
+      color: #0065CC;
+      font-size: 13px; }
+      .reserve-confirm-main .reserve-confirm-content-policy-area .reserve-confirm-content-policy a {
+        color: inherit; }
+
+.reserve-confirm-button-area {
+  padding: 20px 16px;
+  background-color: #ffffff; }
+  .reserve-confirm-button-area .reserve-confirm-button {
+    display: block;
+    padding: 15px 0;
+    background-color: #82AE25;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: .5em; }
+    .reserve-confirm-button-area .reserve-confirm-button .reserve-confirm-bottom-text {
+      padding-top: 15px;
+      font-size: 16px;
+      font-weight: bold; }

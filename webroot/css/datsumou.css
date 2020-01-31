@@ -3,52 +3,137 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, menu, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-main, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+menu,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, main, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
 }
 /* HTML5 hidden-attribute fix for newer browsers */
 *[hidden] {
-    display: none;
+  display: none;
 }
 body {
   line-height: 1;
 }
-menu, ol, ul {
-	list-style: none;
+menu,
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 img {
@@ -62,7 +147,8 @@ img {
 }
 body {
   background: #f0f0f0;
-  font-family: Helvetica Neue, Helvetica, Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-serif;
+  font-family: Helvetica Neue, Helvetica, Hiragino Sans, "ヒラギノ角ゴ ProN W3",
+    Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-serif;
 }
 header,
 main,
@@ -101,7 +187,7 @@ footer {
   right: 0;
   opacity: 0;
   width: 100%;
-  border-bottom: 1px solid #E1DDCC;
+  border-bottom: 1px solid #e1ddcc;
   background: #fff;
   z-index: 1;
 }
@@ -110,7 +196,7 @@ footer {
   margin-top: 0;
   font-size: 16px;
   text-align: left;
-  border-top: 1px solid #E1DDCC;
+  border-top: 1px solid #e1ddcc;
   overflow: hidden;
 }
 .menu-area li::after {
@@ -126,25 +212,33 @@ footer {
 .menu-item a {
   display: block;
   padding: 1em;
-  color: #13121E;
+  color: #13121e;
   text-decoration: none;
-  
 }
 .menu-area input:checked + label + .menu-item {
   opacity: 1;
 }
 
 .datsumou-header {
+  padding-top: 40px;
   background: #fff;
 }
 .datsumou-header-inner {
+  /*
   position: relative;
+  */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
   padding-right: 10px;
   padding-left: 10px;
   height: 40px;
@@ -159,7 +253,7 @@ footer {
   padding-right: 15px;
   padding-top: 32%;
   padding-bottom: 0.7em;
-  color: #13121E;
+  color: #13121e;
   font-size: 3.8vw;
   font-weight: 600;
   line-height: 1.2;
@@ -171,7 +265,7 @@ footer {
   font-size: 1.9em;
 }
 .datsumou-header-mv-inner__text--large::before {
-  content: '・・・';
+  content: "・・・";
   position: absolute;
   top: -0.8em;
   left: 0;
@@ -188,9 +282,8 @@ footer {
   border-bottom: 1px solid;
 }
 
-
 .datsumou-main {
-  background: #FBF9F7;
+  background: #fbf9f7;
 }
 
 /* サロン・クリニックを探す */
@@ -206,7 +299,7 @@ footer {
   font-size: 15px;
   font-weight: 600;
   text-align-last: left;
-  color: #13131E;
+  color: #13131e;
 }
 
 .datsumou-searcharea__list {
@@ -214,12 +307,12 @@ footer {
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .datsumou-searcharea__list > li {
   width: 49.5%;
   margin-top: 1em;
-  border: 1px solid #E1DDCC;
+  border: 1px solid #e1ddcc;
   border-radius: 4px;
   background: #fff;
   text-align: center;
@@ -229,7 +322,7 @@ footer {
 .datsumou-searcharea__list > li a {
   display: block;
   padding: 1em;
-  color: #13121E;
+  color: #13121e;
   text-decoration: none;
 }
 .datsumou-searcharea__list > li p {
@@ -239,18 +332,16 @@ footer {
   font-size: 16px;
 }
 
-
-
 /* サロン・クリニックを探す */
 .datsumou-search__list {
-  border-bottom: 1px solid #E1DDCC;
+  border-bottom: 1px solid #e1ddcc;
   background: #fff;
   font-size: 14px;
 }
 .datsumou-area__list > li {
   font-size: 16px;
   text-align: left;
-  border-top: 1px solid #E1DDCC;
+  border-top: 1px solid #e1ddcc;
   background: #fff;
 }
 .datsumou-area__list > li a {
@@ -258,7 +349,7 @@ footer {
   display: block;
   width: 100%;
   padding: 22px 15px;
-  color: #13121E;
+  color: #13121e;
   text-decoration: none;
 }
 .datsumou-area__list > li a .small {
@@ -269,7 +360,7 @@ footer {
 }
 .datsumou-area__list > li a::before {
   padding-right: 10px;
-  color: #BEBA9B;
+  color: #beba9b;
   font-size: 12px;
 }
 .datsumou-area__list > li:nth-child(2) a::before {
@@ -301,8 +392,8 @@ footer {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-top: 1px solid #E1DDCC;
-  border-bottom: 1px solid #E1DDCC;
+  border-top: 1px solid #e1ddcc;
+  border-bottom: 1px solid #e1ddcc;
   background: #fff;
   font-size: 14px;
 }
@@ -313,39 +404,38 @@ footer {
   text-align: left;
 }
 .datsumou-ranking__tab {
-  
 }
 .datsumou-ranking__tab input {
-  display:none;
+  display: none;
 }
 .datsumou-ranking__tab-search__list {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
 }
 .datsumou-ranking__tab-search__list label {
   width: 30%;
-  border: 1px solid #E1DDCC;
+  border: 1px solid #e1ddcc;
   border-radius: 4px;
   padding-top: 0.8em;
   margin-right: 1%;
   padding-bottom: 0.8em;
   font-size: 11px;
-  text-align:center;
-  cursor:pointer;
-  -webkit-transition:ease 0.3s;
-  transition:ease 0.3s;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: ease 0.3s;
+  transition: ease 0.3s;
 }
 .datsumou-ranking-panel-inner {
   display: none;
 }
 .datsumou-ranking__tab-search__list label:hover,
 #tab01-01:checked ~ .datsumou-ranking__tab-search__list > .tab01-01_label,
-#tab01-02:checked ~ .datsumou-ranking__tab-search__list > .tab01-02_label{
+#tab01-02:checked ~ .datsumou-ranking__tab-search__list > .tab01-02_label {
   border: 0;
-  border: 1px solid #6AADBF;
-  background: #6AADBF;
+  border: 1px solid #6aadbf;
+  background: #6aadbf;
   color: #fff;
 }
 
@@ -358,7 +448,7 @@ footer {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding-top: 20px;
 }
 .datsumou-ranking-panel__list > li {
@@ -374,26 +464,26 @@ footer {
   font-size: 13px;
 }
 .datsumou-ranking-panel__evaluation {
-  color: #E10000;
-  font-size:18px;
+  color: #e10000;
+  font-size: 18px;
   font-weight: 600;
 }
 .datsumou-ranking-panel__evaluation::before {
   margin-right: 0.3em;
-  color: #C4A63B;
+  color: #c4a63b;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  font-size:16px;
+  font-size: 16px;
   content: "\f521";
 }
 .datsumou-ranking-panel__evaluation.first::before {
-  color: #C4A63B;
+  color: #c4a63b;
 }
 .datsumou-ranking-panel__evaluation.second::before {
-  color: #A9ACB9;
+  color: #a9acb9;
 }
 .datsumou-ranking-panel__evaluation.third::before {
-  color: #BC8F6A;
+  color: #bc8f6a;
 }
 
 .datsumou-ranking__btn {
@@ -401,12 +491,11 @@ footer {
   margin-top: 20px;
   padding: 1.1em;
   border-radius: 4px;
-  background: #6AADBF;
+  background: #6aadbf;
   color: #fff;
   text-align: center;
   text-decoration: none;
 }
-
 
 /* 新着口コミから探す */
 .datsumou-evaluation {
@@ -415,7 +504,7 @@ footer {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #E1DDCC;
+  border-bottom: 1px solid #e1ddcc;
   background: #fff;
   font-size: 14px;
 }
@@ -433,7 +522,7 @@ footer {
   padding: 10px;
   padding-bottom: 0.6em;
   margin-bottom: 0.7em;
-  background: #FAF8F6;
+  background: #faf8f6;
 }
 .datsumou-evaluation-panel__list > li::after {
   position: absolute;
@@ -449,19 +538,18 @@ footer {
   display: -webkit-box;
   display: flex;
   width: 100%;
-  color: #13121E;
+  color: #13121e;
   text-decoration: none;
 }
 .datsumou-evaluation-panel__list > li img {
   margin-right: 1em;
 }
 .datsumou-evaluation-panel__text {
-  font-size:12px;
+  font-size: 12px;
   text-align: left;
-  
 }
 .datsumou-evaluation-panel__title {
-  font-size:14px;
+  font-size: 14px;
   font-weight: bold;
 }
 .datsumou-evaluation-panel__thin {
@@ -471,16 +559,16 @@ footer {
 }
 .datsumou-evaluation-panel__star {
   margin-top: 0.5em;
-  color: #E1E1E1;
-  font-size:14px;
+  color: #e1e1e1;
+  font-size: 14px;
 }
 .datsumou-evaluation-panel__star .orange {
-  color: #FF6A00;
+  color: #ff6a00;
 }
 .datsumou-evaluation-panel__star .red {
   margin-right: 20px;
   margin-left: 1em;
-  color: #E10000;
+  color: #e10000;
   font-weight: 600;
 }
 .datsumou-evaluation-panel__star .date {
@@ -492,12 +580,11 @@ footer {
   margin-top: 1.4em;
   padding: 20px;
   border-radius: 4px;
-  background: #6AADBF;
+  background: #6aadbf;
   color: #fff;
   text-align: center;
   text-decoration: none;
 }
-
 
 /* Purilの3つの特徴 */
 .datsumou-characteristic {
@@ -506,7 +593,7 @@ footer {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-top: 1px solid #E1DDCC;
+  border-top: 1px solid #e1ddcc;
   background: #fff;
   font-size: 14px;
 }
@@ -540,9 +627,8 @@ footer {
   width: 100%;
 }
 
-
 .datsumou-footer {
-  background: #FBF9F7;
+  background: #fbf9f7;
 }
 .datsumou-footer__category01,
 .datsumou-footer__category02,
@@ -553,7 +639,7 @@ footer {
   display: flex;
   background: #fff;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   flex-wrap: wrap;
   height: auto;
 }
@@ -566,9 +652,9 @@ footer {
 .datsumou-footer__category:not(:last-child) {
   -webkit-box-orient: inherit;
   -webkit-box-direction: inherit;
-          flex-direction: inherit;
+  flex-direction: inherit;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   height: auto;
 }
 
@@ -582,7 +668,7 @@ footer {
 
 .datsumou-footer__category__li__link {
   font-size: 10px;
-  color: #007CD6;
+  color: #007cd6;
   margin: 0 10px;
   text-decoration: none;
   line-height: 2em;
@@ -596,31 +682,29 @@ footer {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   padding: 1em;
   font-size: 10px;
-  background: #6AADBF;
+  background: #6aadbf;
   color: #fff;
 }
-
-
 
 /* パンくず */
 .Search__breadcrumbs {
   width: 100%;
   height: 30px;
   margin-top: 1em;
-  border-top: 1px solid #E1DDCC;
-  border-bottom: 1px solid #E1DDCC;
+  border-top: 1px solid #e1ddcc;
+  border-bottom: 1px solid #e1ddcc;
   background: #fbf9f7;
 }
 .Search__breadcrumbs ol {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   max-width: 1080px;
   margin: 0 auto;
   height: 100%;
@@ -643,12 +727,11 @@ footer {
   color: #baba9b;
 }
 
-
 .Search__input__inner {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   border: 1px solid #6aadbf;
   border-radius: 5px;
   background: #fff;
@@ -656,7 +739,7 @@ footer {
   overflow: hidden;
 }
 .Search__input__inner .input1 {
-  width: calc(45% - 20px);
+  width: calc(100% - 20px);
   border-radius: 4px 0 0 4px;
   background: #f4f4f4;
 }
@@ -682,16 +765,20 @@ footer {
   border: 0;
   background: #fff;
 }
-.Search__input__inner .input1 input::-webkit-input-placeholder, .Search__input__inner .input2 input::-webkit-input-placeholder {
+.Search__input__inner .input1 input::-webkit-input-placeholder,
+.Search__input__inner .input2 input::-webkit-input-placeholder {
   color: #757575;
 }
-.Search__input__inner .input1 input::-moz-placeholder, .Search__input__inner .input2 input::-moz-placeholder {
+.Search__input__inner .input1 input::-moz-placeholder,
+.Search__input__inner .input2 input::-moz-placeholder {
   color: #757575;
 }
-.Search__input__inner .input1 input:-ms-input-placeholder, .Search__input__inner .input2 input:-ms-input-placeholder {
+.Search__input__inner .input1 input:-ms-input-placeholder,
+.Search__input__inner .input2 input:-ms-input-placeholder {
   color: #757575;
 }
-.Search__input__inner .input1 input::-ms-input-placeholder, .Search__input__inner .input2 input::-ms-input-placeholder {
+.Search__input__inner .input1 input::-ms-input-placeholder,
+.Search__input__inner .input2 input::-ms-input-placeholder {
   color: #757575;
 }
 .Search__input__inner .input1 input::placeholder,
@@ -706,8 +793,8 @@ footer {
   cursor: pointer;
   outline: none;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 @media screen and (min-width: 600px) {
   .datsumou-header-mv-inner {

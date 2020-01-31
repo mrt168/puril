@@ -51,7 +51,7 @@ body {
   width: 0;
   height: 0;
   padding: 0;
-  content: '';
+  content: "";
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 6px solid #b4b4b4;
@@ -80,7 +80,7 @@ body {
   content: "";
   display: block;
   border-bottom: 1px solid #ccc4a7;
-  transform: scaleY(.5);
+  transform: scaleY(0.5);
   transform-origin: 100% 0;
 }
 .Search__header__inner {
@@ -95,9 +95,8 @@ body {
 .Search__header__back {
   position: absolute;
   left: 24px;
-  top: calc(50% - 14px);
   font-size: 24px;
-  color: #baba9b!important;
+  color: #baba9b !important;
 }
 .Search__header__close {
   position: absolute;
@@ -127,6 +126,7 @@ body {
   /*white-space: nowrap;  */
 }
 .Search__header__input .cancel {
+  display: block;
   width: 30px;
   height: 100%;
   line-height: 1;
@@ -161,7 +161,7 @@ body {
   content: "";
   display: block;
   border-bottom: 1px solid #ccc4a7;
-  transform: scaleY(.5);
+  transform: scaleY(0.5);
   transform-origin: 100% 0;
 }
 .Search__title span {
@@ -178,7 +178,7 @@ body {
   content: "";
   display: block;
   border-bottom: 1px solid #ccc4a7;
-  transform: scaleY(.5);
+  transform: scaleY(0.5);
   transform-origin: 100% 0;
 }
 .Search__input__inner {
@@ -189,7 +189,7 @@ body {
   font-size: 14px;
 }
 .Search__input__inner .input1 {
-  width: calc(45% - 20px);
+  width: calc(100% - 20px);
   border-radius: 4px 0 0 4px;
   background: #f4f4f4;
 }
@@ -209,6 +209,7 @@ body {
 }
 .Search__input__inner .input1 input,
 .Search__input__inner .input2 input {
+  width: 100%;
   height: 40px;
   padding: 0 10px;
 }
@@ -258,7 +259,7 @@ body {
   content: "";
   display: block;
   border-top: 1px solid #ccc4a7;
-  transform: scaleY(.5);
+  transform: scaleY(0.5);
   transform-origin: 100% 0;
 }
 .Search__list__header span {
@@ -282,7 +283,7 @@ body {
   content: "";
   display: block;
   border-bottom: 1px solid #ccc4a7;
-  transform: scaleY(.5);
+  transform: scaleY(0.5);
   transform-origin: 100% 0;
 }
 
@@ -370,10 +371,10 @@ body {
 .Search__kodawari__btn {
   height: 44px;
   line-height: 44px;
-  font-size: 14px!important;
+  font-size: 14px !important;
   margin: 0 4px;
   text-align: center;
-  border-radius: 4px!important;
+  border-radius: 4px !important;
 }
 .Search__kodawari__btn[data-type="clear"] {
   width: 120px;
@@ -406,7 +407,7 @@ body {
   position: relative;
 }
 .Search__map__base {
-  height: calc(100vh - 75px);/*ヘッダーとパンくずの高さ分引いてます*/
+  height: calc(100vh - 75px); /*ヘッダーとパンくずの高さ分引いてます*/
 }
 .Search__map__header {
   position: absolute;
@@ -444,7 +445,7 @@ body {
 .Search__map__switch {
   display: flex;
   align-items: center;
-  background: #fff; 
+  background: #fff;
 }
 .Search__map__app {
   position: absolute;
@@ -522,7 +523,7 @@ body {
   content: "";
   display: block;
   border-top: 1px solid #eeede4;
-  transform: scaleY(.5);
+  transform: scaleY(0.5);
   transform-origin: 100% 0;
 }
 .Search__breadcrumbs ol {

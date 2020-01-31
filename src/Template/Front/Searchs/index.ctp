@@ -17,8 +17,10 @@ echo $this->Html->css(['css/main', 'css/search']);
         <div class="Search__title"><span>脱毛サロン・クリニックを全国から探す</span></div>
         <div class="Search__input">
             <div class="Search__input__inner">
-                <div class="input1"><input type="" name="" placeholder="エリア、駅"></div>
+                <div class="input1"><input type="" name="" placeholder="エリア、駅、サロン・クリニック名で検索する"></div>
+                <!--
                 <div class="input2"><input type="" name="" placeholder="サロン・クリニック名"></div>
+                -->
                 <button class="search"><img src="/puril/images/ico_search_wht.svg" alt="絞込み"></button>
             </div>
         </div>

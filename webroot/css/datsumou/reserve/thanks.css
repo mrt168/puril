@@ -1,0 +1,35 @@
+.reserve-thanks {
+  background-color: #ffffff;
+  padding: 0 16px 130px 16px; }
+  .reserve-thanks .reserve-thanks-title-area {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 16px; }
+    .reserve-thanks .reserve-thanks-title-area .reserve-thanks-title {
+      padding-left: .25em; }
+  .reserve-thanks .reserve-thanks-text-wrap .reserve-thanks-text {
+    font-size: 13px; }
+  .reserve-thanks .reserve-thanks-subtext-wrap {
+    padding-top: .5em; }
+    .reserve-thanks .reserve-thanks-subtext-wrap .reserve-thanks-subtext {
+      font-size: 10px; }
+  .reserve-thanks .reserve-thanks-button-area {
+    padding: 30px 0; }
+    .reserve-thanks .reserve-thanks-button-area .reserve-thanks-button {
+      display: block;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #6AADBF;
+      text-align: center;
+      padding: 15px 1em;
+      border-radius: .25em; }
