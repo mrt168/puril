@@ -763,3 +763,17 @@ $(window).on('load scroll resize',function(){
 		});
 	}
 });
+
+//ハンバーガーメニュー
+$(function() {
+  $(document).on("click", ".datsumou-header-inner__navToggle", function() {
+    $(".datsumou-header-inner__navToggle").toggleClass("active");
+    $(".datsumou-header-inner__globalmenusp").toggleClass("active");
+  });
+
+  $(".datsumou-header-inner__globalmenusp__link").on("click", function() {
+    if (window.innerWidth <= 768) {
+      $(".datsumou-header-inner__navToggle").click();
+    }
+  });
+});
