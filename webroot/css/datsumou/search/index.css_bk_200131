@@ -95,12 +95,12 @@
             -ms-flex-align: center;
                 align-items: center; }
     .search-shop .search-shop-list .search-shop-item .search-shop-desc {
-      padding: 15px 16px 0 16px; }
+      padding: 0.5em 16px 0 16px; }
       .search-shop .search-shop-list .search-shop-item .search-shop-desc .search-shop-desc-title {
         font-size: 14px;
         font-weight: bold; }
       .search-shop .search-shop-list .search-shop-item .search-shop-desc .search-shop-desc-text {
-        padding: 10px 0; }
+        padding: 1em 0; }
     .search-shop .search-shop-list .search-shop-item .search-shop-info {
       padding: 0em 16px 1em 16px; }
       .search-shop .search-shop-list .search-shop-item .search-shop-info table {
