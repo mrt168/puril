@@ -178,6 +178,7 @@ class ReviewsController extends AdminAppController {
 			// 新規登録
 			$review = $reviewTable->newEntity($this->request->getData(), ['validate'=> 'edit']);
 		} else if (isset($this->request->data['update'])) {
+		    print_r($this->request);
 			// 更新
 			$review = $reviewTable->get($this->request->getData('Reviews.review_id'));
 			$reviewTable->patchEntity($review, $this->request->getData(), ['validate'=> 'edit']);

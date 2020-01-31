@@ -10,15 +10,15 @@ use Cake\ORM\Entity;
  * @property int $shop_id
  * @property float $evaluation
  * @property int $question1
- * @property int $question1_evaluation
+ * @property string $question1_evaluation
  * @property int $question2
- * @property int $question2_evaluation
+ * @property string $question2_evaluation
  * @property int $question3
- * @property int $question3_evaluation
+ * @property string $question3_evaluation
  * @property int $question4
- * @property int $question4_evaluation
+ * @property string $question4_evaluation
  * @property int $question5
- * @property int $question5_evaluation
+ * @property string $question5_evaluation
  * @property int $question6
  * @property string $nickname
  * @property int $age
