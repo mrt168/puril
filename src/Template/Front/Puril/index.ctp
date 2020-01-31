@@ -106,7 +106,6 @@ use Cake\Routing\Router;
                             <?php
                             $count = 0;
                             foreach ($rank_brand as $salon) {
-                                print_r($salon);
                                 if (!empty($salon['ShopImg']['shop_image_id'])) {
                                     $imgUrl = Router::url(['controller' => 'images', 'action' => 'brandImage', $salon['brand_id']]);
                                 } else {
