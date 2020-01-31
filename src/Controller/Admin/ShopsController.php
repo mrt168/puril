@@ -232,7 +232,6 @@ class ShopsController extends AdminAppController {
 			$shop = $shopTable->findByIdAndDelFlg($shopId);
 
 			$this->set('referer', $this->referer());
-
 			if (!empty($shop)) {
 				$this->request->data['Shops'] = $shop;
 

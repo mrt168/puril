@@ -26,8 +26,8 @@ echo $this->Html->link('<i class="fa fa-chevron-left"></i> 一覧に戻る', ['c
 				<td><?php echo $review['nickname']?></td>
 			</tr>
 			<tr>
-				<th>年齢</th>
-				<td><?php echo $review['age']?>歳</td>
+				<th>生年月日</th>
+				<td><?php echo $review['birthday']?></td>
 			</tr>
 			<tr>
 				<th>性別</th>
@@ -42,11 +42,11 @@ echo $this->Html->link('<i class="fa fa-chevron-left"></i> 一覧に戻る', ['c
 				<td><?php echo $review['twitter_account']?></td>
 			</tr>
 			<tr>
-				<th>口コミ タイトル</th>
+				<th>受けた施術等の名前</th>
 				<td><?php echo $review['title']?></td>
 			</tr>
 			<tr>
-				<th>口コミ 本文</th>
+				<th>この店舗の総合的な感想を、20文字程度で感想を教えてください。</th>
 				<td><?php echo nl2br($review['content'])?></td>
 			</tr>
 
@@ -55,29 +55,40 @@ echo $this->Html->link('<i class="fa fa-chevron-left"></i> 一覧に戻る', ['c
 				<td></td>
 			</tr>
 			<tr>
-				<th>治療前の説明は十分でしたか？</th>
+				<th rowspan="2">店舗の「接客／サービス」はいかがでしたか？</th>
 				<td><?php echo $review['question1']?></td>
 			</tr>
+            <tr>
+                <td><?php echo $review['question1_evaluation']?></td>
+            </tr>
 			<tr>
-				<th>痛みへの配慮はいかがでしたか？</th>
+				<th rowspan="2">受けたサービスの「メニューや料金」についてはいかがでしたか？</th>
 				<td><?php echo $review['question2']?></td>
 			</tr>
+            <tr>
+                <td><?php echo $review['question2_evaluation']?></td>
+            </tr>
 			<tr>
-				<th>スタッフの態度、対応はいかがでしたか？</th>
+				<th rowspan="2">施術の「効果（技術や仕上がり）」はいかがでしたか？</th>
 				<td><?php echo $review['question3']?></td>
 			</tr>
+            <tr>
+                <td><?php echo $review['question3_evaluation']?></td>
+            </tr>
 			<tr>
-				<th>店舗の雰囲気、設備、清潔感はいかがでしたか？</th>
+				<th rowspan="2">店舗の「雰囲気」はいかがでしたか？</th>
 				<td><?php echo $review['question4']?></td>
 			</tr>
+            <tr>
+                <td><?php echo $review['question4_evaluation']?></td>
+            </tr>
 			<tr>
-				<th>待ち時間、予約対応はいかがでしたか？</th>
+				<th rowspan="2">店舗の「通いやすさ／予約の取りやすさ」はいかがでしたか？</th>
 				<td><?php echo $review['question5']?></td>
 			</tr>
-			<tr>
-				<th>術前、術中、術後の対応はいかがでしたか？</th>
-				<td><?php echo $review['question6']?></td>
-			</tr>
+            <tr>
+                <td><?php echo $review['question5_evaluation']?></td>
+            </tr>
 			<tr>
 				<th></th>
 				<td>
