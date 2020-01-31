@@ -191,7 +191,7 @@ echo $this->Html->css('datsumou');
                                 <p class="datsumou-ranking-panel__text">STLASSH</p>
                             </li>
                         </ul>
-                        <a href="" class="datsumou-ranking__btn">ランキングを見る</a>
+                        <a href="<?php echo Router::url('/datsumou/ranking')?>" class="datsumou-ranking__btn">ランキングを見る</a>
                     </div>
                     <div id="panel02" class="datsumou-ranking-panel-inner panel02">
                         <ul class="datsumou-ranking-panel__list">
