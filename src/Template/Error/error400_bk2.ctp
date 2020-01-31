@@ -184,10 +184,10 @@ echo $this->Html->css('sitemap');
     <?php echo $this->Html->link('全国の医療脱毛クリニックのランキング', ['controller'=> 'rankings', 'action'=> 'search', ShopType::$MEDICAL_DEPILATION_CLINIC[CodePattern::$VALUE2]],['escape'=> false,'class'=>'area-search__link-small']);?>
     <?php echo $this->Html->link('全国のメンズ脱毛のランキング', ['controller'=> 'rankings', 'action'=> 'search', 'mens'],['escape'=> false,'class'=>'area-search__link-small']);?>
 
-    <a class="area-search__link black">お問い合わせ</a>
+    <a class="area-search__link">お問い合わせ</a>
     <?php echo $this->Html->link('ユーザーレビューのお問い合わせ', ['controller'=> 'contacts', 'action'=> 'contact_user'],['class'=>'area-search__link-small']);?>
     <?php echo $this->Html->link('施設情報掲載のお問い合わせ', ['controller'=> 'contacts', 'action'=> 'contact'],['class'=>'area-search__link-small']);?>
-    <a class="area-search__link black">その他</a>
+    <a class="area-search__link">その他</a>
     <?php echo $this->Html->link('プライバシーポリシー', ['controller'=> 'indexes', 'action'=> 'privacyPolicy'],['class'=>'area-search__link-small']);?>
     <?php echo $this->Html->link('利用規約', ['controller'=> 'indexes', 'action'=> 'terms'],['class'=>'area-search__link-small last']);?>
 

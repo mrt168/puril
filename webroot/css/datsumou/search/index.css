@@ -59,15 +59,22 @@
       display: -webkit-flex;
       display: -moz-box;
       display: -ms-flexbox;
-      display: flex; }
+      display: flex;
+      height: 137px;
+     }
       .search-shop .search-shop-list .search-shop-item .search-shop-photo-area .search-shop-photo {
         border-left: 1px solid #fff;
+        border: 1px solid #e0dccc;
+        border-right: none;
         width: 100%; }
         .search-shop .search-shop-list .search-shop-item .search-shop-photo-area .search-shop-photo:nth-of-type(1) {
           border-left: none;}
         .search-shop .search-shop-list .search-shop-item .search-shop-photo-area .search-shop-photo img {
           width: 100%;
-          display: block; }
+          display: block;
+          object-fit: cover;
+          height: 100%;
+    }
     .search-shop .search-shop-list .search-shop-item .search-shop-tips {
       padding: 1em 16px 0 16px;
       color: #595960; }

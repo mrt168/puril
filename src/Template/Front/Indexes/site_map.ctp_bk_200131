@@ -1,59 +1,18 @@
 <?php
-use Cake\Routing\Router;
-use App\Vendor\Code\Pref;
-use App\Vendor\Code\CodePattern;
-use Cake\ORM\TableRegistry;
 use App\Vendor\Code\ShopType;
-
-$this->layout = 'default';
-$this->assign ( 'title', 'Puril' );
+use App\Vendor\Code\CodePattern;
+use App\Vendor\Code\Pref;
 ?>
 <body>
 <?php
 echo $this->Html->css('sitemap');
 ?>
-<header class="not-found-header">
-    <div class="not-found-header-inner">
-        <img class="home-header-inner__img" src="puril/images/header-logo-sp.png" srcset="puril/images/header-logo-sp.png 1x, puril/images/header-logo-sp@2x.png 2x" alt="puril">
-        <div class="menu-area">
-            <input type="checkbox" id="menu">
-            <label for="menu"></label>
-            <ul class="menu-item">
-                <li>
-                    <a href="">
-                        <p>テキスト</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <p>テキスト</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <p>テキスト</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <p>テキスト</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
+<header class="sitemap-header">
+    <p class="sitemap-header__back"><i class="fas fa-chevron-left"></i><span>ホーム</span></p>
+    <div class="sitemap-header-title">サイトマップ</div>
 </header>
-<main class="sitemap-main not-found-main">
-    <div class="not-found-text-area">
-        <img class="not-found__img" src="puril/images/logo-404-sp.png" alt="puril">
-        <p class="not-found-text-area__large">お探しのページが見つかりません</p>
-        <p>
-            お探しのページは、存在しないか削除された可能性があります。
-            お手数では御座いますが、以下の情報より、再度目的のページをお探しいただけますと幸いです。
-        </p>
-        <p class="not-found-back-to-top">
-            <img src="puril/images/arrow-right.png" alt=""><a href="/">トップページへ</a>
-        </p>
-    </div>
+
+<main class="sitemap-main">
     <ul class="area-search__list">
         <li class="area-search__list-li active">脱毛</li>
         <li class="area-search__list-li no-link">リラク</li>
@@ -84,10 +43,10 @@ echo $this->Html->css('sitemap');
                     <?php
                     foreach ($prefDatas as $prefCode => $prefUrlText) {
                         ?>
-                        <?php
-                        $prefVal = Pref::convert($prefCode, CodePattern::$VALUE);
-                        echo $this->Html->link($prefVal, ['controller'=> 'searchs', 'action'=> 'search', $prefUrlText, $shopType[CodePattern::$VALUE2]]);
-                        ?>
+                            <?php
+                            $prefVal = Pref::convert($prefCode, CodePattern::$VALUE);
+                            echo $this->Html->link($prefVal, ['controller'=> 'searchs', 'action'=> 'search', $prefUrlText, $shopType[CodePattern::$VALUE2]]);
+                            ?>
                         <?php
                     }
                     ?>
@@ -184,18 +143,17 @@ echo $this->Html->css('sitemap');
     <?php echo $this->Html->link('全国の医療脱毛クリニックのランキング', ['controller'=> 'rankings', 'action'=> 'search', ShopType::$MEDICAL_DEPILATION_CLINIC[CodePattern::$VALUE2]],['escape'=> false,'class'=>'area-search__link-small']);?>
     <?php echo $this->Html->link('全国のメンズ脱毛のランキング', ['controller'=> 'rankings', 'action'=> 'search', 'mens'],['escape'=> false,'class'=>'area-search__link-small']);?>
 
-    <a class="area-search__link black">お問い合わせ</a>
+    <a class="area-search__link">お問い合わせ</a>
     <?php echo $this->Html->link('ユーザーレビューのお問い合わせ', ['controller'=> 'contacts', 'action'=> 'contact_user'],['class'=>'area-search__link-small']);?>
     <?php echo $this->Html->link('施設情報掲載のお問い合わせ', ['controller'=> 'contacts', 'action'=> 'contact'],['class'=>'area-search__link-small']);?>
-    <a class="area-search__link black">その他</a>
+    <a class="area-search__link">その他</a>
     <?php echo $this->Html->link('プライバシーポリシー', ['controller'=> 'indexes', 'action'=> 'privacyPolicy'],['class'=>'area-search__link-small']);?>
     <?php echo $this->Html->link('利用規約', ['controller'=> 'indexes', 'action'=> 'terms'],['class'=>'area-search__link-small last']);?>
 
 </main>
 
-
 <footer class="not-found-footer">
-    <img class="not-found-bnr" src="puril/images/cash-back-bnr-sp.png" alt="">
+    <img class="not-found-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
 
     <div class="Search__breadcrumbs">
         <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
@@ -204,7 +162,7 @@ echo $this->Html->css('sitemap');
                 <meta itemprop="position" content="1">
             </li>
             <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <span itemprop="name">プライバシーポリシー</span>
+                <span itemprop="name">サイトマップ</span>
                 <meta itemprop="position" content="2">
             </li>
         </ol>
@@ -216,13 +174,13 @@ echo $this->Html->css('sitemap');
                 <a href="/datsumou/" class="not-found-footer__category__li__link">脱毛</a>
             </li>
             <li class="not-found-footer__category__li nolink">
-                <a href="" class="not-found-footer__category__li__link">リラク</a>
+                <a href="" class="not-found-footer__category__li__link no-link">リラク</a>
             </li>
             <li class="not-found-footer__category__li nolink">
-                <a href="" class="not-found-footer__category__li__link">痩身</a>
+                <a href="" class="not-found-footer__category__li__link no-link">痩身</a>
             </li>
             <li class="not-found-footer__category__li nolink">
-                <a href="" class="not-found-footer__category__li__link">フェイシャル</a>
+                <a href="" class="not-found-footer__category__li__link no-link">フェイシャル</a>
             </li>
         </ul>
 
@@ -257,5 +215,6 @@ echo $this->Html->css('sitemap');
         <p>Copyright © ツルツル株式会社 All rights reserved.</p>
     </div>
 </footer>
-
+<?php
+echo $this->element('Front/no_voice_modal') ?>
 </body>

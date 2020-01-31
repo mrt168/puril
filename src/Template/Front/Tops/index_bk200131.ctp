@@ -76,48 +76,9 @@ echo $this->Html->css('datsumou');
 
                 <ul class="datsumou-header-inner__globalmenusp__linkboxs">
                     <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <a href="/" class="datsumou-header-inner__globalmenusp__link" data-icon="home">Pupil TOP</a>
-                    </li>
-                    <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <span class="datsumou-header-inner__globalmenusp__link close js-spmenu_acc" data-icon="search">脱毛店舗を検索</span>
-                        <ul class="datsumou-header-inner__globalmenusp__submenu">
-                             <li><a href="/">検索TOP</a></li>
-                             <li><a href="/">脱毛サロンを探す</a></li>
-                             <li><a href="/">医療脱毛クリニックを探す</a></li>
-                         </ul> 
-                    </li>
-                    <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <span class="datsumou-header-inner__globalmenusp__link close js-spmenu_acc" data-icon="search_shop">店舗名から探す</span>
-                        <ul class="datsumou-header-inner__globalmenusp__submenu">
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                         </ul> 
-                    </li>
-                    <!-- <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <span class="datsumou-header-inner__globalmenusp__link close js-spmenu_acc" data-icon="ranking">口コミランキング</span>
-                        <ul class="datsumou-header-inner__globalmenusp__submenu">
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                             <li><a href="/">ダミー</a></li>
-                         </ul> 
-                    </li> -->
-                    <li class="datsumou-header-inner__globalmenusp__linkbox">
-                        <a href="/" class="datsumou-header-inner__globalmenusp__link" data-icon="contact">お問い合わせ</a>
+                        <a href="/" class="datsumou-header-inner__globalmenusp__link">Pupil TOP</a>
                     </li>
                 </ul>
-                <div class="datsumou-header-inner__globalmenusp__sns">
-                    <a href="/" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><i class="fab fa-twitter"></i><span>ツイート</span></a>
-                    <a href="/" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><i class="fab fa-facebook-f"></i></i><span>シェア</span></a>
-                    <a href="/" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><img src="/puril/images/ico_hatena.svg" alt=""></i><span>はてぶ</span></a>
-                    <a href="/" class="datsumou-header-inner__globalmenusp__sns__item" target="_blank"><img src="/puril/images/ico_line.svg" alt=""></i><span>シェア</span></a>
-                </div>
             </nav>
         </div>
         <div class="datsumou-header-mv">
@@ -497,15 +458,9 @@ echo $this->Html->css('datsumou');
 
             $(".datsumou-header-inner__globalmenusp__link").on("click", function() {
                 if (window.innerWidth <= 768) {
-                    // $(".datsumou-header-inner__navToggle").click();
+                    $(".datsumou-header-inner__navToggle").click();
                 }
             });
-
-            //　アコーディオン
-            $('.js-spmenu_acc').on('click',function(){
-             alert("q");
-            });
-
         });
     </script>
 </body>

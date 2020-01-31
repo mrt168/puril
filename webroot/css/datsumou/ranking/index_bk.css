@@ -202,7 +202,6 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  height: 137px;
 }
 .ranking-shop
   .ranking-shop-list
@@ -213,9 +212,6 @@
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #e0dccc;
-  border-right: none;
-  background-color: #F8F8F8;
 }
 .ranking-shop
   .ranking-shop-list
@@ -224,16 +220,7 @@
   .ranking-shop-photo
   img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
-}
-.ranking-shop
-.ranking-shop-list
-.ranking-shop-item
-.ranking-shop-photo-area
-.ranking-shop-photo:last-child {
-  box-sizing: border-box;
   border-right: 1px solid #e0dccc;
 }
 .ranking-shop
@@ -244,6 +231,7 @@
   img {
   width: 100%;
   display: block;
+  border-right: none;
   box-sizing: border-box;
 }
 .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-label {

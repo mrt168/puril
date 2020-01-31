@@ -282,8 +282,8 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 <ul class="content-base ranking-category">
     <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
             <div class="ranking-category-item-text">全国の医療脱毛の人気ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
-    <!-- <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
-            <div class="ranking-category-item-text">ブランドランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li> -->
+    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
+            <div class="ranking-category-item-text">ブランドランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
     <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
             <div class="ranking-category-item-text">都道府県別ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
 </ul>
@@ -300,8 +300,8 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             <div class="ranking-searchfrom-item-text">脱毛部位から探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
     <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><i class="fas fa-newspaper ranking-searchfrom-item-icon"></i>
             <div class="ranking-searchfrom-item-text">脱毛サロン・クリニック一覧から探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
-    <!-- <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><i class="fas fa-comments ranking-searchfrom-item-icon"></i>
-            <div class="ranking-searchfrom-item-text">口コミから探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li> -->
+    <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><i class="fas fa-comments ranking-searchfrom-item-icon"></i>
+            <div class="ranking-searchfrom-item-text">口コミから探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
     <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><i class="far fa-hand-point-right ranking-searchfrom-item-icon"></i>
             <div class="ranking-searchfrom-item-text">こだわり条件から探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
 </ul>

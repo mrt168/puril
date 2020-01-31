@@ -262,9 +262,6 @@ main a {
   border-bottom: 1px solid #CCC4A7;
   margin-bottom: 20px;
 }
-.area-search__link.black {
-  color: #000;
-}
 .area-search li {
   padding: 16px 15px;
   list-style: none;
