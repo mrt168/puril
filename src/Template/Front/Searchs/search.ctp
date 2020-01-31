@@ -213,21 +213,49 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 </div>
 <div class="content-base search-shop-best">
     <ul class="search-shop-best-list">
-        <li class="search-shop-best-item"><a class="plain-link" href="/datsumou/brand/">
-                <div class="search-shop-best-rank"><i class="fas fa-crown search-shop-best-rank-crown crown-first"></i>
-                    <div class="search-shop-best-rank-point">4.25</div>
-                </div><img class="search-shop-best-img" src="/puril/images/img/datsumou/search/kireimo.png" alt="キレイモ">
-                <div class="search-shop-best-name">キレイモ</div></a></li>
-        <li class="search-shop-best-item"><a class="plain-link" href="#">
-                <div class="search-shop-best-rank"><i class="fas fa-crown search-shop-best-rank-crown crown-second"></i>
-                    <div class="search-shop-best-rank-point">3.96</div>
-                </div><img class="search-shop-best-img" src="/puril/images/img/datsumou/search/musee.png" alt="ミュゼプラチナム">
-                <div class="search-shop-best-name">ミュゼプラチナム</div></a></li>
-        <li class="search-shop-best-item"><a class="plain-link" href="#">
-                <div class="search-shop-best-rank"><i class="fas fa-crown search-shop-best-rank-crown crown-third"></i>
-                    <div class="search-shop-best-rank-point">3.91</div>
-                </div><img class="search-shop-best-img" src="/puril/images/img/datsumou/search/stlassh.png" alt="STLASSH">
-                <div class="search-shop-best-name">STLASSH</div></a></li>
+        <?php
+        $osusumes = [
+            '恋肌'=> [
+                'url'=> 'https://t.afi-b.com/visit.php?guid=ON&a=a6684E-M243966D&p=j648053O',
+                'img'=> '/img/Top/koihada_top.jpg',
+                'star' => '4.87',
+            ],
+            'ストラッシュ'=> [
+                'url'=> 'https://track.affiliate-b.com/visit.php?guid=ON&a=47719r-V298788m&p=j648053O',
+                'img'=> '/img/stlassh.jpg',
+                'star' => '4.82',
+            ],
+            'ラココ'=> [
+                'url'=> 'https://www.tcs-asp.net/alink?AC=C102738&LC=MBTY1&SQ=0&isq=100',
+                'img'=> '/shop_img/466',
+                'star' => '4.71',
+            ],
+        ];
+
+        $count = 0;
+        foreach ($osusumes as $name => $osusume) {
+            $countCss = '';
+            switch ($count):
+                case 0:
+                    $countCss = 'first';
+                    break;
+                case 1:
+                    $countCss = 'second';
+                    break;
+                case 2:
+                    $countCss = 'third';
+                    break;
+            endswitch;
+            ?>
+            <li class="search-shop-best-item"><a class="plain-link" href="<?=$osusume['url']?>">
+                    <div class="search-shop-best-rank"><i class="fas fa-crown search-shop-best-rank-crown crown-<?php echo $countCss;?>"></i>
+                        <div class="search-shop-best-rank-point"><?=number_format($osusume['star'],2)?></div>
+                    </div><?php echo $this->Html->image($osusume['img'], ['alt'=> ''])?>
+                    <div class="search-shop-best-name"><?=$name?></div></a></li>
+            <?php
+            $count++;
+        }
+        ?>
     </ul>
     <div class="search-shop-ranking"><a class="button-base search-shop-rainking-button" href="#">ランキングを見る</a></div>
 </div>

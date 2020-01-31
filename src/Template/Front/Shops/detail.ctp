@@ -143,9 +143,6 @@ if (!empty($shop['price_plan_html'])) {
         foreach ($shop['depilation_sites'] as $depilationSite) {
             if ($depilationSite['depilation_site_id'] == 1) {
                 echo '<li class="shop-part-common shop-part-active">'.$depilationSite['name'].'</li>';
-                echo ' <li class="shop-part-common shop-part-none"></li>';
-                echo ' <li class="shop-part-common shop-part-none"></li>';
-                echo ' <li class="shop-part-common shop-part-none"></li>';
                 break;
             }
             echo '<li class="shop-part-common shop-part-active">'.$depilationSite['name'].'</li>';
@@ -397,7 +394,7 @@ if (!empty($shop['reviews'])) {
                             <td><?php echo $shop['staff']; ?></td>
                         </tr>
                     <?php }
-                    if (!empty($shop['staff'])) { ?>
+                    if (!empty($shop['parking'])) { ?>
                         <tr>
                             <th>駐車場</th>
                             <td><?php echo $shop['parking']; ?></td>
@@ -421,42 +418,25 @@ if (!empty($shop['reviews'])) {
             <?php
         }
         ?>
+        <?php
+        if (!empty($shop['affiliate_page_url'])) {
+        ?>
         <div class="shop-info-detail-area">
             <h3 class="shop-info-detail-title">特徴・関連情報</h3>
             <table class="shop-info-detail-table">
                 <tbody>
-                <?php
-                if (!empty($shop['affiliate_page_url'])) {
-                    ?>
+
                     <tr>
                         <th>ホームページ</th>
-                        <td><a href="<?php echo $shop['affiliate_page_url'];?>" target="_blank"><?php echo $shop['affiliate_page_url'];?></a></td>
+                        <td><a href="<?php echo $shop['affiliate_page_url'];?>" target="_blank">公式サイトから予約する</a></td>
                     </tr>
-                    <?php
-                }
-                ?>
-<!--                --><?php
-//                if (!empty($review['twitter_account'])) {
-//                    ?>
-<!--                    <tr>-->
-<!--                        <th>公式アカウント</th>-->
-<!--                        <td><a href="//twitter.com/--><?//= $review['twitter_account'] ?><!--" target="_blank"><i class="fab fa-twitter twitter-icon"></i></a></td>-->
-<!--                    </tr>-->
-<!--                    --><?php
-//                }
-//                ?>
 
-                <!--                <tr>-->
-                <!--                    <th>電話番号</th>-->
-                <!--                    <td>0120-444-680</td>-->
-                <!--                </tr>-->
-                <!--                <tr>-->
-                <!--                    <th>備考</th>-->
-                <!--                    <td>※備考ダミー備考ダミー備考ダミー備考ダミー備考備考ダミー備考ダミー備考ダミー備考ダミー備考ダ備考ダミー備考ダミー</td>-->
-                <!--                </tr>-->
                 </tbody>
             </table>
         </div>
+            <?php
+        }
+        ?>
     </div>
     <div class="shop-info-detail-remark"><?php echo $shop['name'];?>の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</div>
     <div class="shop-info-detail-report"><a class="clickable-button shop-info-detail-report-button" href="#">誤りを報告する</a></div>
