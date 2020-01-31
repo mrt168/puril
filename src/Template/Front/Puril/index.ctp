@@ -32,7 +32,7 @@ use Cake\Routing\Router;
 <main class="home-main">
 
     <div class="home-search">
-        <a href="" class="home-search__btn">近くの店舗を探す</a>
+        <a href="<?php echo Router::url('/datsumou/search')?>" class="home-search__btn">店舗を探す</a>
     </div>
 
     <div class="home-genre">
