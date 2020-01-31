@@ -222,6 +222,11 @@ footer {
 }
 */
 
+body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 /*-- ハンバーガーメニュー  --*/
 .datsumou-header-inner__navToggle {
   position: fixed;
@@ -934,19 +939,24 @@ footer {
   background: #fbf9f7;
 }
 .Search__breadcrumbs ol {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
   max-width: 1080px;
   margin: 0 auto;
   height: 100%;
   list-style: none;
   padding: 10px 15px;
   font-size: 13px;
+  display:block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  overflow: auto;
+  white-space: nowrap;
 }
 .Search__breadcrumbs li {
   position: relative;
+  display:inline;
+  padding-right:0;
 }
 .Search__breadcrumbs li::after {
   content: ">";

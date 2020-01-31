@@ -8,20 +8,62 @@ use PHP_CodeSniffer\Tokenizers\PHP;
 use App\Vendor\Code\Pref;
 use App\Vendor\Code\Sex;
 ?>
+
+<?php
+// 都道府県
+if (!empty($place)) {
+    $placeName = $place;
+} else if (!empty($prefCodes)) {
+    $prefNames = [];
+    foreach ($prefCodes as $prefCode) {
+        array_push($prefNames, Pref::convert($prefCode, CodePattern::$VALUE));
+    }
+
+    if (!empty($prefNames)) {
+        $placeName = implode('、', $prefNames);
+    }
+} else {
+    $placeName = "全国";
+}
+
+// 店舗タイプ
+$shopTypeVal = "";
+if (empty($this->request->data['Make']['shop_type'])) {
+    $shopTypeVal = ShopType::$DEPILATION_SALON[CodePattern::$VALUE]. "・". ShopType::$MEDICAL_DEPILATION_CLINIC[CodePattern::$VALUE];
+} else {
+    foreach ($this->request->data['Make']['shop_type'] as $key => $shopType) {
+        if ($key <= 0) {
+            $shopTypeVal .= ShopType::convert($shopType, CodePattern::$VALUE);
+        } else {
+            $shopTypeVal .= "・". ShopType::convert($shopType, CodePattern::$VALUE);
+        }
+    }
+}
+
+// 詳しい条件
+$condition = null;
+if (!empty($conditions)) {
+    $condition = implode('、', $conditions);
+}
+?>
 <body>
 <?php
+echo $this->Html->css('datsumou');
 echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/ranking/index']);
 ?>
 <header class="datsumou-header">
-    <div class="datsumou-header-inner"><a href="#"><img class="datsumou-header-puril" src="/puril/images/img/puril-colored.png" alt="Puril"></a><a href="#"><i class="fas fa-bars datsumou-header-hamburger"></i></a></div>
+    <?php
+    echo $this->element('Front/header')
+    ?>
 </header>
-<h1 class="content ranking-title">全国の脱毛サロンの人気ランキング</h1>
-<p class="content ranking-text">Purilに寄せられた口コミに基づいて、ランキング形式で人気順にご紹介！全国の店舗ランキングはもちろん、ブランドごとのランキングもご覧いただけます！</p>
+<h1 class="content ranking-title">
+    <span class="area"><?php echo $placeName;?></span><span class="small">の</span><span class="facility"><?php echo $shopTypeVal;	?></span><span class="small"><?php echo !empty($condition) ? $condition."の":"" ;?>ランキング</span></h1>
+<p class="content ranking-text">Purilに寄せられた口コミに基づいて、ランキング形式で人気順にご紹介！全国の店舗ランキングもご覧いただけます！</p>
 <ul class="content-base ranking-category">
-    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
+    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="<?=Router::url('/datsumou/'. URLUtil::RANKING. "/salon")?>"><i class="fas fa-crown ranking-category-item-icon"></i>
+            <div class="ranking-category-item-text">全国の脱毛サロンの人気ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
+    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="<?=Router::url('/datsumou/'. URLUtil::RANKING. "/clinic")?>"><i class="fas fa-crown ranking-category-item-icon"></i>
             <div class="ranking-category-item-text">全国の医療脱毛の人気ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
-    <!--<li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
-            <div class="ranking-category-item-text">ブランドランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>-->
     <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
             <div class="ranking-category-item-text">都道府県別ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
 </ul>
@@ -101,18 +143,25 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             </div>
                             <!--                    <div class="datsumou-shop-tag-button datsumou-shop-tag-campaign">キャンペーン対象</div>-->
                         <?php endif;?>
-                        <div class="ranking-shop-comment">
-                            <ul class="ranking-shop-comment-list">
-                                <?php
-                                foreach ($shop['reviews'] as $key => $review) {
+                        <?php
+                        if(!empty($shop['reviews'])) {?>
+                            <div class="ranking-shop-comment">
+                                <ul class="ranking-shop-comment-list">
+                                    <?php
+
+                                    foreach ($shop['reviews'] as $key => $review) {
+                                        ?>
+                                        <li class="ranking-shop-comment-item">
+                                            <div class="ranking-shop-comment-text"><?= $review['title'] ?></div>
+                                            <div class="ranking-shop-comment-user"><?= $review['nickname'] ?></div>
+                                        </li>
+                                    <?php }
                                     ?>
-                                    <li class="ranking-shop-comment-item">
-                                        <div class="ranking-shop-comment-text"><?=$review['title']?></div>
-                                        <div class="ranking-shop-comment-user"><?=$review['nickname']?></div>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </div></a></li>
+                                </ul>
+                            </div>
+                        <?php }
+                        ?>
+                    </a></li>
                 <?php
             } else {
                 ?>
@@ -287,62 +336,55 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
             <div class="ranking-category-item-text">都道府県別ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
 </ul>
-<div class="content ranking-search-salon">
-    <h2 class="ranking-search-salon-title">サロン・クリニックを探す</h2>
-    <div class="ranking-search-salon-options"><a class="plain-link ranking-search-salon-option ranking-search-salon-areastation" href="#"><img class="ranking-search-salon-option-img" src="/puril/images/img/datsumou/area-and-station.png" alt="エリア・駅から探す">
-            <div class="ranking-search-salon-option-text">エリア・駅から探す</div></a><a class="plain-link ranking-search-salon-option ranking-search-salon-currentsite" href="#"><img class="ranking-search-salon-option-img" src="/puril/images/img/datsumou/current-site.png" alt="現在地から探す">
-            <div class="ranking-search-salon-option-text">現在地から探す</div></a></div>
+
+<a href="https://puril.net/campaign/">
+    <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+</a>
+
+<div class="Search__breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/')?>"><span
+                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/datsumou')?>"><span itemprop="name">脱毛</span></a>
+            <meta itemprop="position" content="2">
+        </li>
+        <span class="breaditem"><a href="<?=Router::url('/'. URLUtil::RANKING. "/")?>"><span>全国の脱毛施設の口コミランキング</span></a></span>
+        <?php
+        if (!empty($pankuzus)) {
+            $i = 1;
+            $pankzuCnt = count($pankuzus);
+            foreach ($pankuzus as  $pankuzu) {
+                if ($i == $pankzuCnt) {
+
+                    ?>
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <span itemprop='name'><?php echo $pankuzu['val']?>口コミランキング</span>
+                        <meta itemprop="position" content="<?php echo $i + 2;?>">
+                    </li>
+                    <?php
+                    continue;
+                }
+                ?>
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+                       href="<?=$pankuzu['url']. "/"?>"><span itemprop="name"><?php echo $pankuzu['val']?><</span></a>
+                    <meta itemprop="position" content="<?php echo $i + 2;?>">
+                </li>
+                <?php
+                $i++;
+            }
+        }
+        ?>
+
+    </ol>
 </div>
-<ul class="content ranking-searchfrom">
-    <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><img class="ranking-searchfrom-item-icon" src="/puril/images/img/japan.png">
-            <div class="ranking-searchfrom-item-text">地域から探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
-    <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><i class="fas fa-user ranking-searchfrom-item-icon"></i>
-            <div class="ranking-searchfrom-item-text">脱毛部位から探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
-    <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><i class="fas fa-newspaper ranking-searchfrom-item-icon"></i>
-            <div class="ranking-searchfrom-item-text">脱毛サロン・クリニック一覧から探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
-    <!-- <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><i class="fas fa-comments ranking-searchfrom-item-icon"></i>
-            <div class="ranking-searchfrom-item-text">口コミから探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li> -->
-    <li class="ranking-searchfrom-item-wrap"><a class="plain-link ranking-searchfrom-item" href="#"><i class="far fa-hand-point-right ranking-searchfrom-item-icon"></i>
-            <div class="ranking-searchfrom-item-text">こだわり条件から探す</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
-</ul>
-<div class="content-base campaign"><a href="#"><img src="/puril/images/img/datsumou/brand/cashback-campaign.jpg" alt="キャッシュバックキャンペーン"></a></div>
-<nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
-    <ul class="breadcrumbs-list">
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">脱毛</a></li>
-        <li><a href="#">全国脱</a></li>
-        <li><a href="#">全国脱毛サ</a></li>
-        <li><a href="#">東京脱</a></li>
-        <li><a href="#">キレイモ新宿</a></li>
-    </ul>
-</nav>
-<div class="content links">
-    <ul class="links-list">
-        <li class="links-item"><a href="#">脱毛</a></li>
-        <li class="links-item"><a href="#">リラク</a></li>
-        <li class="links-item"><a href="#">痩身</a></li>
-        <li class="links-item"><a href="#">フェイシャル</a></li>
-        <li class="links-item"><a href="#">運営企業</a></li>
-        <li class="links-item"><a href="#">利用規約</a></li>
-        <li class="links-item"><a href="#">プライバシーポリシー</a></li>
-        <li class="links-item"><a href="#">サイトマップ</a></li>
-        <li class="links-item"><a href="#">口コミキャッシュバック</a></li>
-        <li class="links-item"><a href="#">ユーザーレビューのお問い合わせ</a></li>
-        <li class="links-item"><a href="#">施設情報掲載のお問い合わせ</a></li>
-    </ul>
-</div>
-<div class="content-base footer"><img class="footer-puril" src="/puril/images/img/puril.png" alt="Puril">
-    <div class="footer-copy">Copyright © ツルツル株式会社 All rights reserved.</div>
-</div>
-<footer class="content datsumou-footer">
-    <ul class="datsumou-footer-list">
-        <li class="datsumou-footer-item active"><a href="/datsumou/search/"><i class="fas fa-search datsumou-footer-item-icon"></i>
-                <div class="datsumou-footer-item-text">探す</div></a></li>
-        <li class="datsumou-footer-item"><a href="#"><i class="fas fa-comments datsumou-footer-item-icon"></i>
-                <div class="datsumou-footer-item-text">口コミ</div></a></li>
-        <li class="datsumou-footer-item"><a href="/datsumou/ranking/"><i class="fas fa-crown datsumou-footer-item-icon"></i>
-                <div class="datsumou-footer-item-text">ランキング</div></a></li>
-    </ul>
-</footer>
+<?php
+echo $this->element('Front/footer') ?>
 </body>
 </html>

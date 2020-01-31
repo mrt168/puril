@@ -199,9 +199,11 @@
        -moz-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding-top: 1em; }
+    padding-top: 1em;
+  flex-wrap: wrap;
+  }
     .shop-datsumou .shop-part-list .shop-part-common {
-      width: 100%;
+      width: 25%;
       padding: .25em 1em;
       text-align: center; }
     .shop-datsumou .shop-part-list .shop-part-common:not(:first-child) {
@@ -210,7 +212,7 @@
       border: 1px solid #6AADBF;
       border-radius: .25em; }
     .shop-datsumou .shop-part-list .shop-part-none {
-      background-color: #F9F7F5; }
+      background-color: #F9F.shop-datsumou .shop-part-list .shop-part-common7F5; }
 
 .shop-campaign .content-title {
   padding: 1em 16px; }

@@ -42,7 +42,7 @@ use App\Vendor\Code\Pref;
 											<td>
 												<?php
 												$prefVal = Pref::convert($prefCode, CodePattern::$VALUE);
-												echo $this->Html->link($prefVal, ['controller'=> 'searchs', 'action'=> 'search', $prefUrlText, $shopType[CodePattern::$VALUE2]]);
+												echo $this->Html->link($prefVal, ['controller'=> 'searchs', 'action'=> 'search', $prefUrlText, $shopType[CodePattern::$VALUE2]]).'｜';
 												?>
 											</td>
 										<?php
