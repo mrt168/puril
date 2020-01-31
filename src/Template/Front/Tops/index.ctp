@@ -276,13 +276,8 @@ echo $this->Html->css('datsumou');
                                 $count++;
                             }
                             ?>
-<<<<<<< HEAD
-                            </ul>
-                        </div>
-=======
                         </ul>
                         <a href="<?php echo Router::url('/datsumou/ranking')?>" class="datsumou-ranking__btn">ランキングを見る</a>
->>>>>>> 6fb6acebe4809bfd43d515957e59d73c7dc2987a
                     </div>
                 </div>
             </div>
