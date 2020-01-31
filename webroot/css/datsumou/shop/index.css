@@ -209,11 +209,7 @@
   flex-wrap: wrap;
   }
     .shop-datsumou .shop-part-list .shop-part-common {
-<<<<<<< HEAD
-      /*width: 100%;*/
-=======
       width: 25%;
->>>>>>> 59813b262bb24b22cc99b2292a0aa6b666a2f5ea
       padding: .25em 1em;
       text-align: center; }
     .shop-datsumou .shop-part-list .shop-part-common:not(:first-child) {

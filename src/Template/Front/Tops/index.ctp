@@ -349,39 +349,5 @@ echo $this->Html->css('datsumou');
         </ol>
     </div>
     <?php
-<<<<<<< HEAD
-    echo $this->element('Front/no_voice_modal') ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        //ハンバーガーメニュー
-        $(function() {
-            $(document).on("click", ".datsumou-header-inner__navToggle", function() {
-                $(".datsumou-header-inner__navToggle").toggleClass("active");
-                $(".datsumou-header-inner__globalmenusp").toggleClass("active");
-            });
-
-            $(".datsumou-header-inner__globalmenusp__link").on("click", function() {
-                if (window.innerWidth <= 768) {
-                    // $(".datsumou-header-inner__navToggle").click();
-                }
-            });
-
-            //　アコーディオン
-            $('.js-spmenu_acc').on('click',function(){
-                if ($(this).hasClass('open')) {
-                    $(this).removeClass('open');
-                    $(this).addClass('close');
-                    $(this).next().slideUp();
-                } else {
-                    $(this).removeClass('close');
-                    $(this).addClass('open');
-                    $(this).next().slideDown();
-                }
-            });
-
-        });
-    </script>
-=======
     echo $this->element('Front/footer') ?>
->>>>>>> 59813b262bb24b22cc99b2292a0aa6b666a2f5ea
 </body>
