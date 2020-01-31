@@ -117,7 +117,7 @@ use Cake\Routing\Router;
                                     $shopUrl = $salon['Shop']['affiliate_page_url'];
                                     $blank = "target='blank'";
                                 } else {
-                                    $shopUrl = Router::url(['controller'=> 'shops', 'action'=> 'detail', $salon['Shop']['shop_id']]). "/";
+                                    $shopUrl = Router::url(['controller'=> 'brands', 'action'=> 'detail', $salon['brand_id']]). "/";
                                 }
                                 $countCss = '';
                                 switch ($count):
