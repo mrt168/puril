@@ -480,6 +480,7 @@ footer {
 }
 .home-evaluation-panel__list > li img {
   margin-right: 1em;
+  width: 100px;
 }
 .home-evaluation-panel__text {
   font-size:12px;
