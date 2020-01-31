@@ -82,6 +82,8 @@
       display: -moz-box;
       display: -ms-flexbox;
       display: flex; }
+  .shop-top .shop-top-desc-area .shop-top-desc-category {
+    margin-bottom: 10px;}
   .shop-top .shop-top-desc-area .shop-top-desc-info {
     display: -webkit-box;
     display: -webkit-flex;
@@ -132,8 +134,11 @@
   .shop-info .content-text {
     padding-top: 1em; }
 
+.shop-plan {
+  padding: 1.5em 16px;}
+
 .shop-plan .content-title {
-  padding: 1em 16px 0.25em 16px; }
+  padding: 1em 0 0.25em; }
 
 .shop-plan .shop-plan-line .shop-plan-line-item-wrap .shop-plan-line-item:not(:last-child) {
   border-bottom: 2px solid #F9F7F5; }
@@ -194,6 +199,7 @@
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    flex-wrap: wrap;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
        -moz-box-pack: justify;
@@ -201,7 +207,7 @@
             justify-content: space-between;
     padding-top: 1em; }
     .shop-datsumou .shop-part-list .shop-part-common {
-      width: 100%;
+      /*width: 100%;*/
       padding: .25em 1em;
       text-align: center; }
     .shop-datsumou .shop-part-list .shop-part-common:not(:first-child) {
@@ -460,8 +466,8 @@
     font-weight: bold; }
 
 .price_list {
-  font-size: 12px;
-}
+  line-height: 18px;
+  font-size: 12px;}
 
 .shop-share {
   padding: 1em 16px; }

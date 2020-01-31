@@ -66,11 +66,11 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 echo "・{$depilationSite['name']}";
             }
             ?>
-        </div>        
-        <?php
-        if (!empty($shop['star']) && !empty($shop['review_cnt'])) {
-            ?>
-            <div class="shop-top-desc-middle">
+        </div>
+        <div class="shop-top-desc-middle">
+            <?php
+            if (!empty($shop['star']) && !empty($shop['review_cnt'])) {
+                ?>
                 <div class="shop-top-desc-review">
                     <div class="shop-star-area">
                         <div class="shop-star">
@@ -95,8 +95,8 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                         <div class="shop-comment-count"><?php echo $shop['review_cnt'];?>件</div>
                     </div>
                 </div>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
         <div class="shop-top-desc-info">
             <?php if (!empty($shop['business_hours'])) { ?>
                 <div class="shop-top-desc-info-common shop-top-desc-info-business">

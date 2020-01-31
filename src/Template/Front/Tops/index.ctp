@@ -503,7 +503,15 @@ echo $this->Html->css('datsumou');
 
             //　アコーディオン
             $('.js-spmenu_acc').on('click',function(){
-             alert("q");
+                if ($(this).hasClass('open')) {
+                    $(this).removeClass('open');
+                    $(this).addClass('close');
+                    $(this).next().slideUp();
+                } else {
+                    $(this).removeClass('close');
+                    $(this).addClass('open');
+                    $(this).next().slideDown();
+                }
             });
 
         });
