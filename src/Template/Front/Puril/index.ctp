@@ -6,7 +6,9 @@ use Cake\Routing\Router;
 <body class="Puril">
 <header class="home-header">
     <div class="home-header-inner">
-        <img class="home-header-inner__img" src="puril/images/header-logo-sp.png" srcset="puril/images/header-logo-sp.png 1x, puril/images/header-logo-sp@2x.png 2x" alt="puril">
+        <a href="/">
+            <img class="home-header-inner__img" src="puril/images/header-logo-sp.png" srcset="puril/images/header-logo-sp.png 1x, puril/images/header-logo-sp@2x.png 2x" alt="puril">
+        </a>
     </div>
     <div class="home-header-mv">
         <div class="home-header-mv-inner">
@@ -96,9 +98,9 @@ use Cake\Routing\Router;
 
                 <div class="home-ranking__tab-area">
                     <label class="tab01-01_label" for="tab01-01">脱毛</label>
-                    <label class="tab01-02_label" for="tab01-02">リラク</label>
-                    <label class="tab01-03_label" for="tab01-03">フェイシャル</label>
-                    <label class="tab01-04_label" for="tab01-04">痩身</label>
+                    <label class="tab01-02_label no-link" for="tab01-02">リラク</label>
+                    <label class="tab01-03_label no-link" for="tab01-03">フェイシャル</label>
+                    <label class="tab01-04_label no-link" for="tab01-04">痩身</label>
                 </div>
                 <div class="home-ranking-panel">
                     <div id="panel01" class="home-ranking-panel-inner panel01">
@@ -149,7 +151,7 @@ use Cake\Routing\Router;
                             }
                             ?>
                         </ul>
-                        <a href="<?php echo Router::url('/datsumou/ranking')?>"" class="home-ranking__btn">ランキングを見る</a>
+                        <a href="<?php echo Router::url('/datsumou/ranking')?>" class="home-ranking__btn">ランキングを見る</a>
                     </div>
                     <div id="panel02" class="home-ranking-panel-inner panel02">
                         <p>リラク</p>
@@ -165,9 +167,9 @@ use Cake\Routing\Router;
         </div>
     </div>
 
-
-    <img class="home-bnr" src="puril/images/cash-back-bnr-sp.png" alt="">
-
+    <a href="https://puril.net/campaign/">
+        <img class="home-bnr" src="puril/images/cash-back-bnr-sp.png" alt="">
+    </a>
     <div class="home-evaluation">
         <div class="home-evaluation__inner">
             <h2 class="home-evaluation__title"><p>新着口コミから探す</p></h2>
@@ -179,9 +181,9 @@ use Cake\Routing\Router;
 
                 <div class="home-evaluation__tab-area">
                     <label class="tab02-01_label" for="tab02-01">脱毛</label>
-                    <label class="tab02-02_label" for="tab02-02">リラク</label>
-                    <label class="tab02-03_label" for="tab02-03">フェイシャル</label>
-                    <label class="tab02-04_label" for="tab02-04">痩身</label>
+                    <label class="tab02-02_label no-link" for="tab02-02">リラク</label>
+                    <label class="tab02-03_label no-link" for="tab02-03">フェイシャル</label>
+                    <label class="tab02-04_label no-link" for="tab02-04">痩身</label>
                 </div>
                 <div class="home-evaluation-panel">
                     <div id="panel01" class="home-evaluation-panel-inner panel01">
@@ -277,11 +279,12 @@ use Cake\Routing\Router;
             </li>
         </ul>
     </div>
-    </div>
 </main>
 
 <footer class="Footer">
-    <img class="home-bnr" src="puril/images/cash-back-bnr-sp.png" alt="">
+    <a href="https://puril.net/campaign/">
+        <img class="home-bnr" src="puril/images/cash-back-bnr-sp.png" alt="">
+    </a>
     <div class="Footer__inner">
         <ul class="Footer__category01">
             <li class="Footer__category__li nolink">

@@ -247,17 +247,20 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                     break;
             endswitch;
             ?>
-            <li class="search-shop-best-item"><a class="plain-link" href="<?=$osusume['url']?>">
+            <li class="search-shop-best-item">
+                <a class="plain-link" href="<?=$osusume['url']?>">
                     <div class="search-shop-best-rank"><i class="fas fa-crown search-shop-best-rank-crown crown-<?php echo $countCss;?>"></i>
                         <div class="search-shop-best-rank-point"><?=number_format($osusume['star'],2)?></div>
-                    </div><?php echo $this->Html->image($osusume['img'], ['alt'=> ''])?>
-                    <div class="search-shop-best-name"><?=$name?></div></a></li>
+                    </div><?php echo $this->Html->image($osusume['img'], ['alt'=> '','class'=>'search-shop-best-img'])?>
+                    <div class="search-shop-best-name"><?=$name?></div>
+                </a>
+            </li>
             <?php
             $count++;
         }
         ?>
     </ul>
-    <div class="search-shop-ranking"><a class="button-base search-shop-rainking-button" href="#">ランキングを見る</a></div>
+    <div class="search-shop-ranking"><a class="button-base search-shop-rainking-button" href="<?php echo Router::url('/datsumou/ranking')?>">ランキングを見る</a></div>
 </div>
 <nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
     <ul class="breadcrumbs-list">

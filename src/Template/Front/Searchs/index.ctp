@@ -24,10 +24,10 @@ echo $this->Html->css(['css/main', 'css/search']);
                 <button class="search"><img src="/puril/images/ico_search_wht.svg" alt="絞込み"></button>
             </div>
         </div>
-        <div class="Search__btns">
-            <a href="" class="Search__btn" data-color="default">脱毛サロン</a>
-            <a href="" class="Search__btn" data-color="white">医療脱毛クリニック</a>
-        </div>
+<!--        <div class="Search__btns">-->
+<!--            <a href="" class="Search__btn" data-color="default">脱毛サロン</a>-->
+<!--            <a href="" class="Search__btn" data-color="white">医療脱毛クリニック</a>-->
+<!--        </div>-->
         <ul class="Search__list">
             <?php
             foreach ($prefs as $pref) {

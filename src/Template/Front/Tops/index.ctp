@@ -64,12 +64,14 @@ echo $this->Html->css('datsumou');
         </button>
         <nav class="datsumou-header-inner__globalmenusp">
             <p class="datsumou-header-inner__globalmenusp__logo">
-                <img src="/puril/images/header-logo-sp.png" srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x" alt="puril" />
+                <a href="/">
+                    <img src="/puril/images/header-logo-sp.png" srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x" alt="puril" />
+                </a>
             </p>
 
             <ul class="datsumou-header-inner__globalmenusp__linkboxs">
                 <li class="datsumou-header-inner__globalmenusp__linkbox">
-                    <a href="#" class="datsumou-header-inner__globalmenusp__link">Pupil TOP</a>
+                    <a href="/" class="datsumou-header-inner__globalmenusp__link">Pupil TOP</a>
                 </li>
             </ul>
         </nav>
@@ -106,20 +108,20 @@ echo $this->Html->css('datsumou');
         </div>
         <div class="datsumou-search__inner">
             <h2 class="datsumou-search__title">サロン・クリニックを探す</h2>
-            <ul class="datsumou-searcharea__list">
-                <li>
-                    <a href="">
-                        <img src="/puril/images/datsumou-search-ico01-sp.png" alt="脱毛">
-                        <p><span>エリア・駅</span>から探す</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/puril/images/datsumou-search-ico02-sp.png" alt="リラク">
-                        <p><span>現在地</span>から探す</p>
-                    </a>
-                </li>
-            </ul>
+            <!--            <ul class="datsumou-searcharea__list">-->
+            <!--                <li>-->
+            <!--                    <a href="">-->
+            <!--                        <img src="/puril/images/datsumou-search-ico01-sp.png" alt="脱毛">-->
+            <!--                        <p><span>エリア・駅</span>から探す</p>-->
+            <!--                    </a>-->
+            <!--                </li>-->
+            <!--                <li>-->
+            <!--                    <a href="">-->
+            <!--                        <img src="/puril/images/datsumou-search-ico02-sp.png" alt="リラク">-->
+            <!--                        <p><span>現在地</span>から探す</p>-->
+            <!--                    </a>-->
+            <!--                </li>-->
+            <!--            </ul>-->
         </div>
     </div>
 
@@ -127,17 +129,17 @@ echo $this->Html->css('datsumou');
         <div class="datsumou-area__inner">
             <ul class="datsumou-area__list">
                 <li>
-                    <a href=""><img src="/puril/images/datsumou-area-ico01-sp.png" alt="">地域<span class="small">から探す</span></a>
+                    <a href="<?php echo Router::url('/datsumou/search')?>"><img src="/puril/images/datsumou-area-ico01-sp.png" alt="">地域<span class="small">から探す</span></a>
                 </li>
+<!--                <li>-->
+<!--                    <a href="">脱毛部位<span class="small">から探す</span></a>-->
+<!--                </li>-->
                 <li>
-                    <a href="">脱毛部位<span class="small">から探す</span></a>
+                    <a href="<?php echo Router::url('/datsumou/brands')?>">脱毛サロン・クリニック一覧<span class="small">から探す</span></a>
                 </li>
-                <li>
-                    <a href="">脱毛サロン・クリニック一覧<span class="small">から探す</span></a>
-                </li>
-                <li>
-                    <a href=""><img src="/puril/images/datsumou-area-ico02-sp.png" alt="">こだわり条件<span class="small">から探す</span></a>
-                </li>
+<!--                <li>-->
+<!--                    <a href=""><img src="/puril/images/datsumou-area-ico02-sp.png" alt="">こだわり条件<span class="small">から探す</span></a>-->
+<!--                </li>-->
             </ul>
         </div>
     </div>
@@ -202,7 +204,7 @@ echo $this->Html->css('datsumou');
                             }
                             ?>
                         </ul>
-                        <a href="" class="datsumou-ranking__btn">ランキングを見る</a>
+                        <a href="<?php echo Router::url('/datsumou/ranking')?>" class="datsumou-ranking__btn">ランキングを見る</a>
                     </div>
                     <div id="panel02" class="datsumou-ranking-panel-inner panel02">
                         <ul class="datsumou-ranking-panel__list">
@@ -348,12 +350,12 @@ echo $this->Html->css('datsumou');
             </li>
         </ul>
     </div>
-    </div>
 </main>
 
 <footer class="datsumou-footer">
+    <a href="https://puril.net/campaign/">
     <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
-
+    </a>
     <div class="Search__breadcrumbs">
         <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
@@ -368,16 +370,16 @@ echo $this->Html->css('datsumou');
     </div>
     <div class="datsumou-footer__inner">
         <ul class="datsumou-footer__category01">
-            <li class="datsumou-footer__category__li nolink">
+            <li class="datsumou-footer__category__li no-link">
                 <a href="/datsumou/" class="datsumou-footer__category__li__link">脱毛</a>
             </li>
-            <li class="datsumou-footer__category__li nolink">
+            <li class="datsumou-footer__category__li no-link">
                 <a href="" class="datsumou-footer__category__li__link">リラク</a>
             </li>
-            <li class="datsumou-footer__category__li nolink">
+            <li class="datsumou-footer__category__li no-link">
                 <a href="" class="datsumou-footer__category__li__link">痩身</a>
             </li>
-            <li class="datsumou-footer__category__li nolink">
+            <li class="datsumou-footer__category__li no-link">
                 <a href="" class="datsumou-footer__category__li__link">フェイシャル</a>
             </li>
         </ul>
@@ -413,5 +415,6 @@ echo $this->Html->css('datsumou');
         <p>Copyright © ツルツル株式会社 All rights reserved.</p>
     </div>
 </footer>
-
+<?php
+echo $this->element('Front/no_voice_modal') ?>
 </body>
