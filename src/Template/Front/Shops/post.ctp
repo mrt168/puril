@@ -48,7 +48,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
         <div class="rating-star"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png">
         </div>
         <div class="rating-number"><span id="rating-number-span">0.0</span></div>
-        <?= $this->ExForm->text('Reviews.evaluation', ['id' => 'evaluation','type'=>'hidden']); ?>
+        <?= $this->ExForm->hidden('Reviews.evaluation', ['id' => 'evaluation',]); ?>
     </div>
     <div class="content question-title">合計9つのご質問にお答えください</div>
     <div class="content-base question-area">

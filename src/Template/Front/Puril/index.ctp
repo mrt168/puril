@@ -206,9 +206,11 @@ use Cake\Routing\Router;
                                 }
                                 ?>
                                 <li>
-                                    <a href="<?=$shopUrl?>" <?=$blank?> onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">
-                                        <img src="<?php echo $imgUrl?> alt="">
-                                        <div class="datsumou-evaluation-panel__text">
+                                    <div class="voice-box">
+                                        <a href="<?=$shopUrl?>" <?=$blank?> onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">
+                                            <img src="<?php echo $imgUrl?> alt="">
+                                        </a>
+                                        <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $salon['Shop']['shop_id']], true);?>" class="datsumou-evaluation-panel__text">
                                             <h3 class="home-evaluation-panel__title"><?php echo $salon['Shop']['name']?></h3>
                                             <p class="home-evaluation-panel__thin"><?php echo $salon['title']?></p>
                                             <p class="home-evaluation-panel__star">
@@ -231,8 +233,8 @@ use Cake\Routing\Router;
                                       </span>
                                                 <span class="date"><?php echo !empty($salon['post_date']) ? date('Y.m.d', strtotime($salon['post_date'])) : "";?></span>
                                             </p>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </li>
                                 <?php
                             }

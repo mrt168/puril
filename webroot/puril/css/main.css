@@ -350,6 +350,11 @@ footer {
 }
 .home-ranking-panel__list > li img {
   padding-top: 1em;
+  height: 100px;
+  object-fit: contain;
+}
+.home-ranking-panel__list a{
+  text-decoration: none;
 }
 .home-ranking-panel__text {
   padding-top: 1em;
@@ -471,12 +476,16 @@ footer {
   font-weight: 900;
   content: "\f054";
 }
-.home-evaluation-panel__list > li a {
+.home-evaluation-panel__list > li .voice-box {
   display: -webkit-box;
   display: flex;
   width: 100%;
   color: #13121E;
   text-decoration: none;
+}
+.home-evaluation-panel__list > li .voice-box a{
+  text-decoration: none;
+  color: #13121E;
 }
 .home-evaluation-panel__list > li img {
   margin-right: 1em;
