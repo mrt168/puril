@@ -131,12 +131,19 @@ use App\Vendor\Code\ShowFlg;
 					?>
 				</div>
 				<div class="form-group">
-					<label>この店舗の総合的な感想を、20文字程度で感想を教えてください。<span class="required-mark">※</span></label><br>
+					<label>この店舗の総合的な感想を、50文字程度で感想を教えてください。<span class="required-mark">※</span></label><br>
 					<?php
 					echo $this->ExForm->textarea('Reviews.content', array('id'=> 'content', 'class'=> 'form-control'));
 					echo $this->ExForm->error('Reviews.content');
 					?>
 				</div>
+                <div class="form-group">
+                    <label>この店舗を選んだ理由を教えてください。</label><br>
+                    <?php
+                    echo $this->ExForm->textarea('Reviews.reason', array('id'=> 'content', 'class'=> 'form-control'));
+                    echo $this->ExForm->error('Reviews.reason');
+                    ?>
+                </div>
 				<div class="form-group">
 					<label>表示フラグ</label><br>
 					<?php

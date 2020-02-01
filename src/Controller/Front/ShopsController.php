@@ -448,4 +448,36 @@ class ShopsController extends FrontAppController {
         );
         parent::move(SiteInfo::$SHOP_RESERVE);
 	}
+
+    /**
+     * 口コミ投稿フォーム
+     */
+    public function post() {
+        $shopId = $this->request->getQuery('shop_id');
+
+        $shopTable = TableRegistry::get('Shops');
+        $shop = $shopTable->findByIdAndDelFlg($shopId);
+
+        if (empty($shop['shop_id'])) {
+            throw new NotFoundException();
+        }
+
+        $shop = $shop->toArray();
+        ConvertItems::convertValue($shop)
+            ->codeConverter(Pref::toString(), CodePattern::$VALUE, "pref")
+            ->codeConverter(ShopType::toString(), CodePattern::$VALUE, "shop_type");
+
+        $this->set(compact('shop'));
+        // title
+        SiteInfo::$SHOP_RESERVE[SiteInfo::TITLE]= sprintf(
+            SiteInfo::$SHOP_RESERVE[SiteInfo::TITLE],
+            $shop['name']
+        );
+        // description
+        SiteInfo::$SHOP_RESERVE[SiteInfo::DESCRIPTION] = sprintf(
+            SiteInfo::$SHOP_RESERVE[SiteInfo::DESCRIPTION],
+            $shop['name']
+        );
+        parent::move(SiteInfo::$SHOP_RESERVE);
+    }
 }

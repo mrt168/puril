@@ -49,11 +49,6 @@ echo $this->Html->link('<i class="fa fa-chevron-left"></i> 一覧に戻る', ['c
 				<th>この店舗の総合的な感想を、20文字程度で感想を教えてください。</th>
 				<td><?php echo nl2br($review['content'])?></td>
 			</tr>
-
-			<tr>
-				<th></th>
-				<td></td>
-			</tr>
 			<tr>
 				<th rowspan="2">店舗の「接客／サービス」はいかがでしたか？</th>
 				<td><?php echo $review['question1']?></td>

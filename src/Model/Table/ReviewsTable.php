@@ -476,6 +476,7 @@ class ReviewsTable extends AppTable
             'Reviews.visit_date',
             'Reviews.title',
             'Reviews.content',
+            'Reviews.reason',
             'Reviews.show_flg',
 
             'Shop.shop_id',
@@ -508,6 +509,7 @@ class ReviewsTable extends AppTable
                 'Reviews.question6',
                 'Reviews.nickname',
                 'Reviews.sex',
+                'Reviews.reason',
                 'Reviews.instagram_account',
                 'Reviews.twitter_account',
                 'Reviews.title',

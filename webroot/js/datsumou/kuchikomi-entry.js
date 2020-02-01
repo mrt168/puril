@@ -6,6 +6,7 @@ $(function () {
     const rId4 = "#rating4"
     const rId5 = "#rating5"
     const targetNum = "#rating-number-span"
+    const targetInput = "#evaluation"
     const targetStar = 'img.rating-star-icon'
 
     var showStar = function (ave) {
@@ -14,27 +15,54 @@ $(function () {
             var num = i + 1
             var aveBiased = ave + 0.5 // NOTE: .1~.5 -> .5, .6~1.0 -> 1.0
             if (num < aveBiased) {
-                target.attr('src', '/img/datsumou/star-on-large.png')
+                target.attr('src', '/puril/images/img/datsumou/star-on-large.png')
             } else {
                 if (num - 0.5 < aveBiased) {
-                    target.attr('src', '/img/datsumou/star-half-large.png')
+                    target.attr('src', '/puril/images/img/datsumou/star-half-large.png')
                 } else {
-                    target.attr('src', '/img/datsumou/star-off-large.png')
+                    target.attr('src', '/puril/images/img/datsumou/star-off-large.png')
                 }
             }
         }
     }
 
     var calcAverage = function () {
+        var sumCount = 0;
         r1 = parseFloat($(rId1).val()) || 0
-        r2 = parseFloat($(rId2).val()) || 0
-        r3 = parseFloat($(rId3).val()) || 0
-        r4 = parseFloat($(rId4).val()) || 0
-        r5 = parseFloat($(rId5).val()) || 0
-        sum = r1 + r2 + r3 + r4 + r5
-        ave = Math.round(sum * 10 / 5) / 10
 
-        $(targetNum).html(ave)
+        if(r1 > 0) {
+            r1 = 6 - r1;
+            sumCount++;
+        }
+        r2 = parseFloat($(rId2).val()) || 0
+        if(r2 > 0) {
+            r2 = 6 - r2;
+            sumCount++;
+        }
+        r3 = parseFloat($(rId3).val()) || 0
+        if(r3 > 0) {
+            r3 = 6 - r3;
+            sumCount++;
+        }
+        r4 = parseFloat($(rId4).val()) || 0
+        if(r4 > 0) {
+            r4 = 6 - r4;
+            sumCount++;
+        }
+        r5 = parseFloat($(rId5).val()) || 0
+        if(r5 > 0) {
+            r5 = 6 - r5;
+            sumCount++;
+        }
+        sum = r1 + r2 + r3 + r4 + r5
+
+        var ave = 0;
+        if(sumCount > 0) {
+            ave = Math.round(sum * 10 / sumCount) / 10
+        }
+
+        $(targetNum).html(ave.toFixed(1));
+        $(targetInput).val(ave);
         showStar(ave)
     }
 

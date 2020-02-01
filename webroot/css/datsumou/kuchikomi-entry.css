@@ -103,9 +103,13 @@
     .question-area table td input::placeholder {
       color: #B5B5B5; }
     .question-area table td select {
-      width: 100%;
-      color: #B5B5B5;
+      width: 70%;
+      color: black;
       border: none; }
+.question-area table td .td-inner.flex {
+  display: flex;
+justify-content: flex-start;
+align-items: center;}
     .question-area table td textarea {
       background-color: #F9F7F5;
       border: none;

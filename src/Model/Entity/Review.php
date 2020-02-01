@@ -67,6 +67,7 @@ class Review extends Entity
         'age' => true,
         'sex' => true,
         'birthday' => true,
+        'reason' => true,
         'station' => true,
         'instagram_account' => true,
         'twitter_account' => true,
