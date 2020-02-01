@@ -139,7 +139,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     <p class="content-text"><?php echo nl2br($shop['description_content']); ?></p>
 </section>
 <?php
-if (true) {
+if (false) {
     ?>
     <section class="content middle-content shop-plan" id="price">
         <h2 class="content-title">料金プラン</h2>

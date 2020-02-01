@@ -203,3 +203,76 @@
     padding: 1em;
     width: 100%;
     border-radius: 4px; }
+
+
+/* /form_userへの追記 */
+.form-user.reserve-form {
+  background: #fff;
+}
+.form-user .contact-content {
+  margin-top: 5px;
+  padding-top: 10px;
+  border-top: 1px solid #E0DCCC;
+  background: #fff;
+}
+.form-user .reserve-title {
+  margin-bottom: 15px;
+  padding: 8px 0 7px 15px;
+  background: #6AADBF;
+  color: #fff;
+  font-size: 13px;
+}
+.form-user .contact-content-text {
+  padding: 0 10px;
+}
+.form-user .reserve-section {
+  margin: 20px 10px;
+  padding: 0 10px 10px;
+  background: #F9F7F5;
+}
+.form-user .reserve-section * {
+  padding: 0;
+}
+
+.form-user .reserve-question {
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+.form-user .reserve-question-text,
+.form-user .reserve-section .reserve-subquestion .reserve-subquestion-text {
+  position: relative;
+  padding: 0;
+  padding-left: 9px;
+  font-size: 14px;
+  line-height: 20px;
+  color: inherit;
+}
+.form-user .reserve-question-text::before,
+.form-user .reserve-section .reserve-subquestion .reserve-subquestion-text::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: #BCB189;
+  content: '';
+}
+.form-user .reserve-section .reserve-subquestion .reserve-email-desc {
+  font-size: 10px;
+  padding: 0;
+  padding-top: 10px;
+}
+
+.form-user .terms-section {
+  height: 160px;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #E0DCCC;
+  overflow-y: hidden;
+}
+
+.form-user .reserve-button-area {
+  background: #fff;
+}
+.form-user .reserve-section .reserve-subquestion .reserve-email-desc 

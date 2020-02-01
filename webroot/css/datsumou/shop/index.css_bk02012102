@@ -13,9 +13,7 @@
     .shop-top .shop-top-img-area .shop-top-img-base .shop-top-img {
       opacity: .95;
       width: 100%;
-      display: block; 
-      height: 233px;
-      object-fit: cover; }
+      display: block; }
   .shop-top .shop-top-img-area .shop-top-img-desc {
     padding: 0 1em;
     position: absolute;
@@ -51,7 +49,7 @@
   padding: 1.25em;
   color: #595960; }
   .shop-top .shop-top-desc-area .shop-top-desc-middle {
-    padding: 8px 0 10px 0;
+    padding: 1em 0;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -85,7 +83,7 @@
       display: -ms-flexbox;
       display: flex; }
   .shop-top .shop-top-desc-area .shop-top-desc-category {
-  }
+    margin-bottom: 10px;}
   .shop-top .shop-top-desc-area .shop-top-desc-info {
     display: -webkit-box;
     display: -webkit-flex;
@@ -132,17 +130,15 @@
   .shop-info .content-title-sub {
     padding-top: 1.5em;
     font-size: 14px;
-    font-weight: bold;
-    line-height: 18px;
-   }
+    font-weight: bold; }
   .shop-info .content-text {
     padding-top: 1em; }
 
 .shop-plan {
-  padding: 1.5em 15px;}
+  padding: 1.5em 16px;}
 
 .shop-plan .content-title {
-  padding-left: 1px; }
+  padding: 1em 0 0.25em; }
 
 .shop-plan .shop-plan-line .shop-plan-line-item-wrap .shop-plan-line-item:not(:last-child) {
   border-bottom: 2px solid #F9F7F5; }
@@ -196,7 +192,7 @@
       color: #B5B5B5; }
 
 .shop-datsumou {
-  padding: 10px 16px; }
+  padding: 1.5em 16px; }
   .shop-datsumou .shop-part-list {
     display: -webkit-box;
     display: -webkit-flex;
@@ -297,7 +293,7 @@
     background-color: #000000;
     position: relative; }
     .shop-photo .shop-photo-list .shop-photo-list-sub:last-child .shop-photo-item:last-child img {
-      }
+      opacity: .7; }
     .shop-photo .shop-photo-list .shop-photo-list-sub:last-child .shop-photo-item:last-child .shop-photo-over {
       position: absolute;
       top: 50%;
@@ -388,9 +384,9 @@
         padding: .5em 0; }
 
 .shop-kuchikomi-post {
-  padding: 15px 16px; }
+  padding: 1em 16px; }
   .shop-kuchikomi-post .shop-kuchikomi-button-area {
-    padding-top: 15px; }
+    padding: 1em 0; }
 
 .shop-address {
   position: relative; }
@@ -413,7 +409,7 @@
     width: 100%; }
 
 .shop-info-detail {
-  padding: 15px 16px; }
+  padding: 1em 16px; }
   .shop-info-detail .content-title {
     padding-bottom: .5em; }
   .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area:not(:first-child) {
@@ -473,32 +469,7 @@
 
 .price_list {
   line-height: 18px;
-  margin-top: 15px;
   font-size: 12px;}
 
-.price_list th {
-    width: 100px;
-    background-color: #F9F7F5;
-    border: solid 1px #EEECE4;
-    border-right: none;
-    padding: 10px;
-    text-align: center; vertical-align: middle;
-}
-
-.price_list .price {
-    width: 115px;
-    border: solid 1px #EEECE4;
-    border-right: none;
-    padding: 10px;
-    text-align: center; vertical-align: middle;
-}
-
-.price_list td {
-    width: 170px;
-    border: solid 1px #EEECE4;
-    padding: 10px;
-    vertical-align: middle;
-}  
-
 .shop-share {
-  padding: 15px 16px 0 16px; }
+  padding: 1em 16px; }
