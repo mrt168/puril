@@ -57,7 +57,7 @@ echo $this->Html->css(['css/main', 'css/search']);
     <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
 </a>
 <div class="Search__breadcrumbs">
-    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+    <ol>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
             <a itemtype="http://schema.org/Thing" itemprop="item"
                href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
