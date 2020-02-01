@@ -222,7 +222,7 @@ if (!empty($shop['reviews'])) {
                     </div>
                     <div class="shop-kuchikomi-item-below">
                         <div class="shop-kuchikomi-item-detail-wrap">
-                            <?php if(empty($review['content'])):?>
+                            <?php if(!empty($review['content'])):?>
                                 <div class="shop-kuchikomi-item-detail">
                                     <div class="shop-kuchikomi-item-detail-title">この店舗の総合的な感想を教えて下さい</div>
                                     <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['content']) ?></p>
