@@ -778,7 +778,7 @@ body {
 .datsumou-evaluation-panel__list > li .voice-box {
   display: -webkit-box;
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
   padding-right: 30px;
   box-sizing: border-box;

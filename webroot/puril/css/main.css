@@ -479,6 +479,7 @@ footer {
 .home-evaluation-panel__list > li .voice-box {
   display: -webkit-box;
   display: flex;
+  justify-content: space-between;
   width: 100%;
   color: #13121E;
   text-decoration: none;
