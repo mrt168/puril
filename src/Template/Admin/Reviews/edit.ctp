@@ -26,7 +26,7 @@ use App\Vendor\Code\ShowFlg;
 				<div class="form-group">
 					<label>評価<span class="required-mark">※</span></label><br>
 					<?php
-					echo $this->ExForm->evaluation('Reviews.evaluation', array('id'=> 'evaluation', 'class'=> 'form-control inline', 'style'=> 'width: 80px;'));
+					echo $this->ExForm->text('Reviews.evaluation', array('id'=> 'evaluation', 'class'=> 'form-control inline', 'style'=> 'width: 80px;'));
 					echo $this->ExForm->error('Reviews.evaluation');
 					?>
 				</div>
