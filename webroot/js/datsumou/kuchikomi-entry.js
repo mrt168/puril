@@ -71,6 +71,7 @@ $(function () {
     $(rId3).on('change', function () { calcAverage() })
     $(rId4).on('change', function () { calcAverage() })
     $(rId5).on('change', function () { calcAverage() })
+    calcAverage();
 })
 
 // 簡易アップロード画像プレビュー

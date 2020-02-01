@@ -40,7 +40,11 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 </header>
 <h1 class="content kuchikomi-entry-title"><?php echo $shop['name'];?></h1>
 <?= $this->ExForm->create('Reviews', ['url' => false, 'type' => 'post', 'novalidate' => true, 'id' => 'form', 'enctype' => 'multipart/form-data']) ?>
-    <div class="content middle-content rating-area">
+<?php
+echo $this->ExForm->hidden('Reviews.shop_name', ['class' => '', 'value' => $shop['name'], 'readonly' => 'readonly']);
+echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
+?>
+<div class="content middle-content rating-area">
         <div class="rating-star"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png"><img class="rating-star-icon" src="/puril/images/img/datsumou/star-off-large.png">
         </div>
         <div class="rating-number"><span id="rating-number-span">0.0</span></div>
