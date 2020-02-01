@@ -104,6 +104,7 @@
       color: #B5B5B5; }
     .question-area table td select {
       width: 70%;
+      background: transparent;
       color: black;
       border: none; }
 .question-area table td .td-inner.flex {

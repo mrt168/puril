@@ -272,8 +272,12 @@ if (!empty($shop['reviews'])) {
                     <div class="shop-kuchikomi-item-below">
                         <div class="shop-kuchikomi-item-detail-wrap">
                             <div class="shop-kuchikomi-item-detail">
-                                <div class="shop-kuchikomi-item-detail-title">この店舗を選んだ理由を教えてください。</div>
+                                <div class="shop-kuchikomi-item-detail-title">この店舗の総合的な感想を教えて下さい</div>
                                 <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['content']) ?></p>
+                            </div>
+                            <div class="shop-kuchikomi-item-detail">
+                                <div class="shop-kuchikomi-item-detail-title">この店舗を選んだ理由を教えてください。</div>
+                                <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['reason']) ?></p>
                             </div>
                             <div class="shop-kuchikomi-item-detail">
                                 <div class="shop-kuchikomi-item-detail-title">店舗の「接客／サービス」はいかがでしたか？</div>
@@ -320,16 +324,11 @@ if (!empty($shop['reviews'])) {
                 </li>
             <?php } ?>
         </ul>
-        <?php
-        if(count($shop['reviews']) > 4) {
-            ?>
-            <a class="show-more clickable-button" href="/datsumou/shop/kuchikomi.html">口コミをもっと見る（<?php echo count($shop['reviews']);?>件）</a>
-        <?php } ?>
     </section>
 <?php } ?>
 <section class="content middle-content shop-kuchikomi-post">
     <h2 class="content-title">口コミ投稿</h2>
-    <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="#"><i class="fas fa-comments kuchikomi-button-icon"></i>
+    <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-comments kuchikomi-button-icon"></i>
             <div class="kuchikomi-button-text">口コミを書く</div></a></div>
 </section>
 <section class="content middle-content shop-address" id="address">
