@@ -36,7 +36,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     $imagenum = count($shop['shop_images']);
     if ($imagenum > 0):
     ?>
-    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#photo">写真</a></div>
+<!--    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#photo">写真</a></div>-->
     <?php
     endif;
     if (!empty($shop['reviews'])) {
@@ -180,44 +180,44 @@ if (true) {
 <?php
 if($imagenum > 0):
     ?>
-    <section class="content middle-content shop-photo" id="photo">
-        <h2 class="content-title">投稿写真</h2>
-        <div class="shop-photo-list">
-            <ul class="shop-photo-list-sub">
-                <?php
-                $count = 0;
-                foreach ($shop['shop_images'] as $shopImage) {
-                    if($count == 5) {
-                        ?>
-                        <li class="shop-photo-item"><a href="#">
-                                <a href="/datsumou/shop/photo.html">
-                                    <?php echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'modal-trigger',)); ?>
-                                    <div class="shop-photo-over">
-                                        <img class="shop-photo-icon" src="/puril/images/img/datsumou/camera.png">
-                                        <div class="shop-photo-count"><?php echo $imagenum?>>
-                                        </div>
-                                    </div>
-                                </a>
-                            </a>
-                        </li>
-                        <?php
-                    } elseif($count > 6 ) {
-                        break;
-                    } else {
-                        ?>
-                        <li class="shop-photo-item">
-                            <a href="#">
-                                <?php echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'modal-trigger',)); ?>
-                            </a>
-                        </li>
-                        <?php
-                    }
-                    $count++;
-                }
-                ?>
-            </ul>
-        </div>
-    </section>
+<!--    <section class="content middle-content shop-photo" id="photo">-->
+<!--        <h2 class="content-title">投稿写真</h2>-->
+<!--        <div class="shop-photo-list">-->
+<!--            <ul class="shop-photo-list-sub">-->
+<!--                --><?php
+//                $count = 0;
+//                foreach ($shop['shop_images'] as $shopImage) {
+//                    if($count == 5) {
+//                        ?>
+<!--                        <li class="shop-photo-item"><a href="#">-->
+<!--                                <a href="/datsumou/shop/photo.html">-->
+<!--                                    --><?php //echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'modal-trigger',)); ?>
+<!--                                    <div class="shop-photo-over">-->
+<!--                                        <img class="shop-photo-icon" src="/puril/images/img/datsumou/camera.png">-->
+<!--                                        <div class="shop-photo-count">--><?php //echo $imagenum?><!-->-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        --><?php
+//                    } elseif($count > 6 ) {
+//                        break;
+//                    } else {
+//                        ?>
+<!--                        <li class="shop-photo-item">-->
+<!--                            <a href="#">-->
+<!--                                --><?php //echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'modal-trigger',)); ?>
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        --><?php
+//                    }
+//                    $count++;
+//                }
+//                ?>
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </section>-->
 <?php
 endif;
 ?>
