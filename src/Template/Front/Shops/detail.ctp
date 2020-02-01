@@ -29,7 +29,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 </header>
 <nav class="content shop-nav">
     <div class="shop-nav-item active"><a class="shop-nav-item-text" href="/datsumou/shop/">トップ</a></div>
-    <?php if(false):?>
+    <?php if(!empty($shop['price_plan_html'])):?>
         <div class="shop-nav-item"><a class="shop-nav-item-text" href="#price">料金プラン</a></div>
     <?php endif;
 
@@ -183,7 +183,7 @@ if (!empty($shop['reviews'])) {
                 ?>
                 <li class="shop-kuchikomi-item-wrap shop-kuchikomi-item">
                     <div class="shop-kuchikomi-item-above">
-                        <div class="shop-kuchikomi-title"><?= $review['title'] ?></div>
+                        <div class="shop-kuchikomi-title">今回脱毛した部位:<?= $review['title'] ?></div>
                         <div class="shop-user-star-area">
                             <div class="shop-star-area">
                                 <div class="shop-star">
