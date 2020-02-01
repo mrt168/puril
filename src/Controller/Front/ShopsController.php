@@ -382,23 +382,23 @@ class ShopsController extends FrontAppController {
 			$saveReview = $reviewTable->save($review);
 
 			// メール送信
-			$shopTable = TableRegistry::get('Shops');
-			$shop = $shopTable->get($saveReview['shop_id']);
-
-			$data = [];
-			$data['post_date'] = date('Y/m/d H:i:s', strtotime($saveReview['post_date']));
-			$data['visit_date'] = !empty($saveReview['visit_date']) ? date('Y/m/d', strtotime($saveReview['visit_date'])) : "";
-			$data['shop_name'] = $shop['name']. "（ID:{$shop['shop_id']}）";
-			$data['evaluation'] = $saveReview['evaluation'];
-			$data['nickname'] = $saveReview['nickname'];
-			$data['age'] = $saveReview['age'];
-			$data['sex'] = Sex::convert($saveReview['sex'], CodePattern::$VALUE);
-			$data['instagram_account'] = $saveReview['instagram_account'];
-			$data['twitter_account'] = $saveReview['twitter_account'];
-			$data['title'] = $saveReview['title'];
-			$data['content'] = $saveReview['content'];
-
-			$this->getMailer('Contact')->send('reviewNotice', [$data]);
+//			$shopTable = TableRegistry::get('Shops');
+//			$shop = $shopTable->get($saveReview['shop_id']);
+//
+//			$data = [];
+//			$data['post_date'] = date('Y/m/d H:i:s', strtotime($saveReview['post_date']));
+//			$data['visit_date'] = !empty($saveReview['visit_date']) ? date('Y/m/d', strtotime($saveReview['visit_date'])) : "";
+//			$data['shop_name'] = $shop['name']. "（ID:{$shop['shop_id']}）";
+//			$data['evaluation'] = $saveReview['evaluation'];
+//			$data['nickname'] = $saveReview['nickname'];
+//			$data['age'] = $saveReview['age'];
+//			$data['sex'] = Sex::convert($saveReview['sex'], CodePattern::$VALUE);
+//			$data['instagram_account'] = $saveReview['instagram_account'];
+//			$data['twitter_account'] = $saveReview['twitter_account'];
+//			$data['title'] = $saveReview['title'];
+//			$data['content'] = $saveReview['content'];
+//
+//			$this->getMailer('Contact')->send('reviewNotice', [$data]);
 
 			echo true;
 			return ;
