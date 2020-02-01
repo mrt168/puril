@@ -312,15 +312,15 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
             <meta itemprop="position" content="3">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <?php echo $this->Html->link("<span class='name'>{$shop['pref']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
+            <?php echo $this->Html->link("<span itemprop='name' class='name'>{$shop['pref']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
             <meta itemprop="position" content="4">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <?php echo $this->Html->link("<span class='name'>{$shop['Area']['name']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], URLUtil::CITY.$shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
+            <?php echo $this->Html->link("<span itemprop='name' class='name'>{$shop['Area']['name']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], URLUtil::CITY.$shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
             <meta itemprop="position" content="5">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <?php echo $this->Html->link("<span class='name'>{$shop['name']}</span>", ['controller' => 'shops', 'action' => 'detail', $shop['shop_id']], ['escape' => false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item']) ?>
+            <?php echo $this->Html->link("<span itemprop='name' class='name'>{$shop['name']}</span>", ['controller' => 'shops', 'action' => 'detail', $shop['shop_id']], ['escape' => false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item']) ?>
             <meta itemprop="position" content="6">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
