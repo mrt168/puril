@@ -741,9 +741,6 @@ body {
 /* 新着口コミから探す */
 .datsumou-evaluation {
   margin-top: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e1ddcc;
   background: #fff;
   font-size: 14px;
 }

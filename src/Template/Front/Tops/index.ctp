@@ -313,8 +313,6 @@ echo $this->Html->css('datsumou');
             </div>
         </div>
     </div>
-    <div class="datsumou-ranking">
-
         <div class="datsumou-characteristic">
             <h2 class="datsumou-characteristic__title">
                 <p>Purilの3つの特徴</p>
@@ -343,7 +341,6 @@ echo $this->Html->css('datsumou');
                 </li>
             </ul>
         </div>
-    </div>
 </main>
 <a href="https://puril.net/campaign/">
     <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
