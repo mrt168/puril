@@ -166,57 +166,9 @@ if (true) {
         ?>
     </ul>
 </section>
-<!--<section class="content middle-content shop-campaign">-->
-<!--    <h2 class="content-title">キャンペーン</h2>-->
-<!--    <ul class="shop-campaign-list">-->
-<!--        <li class="shop-campain-item-wrap"><a class="clickable-button shop-campain-item" href="#">-->
-<!--                <div class="shop-campain-item-tri"></div>-->
-<!--                <div class="shop-campain-item-text">～クルーズ旅行やホテルレストランコースなどが当たる！～ 「旅・体験・食・生活」選べる秋のLove yourselfキャンペーン！</div><i class="fas fa-chevron-right shop-campain-item-arrow"></i></a></li>-->
-<!--                <div class="shop-campain-item-tri"></div>-->
-<!--                <div class="shop-campain-item-text">ハンド脱毛体験無料プレゼント</div><i class="fas fa-chevron-right shop-campain-item-arrow"></i></a></li>-->
-<!--    </ul><a class="show-more clickable-button" href="/datsumou/shop/campaign.html">キャンペーンをもっと見る（4件）</a>-->
-<!--</section>-->
 <?php
 if($imagenum > 0):
     ?>
-<!--    <section class="content middle-content shop-photo" id="photo">-->
-<!--        <h2 class="content-title">投稿写真</h2>-->
-<!--        <div class="shop-photo-list">-->
-<!--            <ul class="shop-photo-list-sub">-->
-<!--                --><?php
-//                $count = 0;
-//                foreach ($shop['shop_images'] as $shopImage) {
-//                    if($count == 5) {
-//                        ?>
-<!--                        <li class="shop-photo-item"><a href="#">-->
-<!--                                <a href="/datsumou/shop/photo.html">-->
-<!--                                    --><?php //echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'modal-trigger',)); ?>
-<!--                                    <div class="shop-photo-over">-->
-<!--                                        <img class="shop-photo-icon" src="/puril/images/img/datsumou/camera.png">-->
-<!--                                        <div class="shop-photo-count">--><?php //echo $imagenum?><!-->-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </a>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        --><?php
-//                    } elseif($count > 6 ) {
-//                        break;
-//                    } else {
-//                        ?>
-<!--                        <li class="shop-photo-item">-->
-<!--                            <a href="#">-->
-<!--                                --><?php //echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'modal-trigger',)); ?>
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        --><?php
-//                    }
-//                    $count++;
-//                }
-//                ?>
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </section>-->
 <?php
 endif;
 ?>
