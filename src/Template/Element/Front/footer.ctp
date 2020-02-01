@@ -50,7 +50,9 @@ use Cake\Routing\Router;
         </ul>
     </div>
     <div class="datsumou-footer__credit">
-        <img src="/puril/images/footer-logo-sp.png" alt="">
+        <a href="/">
+            <img src="/puril/images/footer-logo-sp.png" alt="">
+        </a>
         <p>Copyright © ツルツル株式会社 All rights reserved.</p>
     </div>
 </footer>
