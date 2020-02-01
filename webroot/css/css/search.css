@@ -150,6 +150,7 @@ body {
 }
 
 .Search__contents {
+  background-color: white;
   max-width: 600px;
   margin: 0 auto;
   padding-top: 20px;
@@ -177,6 +178,7 @@ body {
 
 .Search__input {
   background: #fff;
+  padding: 15px 0;
 }
 .Search__input::after {
   content: "";

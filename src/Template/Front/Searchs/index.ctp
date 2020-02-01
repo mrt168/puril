@@ -18,13 +18,21 @@ echo $this->Html->css(['css/main', 'css/search']);
     <div class="Search__contents">
         <div class="Search__title"><span>脱毛サロン・クリニックを全国から探す</span></div>
         <div class="Search__input">
+            <?php
+            echo $this->ExForm->create('Make', ['url'=> ['controller' => 'Makes', 'action'=> 'index'], 'type'=> 'post', 'novalidate' => true, 'id'=> 'form01', 'class'=> 'cf', 'templates'=> ['submitContainer'=> '{{content}}']]);
+            ?>
             <div class="Search__input__inner">
-                <div class="input1"><input type="" name="" placeholder="エリア、駅、サロン・クリニック名で検索する"></div>
+                <div class="input1"><?php echo $this->ExForm->text('Make.free_word', ['id'=> 'input01', 'placeholder'=> 'エリア、駅、サロン・クリニック名で検索する']);?>
+                </div>
                 <!--
-                <div class="input2"><input type="" name="" placeholder="サロン・クリニック名"></div>
-                -->
-                <button class="search"><img src="/puril/images/ico_search_wht.svg" alt="絞込み"></button>
+            <div class="input2"><input type="" name="" placeholder="サロン・クリニック名"></div>
+            -->
+                <button class="search" type="submit" name="free_word_search"><img
+                            src="/puril/images/ico_search_wht.png" alt="絞込み"></button>
             </div>
+            <?php
+            echo $this->ExForm->end();
+            ?>
         </div>
 <!--        <div class="Search__btns">-->
 <!--            <a href="" class="Search__btn" data-color="default">脱毛サロン</a>-->
