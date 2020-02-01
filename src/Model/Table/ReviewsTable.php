@@ -104,7 +104,7 @@ class ReviewsTable extends AppTable
         $validator
             ->integer('age')
             ->requirePresence('age', 'create')
-            ->notEmpty('age');
+            ->allowEmpty('age');
 
         $validator
             ->requirePresence('sex', 'create')
@@ -129,7 +129,7 @@ class ReviewsTable extends AppTable
         $validator
             ->scalar('content')
             ->requirePresence('content', 'create')
-            ->notEmpty('content');
+            ->allowEmpty('content');
 
         $validator
             ->integer('create_user')
@@ -195,12 +195,18 @@ class ReviewsTable extends AppTable
         $validator
             ->integer('age', "年齢は数値で入力してください.")
             ->requirePresence('age', 'create')
-            ->notEmpty('age', "年齢を入力してください.");
+            ->allowEmpty('age');
 
         $validator
             ->integer('sex', "性別は数値で入力してください.")
             ->requirePresence('sex', 'create')
             ->notEmpty('sex', "性別を入力してください.");
+        $validator
+            ->notEmpty('pref', "都道府県を入力してください.");
+        $validator
+            ->notEmpty('station', "駅名を入力してください.");
+        $validator
+            ->allowEmpty('reason');
 
         $validator
             ->scalar('instagram_account')
@@ -216,16 +222,19 @@ class ReviewsTable extends AppTable
             ->scalar('title')
             ->maxLength('title', 256, "口コミ タイトルは256文字以内で入力してください.")
             ->requirePresence('title', 'create')
-            ->notEmpty('title', "口コミ タイトルを入力してください.");
+            ->allowEmpty('title');
 
         $validator
             ->scalar('content')
             ->requirePresence('content', 'create')
-            ->notEmpty('content', "口コミ 本文を入力してください.");
+            ->allowEmpty('content');
+
+        $validator
+            ->allowEmpty('birthday');
 
         $validator
             ->requirePresence('show_flg', 'create')
-            ->notEmpty('show_flg');
+            ->notEmpty('show_flg','ほげ');
 
         return $validator;
     }
@@ -257,12 +266,12 @@ class ReviewsTable extends AppTable
             ->scalar('title')
             ->maxLength('title', 256, "口コミ タイトルは256文字以内で入力してください.")
             ->requirePresence('title', 'create')
-            ->notEmpty('title', "口コミ タイトルを入力してください.");
+            ->allowEmpty('title');
 
         $validator
             ->scalar('content')
             ->requirePresence('content', 'create')
-            ->notEmpty('content', "口コミ 本文を入力してください.");
+            ->allowEmpty('content');
 
         return $validator;
     }
@@ -470,6 +479,8 @@ class ReviewsTable extends AppTable
             'Reviews.nickname',
             'Reviews.age',
             'Reviews.sex',
+            'Reviews.pref',
+            'Reviews.station',
             'Reviews.instagram_account',
             'Reviews.twitter_account',
             'Reviews.post_date',
@@ -510,6 +521,7 @@ class ReviewsTable extends AppTable
                 'Reviews.nickname',
                 'Reviews.sex',
                 'Reviews.reason',
+                'Reviews.pref',
                 'Reviews.instagram_account',
                 'Reviews.twitter_account',
                 'Reviews.title',

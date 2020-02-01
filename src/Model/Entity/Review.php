@@ -69,6 +69,7 @@ class Review extends Entity
         'birthday' => true,
         'reason' => true,
         'station' => true,
+        'pref' => true,
         'instagram_account' => true,
         'twitter_account' => true,
         'title' => true,
