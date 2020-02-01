@@ -499,7 +499,7 @@ footer {
 }
 .home-evaluation-panel__text {
   font-size:12px;
-  width: calc( 100% - 100px );
+  width: calc( 100% - 110px );
 }
 .home-evaluation-panel__title {
   font-size:14px;
