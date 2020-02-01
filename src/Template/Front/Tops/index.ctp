@@ -267,7 +267,7 @@ echo $this->Html->css('datsumou');
                                         'click', {'event_category': 'af','event_label': 'all'});">
                                                 <img src="<?php echo $imgUrl?> alt="">
                                             </a>
-                                            <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $salon['Shop']['shop_id']], true);?>">
+                                            <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $salon['Shop']['shop_id']], true);?>" class="datsumou-evaluation-panel__text">
                                                 <h3 class="datsumou-evaluation-panel__title"><?php echo $salon['Shop']['name']?>
                                                 </h3>
                                                 <p class="datsumou-evaluation-panel__thin"><?php echo $salon['title']?>
