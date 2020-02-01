@@ -30,18 +30,18 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 <nav class="content shop-nav">
     <div class="shop-nav-item active"><a class="shop-nav-item-text" href="/datsumou/shop/">トップ</a></div>
     <?php if(false):?>
-    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#price">料金プラン</a></div>
+        <div class="shop-nav-item"><a class="shop-nav-item-text" href="#price">料金プラン</a></div>
     <?php endif;
 
     $imagenum = count($shop['shop_images']);
     if ($imagenum > 0):
-    ?>
-<!--    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#photo">写真</a></div>-->
+        ?>
+        <!--    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#photo">写真</a></div>-->
     <?php
     endif;
     if (!empty($shop['reviews'])) {
-    ?>
-    <div class="shop-nav-item"><a class="shop-nav-item-text" href="#kuchikomi">口コミ</a></div>
+        ?>
+        <div class="shop-nav-item"><a class="shop-nav-item-text" href="#kuchikomi">口コミ</a></div>
     <?php } ?>
     <div class="shop-nav-item"><a class="shop-nav-item-text" href="#address">地図</a></div>
 </nav>
@@ -82,7 +82,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 echo "・{$depilationSite['name']}";
             }
             ?>
-        </div>        
+        </div>
         <?php
         if (!empty($shop['star']) && !empty($shop['review_cnt'])) {
             ?>
@@ -222,10 +222,12 @@ if (!empty($shop['reviews'])) {
                     </div>
                     <div class="shop-kuchikomi-item-below">
                         <div class="shop-kuchikomi-item-detail-wrap">
-                            <div class="shop-kuchikomi-item-detail">
-                                <div class="shop-kuchikomi-item-detail-title">この店舗の総合的な感想を教えて下さい</div>
-                                <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['content']) ?></p>
-                            </div>
+                            <?php if(empty($review['content'])):?>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">この店舗の総合的な感想を教えて下さい</div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['content']) ?></p>
+                                </div>
+                            <?php endif;?>
                             <div class="shop-kuchikomi-item-detail">
                                 <div class="shop-kuchikomi-item-detail-title">この店舗を選んだ理由を教えてください。</div>
                                 <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['reason']) ?></p>
@@ -382,20 +384,20 @@ if (!empty($shop['reviews'])) {
         ?>
         <?php
         if (!empty($shop['affiliate_page_url'])) {
-        ?>
-        <div class="shop-info-detail-area">
-            <h3 class="shop-info-detail-title">特徴・関連情報</h3>
-            <table class="shop-info-detail-table">
-                <tbody>
+            ?>
+            <div class="shop-info-detail-area">
+                <h3 class="shop-info-detail-title">特徴・関連情報</h3>
+                <table class="shop-info-detail-table">
+                    <tbody>
 
                     <tr>
                         <th>ホームページ</th>
                         <td><a href="<?php echo $shop['affiliate_page_url'];?>" target="_blank">公式サイトから予約する</a></td>
                     </tr>
 
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
             <?php
         }
         ?>
