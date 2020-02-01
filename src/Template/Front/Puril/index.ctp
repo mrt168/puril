@@ -212,7 +212,15 @@ use Cake\Routing\Router;
                                         </a>
                                         <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $salon['Shop']['shop_id']], true);?>" class="home-evaluation-panel__text">
                                             <h3 class="home-evaluation-panel__title"><?php echo $salon['Shop']['name']?></h3>
-                                            <p class="home-evaluation-panel__thin"><?php echo $salon['title']?></p>
+                                            <p class="home-evaluation-panel__thin"><?php
+                                                if(empty($salon['question1_evaluation'])) {
+
+                                                } else if( mb_strlen($salon['question1_evaluation']) > 40) {
+                                                    echo mb_substr($salon['question1_evaluation'],0,40).'...';
+                                                } else {
+                                                    echo $salon['question1_evaluation'];
+                                                }
+                                                ?></p>
                                             <p class="home-evaluation-panel__star">
                                       <span class="orange">
                                           <?php

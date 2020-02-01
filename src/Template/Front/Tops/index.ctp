@@ -234,7 +234,8 @@ echo $this->Html->css('datsumou');
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="datsumou-ranking">
 
         <div class="datsumou-evaluation">
             <div class="datsumou-evaluation__inner">
@@ -270,7 +271,16 @@ echo $this->Html->css('datsumou');
                                             <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $salon['Shop']['shop_id']], true);?>" class="datsumou-evaluation-panel__text">
                                                 <h3 class="datsumou-evaluation-panel__title"><?php echo $salon['Shop']['name']?>
                                                 </h3>
-                                                <p class="datsumou-evaluation-panel__thin"><?php echo $salon['title']?>
+                                                <p class="datsumou-evaluation-panel__thin">
+                                                    <?php
+                                                    if(empty($salon['question1_evaluation'])) {
+
+                                                    } else if( mb_strlen($salon['question1_evaluation']) > 40) {
+                                                        echo mb_substr($salon['question1_evaluation'],0,40).'...';
+                                                    } else {
+                                                        echo $salon['question1_evaluation'];
+                                                    }
+                                                    ?>
                                                 </p>
                                                 <p class="datsumou-evaluation-panel__star">
                                             <span class="orange">
@@ -302,6 +312,8 @@ echo $this->Html->css('datsumou');
                 </div>
             </div>
         </div>
+    </div>
+    <div class="datsumou-ranking">
 
         <div class="datsumou-characteristic">
             <h2 class="datsumou-characteristic__title">
@@ -331,6 +343,7 @@ echo $this->Html->css('datsumou');
                 </li>
             </ul>
         </div>
+    </div>
 </main>
 <a href="https://puril.net/campaign/">
     <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">

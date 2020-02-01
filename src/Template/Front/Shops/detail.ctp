@@ -172,7 +172,6 @@ if (true) {
 <!--        <li class="shop-campain-item-wrap"><a class="clickable-button shop-campain-item" href="#">-->
 <!--                <div class="shop-campain-item-tri"></div>-->
 <!--                <div class="shop-campain-item-text">～クルーズ旅行やホテルレストランコースなどが当たる！～ 「旅・体験・食・生活」選べる秋のLove yourselfキャンペーン！</div><i class="fas fa-chevron-right shop-campain-item-arrow"></i></a></li>-->
-<!--        <li class="shop-campain-item-wrap"><a class="clickable-button shop-campain-item" href="#">-->
 <!--                <div class="shop-campain-item-tri"></div>-->
 <!--                <div class="shop-campain-item-text">ハンド脱毛体験無料プレゼント</div><i class="fas fa-chevron-right shop-campain-item-arrow"></i></a></li>-->
 <!--    </ul><a class="show-more clickable-button" href="/datsumou/shop/campaign.html">キャンペーンをもっと見る（4件）</a>-->
