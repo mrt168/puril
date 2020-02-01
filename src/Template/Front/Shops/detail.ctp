@@ -588,8 +588,7 @@ if (!empty($shop['reviews'])) {
 <div class="Search__breadcrumbs">
     <ol>
         <li>
-            <a href="<?=Router::url('/')?>"><span
-                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <a href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
             <meta itemprop="position" content="1">
         </li>
         <li>
