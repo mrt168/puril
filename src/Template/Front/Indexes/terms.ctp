@@ -1,11 +1,16 @@
+<?php
+use Cake\Routing\Router;
+?>
 <body>
 <?php
 	echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'terms']);
+echo $this->Html->css('datsumou');
 ?>
-    <header class="plain-header">
-      <div class="plain-header-inner"><a class="plain-header-back" href="#"><i class="fas fa-chevron-left plain-header-back-icon"></i>
-          <div class="plain-header-back-text">ホーム</div></a></div>
-    </header>
+<header class="datsumou-header">
+    <?php
+    echo $this->element('Front/header')
+    ?>
+</header>
     <section class="content-base terms-head">
       <h1 class="content-base terms-head-title">Puril 利用規約</h1>
     </section>
@@ -128,33 +133,24 @@
         <p>本規約に関する紛争については、東京地方裁判所を第一審の管轄裁判所とします。</p>
       </div>
     </section>
-    <div class="content-base campaign"><a href="#"><img src="/puril/images/img/datsumou/brand/cashback-campaign.jpg" alt="キャッシュバックキャンペーン"></a></div>
-    <nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
-      <ul class="breadcrumbs-list">
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">脱毛</a></li>
-        <li><a href="#">全国脱</a></li>
-        <li><a href="#">全国脱毛サ</a></li>
-        <li><a href="#">東京脱</a></li>
-        <li><a href="#">キレイモ新宿</a></li>
-      </ul>
-    </nav>
-    <div class="content links">
-      <ul class="links-list">
-        <li class="links-item"><a href="#">脱毛</a></li>
-        <li class="links-item"><a href="#">リラク</a></li>
-        <li class="links-item"><a href="#">痩身</a></li>
-        <li class="links-item"><a href="#">フェイシャル</a></li>
-        <li class="links-item"><a href="#">運営企業</a></li>
-        <li class="links-item"><a href="#">利用規約</a></li>
-        <li class="links-item"><a href="#">プライバシーポリシー</a></li>
-        <li class="links-item"><a href="#">サイトマップ</a></li>
-        <li class="links-item"><a href="#">口コミキャッシュバック</a></li>
-        <li class="links-item"><a href="#">ユーザーレビューのお問い合わせ</a></li>
-        <li class="links-item"><a href="#">施設情報掲載のお問い合わせ</a></li>
-      </ul>
-    </div>
-    <div class="content-base footer"><img class="footer-puril" src="/puril/images/img/puril.png" alt="Puril">
-      <div class="footer-copy">Copyright © ツルツル株式会社 All rights reserved.</div>
-    </div>
-  </body>
+<a href="https://puril.net/campaign/">
+    <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+</a>
+
+<div class="Search__breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/')?>"><span
+                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <span itemprop="name">利用規約</span>
+            <meta itemprop="position" content="2">
+        </li>
+    </ol>
+</div>
+<?php
+echo $this->element('Front/footer') ?>
+</body>

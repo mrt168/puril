@@ -2,6 +2,8 @@
 use App\Vendor\Code\ShopType;
 use App\Vendor\Code\CodePattern;
 use App\Vendor\Code\Pref;
+
+use Cake\Routing\Router;
 ?>
 <body>
 <?php
@@ -74,70 +76,24 @@ echo $this->Html->css('datsumou');
     <?php echo $this->Html->link('利用規約', ['controller'=> 'indexes', 'action'=> 'terms'],['class'=>'area-search__link-small last']);?>
 
 </main>
+<a href="https://puril.net/campaign/">
+    <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+</a>
 
-<footer class="not-found-footer">
-    <img class="not-found-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
-
-    <div class="Search__breadcrumbs">
-        <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href=""><span itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
-                <meta itemprop="position" content="1">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <span itemprop="name">サイトマップ</span>
-                <meta itemprop="position" content="2">
-            </li>
-        </ol>
-    </div>
-
-    <div class="not-found-footer__inner">
-        <ul class="not-found-footer__category01">
-            <li class="not-found-footer__category__li nolink">
-                <a href="/datsumou/" class="not-found-footer__category__li__link">脱毛</a>
-            </li>
-            <li class="not-found-footer__category__li nolink">
-                <a href="" class="not-found-footer__category__li__link no-link">リラク</a>
-            </li>
-            <li class="not-found-footer__category__li nolink">
-                <a href="" class="not-found-footer__category__li__link no-link">痩身</a>
-            </li>
-            <li class="not-found-footer__category__li nolink">
-                <a href="" class="not-found-footer__category__li__link no-link">フェイシャル</a>
-            </li>
-        </ul>
-
-        <ul class="not-found-footer__category02">
-            <li class="not-found-footer__category__li">
-                <a href="https://tsuru-tsuru.co.jp/" target="_blank" class="not-found-footer__category__li__link">運営企業</a>
-            </li>
-            <li class="not-found-footer__category__li">
-                <a href="/regulation" class="not-found-footer__category__li__link">利用規約</a>
-            </li>
-            <li class="not-found-footer__category__li">
-                <a href="/privacy-policy" class="not-found-footer__category__li__link">プライバシーポリシー</a>
-            </li>
-            <li class="not-found-footer__category__li">
-                <a href="/sitemap" class="not-found-footer__category__li__link">サイトマップ</a>
-            </li>
-        </ul>
-        <ul class="not-found-footer__category03">
-            <li class="not-found-footer__category__li">
-                <a href="https://puril.net/campaign/" class="not-found-footer__category__li__link">口コミキャッシュバック</a>
-            </li>
-            <li class="not-found-footer__category__li">
-                <a href="/form_user" class="not-found-footer__category__li__link">ユーザーレビューのお問い合わせ</a>
-            </li>
-            <li class="not-found-footer__category__li last">
-                <a href="/form_facility" class="not-found-footer__category__li__link">施設情報掲載のお問い合わせ</a>
-            </li>
-        </ul>
-    </div>
-    <div class="not-found-footer__credit">
-        <img src="puril/images/footer-logo-sp.png" alt="">
-        <p>Copyright © ツルツル株式会社 All rights reserved.</p>
-    </div>
-</footer>
+<div class="Search__breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/')?>"><span
+                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <span itemprop="name">サイトマップ</span>
+            <meta itemprop="position" content="2">
+        </li>
+    </ol>
+</div>
 <?php
-echo $this->element('Front/no_voice_modal') ?>
+echo $this->element('Front/footer') ?>
 </body>
