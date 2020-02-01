@@ -276,7 +276,7 @@ echo $this->Html->script(
                             </div>
                         </td>
                     </tr>
-                    <tr class="query-type query-type-<?=ContactType::$REVIEW[CodePattern::$CODE]?>">
+                    <tr class="query-type query-type-">
                         <th scope="row">
                             <span class="imp">必須</span>
                             <span class="reserve-text">生年月日</span>

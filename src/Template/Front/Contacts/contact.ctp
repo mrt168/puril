@@ -1,4 +1,8 @@
-
+<?php
+use App\Vendor\Code\ContactType;
+use App\Vendor\Code\CodePattern;
+use Cake\Routing\Router;
+?>
 <?php
 echo $this->Html->css('datsumou');
 echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/reserve/common', 'datsumou/reserve/index', 'jquery.datetimepicker.min']);
@@ -9,7 +13,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 				?>
 		</header>
     <h1 class="contact-title">施設情報掲載のお問い合わせ</h1>
-    <form class="reserve-form form-contact" action="#">
+<?php echo $this->ExForm->create('Contact', ['url'=> ['controller' => 'Contacts', 'action'=> 'sendContact'], 'type'=> 'post', 'class'=>'reserve-form form-contact']);?>
 		<section class="contact-content">
             <h2 class="reserve-title">お問い合わせ</h2>
             <div class="contact-content-text">
@@ -25,7 +29,9 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 <div class="reserve-tag reserve-tag-required">必須</div>
             </div>
             <div class="reserve-input">
-                <input type="text" name="facility" placeholder="施設名">
+                <?php
+                echo $this->ExForm->text('shop_name', ['placeholder'=> '例）〇〇エステサロン', 'required'=> true]);
+                ?>
             </div>
         </div>
         <div class="reserve-subquestion">
@@ -34,7 +40,9 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 <div class="reserve-tag reserve-tag-required">必須</div>
             </div>
             <div class="reserve-input">
-                <input type="text" name="name" placeholder="ご担当者名"">
+                <?php
+                echo $this->ExForm->text('name', ['placeholder'=> '例）脱毛　花子', 'required'=> true]);
+                ?>
             </div>
         </div>
         <div class="reserve-subquestion">
@@ -43,7 +51,9 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 <div class="reserve-tag reserve-tag-required">必須</div>
             </div>
           <div class="reserve-input">
-            <input type="text" name="mail" placeholder="info@tsuru-tsuru.co.jp">
+              <?php
+              echo $this->ExForm->text('mail', ['placeholder'=> '例）info@tsuru-tsuru.co.jp', 'required'=> true]);
+              ?>
           </div>
           <div class="reserve-email-desc">※docomo.ne.jp、softbank.jp、ezweb.ne.jpなどの携帯メールアドレスでは、パソコンからのメールを受信拒否する初期設定をされている場合がございます。tsuru-tsuru.co.jpからの受信許可の設定をお願いいたします。</div>
         </div>
@@ -54,7 +64,9 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 <div class="reserve-tag reserve-tag-required">必須</div>
             </div>
             <div class="reserve-input">
-                <input type="text" name="tel" placeholder="03-1234-5678">
+                <?php
+                echo $this->ExForm->text('tell', ['placeholder'=> '例）03-1234-5678', 'required'=> true]);
+                ?>
             </div>
         </div>
       </section>
@@ -65,7 +77,9 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 <div class="reserve-tag reserve-tag-option">任意</div>
             </div>
           <div class="reserve-input">
-            <textarea cols="30" rows="10" name="comment" placeholder="お問い合わせ内容"></textarea>
+              <?php
+              echo $this->ExForm->textarea('content', ['placeholder'=> '例）脱毛LOVEへの掲載依頼', 'row'=> '4']);
+              ?>
           </div>
         </div>
       </section>
@@ -204,18 +218,27 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
           <button class="reserve-button" type="submit">送信する</button>
         </div>
       </section>
-    </form>
-		<img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
-    <nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
-      <ul class="breadcrumbs-list">
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">脱毛</a></li>
-        <li><a href="#">全国脱</a></li>
-        <li><a href="#">全国脱毛サ</a></li>
-        <li><a href="#">東京脱</a></li>
-        <li><a href="#">キレイモ新宿</a></li>
-      </ul>
-    </nav>
+<?php
+echo $this->ExForm->end()
+;?>
+<a href="https://puril.net/campaign/">
+    <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+</a>
+
+<div class="Search__breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+               href="<?=Router::url('/')?>"><span
+                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <span itemprop='name'>お問い合わせ</span>
+            <meta itemprop="position" content="2">
+        </li>
+    </ol>
+</div>
 		<script type="text/javascript" src="/js/datsumou/reserve/index.js"></script>
 		<?php echo $this->element('Front/footer') ?>
 
