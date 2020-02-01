@@ -175,7 +175,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     </div>
                     <div class="td-inner-wrap">
                         <div class="td-inner">
-                            <?= $this->ExForm->textarea('Reviews.question1_evaluation', ['id' => 'content', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'スタッフさんの対応に大変好感が持てました。質問に対しても丁寧に答えてくださるほか、気さくに話かけてくれるので、楽しく通うことができています！']); ?>
+                            <?= $this->ExForm->textarea('Reviews.question1_evaluation', ['id' => 'question1_evaluation', 'class'=>'evaluation', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'スタッフさんの対応に大変好感が持てました。質問に対しても丁寧に答えてくださるほか、気さくに話かけてくれるので、楽しく通うことができています！']); ?>
                         </div>
                     </div>
                 </td>
@@ -199,7 +199,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     </div>
                     <div class="td-inner-wrap">
                         <div class="td-inner">
-                            <?= $this->ExForm->textarea('Reviews.question2_evaluation', ['id' => 'content', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'料金には大変満足しています。私は学生で美容にあまりお金が掛けられないため、一番安いプランを選びました。しかし、Web上に書かれているプラン内容がややわかりづらいところはマイナスポイントです。']); ?>
+                            <?= $this->ExForm->textarea('Reviews.question2_evaluation', ['id' => 'question2_evaluation', 'class'=>'evaluation', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'料金には大変満足しています。私は学生で美容にあまりお金が掛けられないため、一番安いプランを選びました。しかし、Web上に書かれているプラン内容がややわかりづらいところはマイナスポイントです。']); ?>
                         </div>
                     </div>
                 </td>
@@ -223,7 +223,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     </div>
                     <div class="td-inner-wrap">
                         <div class="td-inner">
-                            <?= $this->ExForm->textarea('Reviews.question3_evaluation', ['id' => 'content', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'念入りに施術していただき、ほとんど寝てしまっていたくらい気持ち良かったです。本当にありがとうございました。これからの季節、冷えなどで体がまた固くなると思いますので、またお世話になると思います。']); ?>
+                            <?= $this->ExForm->textarea('Reviews.question3_evaluation', ['id' => 'question3_evaluation', 'class'=>'evaluation', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'念入りに施術していただき、ほとんど寝てしまっていたくらい気持ち良かったです。本当にありがとうございました。これからの季節、冷えなどで体がまた固くなると思いますので、またお世話になると思います。']); ?>
                         </div>
                     </div>
                 </td>
@@ -247,7 +247,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     </div>
                     <div class="td-inner-wrap">
                         <div class="td-inner">
-                            <?= $this->ExForm->textarea('Reviews.question4_evaluation', ['id' => 'content', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'雑居ビル内にあるので、少し入るときに抵抗がありました。しかし、店内に入るとすごくキレイで清潔感があって、よかったです！女性用のアメニティもそろっていたので、その辺の気遣いも感じられました♪']); ?>
+                            <?= $this->ExForm->textarea('Reviews.question4_evaluation', ['id' => 'question4_evaluation', 'class'=>'evaluation', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'雑居ビル内にあるので、少し入るときに抵抗がありました。しかし、店内に入るとすごくキレイで清潔感があって、よかったです！女性用のアメニティもそろっていたので、その辺の気遣いも感じられました♪']); ?>
                         </div>
                     </div>
                 </td>
@@ -271,7 +271,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     </div>
                     <div class="td-inner-wrap">
                         <div class="td-inner">
-                            <?= $this->ExForm->textarea('Reviews.question5_evaluation', ['id' => 'content', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'施術時に次回の予約案内があるため、スムーズに通えています。ただし、直前の変更がなかなか難しいこと、直前にキャンセルした場合にはなかなか予約が空いていない点は、少し注意が必要です。']); ?>
+                            <?= $this->ExForm->textarea('Reviews.question5_evaluation', ['id' => 'question5_evaluation', 'class'=>'evaluation', 'required' => 'required', 'cols' => 30, 'rows' => 10, 'placeholder'=>'施術時に次回の予約案内があるため、スムーズに通えています。ただし、直前の変更がなかなか難しいこと、直前にキャンセルした場合にはなかなか予約が空いていない点は、少し注意が必要です。']); ?>
                         </div>
                     </div>
                 </td>
