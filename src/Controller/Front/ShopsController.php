@@ -363,13 +363,13 @@ class ShopsController extends FrontAppController {
 		$data = $reviewTable->findByShopIdAndIpAddressOrderByCreated($review['Reviews']['shop_id'], $this->request->clientIp());
 
 		// IPチェック (5分後には再投稿可)
-		if (!empty($data)) {
-			if (date('Y-m-d H:i:s', strtotime($data['created']. "+5 minute")) > date('Y-m-d H:i:s')) {
-				$errorMsg = ['send_error'=> '時間をおいて投稿してください.'];
-				echo json_encode(compact('errorMsg'));
-				return ;
-			}
-		}
+//		if (!empty($data)) {
+//			if (date('Y-m-d H:i:s', strtotime($data['created']. "+5 minute")) > date('Y-m-d H:i:s')) {
+//				$errorMsg = ['send_error'=> '時間をおいて投稿してください.'];
+//				echo json_encode(compact('errorMsg'));
+//				return ;
+//			}
+//		}
 
 		$review = $reviewTable->newEntity($this->request->getData(), ['validate'=> 'front']);
 
