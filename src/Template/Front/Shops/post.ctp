@@ -297,17 +297,17 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
 <div class="Search__breadcrumbs">
     <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+            <a itemtype="http://schema.org/Thing" itemprop="item"
                href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
             <meta itemprop="position" content="1">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+            <a itemtype="http://schema.org/Thing" itemprop="item"
                href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
             <meta itemprop="position" content="2">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+            <a itemtype="http://schema.org/Thing" itemprop="item"
                href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
             <meta itemprop="position" content="3">
         </li>

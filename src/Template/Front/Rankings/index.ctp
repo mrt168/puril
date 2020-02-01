@@ -347,12 +347,12 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 <div class="Search__breadcrumbs">
     <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+            <a itemtype="http://schema.org/Thing" itemprop="item"
                href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
             <meta itemprop="position" content="1">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+            <a itemtype="http://schema.org/Thing" itemprop="item"
                href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
             <meta itemprop="position" content="2">
         </li>
@@ -374,7 +374,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 }
                 ?>
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+                    <a itemtype="http://schema.org/Thing" itemprop="item"
                        href="<?=$pankuzu['url']. "/"?>"><span itemprop="name" class="name"><?php echo $pankuzu['val']?><</span></a>
                     <meta itemprop="position" content="<?php echo $i + 2;?>">
                 </li>

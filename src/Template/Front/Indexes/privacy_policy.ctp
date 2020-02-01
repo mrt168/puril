@@ -69,7 +69,7 @@ echo $this->Html->css('datsumou');
 <div class="Search__breadcrumbs">
     <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
+            <a itemtype="http://schema.org/Thing" itemprop="item"
                href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
             <meta itemprop="position" content="1">
         </li>
