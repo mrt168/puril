@@ -780,9 +780,13 @@ body {
   text-decoration: none;
   color: #13121e;
 }
+
+.datsumou-evaluation-panel__list > li .voice-box a.datsumou-evaluation-panel__list__img{
+  width: 100px;
+}
 .datsumou-evaluation-panel__list > li img {
   display: block;
-  width: 55px;
+  width: 100px;
   height: auto;
   margin-right: 10px;
 }

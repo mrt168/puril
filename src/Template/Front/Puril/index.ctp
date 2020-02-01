@@ -207,10 +207,10 @@ use Cake\Routing\Router;
                                 ?>
                                 <li>
                                     <div class="voice-box">
-                                        <a href="<?=$shopUrl?>" <?=$blank?> onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">
+                                        <a class="home-evaluation-panel__list__img" href="<?=$shopUrl?>" <?=$blank?> onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">
                                             <img src="<?php echo $imgUrl?> alt="">
                                         </a>
-                                        <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $salon['Shop']['shop_id']], true);?>" class="datsumou-evaluation-panel__text">
+                                        <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $salon['Shop']['shop_id']], true);?>" class="home-evaluation-panel__text">
                                             <h3 class="home-evaluation-panel__title"><?php echo $salon['Shop']['name']?></h3>
                                             <p class="home-evaluation-panel__thin"><?php echo $salon['title']?></p>
                                             <p class="home-evaluation-panel__star">
