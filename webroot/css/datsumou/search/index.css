@@ -80,7 +80,7 @@
       padding: 1em 16px 0 16px;
       color: #595960; }
     .search-shop .search-shop-list .search-shop-item .search-shop-label {
-      padding: 1em 16px;
+      padding: 15px 16px 0;
       display: -webkit-box;
       display: -webkit-flex;
       display: -moz-box;
@@ -103,6 +103,9 @@
             -ms-flex-align: center;
                 align-items: center; }
     .search-shop .search-shop-list .search-shop-item .search-shop-desc {
+      display: block;
+      text-decoration: none;
+      color: #13131E;
       padding: 15px 16px 0 16px; }
       .search-shop .search-shop-list .search-shop-item .search-shop-desc .search-shop-desc-title {
         font-size: 14px;

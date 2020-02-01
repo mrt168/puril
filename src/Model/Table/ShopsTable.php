@@ -1054,6 +1054,7 @@ class ShopsTable extends AppTable
     					'Shops.address',
     					'Shops.shop_type',
     					'Shops.show_flg',
+                    'Shops.station',
                     'Shops.business_hours',
                     'Shops.holiday',
     					'Shops.description_subject',

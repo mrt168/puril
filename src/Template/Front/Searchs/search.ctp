@@ -86,7 +86,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             <?php echo ShopType::convert($shop['shop_type'], CodePattern::$VALUE); ?>
                         </a></div>
 
-                    <div class="search-shop-photo-area">
+                    <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $shop->shop_id], true);?>" class="search-shop-photo-area">
                         <?php
                         $img_count = 0;
                         foreach ($shop->shop_images as $shopImage) {
@@ -117,7 +117,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             <?php
                             $img_count++;
                         endwhile;?>
-                    </div>
+                    </a>
                     <!--                <div class="search-shop-tips">--><?php //echo $shop->description_subject;?><!--</div>-->
                     <?php
                     if($shop->review_cnt > 0):?>
@@ -153,12 +153,12 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                             <!--                    <div class="datsumou-shop-tag-button datsumou-shop-tag-campaign">キャンペーン対象</div>-->
                         </div>
                     <?php endif;?>
-                    <div class="search-shop-desc">
+                    <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $shop->shop_id], true);?>" class="search-shop-desc">
                         <h3 class="search-shop-desc-title"><?php echo $shop->description_subject;?></h3>
                         <div class="search-shop-desc-text">
                             <p><?= $shop->description_content?></p>
                         </div>
-                    </div>
+                    </a>
                     <div class="search-shop-info">
                         <table>
                             <tbody>
@@ -167,19 +167,12 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                                 <td><?= $shop->address ?></td>
                             </tr>
                             <?php
-                            if (!empty($shop->station_name)) {
+                            if (!empty($shop->station)) {
                                 ?>
                                 <tr>
                                     <th>最寄り駅</th>
                                     <td>
-                                        <?php
-                                        $nearStations = '';
-                                        foreach ($shop->station_name as $key => $stationName) {
-                                            $nearStations .= $stationName;
-                                            $nearStations .= '、';
-                                        }
-                                        echo mb_substr($nearStations, 0, mb_strlen($nearStations) - 1);
-                                        ?>
+                                        <?php echo $shop->station;?>
                                     </td>
                                 </tr>
                                 <?php

@@ -12,17 +12,6 @@ echo $this->Html->css(['css/main', 'css/search']);
     <?php
     echo $this->element('Front/header')
     ?>
-
-    <div class="datsumou-header-mv">
-        <div class="datsumou-header-mv-inner">
-            <p><span class="datsumou-header-mv-inner__text--large">みんな</span>の</p>
-            <p><span class="datsumou-header-mv-inner__text--middle">脱毛口コミ</span>サイト</p>
-            <div class="datsumou-header-mv-inner__text-search__list">
-                <p>掲載件数</p>
-                <p class="datsumou-header-mv-inner__text--middle">10000件以上！</p>
-            </div>
-        </div>
-    </div>
 </header>
 <div class="Search">
 
@@ -59,21 +48,6 @@ echo $this->Html->css(['css/main', 'css/search']);
 <a href="https://puril.net/campaign/">
     <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
 </a>
-
-<div class="Search__breadcrumbs">
-    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/')?>"><span
-                        itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
-            <meta itemprop="position" content="1">
-        </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <span itemprop="name">脱毛</span>
-            <meta itemprop="position" content="2">
-        </li>
-    </ol>
-</div>
 <div class="Search__breadcrumbs">
     <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
