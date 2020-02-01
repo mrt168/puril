@@ -64,8 +64,8 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             <div class="ranking-category-item-text">全国の脱毛サロンの人気ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
     <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="<?=Router::url('/datsumou/'. URLUtil::RANKING. "/clinic")?>"><i class="fas fa-crown ranking-category-item-icon"></i>
             <div class="ranking-category-item-text">全国の医療脱毛の人気ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
-    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
-            <div class="ranking-category-item-text">都道府県別ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
+<!--    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>-->
+<!--            <div class="ranking-category-item-text">都道府県別ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>-->
 </ul>
 <div class="content-base ranking-shop">
     <ul class="ranking-shop-list">
@@ -329,12 +329,15 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     </ul>
 </div>
 <ul class="content-base ranking-category">
-    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
+
+    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="<?=Router::url('/datsumou/'. URLUtil::RANKING. "/salon")?>"><i class="fas fa-crown ranking-category-item-icon"></i>
+            <div class="ranking-category-item-text">全国の脱毛サロンの人気ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
+    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="<?=Router::url('/datsumou/'. URLUtil::RANKING. "/clinic")?>"><i class="fas fa-crown ranking-category-item-icon"></i>
             <div class="ranking-category-item-text">全国の医療脱毛の人気ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
     <!-- <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
             <div class="ranking-category-item-text">ブランドランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li> -->
-    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>
-            <div class="ranking-category-item-text">都道府県別ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>
+<!--    <li class="ranking-category-item-wrap"><a class="plain-link ranking-category-item" href="#"><i class="fas fa-crown ranking-category-item-icon"></i>-->
+<!--            <div class="ranking-category-item-text">都道府県別ランキング</div><i class="fas fa-chevron-right right-side-arrow"></i></a></li>-->
 </ul>
 
 <a href="https://puril.net/campaign/">
