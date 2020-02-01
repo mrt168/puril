@@ -31,7 +31,6 @@ body {
   border-radius: 0;
   font: inherit;
   outline: none;
-  font-size: 11px;
 }
 .Search button {
   padding: 0;
@@ -152,10 +151,7 @@ body {
 .Search__contents {
   max-width: 600px;
   margin: 0 auto;
-  padding-top: 20px;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 20px;
+  padding: 45px 0 30px;
 }
 
 .Search__title {
@@ -188,7 +184,7 @@ body {
 .Search__input__inner {
   display: flex;
   align-items: center;
-  /* padding: 15px 10px; */
+  padding: 15px 10px;
   background: #fff;
   font-size: 14px;
 }
@@ -222,7 +218,7 @@ body {
   color: #757575;
 }
 .Search__input__inner .search {
-  width: 42.55px;
+  width: 40px;
   height: 40px;
   background: #6aadbf;
   border-radius: 0 4px 4px 0;
