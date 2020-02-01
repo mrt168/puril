@@ -24,6 +24,10 @@
   background-color: #ffffff; }
   .search-shop .search-shop-list {
     background-color: #F9F7F5; }
+.search-shop .search-shop-list .search-shop-item {
+  border-bottom: 1px solid #e1ddcc;
+  border-top: 1px solid #e1ddcc;
+}
     .search-shop .search-shop-list .search-shop-item:not(:first-child) {
       margin-top: 5px; }
     .search-shop .search-shop-list .search-shop-item .search-shop-title {
