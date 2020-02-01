@@ -5,8 +5,8 @@ use App\Vendor\Code\Pref;
 ?>
 <div id="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
 	<div class="inner cf">
-		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem"><a itemprop="item" href="/"><span itemprop="name">TOP</span></a><meta itemprop="position" content="1" /></span>
-		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem"><a style="color:#434343;text-decoration:none;pointer-events:none;" itemprop="item" href="/sitemap"><span itemprop="name">サイトマップ</span></a><meta itemprop="position" content="2" /></span>
+		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem"><a itemprop="item" href="/"><span itemprop="name" class="name">TOP</span></a><meta itemprop="position" content="1" /></span>
+		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem"><a style="color:#434343;text-decoration:none;pointer-events:none;" itemprop="item" href="/sitemap"><span itemprop="name" class="name">サイトマップ</span></a><meta itemprop="position" content="2" /></span>
 	</div>
 </div>
 <div id="container">

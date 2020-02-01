@@ -255,7 +255,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     <div class="search-shop-ranking"><a class="button-base search-shop-rainking-button" href="<?php echo Router::url('/datsumou/ranking')?>">ランキングを見る</a></div>
 </div>
 <div class="Search__breadcrumbs">
-    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+    <ol>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
             <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
                href="<?=Router::url('/')?>"><span
@@ -264,12 +264,12 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
             <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou')?>"><span itemprop="name">脱毛</span></a>
+               href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
             <meta itemprop="position" content="2">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
             <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name">全国の脱毛施設</span></a>
+               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
             <meta itemprop="position" content="3">
         </li>
         <?php
@@ -280,7 +280,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 
                 ?>
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <?php echo "<span itemprop='name'>{$pankuzu['val']}</span>"?>
+                    <?php echo "<span itemprop='name' class='name'>{$pankuzu['val']}</span>"?>
                     <meta itemprop="position" content="<?php echo $i + 3;?>">
                 </li>
                 <?php
@@ -289,7 +289,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             ?>
             <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
                 <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-                   href="<?=$pankuzu['url']. "/"?>"><span itemprop="name"><?php echo $pankuzu['val']?></span></a>
+                   href="<?=$pankuzu['url']. "/"?>"><span itemprop="name" class="name"><?php echo $pankuzu['val']?></span></a>
                 <meta itemprop="position" content="<?php echo $i + 3;?>">
             </li>
             <?php

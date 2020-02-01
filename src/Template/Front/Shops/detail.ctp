@@ -586,40 +586,36 @@ if (!empty($shop['reviews'])) {
 </a>
 
 <div class="Search__breadcrumbs">
-    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/')?>"><span
+    <ol>
+        <li>
+            <a href="<?=Router::url('/')?>"><span
                         itemprop="name" class="home"><i class="fas fa-home"></i></span></a>
             <meta itemprop="position" content="1">
         </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou')?>"><span itemprop="name">脱毛</span></a>
+        <li>
+            <a href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
             <meta itemprop="position" content="2">
         </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name">全国の脱毛施設</span></a>
+        <li>
+            <a href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
             <meta itemprop="position" content="3">
         </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name">全国の<?php echo ShopType::convert($shop['shop_type'], CodePattern::$VALUE)?></span></a>
+        <li>
+            <a href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の<?php echo ShopType::convert($shop['shop_type'], CodePattern::$VALUE)?></span></a>
             <meta itemprop="position" content="4">
         </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+        <li>
             <?php echo $this->Html->link("<span>全国の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
             <meta itemprop="position" content="5">
         </li>
 
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+        <li>
             <?php echo $this->Html->link("<span>{$shop['Area']['name']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], URLUtil::CITY.$shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
             <meta itemprop="position" content="6">
         </li>
 
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <?php echo "<span itemprop='name'>{$shop['name']}</span>"?>
+        <li>
+            <?php echo "<span itemprop='name' class='name'>{$shop['name']}</span>"?>
             <meta itemprop="position" content="7">
         </li>
     </ol>

@@ -38,7 +38,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             <meta itemprop="position" content="2">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <span itemprop='name'>お問い合わせありがとうございます。</span>
+            <span itemprop='name' class='name'>お問い合わせありがとうございます。</span>
             <meta itemprop="position" content="3">
         </li>
     </ol>

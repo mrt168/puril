@@ -304,12 +304,12 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
             <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou')?>"><span itemprop="name">脱毛</span></a>
+               href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
             <meta itemprop="position" content="2">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
             <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name">全国の脱毛施設</span></a>
+               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
             <meta itemprop="position" content="3">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
@@ -325,7 +325,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
             <meta itemprop="position" content="6">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <span itemprop='name'>口コミ投稿</span>
+            <span itemprop='name' class='name'>口コミ投稿</span>
             <meta itemprop="position" content="7">
         </li>
     </ol>

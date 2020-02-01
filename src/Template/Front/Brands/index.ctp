@@ -97,7 +97,7 @@ echo $this->Html->css(['css/main', 'css/search']);
                 <meta itemprop="position" content="1" />
             </li>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <span itemprop="name">店舗名から探す</span>
+                <span itemprop="name" class="name">店舗名から探す</span>
                 <meta itemprop="position" content="2" />
             </li>
         </ol>

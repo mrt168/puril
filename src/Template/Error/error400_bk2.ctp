@@ -204,7 +204,7 @@ echo $this->Html->css('sitemap');
                 <meta itemprop="position" content="1">
             </li>
             <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <span itemprop="name">プライバシーポリシー</span>
+                <span itemprop="name" class="name">プライバシーポリシー</span>
                 <meta itemprop="position" content="2">
             </li>
         </ol>

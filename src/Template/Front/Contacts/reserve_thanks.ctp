@@ -2,12 +2,12 @@
 	<div class="inner cf">
 		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem">
 			<a itemprop="item" href="/">
-				<span itemprop="name">TOP</span>
+				<span itemprop="name" class="name">TOP</span>
 			</a>
 			<meta itemprop="position" content="1" />
 		</span>
 		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem">
-			<span itemprop="name">ご予約ありがとうございます</span>
+			<span itemprop="name" class="name">ご予約ありがとうございます</span>
 			<meta itemprop="position" content="2" />
 		</span>
 	</div>

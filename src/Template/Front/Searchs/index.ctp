@@ -66,11 +66,11 @@ echo $this->Html->css(['css/main', 'css/search']);
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
             <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou')?>"><span itemprop="name">脱毛</span></a>
+               href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
             <meta itemprop="position" content="2">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <?php echo "<span itemprop='name'>全国の脱毛施設</span>"?>
+            <?php echo "<span itemprop='name' class='name'>全国の脱毛施設</span>"?>
             <meta itemprop="position" content="3">
         </li>
     </ol>

@@ -1,7 +1,7 @@
 <div id="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
 	<div class="inner cf">
-		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem"><a itemprop="item" href="/"><span itemprop="name">TOP</span></a><meta itemprop="position" content="1" /></span>
-		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem"><a style="color:#434343;text-decoration:none;pointer-events:none;" itemprop="item" href="/form_facility"><span itemprop="name">施設情報掲載のお問い合わせ</span></a><meta itemprop="position" content="3" /></span>
+		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem"><a itemprop="item" href="/"><span itemprop="name" class="name">TOP</span></a><meta itemprop="position" content="1" /></span>
+		<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="breaditem"><a style="color:#434343;text-decoration:none;pointer-events:none;" itemprop="item" href="/form_facility"><span itemprop="name" class="name">施設情報掲載のお問い合わせ</span></a><meta itemprop="position" content="3" /></span>
 	</div>
 </div>
 <div id="container">

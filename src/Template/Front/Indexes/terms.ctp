@@ -146,7 +146,7 @@ echo $this->Html->css('datsumou');
             <meta itemprop="position" content="1">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <span itemprop="name">利用規約</span>
+            <span itemprop="name" class="name">利用規約</span>
             <meta itemprop="position" content="2">
         </li>
     </ol>

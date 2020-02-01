@@ -234,7 +234,7 @@ echo $this->ExForm->end()
             <meta itemprop="position" content="1">
         </li>
         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <span itemprop='name'>お問い合わせ</span>
+            <span itemprop='name' class='name'>お問い合わせ</span>
             <meta itemprop="position" content="2">
         </li>
     </ol>
