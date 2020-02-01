@@ -263,17 +263,16 @@ echo $this->Html->css('datsumou');
                                     } ?>
                                     <li>
                                         <div class="voice-box">
-                                            <a href="<?=$shopUrl?>" <?=$blank?> onclick="gtag('event',
+                                            <a class="datsumou-evaluation-panel__list__img" href="<?=$shopUrl?>" <?=$blank?> onclick="gtag('event',
                                         'click', {'event_category': 'af','event_label': 'all'});">
                                                 <img src="<?php echo $imgUrl?> alt="">
                                             </a>
                                             <a href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $salon['Shop']['shop_id']], true);?>">
-                                                <div class="datsumou-evaluation-panel__text">
-                                                    <h3 class="datsumou-evaluation-panel__title"><?php echo $salon['Shop']['name']?>
-                                                    </h3>
-                                                    <p class="datsumou-evaluation-panel__thin"><?php echo $salon['title']?>
-                                                    </p>
-                                                    <p class="datsumou-evaluation-panel__star">
+                                                <h3 class="datsumou-evaluation-panel__title"><?php echo $salon['Shop']['name']?>
+                                                </h3>
+                                                <p class="datsumou-evaluation-panel__thin"><?php echo $salon['title']?>
+                                                </p>
+                                                <p class="datsumou-evaluation-panel__star">
                                             <span class="orange">
                                                 <?php
                                                 $reviewCount = 0;
@@ -282,16 +281,15 @@ echo $this->Html->css('datsumou');
                                                     $reviewCount++;
                                                 endwhile; ?>
                                             </span>
-                                                        <?php
-                                                        while (5 - $reviewCount > 0):
-                                                            echo '★';
-                                                            $reviewCount++;
-                                                        endwhile; ?>
-                                                        <span class="red"><?php echo number_format($salon['evaluation'], 2) ?>
+                                                    <?php
+                                                    while (5 - $reviewCount > 0):
+                                                        echo '★';
+                                                        $reviewCount++;
+                                                    endwhile; ?>
+                                                    <span class="red"><?php echo number_format($salon['evaluation'], 2) ?>
                                             </span>
-                                                        <span class="date"><?php echo !empty($salon['post_date']) ? date('Y.m.d', strtotime($salon['post_date'])) : ""; ?></span>
-                                                    </p>
-                                                </div>
+                                                    <span class="date"><?php echo !empty($salon['post_date']) ? date('Y.m.d', strtotime($salon['post_date'])) : ""; ?></span>
+                                                </p>
                                             </a>
                                         </div>
                                     </li>
