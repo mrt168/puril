@@ -13,7 +13,7 @@
     .shop-top .shop-top-img-area .shop-top-img-base .shop-top-img {
       opacity: .95;
       width: 100%;
-      display: block;
+      display: block; 
       height: 233px;
       object-fit: cover; }
   .shop-top .shop-top-img-area .shop-top-img-desc {
@@ -201,7 +201,7 @@
       color: #B5B5B5; }
 
 .shop-datsumou {
-  padding: 15px 16px;
+  padding: 10px 16px;
   border-top: 1px solid #e1ddcc;
   border-bottom: 1px solid #e1ddcc; }
   .shop-datsumou .shop-part-list {
@@ -513,7 +513,7 @@
     border: solid 1px #EEECE4;
     padding: 10px;
     vertical-align: middle;
-}
+}  
 .price_list tbody {
     display: block;
 }

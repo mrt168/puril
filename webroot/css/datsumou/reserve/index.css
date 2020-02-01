@@ -16,11 +16,13 @@
   .reserve-section .reserve-question .reserve-question-text {
     font-weight: bold; }
   .reserve-section .reserve-question .reserve-tag {
-    border-radius: .5em;
+    width: 28px;
+    border-radius: 2px;
     color: #ffffff;
-    font-size: 10px;
-    padding: .375em;
-    margin-left: 1em; }
+    font-size: 11px;
+    padding: 3.5px 0 3.5px;
+    text-align: center;
+    margin-left: 10px; }
   .reserve-section .reserve-question .reserve-tag-required {
     background-color: #FF4E4E; }
   .reserve-section .reserve-question .reserve-tag-option {
@@ -38,7 +40,7 @@
     height: 44px;
     border: 1px solid #BEB99B;
     border-radius: 4px;
-    padding: 0 1em;
+    padding: 0 15px;
     font-size: 13px;
     width: 100%;
     background-color: #ffffff; }
@@ -206,40 +208,53 @@
 
 
 /* /form_userへの追記 */
-.form-user.reserve-form {
+
+.contact-title {
+  font-size: 18px;
+  margin-top: 5px;
+  padding: 12px 0;
+  background: #fff;
+  border-top: 1px solid #CCC4A7;
+  text-align: center;
+  font-weight: bold;
+}
+.form-contact.reserve-form {
   background: #fff;
 }
-.form-user .contact-content {
-  margin-top: 5px;
+
+.form-contact .reserve-section * {
+  padding: 0;
+}
+.form-contact .contact-content {
   padding-top: 10px;
   border-top: 1px solid #E0DCCC;
   background: #fff;
 }
-.form-user .reserve-title {
+.form-contact .reserve-title {
   margin-bottom: 15px;
   padding: 8px 0 7px 15px;
   background: #6AADBF;
   color: #fff;
   font-size: 13px;
 }
-.form-user .contact-content-text {
+.form-contact .contact-content-text {
   padding: 0 10px;
 }
-.form-user .reserve-section {
-  margin: 20px 10px;
+.form-contact .contact-content-text p {
+  line-height: 15px;
+}
+.form-contact .reserve-section {
+  margin: 20px 10px 10px;
   padding: 0 10px 10px;
   background: #F9F7F5;
 }
-.form-user .reserve-section * {
-  padding: 0;
-}
 
-.form-user .reserve-question {
+.form-contact .reserve-question {
   padding-top: 15px;
   padding-bottom: 10px;
 }
-.form-user .reserve-question-text,
-.form-user .reserve-section .reserve-subquestion .reserve-subquestion-text {
+.form-contact .reserve-question-text,
+.form-contact .reserve-section .reserve-subquestion .reserve-subquestion-text {
   position: relative;
   padding: 0;
   padding-left: 9px;
@@ -247,8 +262,8 @@
   line-height: 20px;
   color: inherit;
 }
-.form-user .reserve-question-text::before,
-.form-user .reserve-section .reserve-subquestion .reserve-subquestion-text::before {
+.form-contact .reserve-question-text::before,
+.form-contact .reserve-section .reserve-subquestion .reserve-subquestion-text::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -258,21 +273,37 @@
   background: #BCB189;
   content: '';
 }
-.form-user .reserve-section .reserve-subquestion .reserve-email-desc {
+.form-contact .reserve-section .reserve-subquestion .reserve-email-desc {
   font-size: 10px;
   padding: 0;
   padding-top: 10px;
 }
-
-.form-user .terms-section {
+.form-contact .agreement {
   height: 160px;
   margin: 10px;
   padding: 5px;
   border: 1px solid #E0DCCC;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
-.form-user .reserve-button-area {
+.form-contact .reserve-section.comment {
+  margin-top: 10px;
+}
+
+.form-contact .reserve-button-area,
+.form-contact .reserve-section.submit {
+  margin-top: 30px;
   background: #fff;
 }
-.form-user .reserve-section .reserve-subquestion .reserve-email-desc 
+
+.form-contact .ag_title {
+  color: #595960;
+
+}
+
+.form-contact .agreement h2 {
+  margin-top: 6px;
+}
+.form-contact .agreement .textarea {
+  line-height: 15px;
+}
