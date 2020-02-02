@@ -63,7 +63,7 @@ class ContactMailer extends Mailer {
         ->profile('contact')
         ->setViewVars(['data' => $data])
             ->setSubject('【Puril】'.$data['shop_name'].'の仮予約を受け付けました。')
-            ->setTo([$data['mail'], 'info@tsuru-tsuru.co.jp'])
+            ->setTo([$data['mail'], self::ADMIN_MAIL])
 	->setFrom([self::ADMIN_MAIL => 'Puril'])
         ->setEmailFormat('text')
         ->setTemplate('reserve');

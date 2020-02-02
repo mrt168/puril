@@ -12,25 +12,21 @@
 店舗名：<?= $data['shop_name']."\n" ?>
 店舗予約URL：<?= $data['referer']."\n" ?>
 来店日時：
-	第1希望：<?= $data['visit_date_1']."\n" ?>
+	第1希望：<?= $data['visit_date_1'].$data['time']."\n" ?>
 	第2希望：<?= $data['visit_date_2']."\n" ?>
 	第3希望：<?= $data['visit_date_3']."\n" ?>
+	第4希望：<?= $data['visit_date_4']."\n" ?>
 
 〇 個人情報
 氏名：<?= $data['last_name'].$data['first_name']."\n" ?>
 フリガナ：<?= $data['last_kana'].$data['first_kana']."\n" ?>
 生年月日：<?= $data['birthday_y']."年".$data['birthday_m']."月".$data['birthday_d']."日\n" ?>
 性別：<?= $data['sex']."\n" ?>
-連絡先番号：<?= $data['tell']."\n" ?>
+連絡先番号：<?= $data['tel']."\n" ?>
 メールアドレス：<?= $data['mail']."\n" ?>
 住所：<?= $data['address']."\n" ?>
 
 〇 問診
-脱毛希望部位：
-<?php foreach ($data['depilation_site'] as $site): ?>
-	<?= $site.',' ?>
-<?php endforeach; ?>
-
 利用人数：<?= $data['customer_count']."\n" ?>
 施術の当日希望：<?= $data['is_same_date']."\n" ?>
 脱毛経験の有無：<?= $data['is_experienced']."\n" ?>

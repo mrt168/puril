@@ -16,6 +16,17 @@ use App\Vendor\Code\ImagePositionType;
 echo $this->Html->css('datsumou');
 echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common','datsumou/reserve/index','datsumou/reserve/common']);
 ?>
+<?php
+echo $this->Html->script(
+    [
+        '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js',
+        '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js',
+        '/js/front/jquery-ui-timepicker-addon.min.js',
+        '/js/front/jquery-ui-timepicker-ja.js',
+    ],
+    ['type'=> 'text/javascript','defer' => true]);?>
+
+<?= $this->Html->css('front/jquery-ui-timepicker-addon.min.css') ?>
 <header class="datsumou-header">
     <?php
     echo $this->element('Front/header')
@@ -88,13 +99,40 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     </div>
     <div class="reserve-input">
         <div class="reserve-input-inner">
-            <?= $this->ExForm->text('visit_date_2', ['class' => 'datepicker reserve-input-datetime', 'placeholder' => '第二希望 例）2018/12/06', 'id' => 'datetimepicker1']); ?>
+            <?php
+            echo $this->ExForm->text(
+                'visit_date_2', [
+                    'placeholder' => '第2希望 例）'.date('Y/m/d H:00'),
+                    'id'          => 'visit_date_2',
+                    'class'       => 'datetimepicker visit_dates',
+                    'required'    => 2
+                ]
+            );
+            ?>
         </div>
         <div class="reserve-input-inner">
-            <?= $this->ExForm->text('visit_date_3', ['class' => 'datepicker reserve-input-datetime', 'placeholder' => '第三希望 例）2018/12/06', 'id' => 'datetimepicker2']); ?>
+            <?php
+            echo $this->ExForm->text(
+                'visit_date_3', [
+                    'placeholder' => '第3希望 例）'.date('Y/m/d H:00'),
+                    'id'          => 'visit_date_3',
+                    'class'       => 'datetimepicker visit_dates',
+                    'required'    => 3
+                ]
+            );
+            ?>
         </div>
         <div class="reserve-input-inner">
-            <?= $this->ExForm->text('visit_date_4', ['class' => 'datepicker reserve-input-datetime', 'placeholder' => '第四希望 例）2018/12/06', 'id' => 'datetimepicker3']); ?>
+            <?php
+            echo $this->ExForm->text(
+                'visit_date_4', [
+                    'placeholder' => '第4希望 例）'.date('Y/m/d H:00'),
+                    'id'          => 'visit_date_4',
+                    'class'       => 'datetimepicker visit_dates',
+                    'required'    => 4
+                ]
+            );
+            ?>
         </div>
     </div>
 </section>
@@ -111,11 +149,11 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
         <div class="reserve-input">
             <div class="reserve-input-radio-wrap">
                 <label class="reserve-input-radio">
-                    <input type="radio" name="gender" value="1" required>
+                    <input type="radio" name="sex" value="1" required>
                     <div class="reserve-input-inner"><span>男</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
                 </label>
                 <label class="reserve-input-radio">
-                    <input type="radio" name="gender" value="2" required>
+                    <input type="radio" name="sex" value="2" required>
                     <div class="reserve-input-inner"><span>女</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
                 </label>
             </div>
@@ -126,11 +164,11 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             <div class="reserve-input-parent">
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">姓</label>
-                    <input type="text" name="sei" placeholder="山田" required>
+                    <input type="text" name="last_name" placeholder="山田" required>
                 </div>
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">名</label>
-                    <input type="text" name="mei" placeholder="花子" required>
+                    <input type="text" name="first_name" placeholder="花子" required>
                 </div>
             </div>
         </div>
@@ -140,11 +178,11 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             <div class="reserve-input-parent">
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">せい</label>
-                    <input type="text" name="seihira" placeholder="やまだ" required>
+                    <input type="text" name="last_kana" placeholder="やまだ" required>
                 </div>
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">めい</label>
-                    <input type="text" name="meihira" placeholder="はなこ" required>
+                    <input type="text" name="first_kana" placeholder="はなこ" required>
                 </div>
             </div>
         </div>
@@ -155,7 +193,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             <div class="reserve-input-born">
                 <div class="reserve-input-born-common reserve-input-year">
                     <div class="reserve-input-inner">
-                        <select name="year" required>
+                        <select name="birthday_y" required>
                             <option value="1920">1920</option>
                             <option value="1921">1921</option>
                             <option value="1922">1922</option>
@@ -262,7 +300,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 </div>
                 <div class="reserve-input-born-common reserve-input-month">
                     <div class="reserve-input-inner">
-                        <select name="month" required>
+                        <select name="birthday_m" required>
                             <option value="">--</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -281,7 +319,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 </div>
                 <div class="reserve-input-born-common reserve-input-day">
                     <div class="reserve-input-inner">
-                        <select name="day" required>
+                        <select name="birthday_d" required>
                             <option value="">--</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -331,118 +369,126 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
         <div class="reserve-input">
             <input type="text" name="mail" placeholder="info@tsuru-tsuru.co.jp" required>
         </div>
-        <div class="reserve-step">
-          <div class="reserve-step-1st">
+        <div class="reserve-email-desc">※docomo.ne.jp、softbank.jp、ezweb.ne.jpなどの携帯メールアドレスでは、パソコンからのメールを受信拒否する初期設定をされている場合がございます。tsuru-tsuru.co.jpからの受信許可の設定をお願いいたします。</div>
+    </div>
+    <div class="reserve-question">
+        <div class="reserve-question-text">その他お客様情報</div>
+        <div class="reserve-tag reserve-tag-option">任意</div>
+    </div>
+    <div class="reserve-subquestion">
+    <div class="reserve-step">
+        <div class="reserve-step-1st">
             <div class="reserve-subquestion">
-              <div class="reserve-subquestion-first">
-                <div class="reserve-subquestion-first-step">STEP1</div>
-                <div class="reserve-subquestion-text reserve-subquestion-first-text">利用人数</div>
-              </div>
-              <div class="reserve-input">
-                <div class="reserve-input-radio-wrap">
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="person" value="1">
-                    <div class="reserve-input-inner"><span>1名</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                    </div>
-                  </label>
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="person" value="2">
-                    <div class="reserve-input-inner"><span>2名</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                    </div>
-                  </label>
+                <div class="reserve-subquestion-first">
+                    <div class="reserve-subquestion-first-step">STEP1</div>
+                    <div class="reserve-subquestion-text reserve-subquestion-first-text">利用人数</div>
                 </div>
-                <div class="reserve-input-radio-wrap">
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="person" value="3">
-                    <div class="reserve-input-inner"><span>3名以上</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                <div class="reserve-input">
+                    <div class="reserve-input-radio-wrap">
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="customer_count" value="1名">
+                            <div class="reserve-input-inner"><span>1名</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="customer_count" value="2名">
+                            <div class="reserve-input-inner"><span>2名</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
                     </div>
-                  </label>
-                  <label class="reserve-input-radio reserve-input-radio-void"></label>
+                    <div class="reserve-input-radio-wrap">
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="customer_count" value="3名以上">
+                            <div class="reserve-input-inner"><span>3名以上</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
+                        <label class="reserve-input-radio reserve-input-radio-void"></label>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="reserve-step-2nd">
-            <div class="reserve-subquestion">
-              <div class="reserve-subquestion-first">
-                <div class="reserve-subquestion-first-step">STEP2</div>
-              </div>
-            </div>
-            <div class="reserve-subquestion">
-              <div class="reserve-subquestion-text-top reserve-subquestion-text">当日の施術を希望されますか？</div>
-              <div class="reserve-input">
-                <div class="reserve-input-radio-wrap">
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="toujitsu" value="y">
-                    <div class="reserve-input-inner"><span>はい</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                    </div>
-                  </label>
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="toujitsu" value="n">
-                    <div class="reserve-input-inner"><span>いいえ</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="reserve-step-3rd">
-            <div class="reserve-subquestion">
-              <div class="reserve-subquestion-first">
-                <div class="reserve-subquestion-first-step">STEP3</div>
-              </div>
-            </div>
-            <div class="reserve-subquestion">
-              <div class="reserve-subquestion-text-top reserve-subquestion-text">脱毛経験はございますか？</div>
-              <div class="reserve-input">
-                <div class="reserve-input-radio-wrap">
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="datsumou" value="y">
-                    <div class="reserve-input-inner"><span>はい</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                    </div>
-                  </label>
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="datsumou" value="n">
-                    <div class="reserve-input-inner"><span>いいえ</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="reserve-step-4th">
-            <div class="reserve-subquestion">
-              <div class="reserve-subquestion-first">
-                <div class="reserve-subquestion-first-step">STEP4</div>
-              </div>
-            </div>
-            <div class="reserve-subquestion">
-              <div class="reserve-subquestion-text-top reserve-subquestion-text">キャンペーンの通知を希望しますか？</div>
-              <div class="reserve-input">
-                <div class="reserve-input-radio-wrap">
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="canpain" value="y">
-                    <div class="reserve-input-inner"><span>はい</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                    </div>
-                  </label>
-                  <label class="reserve-input-radio">
-                    <input type="radio" name="canpain" value="n">
-                    <div class="reserve-input-inner"><span>いいえ</span><i
-                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                    </div>
-                  </label>
-                </div>
-              </div>
             </div>
         </div>
+        <div class="reserve-step-2nd">
+            <div class="reserve-subquestion">
+                <div class="reserve-subquestion-first">
+                    <div class="reserve-subquestion-first-step">STEP2</div>
+                </div>
+            </div>
+            <div class="reserve-subquestion">
+                <div class="reserve-subquestion-text-top reserve-subquestion-text">当日の施術を希望されますか？</div>
+                <div class="reserve-input">
+                    <div class="reserve-input-radio-wrap">
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="is_same_date" value="はい">
+                            <div class="reserve-input-inner"><span>はい</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="toujitsu" value="いいえ">
+                            <div class="reserve-input-inner"><span>いいえ</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reserve-step-3rd">
+            <div class="reserve-subquestion">
+                <div class="reserve-subquestion-first">
+                    <div class="reserve-subquestion-first-step">STEP3</div>
+                </div>
+            </div>
+            <div class="reserve-subquestion">
+                <div class="reserve-subquestion-text-top reserve-subquestion-text">脱毛経験はございますか？</div>
+                <div class="reserve-input">
+                    <div class="reserve-input-radio-wrap">
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="is_experienced" value="はい">
+                            <div class="reserve-input-inner"><span>はい</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="is_experienced" value="いいえ">
+                            <div class="reserve-input-inner"><span>いいえ</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reserve-step-4th">
+            <div class="reserve-subquestion">
+                <div class="reserve-subquestion-first">
+                    <div class="reserve-subquestion-first-step">STEP4</div>
+                </div>
+            </div>
+            <div class="reserve-subquestion">
+                <div class="reserve-subquestion-text-top reserve-subquestion-text">キャンペーンの通知を希望しますか？</div>
+                <div class="reserve-input">
+                    <div class="reserve-input-radio-wrap">
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="is_campaign" value="はい">
+                            <div class="reserve-input-inner"><span>はい</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
+                        <label class="reserve-input-radio">
+                            <input type="radio" name="is_campaign" value="いいえ">
+                            <div class="reserve-input-inner"><span>いいえ</span><i
+                                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-text-top reserve-subquestion-text">住所</div>
@@ -480,13 +526,43 @@ echo $this->element('Front/footer') ?>
         $(".reserve-scroll-select-item").each(function () {
             $(this).click(function () {
                 $(".reserve-scroll-select-item").each(function () {
-                   $(this).removeClass("active");
+                    $(this).removeClass("active");
                 });
                 var time = $(this).data('time');
                 $(".input-time").val(time);
                 $(this).addClass("active");
             });
         });
+        $(document).ready(function(){
+            $(function() {
+                // $.datetimepicker.setLocale('ja');
+                $('input.datetimepicker').datetimepicker({
+                    step:30
+                }).keydown(function(e) {
+                }).dblclick(function() {
+                    // ダブルクリックで現在時刻セット
+                    var hiduke = new Date();
+
+                    //年・月・日・曜日を取得する
+                    var date = hiduke.getFullYear()+'-'+all._addZero((hiduke.getMonth()+1), 2)+'-'+all._addZero(hiduke.getDate(), 2);
+                    date += ' '+all._addZero(hiduke.getHours(), 2)+':'+all._addZero(hiduke.getMinutes(), 2);
+                    $(this).val(date);
+                });
+            });
+
+            var all = {
+                _addZero: function(num, len) {
+                    num += "";
+                    if (num.length < len) {
+                        for (var i = num.length; i < len; i++) {
+                            num = "0" + num;
+                        }
+                    }
+                    return num;
+                }
+            }
+        });
+
     })
 </script>
 </body>

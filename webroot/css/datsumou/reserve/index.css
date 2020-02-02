@@ -117,6 +117,7 @@
     background-color: #ffffff; }
   .reserve-section .reserve-input .reserve-input-inner {
     position: relative;
+    margin-bottom: 10px;
     width: 100%; }
     .reserve-section .reserve-input .reserve-input-inner .reserve-input-arrow {
       position: absolute;
@@ -214,10 +215,20 @@
         text-decoration: none;
         font-weight: bold;
         font-size: 11px;
-        color: #ffffff;
+        color: #6AADBF;
+        background-color: white;
         border-radius: .25em;
         padding: 1em 1.5em;
-        background-color: #6AADBF; }
+        border: 1px solid #6AADBF; }
+.reserve-section .reserve-scroll-select ul li .reserve-scroll-select-item.active {
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 11px;
+  color: #ffffff;
+  border-radius: .25em;
+  padding: 1em 1.5em;
+  background-color: #6AADBF; }
 
 .reserve-section .reserve-subquestion .reserve-subquestion-text-top {
   padding: 0 16px; }

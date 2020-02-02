@@ -108,13 +108,13 @@ $this->set('noIndex', true);
 
 		$data['sex'] = $data['sex'] === '1' ? '男性' : '女性';
 
-		$depilationSiteTable = TableRegistry::get('DepilationSites');
-		$datas = $depilationSiteTable->findByDelFlgOrderById();
-		$options = $this->getKeyValueByDBData($datas, 'depilation_site_id', 'name');
-
-		foreach ($data['depilation_site'] as $i => $depilation_site_id) {
-			$data['depilation_site'][$i] = $options[$depilation_site_id];
-		}
+//		$depilationSiteTable = TableRegistry::get('DepilationSites');
+//		$datas = $depilationSiteTable->findByDelFlgOrderById();
+//		$options = $this->getKeyValueByDBData($datas, 'depilation_site_id', 'name');
+//
+//		foreach ($data['depilation_site'] as $i => $depilation_site_id) {
+//			$data['depilation_site'][$i] = $options[$depilation_site_id];
+//		}
 
         // 店舗予約URL（すぐにどの店舗か追えるようにするため）
         $data['referer'] = $this->referer();
