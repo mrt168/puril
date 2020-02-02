@@ -414,7 +414,7 @@ if (!empty($shop['reviews'])) {
 <footer class="content shop-footer">
     <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
         <div class="kuchikomi-button-text">口コミを書く</div></a>
-    <a class="button-base reservatopn-button" href="/shop/reserve?shop_id=<?= $shop['shop_id'] ?>"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
+    <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
         <div class="reservatopn-button-text">電話・ネット予約</div></a></footer>
 <div class="content photo-modal" id="photo-modal">
     <div class="photo-detail-wrap">
