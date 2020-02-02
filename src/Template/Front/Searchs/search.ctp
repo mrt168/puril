@@ -202,6 +202,107 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
         }
         ?>
     </ul>
+    <div class="pager">
+        <div class="pagenation pagenation-hover">
+            <div class="pagenation-prev">
+                <?php
+                $getUrl = null;
+                if (!empty($_GET)) {
+                    foreach ($_GET as $key => $get) {
+                        if ($key == "page") {
+                            continue;
+                        }
+                        $getUrl .= "&". $key. "=". $get;
+                    }
+                }
+
+                if ($this->Paginator->hasPrev()) {
+                    echo $this->Paginator->prev('前の20件', ['class'=> 'prev', 'tag'=> 'div']);
+                }
+                ?>
+            </div>
+            <?php
+            $pageCnt = $this->Paginator->param('pageCount');
+            if ($pageCnt > 1) {
+                ?>
+                <div class="pagenation-page-list-wrap">
+                    <ul class="pagenation-page-list-all">
+                        <li class="pagenation-page-list-current">
+                            <ul class="pagenation-page-list">
+                                <?php
+                                for($i=1; $i<=ceil($pageCnt/PagingUtil::FRON_PAGINATE); $i++) {
+                                    if ($this->Paginator->current() <= $i*PagingUtil::FRON_PAGINATE) {
+                                        $lineCnt = $i;
+                                        break;
+                                    }
+                                }
+
+                                $page = ($lineCnt-1)*PagingUtil::FRON_PAGINATE + 1;
+                                $maxPage = $lineCnt*PagingUtil::FRON_PAGINATE;
+
+                                for ($i=$page; $i<=$maxPage; $i++) {
+                                    $url = Router::url(null,true). "?page={$i}".$getUrl;
+
+                                    if ($i > $pageCnt) {
+                                        echo "<span class='page-numbers'></span>";
+                                    } else if ($i != $this->Paginator->current()) {
+                                        ?>
+                                        <li class="page-numbers"><a href="<?=$url?>"><?=$i?></a></li>
+                                        <?php
+                                    } else {
+                                        echo "<span class='page-numbers active'>{$i}</span>";
+                                    }
+                                }
+                                ?>
+                            </ul>
+                        </li>
+                        <?php
+                        if ($this->Paginator->current() > PagingUtil::FRON_PAGINATE) {
+                            ?>
+                            <li class="pagenation-page-list-before">
+                                <ul class="pagenation-page-list">
+                                    <?php
+                                    $maxPage = $lineCnt*PagingUtil::FRON_PAGINATE-PagingUtil::FRON_PAGINATE;
+                                    for ($i=1; $i<=$maxPage; $i++) {
+                                        $url = Router::url(null,true). "?page={$i}".$getUrl;
+                                        ?>
+                                        <li class="page-numbers"><a href="<?=$url?>"><?=$i?></a></li>
+                                        <?php
+                                    }
+                                    ?>
+                                </ul>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                        <li class="pagenation-page-list-after">
+                            <ul class="pagenation-page-list">
+                                <?php
+                                $page = ($lineCnt-1)*PagingUtil::FRON_PAGINATE + 1 + PagingUtil::FRON_PAGINATE;
+                                for ($i=$page; $i<=$pageCnt; $i++) {
+                                    $url = Router::url(null,true). "?page={$i}".$getUrl;
+                                    ?>
+                                    <li class="page-numbers"><a href="<?=$url?>"><?php echo $i?></a></li>
+                                    <?php
+                                }
+                                ?>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <?php
+            }
+            ?>
+            <div class="pagenation-next">
+                <?php
+                if ($this->Paginator->hasNext()) {
+                    echo $this->Paginator->next('次の20件', ['class'=> 'next', 'tag'=> false]);
+                }
+                ?>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="content-base search-shop-best">
     <ul class="search-shop-best-list">
