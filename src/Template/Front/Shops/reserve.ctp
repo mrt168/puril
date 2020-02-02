@@ -502,10 +502,15 @@ echo $this->Html->script(
             <textarea cols="30" rows="10" name="question" placeholder="ご質問があれば入力してください。"></textarea>
         </div>
     </div>
+    <div class="reserve-confirm-content">
+        <div class="reserve-confirm-content-policy-area">
+            <p class="reserve-confirm-content-policy" style="text-align: center;"><span>ご予約の際には、</span><a href="/regulation">利用規約</a><span>をご確認ください。</span></p>
+        </div>
+    </div>
 </section>
 <section class="content-base reserve-section">
     <div class="reserve-button-area">
-        <button class="reserve-button" type="submit">予約前の最終確認へ</button>
+        <button class="reserve-button" type="submit">規約に同意し、上記内容で予約を確定する</button>
     </div>
 </section>
 <?= $this->ExForm->end() ?>
