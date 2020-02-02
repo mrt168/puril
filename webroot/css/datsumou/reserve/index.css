@@ -1,17 +1,3 @@
-.reserve-title {
-  font-size: 18px;
-  margin-top: 5px;
-  padding: 12px 0;
-  background: #fff;
-  border-top: 1px solid #CCC4A7;
-  text-align: center;
-  font-weight: bold;
-}
-
-.reserve-form{
-  border-top: 1px solid #E0DCCC;
-}
-
 .reserve-section .reserve-question-mod {
   padding-bottom: 0 !important; }
 
@@ -30,13 +16,11 @@
   .reserve-section .reserve-question .reserve-question-text {
     font-weight: bold; }
   .reserve-section .reserve-question .reserve-tag {
-    width: 28px;
-    border-radius: 2px;
+    border-radius: .5em;
     color: #ffffff;
-    font-size: 11px;
-    padding: 3.5px 0 3.5px;
-    text-align: center;
-    margin-left: 10px; }
+    font-size: 10px;
+    padding: .375em;
+    margin-left: 1em; }
   .reserve-section .reserve-question .reserve-tag-required {
     background-color: #FF4E4E; }
   .reserve-section .reserve-question .reserve-tag-option {
@@ -47,32 +31,53 @@
 
 .reserve-section .reserve-input {
   padding: 10px 16px; }
-    .reserve-section .reserve-step{
-    width: 200%;
+  .reserve-section .reserve-step{
+    width: 400%;
     display: flex;
   }
-  .reserve-section .next{
+  .reserve-section .step-2nd{
+    transform: translateX(-25%);
+    transition-duration:0.5s;
+    transition-timing-function:ease-in-out;
+  }
+  .reserve-section .step-3rd{
     transform: translateX(-50%);
     transition-duration:0.5s;
     transition-timing-function:ease-in-out;
   }
-  .reserve-section .next .reserve-step-1st{
-    transform: translateX(-50%);
+
+  .reserve-section .step-4th{
+    transform: translateX(-75%);
     transition-duration:0.5s;
-    transition-timing-function:ease-in-out;    
+    transition-timing-function:ease-in-out;
   }
+
+
   .reserve-section .reserve-step-1st{
-    width: 50%;
+    width: 25%;
   }
   .reserve-section .reserve-step-2nd{
-    width: 50%;
+    width: 25%;
+    display: none;
   }
-  .reserve-section .js-reserve-step-2nd{
-      display: none;
+  .reserve-section .step-2nd .reserve-step-2nd{
+    display: block;
   }
-  .reserve-section .next .js-reserve-step-2nd{
-      display: block;
+  .reserve-section .reserve-step-3rd{
+    width: 25%;
+    display: none;
   }
+  .reserve-section .step-3rd .reserve-step-3rd{
+    display: block;
+  }
+  .reserve-section .reserve-step-4th{
+    width: 25%;
+    display: none;
+  }
+  .reserve-section .step-4th .reserve-step-4th{
+    display: block;
+  }
+
   .reserve-section .reserve-input input, .reserve-section .reserve-input select {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -80,7 +85,7 @@
     height: 44px;
     border: 1px solid #BEB99B;
     border-radius: 4px;
-    padding: 0 15px;
+    padding: 0 1em;
     font-size: 13px;
     width: 100%;
     background-color: #ffffff; }
@@ -245,105 +250,3 @@
     padding: 1em;
     width: 100%;
     border-radius: 4px; }
-
-
-/* /form_userへの追記 */
-
-.contact-title {
-  font-size: 18px;
-  margin-top: 5px;
-  padding: 12px 0;
-  background: #fff;
-  border-top: 1px solid #CCC4A7;
-  text-align: center;
-  font-weight: bold;
-}
-.form-contact.reserve-form {
-  background: #fff;
-}
-
-.form-contact .reserve-section * {
-  padding: 0;
-}
-.form-contact .contact-content {
-  padding-top: 10px;
-  border-top: 1px solid #E0DCCC;
-  background: #fff;
-}
-.form-contact .reserve-title {
-  margin-bottom: 15px;
-  padding: 8px 0 7px 15px;
-  background: #6AADBF;
-  color: #fff;
-  font-size: 13px;
-}
-.form-contact .contact-content-text {
-  padding: 0 10px;
-}
-.form-contact .contact-content-text p {
-  line-height: 15px;
-}
-.form-contact .reserve-section {
-  margin: 20px 10px 10px;
-  padding: 0 10px 10px;
-  background: #F9F7F5;
-}
-
-.form-contact .reserve-question {
-  padding-top: 15px;
-  padding-bottom: 10px;
-}
-.form-contact .reserve-question-text,
-.form-contact .reserve-section .reserve-subquestion .reserve-subquestion-text {
-  position: relative;
-  padding: 0;
-  padding-left: 9px;
-  font-size: 14px;
-  line-height: 20px;
-  color: inherit;
-}
-.form-contact .reserve-question-text::before,
-.form-contact .reserve-section .reserve-subquestion .reserve-subquestion-text::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 4px;
-  height: 20px;
-  background: #BCB189;
-  content: '';
-}
-.form-contact .reserve-section .reserve-subquestion .reserve-email-desc {
-  font-size: 10px;
-  padding: 0;
-  padding-top: 10px;
-}
-.form-contact .agreement {
-  height: 160px;
-  margin: 10px;
-  padding: 5px;
-  border: 1px solid #E0DCCC;
-  overflow-y: scroll;
-}
-
-.form-contact .reserve-section.comment {
-  margin-top: 10px;
-}
-
-.form-contact .reserve-button-area,
-.form-contact .reserve-section.submit {
-  margin-top: 30px;
-  background: #fff;
-}
-
-.form-contact .ag_title {
-  color: #595960;
-
-}
-
-.form-contact .agreement h2 {
-  margin-top: 6px;
-}
-.form-contact .agreement .textarea {
-  line-height: 15px;
-}

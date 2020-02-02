@@ -323,70 +323,119 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
           <div class="reserve-question-text">その他お客様情報</div>
           <div class="reserve-tag reserve-tag-option">任意</div>
         </div>
-      <div class="reserve-step">
-        <div class="reserve-step-1st">
-          <div class="reserve-subquestion">
-            <div class="reserve-subquestion-first">
-              <div class="reserve-subquestion-first-step">STEP1</div>
-              <div class="reserve-subquestion-text reserve-subquestion-first-text">利用人数</div>
-            </div>
-            <div class="reserve-input">
-              <div class="reserve-input-radio-wrap">
-                <label class="reserve-input-radio">
-                  <input type="radio" name="person" value="1">
-                  <div class="reserve-input-inner"><span>1名</span><i
-                      class="fas fa-chevron-right reserve-input-arrow"></i>
-                  </div>
-                </label>
-                <label class="reserve-input-radio">
-                  <input type="radio" name="person" value="2">
-                  <div class="reserve-input-inner"><span>2名</span><i
-                      class="fas fa-chevron-right reserve-input-arrow"></i>
-                  </div>
-                </label>
+        <div class="reserve-step">
+          <div class="reserve-step-1st">
+            <div class="reserve-subquestion">
+              <div class="reserve-subquestion-first">
+                <div class="reserve-subquestion-first-step">STEP1</div>
+                <div class="reserve-subquestion-text reserve-subquestion-first-text">利用人数</div>
               </div>
-              <div class="reserve-input-radio-wrap">
-                <label class="reserve-input-radio">
-                  <input type="radio" name="person" value="3">
-                  <div class="reserve-input-inner"><span>3名以上</span><i
-                      class="fas fa-chevron-right reserve-input-arrow"></i>
-                  </div>
-                </label>
-                <label class="reserve-input-radio reserve-input-radio-void"></label>
+              <div class="reserve-input">
+                <div class="reserve-input-radio-wrap">
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="person" value="1">
+                    <div class="reserve-input-inner"><span>1名</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="person" value="2">
+                    <div class="reserve-input-inner"><span>2名</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                </div>
+                <div class="reserve-input-radio-wrap">
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="person" value="3">
+                    <div class="reserve-input-inner"><span>3名以上</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                  <label class="reserve-input-radio reserve-input-radio-void"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reserve-step-2nd">
+            <div class="reserve-subquestion">
+              <div class="reserve-subquestion-first">
+                <div class="reserve-subquestion-first-step">STEP2</div>
+              </div>
+            </div>
+            <div class="reserve-subquestion">
+              <div class="reserve-subquestion-text-top reserve-subquestion-text">当日の施術を希望されますか？</div>
+              <div class="reserve-input">
+                <div class="reserve-input-radio-wrap">
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="toujitsu" value="y">
+                    <div class="reserve-input-inner"><span>はい</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="toujitsu" value="n">
+                    <div class="reserve-input-inner"><span>いいえ</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reserve-step-3rd">
+            <div class="reserve-subquestion">
+              <div class="reserve-subquestion-first">
+                <div class="reserve-subquestion-first-step">STEP3</div>
+              </div>
+            </div>
+            <div class="reserve-subquestion">
+              <div class="reserve-subquestion-text-top reserve-subquestion-text">脱毛経験はございますか？</div>
+              <div class="reserve-input">
+                <div class="reserve-input-radio-wrap">
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="datsumou" value="y">
+                    <div class="reserve-input-inner"><span>はい</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="datsumou" value="n">
+                    <div class="reserve-input-inner"><span>いいえ</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reserve-step-4th">
+            <div class="reserve-subquestion">
+              <div class="reserve-subquestion-first">
+                <div class="reserve-subquestion-first-step">STEP4</div>
+              </div>
+            </div>
+            <div class="reserve-subquestion">
+              <div class="reserve-subquestion-text-top reserve-subquestion-text">キャンペーンの通知を希望しますか？</div>
+              <div class="reserve-input">
+                <div class="reserve-input-radio-wrap">
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="canpain" value="y">
+                    <div class="reserve-input-inner"><span>はい</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                  <label class="reserve-input-radio">
+                    <input type="radio" name="canpain" value="n">
+                    <div class="reserve-input-inner"><span>いいえ</span><i
+                        class="fas fa-chevron-right reserve-input-arrow"></i>
+                    </div>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="reserve-step-2nd js-reserve-step-2nd">
-          <div class="reserve-subquestion">
-            <div class="reserve-subquestion-first">
-              <div class="reserve-subquestion-first-step">STEP2</div>
-            </div>
-
-            <div class="reserve-input">
-              <input type="text" name="tel" placeholder="利用人数">
-            </div>
-          </div>
-          <div class="reserve-subquestion">
-            <div class="reserve-subquestion-text-top reserve-subquestion-text">当日の施術を希望されますか？</div>
-            <div class="reserve-input">
-              <input type="text" name="tel" placeholder="当日の施術を希望されますか？">
-            </div>
-          </div>
-          <div class="reserve-subquestion">
-            <div class="reserve-subquestion-text-top reserve-subquestion-text">脱毛経験はございますか？</div>
-            <div class="reserve-input">
-              <input type="text" name="tel" placeholder="脱毛経験はございますか？">
-            </div>
-          </div>
-          <div class="reserve-subquestion">
-            <div class="reserve-subquestion-text-top reserve-subquestion-text">キャンペーンの通知を希望しますか？</div>
-            <div class="reserve-input">
-              <input type="text" name="tel" placeholder="キャンペーンの通知を希望しますか？">
-            </div>
-          </div>
-        </div>
-      </div>
         <div class="reserve-subquestion">
           <div class="reserve-subquestion-text-top reserve-subquestion-text">住所</div>
           <div class="reserve-input">
@@ -410,12 +459,15 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 echo $this->element('Front/footer') ?>
 <script>
 $(function () {
-  //ボタン１のイベント処理
-  $('.reserve-input-inner').click(function(e) {
-      console.log('click')
-      console.log(e)
-      $('.reserve-step').addClass('next')
-  })
+    $('.reserve-step-1st .reserve-input-inner').click(function(e) {
+        $('.reserve-step').addClass('step-2nd')
+    })
+    $('.reserve-step-2nd .reserve-input-inner').click(function(e) {
+        $('.reserve-step').addClass('step-3rd')
+    })
+    $('.reserve-step-3rd .reserve-input-inner').click(function(e) {
+        $('.reserve-step').addClass('step-4th')
+    })
 })
 </script>
 </body>
