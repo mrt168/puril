@@ -331,7 +331,6 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
         <div class="reserve-input">
             <input type="text" name="mail" placeholder="info@tsuru-tsuru.co.jp" required>
         </div>
-<<<<<<< HEAD
         <div class="reserve-step">
           <div class="reserve-step-1st">
             <div class="reserve-subquestion">
@@ -442,85 +441,12 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                   </label>
                 </div>
               </div>
-=======
-        <div class="reserve-email-desc">※docomo.ne.jp、softbank.jp、ezweb.ne.jpなどの携帯メールアドレスでは、パソコンからのメールを受信拒否する初期設定をされている場合がございます。tsuru-tsuru.co.jpからの受信許可の設定をお願いいたします。</div>
-    </div>
-</section>
-<section class="content-base reserve-section">
-    <div class="reserve-question">
-        <div class="reserve-question-text">その他お客様情報</div>
-        <div class="reserve-tag reserve-tag-option">任意</div>
-    </div>
-    <div class="reserve-step">
-        <div class="reserve-step-1st">
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-first">
-                    <div class="reserve-subquestion-first-step">STEP1</div>
-                    <div class="reserve-subquestion-text reserve-subquestion-first-text">利用人数</div>
-                </div>
-                <div class="reserve-input">
-                    <div class="reserve-input-radio-wrap">
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="person" value="1">
-                            <div class="reserve-input-inner"><span>1名</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="person" value="2">
-                            <div class="reserve-input-inner"><span>2名</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="reserve-input-radio-wrap">
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="person" value="3">
-                            <div class="reserve-input-inner"><span>3名以上</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                        <label class="reserve-input-radio reserve-input-radio-void"></label>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="reserve-step-2nd js-reserve-step-2nd">
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-first">
-                    <div class="reserve-subquestion-first-step">STEP2</div>
-                </div>
-            </div>
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-text-top reserve-subquestion-text">当日の施術を希望されますか？</div>
-                <div class="reserve-input">
-                    <input type="text" name="today" placeholder="当日の施術を希望されますか？">
-                </div>
-            </div>
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-text-top reserve-subquestion-text">脱毛経験はございますか？</div>
-                <div class="reserve-input">
-                    <input type="text" name="experiment" placeholder="脱毛経験はございますか？">
-                </div>
-            </div>
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-text-top reserve-subquestion-text">キャンペーンの通知を希望しますか？</div>
-                <div class="reserve-input">
-                    <input type="text" name="campaign" placeholder="キャンペーンの通知を希望しますか？">
-                </div>
->>>>>>> 3704bafd8bd27ba0304c8a5c27cedee5302c305a
-            </div>
-        </div>
-<<<<<<< HEAD
-        <div class="reserve-subquestion">
-          <div class="reserve-subquestion-text-top reserve-subquestion-text">住所</div>
-          <div class="reserve-input">
-=======
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-text-top reserve-subquestion-text">住所</div>
         <div class="reserve-input">
->>>>>>> 3704bafd8bd27ba0304c8a5c27cedee5302c305a
             <input type="text" name="address" placeholder="サンプル住所">
         </div>
     </div>
@@ -540,24 +466,17 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 <?php
 echo $this->element('Front/footer') ?>
 <script>
-<<<<<<< HEAD
-$(function () {
-    $('.reserve-step-1st .reserve-input-inner').click(function(e) {
-        $('.reserve-step').addClass('step-2nd')
-    })
-    $('.reserve-step-2nd .reserve-input-inner').click(function(e) {
-        $('.reserve-step').addClass('step-3rd')
-    })
-    $('.reserve-step-3rd .reserve-input-inner').click(function(e) {
-        $('.reserve-step').addClass('step-4th')
-    })
-})
-=======
     $(function () {
         //ボタン１のイベント処理
-        $('.reserve-input-inner').click(function(e) {
-            $('.reserve-step').addClass('next')
-        });
+        $('.reserve-step-1st .reserve-input-inner').click(function(e) {
+            $('.reserve-step').addClass('step-2nd')
+        })
+        $('.reserve-step-2nd .reserve-input-inner').click(function(e) {
+            $('.reserve-step').addClass('step-3rd')
+        })
+        $('.reserve-step-3rd .reserve-input-inner').click(function(e) {
+            $('.reserve-step').addClass('step-4th')
+        })
         $(".reserve-scroll-select-item").each(function () {
             $(this).click(function () {
                 $(".reserve-scroll-select-item").each(function () {
@@ -569,7 +488,6 @@ $(function () {
             });
         });
     })
->>>>>>> 3704bafd8bd27ba0304c8a5c27cedee5302c305a
 </script>
 </body>
 </html>
