@@ -28,7 +28,14 @@ class SiteInfo {
 	public static $CONTACT_USER;	// ユーザーお問合せ
 	public static $CONTACT_TAHNKS;	// お問合せサンクスページ
 
-    public static $SHOP_RESERVE;	// 店舗予約
+	public static $SHOP_RESERVE;	// 店舗予約
+
+	// 大介が追加（ここから）
+	public static $SHOP_RESERVE_INDEX;
+	public static $SHOP_RESERVE_CONFIRM;
+	public static $SHOP_RESERVE_THANKS;
+	// 大介が追加（ここまで）
+
 
 	public static $ERROR400;
 	public static $ERROR500;
@@ -136,7 +143,25 @@ class SiteInfo {
         ,self::DESCRIPTION=> '%sの予約ページです。Purilでは、カンタン30秒でご予約が可能です。来店日時やご希望の脱毛部位を選択いただけますと、Purilでご予約を代行いたします。お気軽にお問い合わせください。'
         ,self::H1=> ''
         ,self::KEYWORD => ''
-        );
+		);
+		
+		// 大介が追加（ここから）
+        self::$SHOP_RESERVE_INDEX = array(self::TITLE=> "ネット予約｜". Constants::FRONT_TITLE
+        ,self::DESCRIPTION=> ''
+        ,self::H1=> ''
+        ,self::KEYWORD => ''
+		);
+        self::$SHOP_RESERVE_CONFIRM = array(self::TITLE=> "ご予約内容の確認｜". Constants::FRONT_TITLE
+        ,self::DESCRIPTION=> ''
+        ,self::H1=> ''
+        ,self::KEYWORD => ''
+		);
+        self::$SHOP_RESERVE_THANKS = array(self::TITLE=> "ご予約完了｜". Constants::FRONT_TITLE
+        ,self::DESCRIPTION=> ''
+        ,self::H1=> ''
+        ,self::KEYWORD => ''
+		);
+		// 大介が追加（ここまで）
 	}
 }
 SiteInfo::init();

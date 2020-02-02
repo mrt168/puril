@@ -411,17 +411,6 @@ class ShopsController extends FrontAppController {
 			return ;
 		}
 	}
-	// 大介が追加(ここから)
-	public function tempReserve(){
-		parent::move(SiteInfo::$SHOP_RESERVE_INDEX, Layout::USER_LAYOUT, 'reserve');
-	}
-	public function reserveConfirm(){
-		parent::move(SiteInfo::$SHOP_RESERVE_CONFIRM, Layout::USER_LAYOUT, 'reserve_confirm');
-	}
-	public function reserveThanks(){
-		parent::move(SiteInfo::$SHOP_RESERVE_THANKS, Layout::USER_LAYOUT, 'reserve_thanks');
-	}
-	// 大介が追加(ここまで)
 
 	/**
 	 * 予約フォーム
