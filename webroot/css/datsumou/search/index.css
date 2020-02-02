@@ -181,7 +181,7 @@
 }
 .pager .pagenation {
   display: inline-block;
-  margin: 0 auto 35px;
+  margin: 15px auto;
   max-width: 440px;
 }
 .pager .pagenation .pagenation-page-list-wrap {
