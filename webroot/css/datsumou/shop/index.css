@@ -110,15 +110,20 @@
       -webkit-align-items: center;
          -moz-box-align: center;
           -ms-flex-align: center;
-              align-items: center; }
+              align-items: center;
+      margin-bottom: 5px;}
       .shop-top .shop-top-desc-area .shop-top-desc-info .shop-top-desc-info-common .shop-top-desc-info-common-tag {
         background-color: #B5B5B5;
         color: #ffffff;
         padding: .125em; }
       .shop-top .shop-top-desc-area .shop-top-desc-info .shop-top-desc-info-common .shop-top-desc-info-common-text {
         padding-left: .5em; }
-    .shop-top .shop-top-desc-area .shop-top-desc-info .shop-top-desc-info-holiday {
-      padding-left: 1em; }
+    .shop-top .shop-top-desc-area .shop-top-desc-info .shop-top-desc-info-business {
+      padding-right: 1em;
+    }
+.shop-top .shop-top-desc-area .shop-top-desc-info .shop-top-desc-info-holiday {
+  padding-right: 1em;
+  }
 
 .shop-info {
   padding: 1.5em 16px;
