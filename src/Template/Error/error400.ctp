@@ -6,6 +6,7 @@ use Cake\Routing\Router;
 ?>
 <body>
 <?php
+echo $this->Html->css('sitemap');
 echo $this->Html->css('datsumou');
 ?>
 <header class="datsumou-header">
