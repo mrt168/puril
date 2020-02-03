@@ -422,14 +422,14 @@ if (!empty($shop['reviews'])) {
 </section>
 <?php if ( FormUtil::checkUseForm($shop['name'],$shop['shop_id'] ) ){ ?>
 <footer class="content shop-footer">
-    <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
+    <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
         <div class="kuchikomi-button-text">口コミを書く</div></a>
-    <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
+    <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>">
         <div class="reservatopn-button-text">ネット予約</div></a></footer>
 <?php } else {
     ?>
     <footer class="content shop-footer">
-        <a class="button-base kuchikomi-button kuchikomi-only" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
+        <a class="button-base kuchikomi-button kuchikomi-only" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
             <div class="kuchikomi-button-text">口コミを書く</div></a></footer>
 <?php
 }
