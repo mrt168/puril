@@ -72,6 +72,20 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     </div>
     <div class="shop-top-desc-area">
         <div class="shop-top-desc-category">
+            <?php
+            if (!empty($shop->station_name)) {
+                ?>
+                <?php
+                $nearStations = '';
+                foreach ($shop->station_name as $key => $stationName) {
+                    $nearStations .= $stationName;
+                    $nearStations .= '/';
+                }
+                echo mb_substr($nearStations, 0, mb_strlen($nearStations) - 1);
+                ?>
+                <?php
+            }
+            ?> /
             <?php echo $shop['shop_type'] ?>
             <?php
 //            foreach ($shop['depilation_sites'] as $depilationSite) {
