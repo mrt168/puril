@@ -74,9 +74,9 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
         <div class="shop-top-desc-category">
             <?php echo $shop['shop_type'] ?>
             <?php
-            foreach ($shop['depilation_sites'] as $depilationSite) {
-                echo "・{$depilationSite['name']}";
-            }
+//            foreach ($shop['depilation_sites'] as $depilationSite) {
+//                echo "・{$depilationSite['name']}";
+//            }
             ?>
         </div>
         <?php
@@ -135,7 +135,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     <p class="content-text"><?php echo nl2br($shop['description_content']); ?></p>
 </section>
 <?php
-if (true) {
+if ($shop['price_plan_html']) {
     ?>
     <section class="content middle-content shop-plan" id="price">
         <h2 class="content-title">料金プラン</h2>
