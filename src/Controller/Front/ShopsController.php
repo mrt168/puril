@@ -62,6 +62,7 @@ class ShopsController extends FrontAppController {
 		if (!empty($shopStations)) {
 			$shop['Station'] = [];
 			$shop['StationG'] = [];
+            $shop['station_name'] = [];
 			$stationGroups = [];
 
 			$whereStation['station_cd'] = [];
@@ -83,6 +84,7 @@ class ShopsController extends FrontAppController {
 					$shop['StationG'][$key]['station_g_cd'] = $shopStation['Station']['station_g_cd'];
 // 					$shop['StationG'][$key]['area_id'] = $station['Area']['area_id'];
 					$shop['StationG'][$key]['name'] = $station['station_name']. "駅";
+                    array_push($shop['station_name'], $station['station_name']. "駅");
 
 					if (!empty($station['Area']['area_id'])) {
 						$shop['StationG'][$key]['area_id'] = $station['Area']['area_id'];
