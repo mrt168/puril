@@ -86,6 +86,7 @@
       display: -ms-flexbox;
       display: flex; }
   .shop-top .shop-top-desc-area .shop-top-desc-category {
+    line-height: 1.5;
   }
   .shop-top .shop-top-desc-area .shop-top-desc-info {
     display: -webkit-box;
@@ -212,24 +213,27 @@
     display: flex;
     flex-wrap: wrap;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
+    -webkit-justify-content: flex-start;
        -moz-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between;
+            justify-content: flex-start;
     padding-top: 1em;
   flex-wrap: wrap;
+    width: calc( 100% + 10px);
+    margin-left: -5px;
   }
     .shop-datsumou .shop-part-list .shop-part-common {
-      width: 25%;
+      width: calc( 25% - 10px );
       padding: .25em 1em;
+      margin: 5px 5px 0;
       text-align: center; }
-    .shop-datsumou .shop-part-list .shop-part-common:not(:first-child) {
-      margin-left: 1em; }
+    .shop-datsumou .shop-part-list .shop-part-common:not(n+5) {
+      margin-top: 0 }
     .shop-datsumou .shop-part-list .shop-part-active {
       border: 1px solid #6AADBF;
       border-radius: .25em; }
     .shop-datsumou .shop-part-list .shop-part-none {
-      background-color: #F9F.shop-datsumou .shop-part-list .shop-part-common7F5; }
+      background-color: #F9F7F5; }
 
 .shop-campaign .content-title {
   padding: 1em 16px; }
@@ -522,7 +526,7 @@
 }
 
 .shop-share {
-  padding: 15px 16px 0 16px;
+  padding: 15px 16px 15px 16px;
   border-top: 1px solid #e1ddcc; }
 
 .shop-kuchikomi {

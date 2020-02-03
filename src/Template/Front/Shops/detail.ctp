@@ -75,10 +75,6 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             <?php echo $shop['shop_type'] ?>
             <?php
             foreach ($shop['depilation_sites'] as $depilationSite) {
-                if ($depilationSite['depilation_site_id'] == 1) {
-                    echo "・{$depilationSite['name']}";
-                    break;
-                }
                 echo "・{$depilationSite['name']}";
             }
             ?>
@@ -157,10 +153,6 @@ if (true) {
     <ul class="shop-part-list">
         <?php
         foreach ($shop['depilation_sites'] as $depilationSite) {
-            if ($depilationSite['depilation_site_id'] == 1) {
-                echo '<li class="shop-part-common shop-part-active">'.$depilationSite['name'].'</li>';
-                break;
-            }
             echo '<li class="shop-part-common shop-part-active">'.$depilationSite['name'].'</li>';
         }
         ?>
@@ -413,12 +405,20 @@ if (!empty($shop['reviews'])) {
     <div class="share-twitter"><a class="clickable-button share-twitter-button" href="//twitter.com/share?url=https://puril.net"><i class="fab fa-twitter twitter-icon"></i>
             <div class="share-twitter-text">Twitter</div></a></div>
 </section>
-
+<?php if ( FormUtil::checkUseForm($shop['name'],$shop['shop_id'] ) ){ ?>
 <footer class="content shop-footer">
     <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
         <div class="kuchikomi-button-text">口コミを書く</div></a>
     <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
         <div class="reservatopn-button-text">ネット予約</div></a></footer>
+<?php } else {
+    ?>
+    <footer class="content shop-footer">
+        <a class="button-base kuchikomi-button kuchikomi-only" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
+            <div class="kuchikomi-button-text">口コミを書く</div></a></footer>
+<?php
+}
+?>
 <div class="content photo-modal" id="photo-modal">
     <div class="photo-detail-wrap">
         <header class="datsumou-photo-header">
