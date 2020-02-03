@@ -228,10 +228,12 @@ if (!empty($shop['reviews'])) {
                                     <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['content']) ?></p>
                                 </div>
                             <?php endif;?>
-                            <div class="shop-kuchikomi-item-detail">
-                                <div class="shop-kuchikomi-item-detail-title">この店舗を選んだ理由を教えてください。</div>
-                                <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['reason']) ?></p>
-                            </div>
+                            <?php if(!empty($review['reason'])):?>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">この店舗を選んだ理由を教えてください。</div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['reason']) ?></p>
+                                </div>
+                            <?php endif;?>
                             <div class="shop-kuchikomi-item-detail">
                                 <div class="shop-kuchikomi-item-detail-title">店舗の「接客／サービス」はいかがでしたか？</div>
                                 <div class="shop-kuchikomi-item-detail-review">
@@ -411,11 +413,12 @@ if (!empty($shop['reviews'])) {
     <div class="share-twitter"><a class="clickable-button share-twitter-button" href="//twitter.com/share?url=https://puril.net"><i class="fab fa-twitter twitter-icon"></i>
             <div class="share-twitter-text">Twitter</div></a></div>
 </section>
+
 <footer class="content shop-footer">
     <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
         <div class="kuchikomi-button-text">口コミを書く</div></a>
     <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
-        <div class="reservatopn-button-text">電話・ネット予約</div></a></footer>
+        <div class="reservatopn-button-text">ネット予約</div></a></footer>
 <div class="content photo-modal" id="photo-modal">
     <div class="photo-detail-wrap">
         <header class="datsumou-photo-header">
