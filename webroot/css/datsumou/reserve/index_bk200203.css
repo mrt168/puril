@@ -105,11 +105,6 @@
     font-size: 13px;
     width: 100%;
     background-color: #ffffff; }
-.reserve-section .reserve-input select {
-	-webkit-appearance: inherit;
-	-moz-appearance: inherit;
-	appearance: inherit;
-}
   .reserve-section .reserve-input textarea {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;

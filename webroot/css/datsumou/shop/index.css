@@ -489,10 +489,13 @@
 .price_list {
   line-height: 18px;
   margin-top: 15px;
-  font-size: 12px;}
+  font-size: 12px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
 
 .price_list th {
-    width: 26%;
+    width: 24%;
     background-color: #F9F7F5;
     border: solid 1px #EEECE4;
     border-right: none;
@@ -501,7 +504,7 @@
 }
 
 .price_list .price {
-    width: 29.7%;
+    width: 27.5%;
     border: solid 1px #EEECE4;
     border-right: none;
     padding: 10px;
@@ -509,7 +512,7 @@
 }
 
 .price_list td {
-    width: 44.3%;
+    width: 48%;
     border: solid 1px #EEECE4;
     padding: 10px;
     vertical-align: middle;

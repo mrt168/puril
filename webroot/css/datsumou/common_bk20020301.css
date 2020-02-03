@@ -274,19 +274,12 @@
       padding-left: .25em; }
 
 .shop-footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  height: 66px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 15px 8px 15px 8px;
-  }
+  padding: 15px 8px 15px 8px; }
   .shop-footer .kuchikomi-button {
     width: 60%;
     background-color: #FF4E4E; }
@@ -299,9 +292,6 @@
     .shop-footer .reservatopn-button .reservatopn-button-text {
       padding-left: .5em; }
 
-.shop-footer ~ .datsumou-footer {
-    padding-bottom: 66px;
-}
 .datsumou-photo-header {
   background-color: #000000; }
   .datsumou-photo-header .datsumou-photo-header-inner {

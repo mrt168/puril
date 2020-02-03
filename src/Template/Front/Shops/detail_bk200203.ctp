@@ -392,7 +392,7 @@ if (!empty($shop['reviews'])) {
 
                     <tr>
                         <th>ホームページ</th>
-                        <td><a href="<?php echo $shop['affiliate_page_url'];?>">公式サイトから予約する</a></td>
+                        <td><a href="<?php echo $shop['affiliate_page_url'];?>" target="_blank">公式サイトから予約する</a></td>
                     </tr>
 
                     </tbody>
