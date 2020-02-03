@@ -55,7 +55,7 @@
   padding: 1em 0;
   text-decoration: none; }
   .kuchikomi-button .kuchikomi-button-text {
-    padding-left: .5em; }
+     }
 
 .twitter-icon {
   color: #1DA1F2; }
@@ -301,7 +301,7 @@
     background-color: #6AADBF;
     margin-left: 1em; }
     .shop-footer .reservatopn-button .reservatopn-button-text {
-      padding-left: .5em; }
+       }
 
 .shop-footer ~ .datsumou-footer {
     padding-bottom: 66px;
