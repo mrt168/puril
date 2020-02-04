@@ -107,6 +107,15 @@
     font-size: 13px;
     width: 100%;
     background-color: #ffffff; }
+.reserve-section .reserve-input input.errorColor {
+  border: 1px solid red;
+}
+.reserve-section .reserve-input input#shop_name {
+  background-color: #ddd;
+}
+.reserve-section .reserve-input select.errorColor {
+  border: 1px solid red;
+}
 .reserve-section .reserve-input select {
 	-webkit-appearance: inherit;
 	-moz-appearance: inherit;

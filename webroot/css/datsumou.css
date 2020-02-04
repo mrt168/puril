@@ -698,6 +698,7 @@ body {
 .datsumou-ranking-panel__list > li img {
   padding-top: 1em;
   height: 100px;
+  object-fit: contain;
 }
 .datsumou-ranking-panel__text {
   padding-top: 1em;

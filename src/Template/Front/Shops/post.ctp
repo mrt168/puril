@@ -594,7 +594,6 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                 });
             } else {
                 $("html,body").animate({scrollTop:$('#'+ errorId).offset().top - $(".datsumou-header-inner").height() - 20});
-                console.log(errorId);
             }
             return false;
 

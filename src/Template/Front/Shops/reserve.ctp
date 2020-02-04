@@ -98,6 +98,8 @@ echo $this->Html->script(
         <?php
         echo $this->ExForm->text(
             'shop_name', [
+                    'id'=>'shop_name',
+                    'readonly' =>'readonly',
                 'value'       => $shop['name'],
                 'placeholder' => '例）サンプル店舗東京',
                 'required'    => true
@@ -111,6 +113,7 @@ echo $this->Html->script(
         <div class="reserve-question-text">ご予約者情報</div>
     </div>
     <div class="reserve-subquestion">
+<<<<<<< HEAD
         <div class="reserve-subquestion-first">
             <div class="reserve-subquestion-text">性別</div>
             <div class="reserve-tag reserve-tag-required">必須</div>
@@ -130,14 +133,17 @@ echo $this->Html->script(
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-input pt-15">
+=======
+        <div class="reserve-input">
+>>>>>>> 4b0cf03684d40de8090a8f2cdff2576af8ebe47b
             <div class="reserve-input-parent">
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">姓<div class="reserve-tag reserve-tag-required">必須</div></label>
-                    <input type="text" name="last_name" placeholder="山田" required>
+                    <input type="text" id="last_name" name="last_name" placeholder="山田" required>
                 </div>
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">名<div class="reserve-tag reserve-tag-required">必須</div></label>
-                    <input type="text" name="first_name" placeholder="花子" required>
+                    <input type="text" id="first_name" name="first_name" placeholder="花子" required>
                 </div>
             </div>
         </div>
@@ -147,12 +153,30 @@ echo $this->Html->script(
             <div class="reserve-input-parent">
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">せい<div class="reserve-tag reserve-tag-required">必須</div></label>
-                    <input type="text" name="last_kana" placeholder="やまだ" required>
+                    <input type="text" id="last_kana" name="last_kana" placeholder="やまだ" required>
                 </div>
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">めい<div class="reserve-tag reserve-tag-required">必須</div></label>
-                    <input type="text" name="first_kana" placeholder="はなこ" required>
+                    <input type="text" id="first_kana" name="first_kana" placeholder="はなこ" required>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="reserve-subquestion">
+        <div class="reserve-subquestion-first">
+            <div class="reserve-subquestion-text">性別</div>
+            <div class="reserve-tag reserve-tag-required">必須</div>
+        </div>
+        <div class="reserve-input">
+            <div class="reserve-input-radio-wrap">
+                <label class="reserve-input-radio">
+                    <input type="radio" checked name="sex" value="2" required>
+                    <div class="reserve-input-inner"><span>女</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
+                </label>
+                <label class="reserve-input-radio">
+                    <input type="radio" name="sex" value="1" required>
+                    <div class="reserve-input-inner"><span>男</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
+                </label>
             </div>
         </div>
     </div>
@@ -162,7 +186,7 @@ echo $this->Html->script(
             <div class="reserve-input-born">
                 <div class="reserve-input-born-common reserve-input-year">
                     <div class="reserve-input-inner">
-                        <select name="birthday_y" required>
+                        <select name="birthday_y" id="birthday_y" required>
                             <option value="1920">1920</option>
                             <option value="1921">1921</option>
                             <option value="1922">1922</option>
@@ -269,7 +293,7 @@ echo $this->Html->script(
                 </div>
                 <div class="reserve-input-born-common reserve-input-month">
                     <div class="reserve-input-inner">
-                        <select name="birthday_m" required>
+                        <select name="birthday_m" id="birthday_m" required>
                             <option value="">--</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -288,7 +312,7 @@ echo $this->Html->script(
                 </div>
                 <div class="reserve-input-born-common reserve-input-day">
                     <div class="reserve-input-inner">
-                        <select name="birthday_d" required>
+                        <select name="birthday_d" id="birthday_d" required>
                             <option value="">--</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -330,13 +354,13 @@ echo $this->Html->script(
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-text-top reserve-subquestion-text pt-15">連絡先電話番号<div class="reserve-tag reserve-tag-required">必須</div></div>
         <div class="reserve-input">
-            <input type="text" name="tel" placeholder="03-1234-5678" required>
+            <input type="text" id="tel" name="tel" placeholder="03-1234-5678" required>
         </div>
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-text-top reserve-subquestion-text pt-20">メールアドレス<div class="reserve-tag reserve-tag-required">必須</div></div>
         <div class="reserve-input">
-            <input type="text" name="mail" placeholder="info@tsuru-tsuru.co.jp" required>
+            <input type="text" id="mail" name="mail" placeholder="info@tsuru-tsuru.co.jp" required>
         </div>
         <div class="reserve-email-desc">※docomo.ne.jp、softbank.jp、ezweb.ne.jpなどの携帯メールアドレスでは、パソコンからのメールを受信拒否する初期設定をされている場合がございます。tsuru-tsuru.co.jpからの受信許可の設定をお願いいたします。</div>
     </div>
@@ -543,6 +567,49 @@ echo $this->element('Front/footer'); ?>
                 $(this).addClass("active");
             });
         });
+        $(".reserve-button").click(function () {
+            var visit_date_1 = $('#visit_date_1'),
+                shop_name = $('#shop_name'),
+                birthday_y = $('#birthday_y'),
+                birthday_m = $('#birthday_m'),
+                birthday_d = $('#birthday_d'),
+                last_name = $('#last_name'),
+                first_name = $('#first_name'),
+                last_kana = $('#last_kana'),
+                first_kana = $('#first_kana'),
+                tel = $('#tel'),
+                mail = $('#mail');
+            var formData = [visit_date_1,
+                shop_name,
+                birthday_y,
+                birthday_m,
+                birthday_d,
+                last_name,
+                first_name,
+                last_kana,
+                first_kana,
+                tel,
+                mail,
+                ];
+            var isOk = true;
+            var errorId = '';
+            formData.map(function (form) {
+                if(form.val() == '') {
+                    form.addClass("errorColor");
+                    if(errorId == '') {
+                        errorId = form.attr("id");
+                    }
+                    isOk = false;
+                } else {
+                    form.removeClass("errorColor");
+                }
+            });
+            if(!isOk) {
+                $("html,body").animate({scrollTop:$('#'+ errorId).offset().top - $(".datsumou-header-inner").height() - 20});
+            }
+            return isOk;
+        });
+
         $(document).ready(function(){
             $(function() {
                 // $.datetimepicker.setLocale('ja');
