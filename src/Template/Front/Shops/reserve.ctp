@@ -67,7 +67,7 @@ echo $this->Html->script(
                     <div class="reserve-question-text">時間を選択してください</div>
                     <div class="reserve-tag reserve-tag-required">必須</div>
                 </div>
-                <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
+                <div class="reserve-question-sub">【営業時間　09:00〜21:00】</div>
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_01" id="time_01" class="input-time">
                     <ul>
@@ -113,7 +113,7 @@ echo $this->Html->script(
                     <div class="reserve-question-text">時間を選択してください</div>
                     <div class="reserve-tag reserve-tag-option">任意</div>
                 </div>
-                <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
+                <div class="reserve-question-sub">【営業時間　09:00〜21:00】</div>
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_02" id="time_02" class="input-time">
                     <ul>
@@ -162,7 +162,7 @@ echo $this->Html->script(
                     <div class="reserve-question-text">時間を選択してください</div>
                     <div class="reserve-tag reserve-tag-option">任意</div>
                 </div>
-                <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
+                <div class="reserve-question-sub">【営業時間　09:00〜21:00】</div>
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_03" id="time_03" class="input-time">
                     <ul>
