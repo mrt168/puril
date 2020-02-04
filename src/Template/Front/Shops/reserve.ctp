@@ -129,7 +129,7 @@ echo $this->Html->script(
         </div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-input">
+        <div class="reserve-input pt-15">
             <div class="reserve-input-parent">
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">姓<div class="reserve-tag reserve-tag-required">必須</div></label>
@@ -328,13 +328,13 @@ echo $this->Html->script(
         </div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-subquestion-text-top reserve-subquestion-text">連絡先電話番号<div class="reserve-tag reserve-tag-required">必須</div></div>
+        <div class="reserve-subquestion-text-top reserve-subquestion-text pt-15">連絡先電話番号<div class="reserve-tag reserve-tag-required">必須</div></div>
         <div class="reserve-input">
             <input type="text" name="tel" placeholder="03-1234-5678" required>
         </div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-subquestion-text-top reserve-subquestion-text">メールアドレス<div class="reserve-tag reserve-tag-required">必須</div></div>
+        <div class="reserve-subquestion-text-top reserve-subquestion-text pt-20">メールアドレス<div class="reserve-tag reserve-tag-required">必須</div></div>
         <div class="reserve-input">
             <input type="text" name="mail" placeholder="info@tsuru-tsuru.co.jp" required>
         </div>
@@ -466,7 +466,7 @@ echo $this->Html->script(
     </div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-subquestion-text-top reserve-subquestion-text">質問など</div>
+        <div class="reserve-subquestion-text-top reserve-subquestion-text pt-15">質問など</div>
         <div class="reserve-input">
             <textarea cols="30" rows="10" name="question" placeholder="ご質問があれば入力してください。"></textarea>
         </div>

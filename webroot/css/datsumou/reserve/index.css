@@ -13,10 +13,11 @@
 }
 
 .reserve-section .reserve-question-mod {
+  padding-top: 15px !important;
   padding-bottom: 0 !important; }
 
 .reserve-section .reserve-question {
-  padding: 10px 16px;
+  padding: 20px 16px 10px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -50,7 +51,7 @@
     overflow: hidden; }
 
 .reserve-section .reserve-input {
-  padding: 10px 16px; }
+  padding: 10px 16px 0px; }
     .reserve-section .reserve-step{
     width: 400%;
     display: flex;
@@ -123,7 +124,7 @@
     background-color: #ffffff; }
   .reserve-section .reserve-input .reserve-input-inner {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     width: 100%; }
     .reserve-section .reserve-input .reserve-input-inner .reserve-input-arrow {
       position: absolute;
@@ -176,7 +177,7 @@
   .reserve-section .reserve-input .reserve-input-datetime {
     display: block; }
   .reserve-section .reserve-input .reserve-input-radio-wrap:not(:first-child) {
-    margin-top: 10px; }
+    margin-top: 5px; }
   .reserve-section .reserve-input .reserve-input-radio-wrap {
     display: -webkit-box;
     display: -webkit-flex;
@@ -257,9 +258,11 @@
     color: #ffffff;
     padding: .25em;
     font-size: 11px;
-    border-radius: .25em; }
+    border-radius: .25em;
+    margin-top: 20px; }
   .reserve-section .reserve-subquestion .reserve-subquestion-first .reserve-subquestion-first-text {
-    padding-left: .75em; }
+    padding-left: .75em;
+    padding-top: 0 !important; }
 
 .reserve-section .reserve-subquestion .reserve-subquestion-text {
   font-weight: bold;
@@ -269,8 +272,7 @@
   padding-top: 10px; }
 
 .reserve-section .reserve-subquestion .reserve-email-desc {
-  padding: 10px 16px;
-  margin-bottom: 10px; }
+  padding: 10px 16px 0px; }
 
 .reserve-section .reserve-button-area {
   padding: 1.75em 16px;
@@ -384,4 +386,10 @@
 }
 .form-contact .agreement .textarea {
   line-height: 15px;
+}
+.pt-15{
+  padding-top: 15px !important;
+}
+.pt-20{
+  padding-top: 20px !important;
 }
