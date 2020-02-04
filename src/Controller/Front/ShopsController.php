@@ -486,6 +486,8 @@ class ShopsController extends FrontAppController {
             SiteInfo::$SHOP_RESERVE[SiteInfo::TITLE],
             $shop['name']
         );
+
+
         // description
         SiteInfo::$SHOP_RESERVE[SiteInfo::DESCRIPTION] = sprintf(
             SiteInfo::$SHOP_RESERVE[SiteInfo::DESCRIPTION],
