@@ -47,7 +47,7 @@ echo $this->Html->script(
         <div class="reserve-step reserve-step-date">
             <div class="reserve-step-1st">
                 <div class="reserve-question">
-                    <div class="reserve-question-text">第一希望日を選択してください</div>
+                    <div class="reserve-question-text">第1希望日を選択してください</div>
                     <div class="reserve-tag reserve-tag-required">必須</div>
                 </div>
                 <div class="reserve-input">
@@ -64,7 +64,7 @@ echo $this->Html->script(
                     ?>
                 </div>
                 <div class="reserve-question">
-                    <div class="reserve-question-text">時間をを選択してください</div>
+                    <div class="reserve-question-text">時間を選択してください</div>
                     <div class="reserve-tag reserve-tag-required">必須</div>
                 </div>
                 <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
@@ -107,7 +107,7 @@ echo $this->Html->script(
                     ?>
                 </div>
                 <div class="reserve-question">
-                    <div class="reserve-question-text">時間をを選択してください</div>
+                    <div class="reserve-question-text">時間を選択してください</div>
                     <div class="reserve-tag reserve-tag-option">任意</div>
                 </div>
                 <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
@@ -153,7 +153,7 @@ echo $this->Html->script(
                     ?>
                 </div>
                 <div class="reserve-question">
-                    <div class="reserve-question-text">時間をを選択してください</div>
+                    <div class="reserve-question-text">時間を選択してください</div>
                     <div class="reserve-tag reserve-tag-option">任意</div>
                 </div>
                 <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
