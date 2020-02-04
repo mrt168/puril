@@ -43,49 +43,143 @@ echo $this->Html->script(
     'id'   => 'reserve_exform'
 ]) ?>
 <section class="content-base reserve-section">
-    <div class="reserve-question">
-        <div class="reserve-question-text">第一希望日を選択してください</div>
-        <div class="reserve-tag reserve-tag-required">必須</div>
-    </div>
-    <div class="reserve-input">
-        <div class="reserve-input-inner">
-            <?php
-            echo $this->ExForm->text(
-                'visit_date_1', [
-                    'placeholder' => '第1希望 例）'.date('Y/m/d H:00'),
-                    'id'          => 'visit_date_1',
-                    'class'       => 'datetimepicker visit_dates',
-                    'required'    => true,
-                    'autocomplete' => 'off'
-                ]
-            );
-            ?>
-        </div>
-        <div class="reserve-input-inner">
-            <?php
-            echo $this->ExForm->text(
-                'visit_date_2', [
-                    'placeholder' => '第2希望 例）'.date('Y/m/d H:00'),
-                    'id'          => 'visit_date_2',
-                    'class'       => 'datetimepicker visit_dates',
-                    'required'    => 2,
-                    'autocomplete' => 'off'
-                ]
-            );
-            ?>
-        </div>
-        <div class="reserve-input-inner">
-            <?php
-            echo $this->ExForm->text(
-                'visit_date_3', [
-                    'placeholder' => '第3希望 例）'.date('Y/m/d H:00'),
-                    'id'          => 'visit_date_3',
-                    'class'       => 'datetimepicker visit_dates',
-                    'required'    => 3,
-                    'autocomplete' => 'off'
-                ]
-            );
-            ?>
+    <div class="reserve-subquestion">
+        <div class="reserve-step reserve-step-date">
+            <div class="reserve-step-1st">
+                <div class="reserve-question">
+                    <div class="reserve-question-text">第一希望日を選択してください</div>
+                    <div class="reserve-tag reserve-tag-required">必須</div>
+                </div>
+                <div class="reserve-input">
+                    <?php
+                    echo $this->ExForm->text(
+                        'visit_date_1', [
+                            'placeholder' => '第1希望 例）'.date('Y/m/d'),
+                            'id'          => 'visit_date_1',
+                            'class'       => 'datepicker visit_dates',
+                            'required'    => true,
+                            'autocomplete' => 'off'
+                        ]
+                    );
+                    ?>
+                </div>
+                <div class="reserve-question">
+                    <div class="reserve-question-text">時間をを選択してください</div>
+                    <div class="reserve-tag reserve-tag-required">必須</div>
+                </div>
+                <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
+                <div class="reserve-scroll-select">
+                    <input type="hidden" name="time_01" id="time_01" class="input-time">
+                    <ul>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="12:00">12:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="13:00">13:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="14:00">14:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="15:00">15:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="16:00">16:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="17:00">17:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="18:00">18:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="19:00">19:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="20:00">20:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="21:00">21:00</a></li>
+                    </ul>
+                </div>
+                <div class="reserve-btn-box">
+                    <div class="reserve-btn reserve-btn-second">
+                        第2希望を記入
+                    </div>
+                </div>
+            </div>
+            <div class="reserve-step-2nd">
+                <div class="reserve-question">
+                    <div class="reserve-question-text">第２希望日を選択してください</div>
+                    <div class="reserve-tag reserve-tag-option">任意</div>
+                </div>
+                <div class="reserve-input">
+                    <?php
+                    echo $this->ExForm->text(
+                        'visit_date_2', [
+                            'placeholder' => '第2希望 例）'.date('Y/m/d'),
+                            'id'          => 'visit_date_2',
+                            'class'       => 'datepicker visit_dates',
+                            'autocomplete' => 'off'
+                        ]
+                    );
+                    ?>
+                </div>
+                <div class="reserve-question">
+                    <div class="reserve-question-text">時間をを選択してください</div>
+                    <div class="reserve-tag reserve-tag-option">任意</div>
+                </div>
+                <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
+                <div class="reserve-scroll-select">
+                    <input type="hidden" name="time_02" id="time_02" class="input-time">
+                    <ul>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="12:00">12:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="13:00">13:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="14:00">14:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="15:00">15:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="16:00">16:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="17:00">17:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="18:00">18:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="19:00">19:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="20:00">20:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="21:00">21:00</a></li>
+                    </ul>
+                </div>
+                <div class="reserve-btn-box">
+                    <div class="reserve-btn reserve-btn-third">
+                        第3希望を記入
+                    </div>
+                    <div class="reserve-btn reserve-btn-second back">
+                        第1希望に戻る
+                    </div>
+                </div>
+            </div>
+            <div class="reserve-step-3rd">
+                <div class="reserve-question">
+                    <div class="reserve-question-text">第３希望日を選択してください</div>
+                    <div class="reserve-tag reserve-tag-option">任意</div>
+                </div>
+                <div class="reserve-input">
+                    <?php
+                    echo $this->ExForm->text(
+                        'visit_date_3', [
+                            'placeholder' => '第3希望 例）'.date('Y/m/d'),
+                            'id'          => 'visit_date_3',
+                            'class'       => 'datepicker visit_dates',
+                            'autocomplete' => 'off'
+                        ]
+                    );
+                    ?>
+                </div>
+                <div class="reserve-question">
+                    <div class="reserve-question-text">時間をを選択してください</div>
+                    <div class="reserve-tag reserve-tag-option">任意</div>
+                </div>
+                <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
+                <div class="reserve-scroll-select">
+                    <input type="hidden" name="time_03" id="time_03" class="input-time">
+                    <ul>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="12:00">12:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="13:00">13:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="14:00">14:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="15:00">15:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="16:00">16:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="17:00">17:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="18:00">18:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="19:00">19:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="20:00">20:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="21:00">21:00</a></li>
+                    </ul>
+                </div>
+                <div class="reserve-btn-box">
+                    <div></div>
+
+                    <div class="reserve-btn reserve-btn-second">
+                        第２希望に戻る
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -98,8 +192,8 @@ echo $this->Html->script(
         <?php
         echo $this->ExForm->text(
             'shop_name', [
-                    'id'=>'shop_name',
-                    'readonly' =>'readonly',
+                'id'=>'shop_name',
+                'readonly' =>'readonly',
                 'value'       => $shop['name'],
                 'placeholder' => '例）サンプル店舗東京',
                 'required'    => true
@@ -113,29 +207,7 @@ echo $this->Html->script(
         <div class="reserve-question-text">ご予約者情報</div>
     </div>
     <div class="reserve-subquestion">
-<<<<<<< HEAD
-        <div class="reserve-subquestion-first">
-            <div class="reserve-subquestion-text">性別</div>
-            <div class="reserve-tag reserve-tag-required">必須</div>
-        </div>
-        <div class="reserve-input">
-            <div class="reserve-input-radio-wrap">
-                <label class="reserve-input-radio">
-                    <input type="radio" name="sex" value="2" required>
-                    <div class="reserve-input-inner"><span>女</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
-                </label>
-                <label class="reserve-input-radio">
-                    <input type="radio" name="sex" value="1" required>
-                    <div class="reserve-input-inner"><span>男</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="reserve-subquestion">
         <div class="reserve-input pt-15">
-=======
-        <div class="reserve-input">
->>>>>>> 4b0cf03684d40de8090a8f2cdff2576af8ebe47b
             <div class="reserve-input-parent">
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">姓<div class="reserve-tag reserve-tag-required">必須</div></label>
@@ -371,123 +443,123 @@ echo $this->Html->script(
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-text-top reserve-subquestion-text">住所</div>
         <div class="reserve-input">
-            <input type="text" name="address" placeholder="サンプル住所">
+            <input type="text" name="address" placeholder="例）東京都新宿区新宿">
         </div>
     </div>
     <div class="reserve-subquestion">
-    <div class="reserve-step">
-        <div class="reserve-step-1st">
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-first">
-                    <div class="reserve-subquestion-first-step">STEP1</div>
-                    <div class="reserve-subquestion-text reserve-subquestion-first-text">利用人数</div>
-                </div>
-                <div class="reserve-input">
-                    <div class="reserve-input-radio-wrap">
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="customer_count" value="1名">
-                            <div class="reserve-input-inner"><span>1名</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="customer_count" value="2名">
-                            <div class="reserve-input-inner"><span>2名</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
+        <div class="reserve-step reserve-step-other">
+            <div class="reserve-step-1st">
+                <div class="reserve-subquestion">
+                    <div class="reserve-subquestion-first">
+                        <div class="reserve-subquestion-first-step">STEP1</div>
+                        <div class="reserve-subquestion-text reserve-subquestion-first-text">利用人数</div>
                     </div>
-                    <div class="reserve-input-radio-wrap">
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="customer_count" value="3名以上">
-                            <div class="reserve-input-inner"><span>3名以上</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                        <label class="reserve-input-radio reserve-input-radio-void"></label>
+                    <div class="reserve-input">
+                        <div class="reserve-input-radio-wrap">
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="customer_count" value="1名">
+                                <div class="reserve-input-inner"><span>1名</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="customer_count" value="2名">
+                                <div class="reserve-input-inner"><span>2名</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="reserve-input-radio-wrap">
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="customer_count" value="3名以上">
+                                <div class="reserve-input-inner"><span>3名以上</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                            <label class="reserve-input-radio reserve-input-radio-void"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reserve-step-2nd">
+                <div class="reserve-subquestion">
+                    <div class="reserve-subquestion-first">
+                        <div class="reserve-subquestion-first-step">STEP2</div>
+                    </div>
+                </div>
+                <div class="reserve-subquestion">
+                    <div class="reserve-subquestion-text-top reserve-subquestion-text">当日の施術を希望されますか？</div>
+                    <div class="reserve-input">
+                        <div class="reserve-input-radio-wrap">
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="is_same_date" value="はい">
+                                <div class="reserve-input-inner"><span>はい</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="toujitsu" value="いいえ">
+                                <div class="reserve-input-inner"><span>いいえ</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reserve-step-3rd">
+                <div class="reserve-subquestion">
+                    <div class="reserve-subquestion-first">
+                        <div class="reserve-subquestion-first-step">STEP3</div>
+                    </div>
+                </div>
+                <div class="reserve-subquestion">
+                    <div class="reserve-subquestion-text-top reserve-subquestion-text">脱毛経験はございますか？</div>
+                    <div class="reserve-input">
+                        <div class="reserve-input-radio-wrap">
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="is_experienced" value="はい">
+                                <div class="reserve-input-inner"><span>はい</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="is_experienced" value="いいえ">
+                                <div class="reserve-input-inner"><span>いいえ</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reserve-step-4th">
+                <div class="reserve-subquestion">
+                    <div class="reserve-subquestion-first">
+                        <div class="reserve-subquestion-first-step">STEP4</div>
+                    </div>
+                </div>
+                <div class="reserve-subquestion">
+                    <div class="reserve-subquestion-text-top reserve-subquestion-text">キャンペーンの通知を希望しますか？</div>
+                    <div class="reserve-input">
+                        <div class="reserve-input-radio-wrap">
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="is_campaign" value="はい">
+                                <div class="reserve-input-inner"><span>はい</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                            <label class="reserve-input-radio">
+                                <input type="radio" name="is_campaign" value="いいえ">
+                                <div class="reserve-input-inner"><span>いいえ</span><i
+                                            class="fas fa-chevron-right reserve-input-arrow"></i>
+                                </div>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="reserve-step-2nd">
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-first">
-                    <div class="reserve-subquestion-first-step">STEP2</div>
-                </div>
-            </div>
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-text-top reserve-subquestion-text">当日の施術を希望されますか？</div>
-                <div class="reserve-input">
-                    <div class="reserve-input-radio-wrap">
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="is_same_date" value="はい">
-                            <div class="reserve-input-inner"><span>はい</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="toujitsu" value="いいえ">
-                            <div class="reserve-input-inner"><span>いいえ</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="reserve-step-3rd">
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-first">
-                    <div class="reserve-subquestion-first-step">STEP3</div>
-                </div>
-            </div>
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-text-top reserve-subquestion-text">脱毛経験はございますか？</div>
-                <div class="reserve-input">
-                    <div class="reserve-input-radio-wrap">
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="is_experienced" value="はい">
-                            <div class="reserve-input-inner"><span>はい</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="is_experienced" value="いいえ">
-                            <div class="reserve-input-inner"><span>いいえ</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="reserve-step-4th">
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-first">
-                    <div class="reserve-subquestion-first-step">STEP4</div>
-                </div>
-            </div>
-            <div class="reserve-subquestion">
-                <div class="reserve-subquestion-text-top reserve-subquestion-text">キャンペーンの通知を希望しますか？</div>
-                <div class="reserve-input">
-                    <div class="reserve-input-radio-wrap">
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="is_campaign" value="はい">
-                            <div class="reserve-input-inner"><span>はい</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                        <label class="reserve-input-radio">
-                            <input type="radio" name="is_campaign" value="いいえ">
-                            <div class="reserve-input-inner"><span>いいえ</span><i
-                                        class="fas fa-chevron-right reserve-input-arrow"></i>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-text-top reserve-subquestion-text pt-15">質問など</div>
@@ -549,21 +621,40 @@ echo $this->element('Front/footer'); ?>
     $(function () {
         //ボタン１のイベント処理
         $('.reserve-step-1st .reserve-input-inner').click(function(e) {
-            $('.reserve-step').addClass('step-2nd')
-        })
+            $('.reserve-step-other').addClass('step-2nd');
+        });
         $('.reserve-step-2nd .reserve-input-inner').click(function(e) {
-            $('.reserve-step').addClass('step-3rd')
-        })
+            $('.reserve-step-other').addClass('step-3rd')
+        });
         $('.reserve-step-3rd .reserve-input-inner').click(function(e) {
-            $('.reserve-step').addClass('step-4th')
-        })
+            $('.reserve-step-other').addClass('step-4th')
+        });
+        //ボタン１のイベント処理
+        $('.reserve-step-1st .reserve-btn-second').click(function(e) {
+            if($("#visit_date_1").val() == '') {
+                alert("第1希望日の日付をまず入力してください");
+            } else if($("#time_01").val() == '') {
+                alert("第1希望日の時間を入力してください");
+            } else {
+                $('.reserve-step-date').addClass('step-2nd');
+            }
+        });
+        $('.reserve-step-2nd .reserve-btn-second').click(function(e) {
+            $('.reserve-step-date').removeClass('step-2nd');
+        });
+        $('.reserve-step-2nd .reserve-btn-third').click(function(e) {
+            $('.reserve-step-date').addClass('step-3rd');
+        });
+        $('.reserve-step-3rd .reserve-btn-second').click(function(e) {
+            $('.reserve-step-date').removeClass('step-3rd');
+        });
         $(".reserve-scroll-select-item").each(function () {
             $(this).click(function () {
-                $(".reserve-scroll-select-item").each(function () {
+                $(this).parents(".reserve-scroll-select").find(".reserve-scroll-select-item").each(function () {
                     $(this).removeClass("active");
                 });
                 var time = $(this).data('time');
-                $(".input-time").val(time);
+                $(this).parents(".reserve-scroll-select").find(".input-time").val(time);
                 $(this).addClass("active");
             });
         });
@@ -590,7 +681,7 @@ echo $this->element('Front/footer'); ?>
                 first_kana,
                 tel,
                 mail,
-                ];
+            ];
             var isOk = true;
             var errorId = '';
             formData.map(function (form) {

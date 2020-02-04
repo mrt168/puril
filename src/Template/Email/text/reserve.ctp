@@ -12,9 +12,9 @@
 店舗名：<?= $data['shop_name']."\n" ?>
 店舗予約URL：<?= $data['referer']."\n" ?>
 来店日時：
-	第1希望：<?= $data['visit_date_1']."\n" ?>
-	第2希望：<?= $data['visit_date_2']."\n" ?>
-	第3希望：<?= $data['visit_date_3']."\n" ?>
+	第1希望：<?= $data['visit_date_1']." ".$data['time_01']."\n" ?>
+	第2希望：<?= $data['visit_date_2']." ".$data['time_02']."\n" ?>
+	第3希望：<?= $data['visit_date_3']." ".$data['time_03']."\n" ?>
 
 〇 個人情報
 氏名：<?= $data['last_name'].$data['first_name']."\n" ?>
