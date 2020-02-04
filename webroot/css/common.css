@@ -117,13 +117,14 @@ p {
   background-color: #FFFFFF;
   border: 1px solid #CCCCFF;
   font-size: 90%;
-  width: 200px;
+  width: 260px;
 }
 #suggest div {
   display: block;
   padding: 5px 10px;
-  width: 200px;
+  font-size: 16px;
   overflow: hidden;
+  width: 280px;
   white-space: nowrap;
 }
 #suggest div.select{ /* キー上下で選択した場合のスタイル */

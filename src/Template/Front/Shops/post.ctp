@@ -340,7 +340,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question1', ['class' => 'question', 'id' => 'rating1', 'required' => 'required','type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question1', ['class' => 'question', 'id' => 'question1', 'required' => 'required','type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -367,7 +367,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question2', ['class' => 'question', 'id' => 'rating2','required' => 'required', 'type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question2', ['class' => 'question', 'id' => 'question2','required' => 'required', 'type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -394,7 +394,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question3', ['class' => 'question', 'id' => 'rating3', 'type' => 'select','required' => 'required','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question3', ['class' => 'question', 'id' => 'question3', 'type' => 'select','required' => 'required','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -421,7 +421,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question4', ['class' => 'question', 'id' => 'rating4', 'required' => 'required','type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question4', ['class' => 'question', 'id' => 'question4', 'required' => 'required','type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -448,7 +448,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question5', ['class' => 'question', 'id' => 'rating5', 'type' => 'select','required' => 'required','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question5', ['class' => 'question', 'id' => 'question5', 'type' => 'select','required' => 'required','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -513,39 +513,92 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
         </li>
     </ol>
 </div>
-<?php
-echo $this->Html->js('suggest');
-?>
 <script type="text/javascript">
     $(function () {
-        $("#song-xinsuru").click(function() {
+        $("#song-xinsuru").click(function(e) {
 
             var $form = $('#form').get()[0];
-            var fd = new FormData($form);
-
-            $.ajax({
-                type: 'post',
-                url: "<?=Router::url(['controller'=> 'shops', 'action'=> 'send'], true)?>/",
-                data: fd,
-                processData: false,
-                contentType: false,
-                success: function(res) {
-                    var errors = JSON.parse(res).errorMsg;
-                    if (errors) {
-                        $('.atention').text("");
-                        // エラー処理
-                        $.each(errors, function(column, error) {
-                            $('.'+column).text(error);
-                        });
-                        return;
-                    } else {
-                        alert('口コミを投稿しました！');
-                        location.href = '<?=Router::url(['controller'=> 'shops', 'action'=> 'detail'], true)?>/<?=$shop['shop_id']?>';
+            var fd = new FormData();
+            var formNickname = $('#nickname'),
+                formTitle = $('#title'),
+                birthday_y = $('#birthday_y'),
+                birthday_m = $('#birthday_m'),
+                birthday_d = $('#birthday_d'),
+                pref = $('#pref'),
+                station = $('#station'),
+                content = $('#content'),
+                reason = $('#reason'),
+                question1 = $('#question1'),
+                question1_evaluation = $('#question1_evaluation'),
+                question2 = $('#question2'),
+                question2_evaluation = $('#question2_evaluation'),
+                question3 = $('#question3'),
+                question3_evaluation = $('#question3_evaluation'),
+                question4 = $('#question4'),
+                question4_evaluation = $('#question4_evaluation'),
+                question5 = $('#question5'),
+                question5_evaluation = $('#question5_evaluation');
+            var formData = [formNickname,
+                formTitle,
+                birthday_y,
+                birthday_m,
+                birthday_d,
+                pref,
+                station,
+                content,
+                reason,
+                question1,
+                question1_evaluation,
+                question2,
+                question2_evaluation,
+                question3,
+                question3_evaluation,
+                question4,
+                question4_evaluation,
+                question5,
+                question5_evaluation];
+            var isOk = true;
+            var errorId = '';
+            formData.map(function (form) {
+                if(form.val() == '' || form.val() == 99) {
+                    form.addClass("errorColor");
+                    if(errorId == '') {
+                        errorId = form.attr("id");
                     }
+                    isOk = false;
+                } else {
+                    form.removeClass("errorColor");
                 }
             });
-
+            if(isOk) {
+                $.ajax({
+                    type: 'post',
+                    url: "<?=Router::url(['controller'=> 'shops', 'action'=> 'send'], true)?>/",
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    success: function(res) {
+                        var errors = JSON.parse(res).errorMsg;
+                        if (errors) {
+                            $('.atention').text("");
+                            // エラー処理
+                            $.each(errors, function(column, error) {
+                                $('.'+column).text(error);
+                            });
+                            return;
+                        } else {
+                            alert('口コミを投稿しました！');
+                            location.href = '<?=Router::url(['controller'=> 'shops', 'action'=> 'detail'], true)?>/<?=$shop['shop_id']?>';
+                        }
+                    }
+                });
+            } else {
+                $("html,body").animate({scrollTop:$('#'+ errorId).offset().top - $(".datsumou-header-inner").height() - 20});
+                console.log(errorId);
+            }
             return false;
+
+
         });
         $('[id^="reviews-sex"]').each(function(){
             if($(this).prop('checked')){
@@ -568,7 +621,7 @@ echo $this->Html->js('suggest');
         ?>
         var station_names =[];
         stations.map(function (station) {
-            station_names.push(station.station_name);
+            station_names.push(station.station_name+'駅');
         });
         function startSuggest() {
             new Suggest.Local(
