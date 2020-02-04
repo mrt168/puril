@@ -49,7 +49,17 @@ echo $this->Html->script(
     </div>
     <div class="reserve-input">
         <div class="reserve-input-inner">
-            <?= $this->ExForm->text('visit_date_1', ['class' => 'datepicker', 'placeholder' => '第1希望 例）2020/01/01', 'id' => 'datetimepicker','required' => true]); ?>
+            <?php
+            echo $this->ExForm->text(
+                'visit_date_1', [
+                    'placeholder' => '第1希望 例）'.date('Y/m/d H:00'),
+                    'id'          => 'visit_date_1',
+                    'class'       => 'datetimepicker visit_dates',
+                    'required'    => true,
+                    'autocomplete' => 'off'
+                ]
+            );
+            ?>
         </div>
         <div class="reserve-input-inner">
             <?php
@@ -58,7 +68,8 @@ echo $this->Html->script(
                     'placeholder' => '第2希望 例）'.date('Y/m/d H:00'),
                     'id'          => 'visit_date_2',
                     'class'       => 'datetimepicker visit_dates',
-                    'required'    => 2
+                    'required'    => 2,
+                    'autocomplete' => 'off'
                 ]
             );
             ?>
@@ -70,45 +81,12 @@ echo $this->Html->script(
                     'placeholder' => '第3希望 例）'.date('Y/m/d H:00'),
                     'id'          => 'visit_date_3',
                     'class'       => 'datetimepicker visit_dates',
-                    'required'    => 3
+                    'required'    => 3,
+                    'autocomplete' => 'off'
                 ]
             );
             ?>
         </div>
-        <!-- <div class="reserve-input-inner">
-            <?php
-            echo $this->ExForm->text(
-                'visit_date_4', [
-                    'placeholder' => '第4希望 例）'.date('Y/m/d H:00'),
-                    'id'          => 'visit_date_4',
-                    'class'       => 'datetimepicker visit_dates',
-                    'required'    => 4
-                ]
-            );
-            ?>
-        </div> -->
-    </div>
-</section>
-<section class="content-base reserve-section">
-    <div class="reserve-question">
-        <div class="reserve-question-text">時間をを選択してください</div>
-        <div class="reserve-tag reserve-tag-required">必須</div>
-    </div>
-    <div class="reserve-question-sub">【営業時間　12:00〜21:00】</div>
-    <div class="reserve-scroll-select">
-        <input type="hidden" name="time" class="input-time">
-        <ul>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="12:00">12:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="13:00">13:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="14:00">14:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="15:00">15:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="16:00">16:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="17:00">17:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="18:00">18:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="19:00">19:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="20:00">20:00</a></li>
-            <li><a class="reserve-scroll-select-item" href="#" data-time="21:00">21:00</a></li>
-        </ul>
     </div>
 </section>
 <section class="content-base reserve-section">
@@ -128,21 +106,14 @@ echo $this->Html->script(
         ?>
     </div>
 </section>
-<!-- <section class="content-base reserve-section">
-    <!-- <div class="reserve-question reserve-question-mod">
-        <div class="reserve-question-text">来店希望日時</div>
-        <div class="reserve-tag reserve-tag-option">任意</div>
-    </div> -->
-<!-- </section> -->
 <section class="content-base reserve-section">
     <div class="reserve-question">
         <div class="reserve-question-text">ご予約者情報</div>
-        <div class="reserve-tag reserve-tag-required">必須</div>
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-first">
-            <!-- <div class="reserve-subquestion-first-step">STEP1</div> -->
             <div class="reserve-subquestion-text">性別</div>
+            <div class="reserve-tag reserve-tag-required">必須</div>
         </div>
         <div class="reserve-input">
             <div class="reserve-input-radio-wrap">
@@ -161,11 +132,11 @@ echo $this->Html->script(
         <div class="reserve-input">
             <div class="reserve-input-parent">
                 <div class="reserve-input-child">
-                    <label class="reserve-subquestion-text">姓</label>
+                    <label class="reserve-subquestion-text">姓<div class="reserve-tag reserve-tag-required">必須</div></label>
                     <input type="text" name="last_name" placeholder="山田" required>
                 </div>
                 <div class="reserve-input-child">
-                    <label class="reserve-subquestion-text">名</label>
+                    <label class="reserve-subquestion-text">名<div class="reserve-tag reserve-tag-required">必須</div></label>
                     <input type="text" name="first_name" placeholder="花子" required>
                 </div>
             </div>
@@ -175,18 +146,18 @@ echo $this->Html->script(
         <div class="reserve-input">
             <div class="reserve-input-parent">
                 <div class="reserve-input-child">
-                    <label class="reserve-subquestion-text">せい</label>
+                    <label class="reserve-subquestion-text">せい<div class="reserve-tag reserve-tag-required">必須</div></label>
                     <input type="text" name="last_kana" placeholder="やまだ" required>
                 </div>
                 <div class="reserve-input-child">
-                    <label class="reserve-subquestion-text">めい</label>
+                    <label class="reserve-subquestion-text">めい<div class="reserve-tag reserve-tag-required">必須</div></label>
                     <input type="text" name="first_kana" placeholder="はなこ" required>
                 </div>
             </div>
         </div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-subquestion-text-top reserve-subquestion-text">生年月日</div>
+        <div class="reserve-subquestion-text-top reserve-subquestion-text">生年月日<div class="reserve-tag reserve-tag-required">必須</div></div>
         <div class="reserve-input">
             <div class="reserve-input-born">
                 <div class="reserve-input-born-common reserve-input-year">
@@ -357,13 +328,13 @@ echo $this->Html->script(
         </div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-subquestion-text-top reserve-subquestion-text">連絡先電話番号</div>
+        <div class="reserve-subquestion-text-top reserve-subquestion-text">連絡先電話番号<div class="reserve-tag reserve-tag-required">必須</div></div>
         <div class="reserve-input">
             <input type="text" name="tel" placeholder="03-1234-5678" required>
         </div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-subquestion-text-top reserve-subquestion-text">メールアドレス</div>
+        <div class="reserve-subquestion-text-top reserve-subquestion-text">メールアドレス<div class="reserve-tag reserve-tag-required">必須</div></div>
         <div class="reserve-input">
             <input type="text" name="mail" placeholder="info@tsuru-tsuru.co.jp" required>
         </div>

@@ -29,7 +29,8 @@
           align-items: center; }
   .reserve-section .reserve-question .reserve-question-text {
     font-weight: bold; }
-  .reserve-section .reserve-question .reserve-tag {
+  .reserve-section .reserve-tag {
+    display: inline-block;
     width: 28px;
     border-radius: 2px;
     color: #ffffff;
@@ -37,9 +38,9 @@
     padding: 3.5px 0 3.5px;
     text-align: center;
     margin-left: 10px; }
-  .reserve-section .reserve-question .reserve-tag-required {
+  .reserve-section .reserve-tag-required {
     background-color: #FF4E4E; }
-  .reserve-section .reserve-question .reserve-tag-option {
+  .reserve-section  .reserve-tag-option {
     background-color: #0065CC; }
 
 .reserve-section .reserve-question-sub {
