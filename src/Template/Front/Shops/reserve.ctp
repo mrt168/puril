@@ -71,6 +71,9 @@ echo $this->Html->script(
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_01" id="time_01" class="input-time">
                     <ul>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="09:00">09:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="10:00">10:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="11:00">11:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="12:00">12:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="13:00">13:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="14:00">14:00</a></li>
@@ -114,6 +117,9 @@ echo $this->Html->script(
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_02" id="time_02" class="input-time">
                     <ul>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="09:00">09:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="10:00">10:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="11:00">11:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="12:00">12:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="13:00">13:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="14:00">14:00</a></li>
@@ -160,6 +166,9 @@ echo $this->Html->script(
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_03" id="time_03" class="input-time">
                     <ul>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="09:00">09:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="10:00">10:00</a></li>
+                        <li><a class="reserve-scroll-select-item" href="#" data-time="11:00">11:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="12:00">12:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="13:00">13:00</a></li>
                         <li><a class="reserve-scroll-select-item" href="#" data-time="14:00">14:00</a></li>
