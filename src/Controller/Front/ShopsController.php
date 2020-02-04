@@ -480,12 +480,17 @@ class ShopsController extends FrontAppController {
             ->codeConverter(Pref::toString(), CodePattern::$VALUE, "pref")
             ->codeConverter(ShopType::toString(), CodePattern::$VALUE, "shop_type");
 
-        $this->set(compact('shop'));
+        $stationTable= TableRegistry::get('Stations');
+        $stations = $stationTable->findByAll();
+
+        $this->set(compact('shop','stations'));
         // title
         SiteInfo::$SHOP_RESERVE[SiteInfo::TITLE]= sprintf(
             SiteInfo::$SHOP_RESERVE[SiteInfo::TITLE],
             $shop['name']
         );
+
+
 
 
         // description

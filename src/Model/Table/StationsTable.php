@@ -225,6 +225,31 @@ class StationsTable extends AppTable
     /**
      * 識別子で未削除のデータを検索します.
      */
+    public function findByAll() {
+        $joins=[
+            [
+                'table' => 'shop_stations',
+                'alias' => 'ShopStation',
+                'type' => 'LEFT',
+                'conditions' => 'ShopStation.station_cd = Stations.station_cd'
+            ],
+        ];
+
+        $selects=[
+            'cnt'=> 'COUNT(ShopStation.shop_station_id)',
+        ];
+
+        return $this->query()
+            ->join($joins)
+            ->select($selects)
+            ->select($this)
+            ->group(['Stations.station_g_cd'])
+            ->all();
+    }
+
+    /**
+     * 識別子で未削除のデータを検索します.
+     */
     public function findByPref($pref) {
     	$conditions = array (
     			'Stations.pref_cd'=> $pref

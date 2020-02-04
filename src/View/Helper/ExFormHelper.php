@@ -127,7 +127,6 @@ class ExFormHelper extends FormHelper {
 			$options[$station['station_g_cd']] = "{$station['station_name']}駅";
 		}
 		$array['options'] = $options;
-
 		return parent::control($name, $array);
 	}
 

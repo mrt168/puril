@@ -520,7 +520,7 @@ echo $this->Html->script(
     </ol>
 </div>
 <?php
-echo $this->element('Front/footer') ?>
+echo $this->element('Front/footer'); ?>
 <script>
     $(function () {
         //ボタン１のイベント処理

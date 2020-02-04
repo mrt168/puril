@@ -289,7 +289,8 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                 </div>
                 <div class="td-inner-wrap">
                     <div class="td-inner">
-                        <?= $this->ExForm->text('Reviews.station', ['id' => 'station', 'required' => 'required','placeholder' => '（回答例）東京駅']); ?>
+                        <?= $this->ExForm->text('Reviews.station', ['id' => 'station', 'autocomplete'=>'off', 'required' => 'required','placeholder' => '（回答例）東京駅']); ?>
+                        <div id="suggest" style="display:none;"></div>
                     </div>
                 </div>
             </td>
@@ -512,6 +513,9 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
         </li>
     </ol>
 </div>
+<?php
+echo $this->Html->js('suggest');
+?>
 <script type="text/javascript">
     $(function () {
         $("#song-xinsuru").click(function() {
@@ -558,6 +562,25 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                 $('#birthday').val($("#birthday_y").val() + '/' + $("#birthday_m").val() + '/' + $("#birthday_d").val());
             });
         });
+        <?php
+        $js_array = json_encode($stations);
+        echo "var stations = ". $js_array . ";";
+        ?>
+        var station_names =[];
+        stations.map(function (station) {
+            station_names.push(station.station_name);
+        });
+        function startSuggest() {
+            new Suggest.Local(
+                "station",    // 入力のエレメントID
+                "suggest", // 補完候補を表示するエリアのID
+                station_names,      // 補完候補の検索対象となる配列
+                {dispMax: 10, interval: 1000}); // オプション
+        }
+
+        window.addEventListener ?
+            window.addEventListener('load', startSuggest, false) :
+            window.attachEvent('onload', startSuggest);
     });
 </script>
 <?php
