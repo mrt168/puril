@@ -82,6 +82,10 @@
     appearance: inherit;
     z-index: 2;
 }
+
+.question-area table td .td-inner-wrap .td-inner .select select.errorColor {
+    border: 1px solid red;
+}
 .question-area table td .td-inner-wrap .td-inner .select .fa-chevron-down {
     position: absolute;
     top: 50%;
