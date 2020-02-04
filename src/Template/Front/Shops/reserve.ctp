@@ -69,8 +69,6 @@ echo $this->Html->script(
                 </div>
                 <?php if(!empty($shop['business_hours'])):?>
                     <div class="reserve-question-sub">【営業時間　<?php echo $shop['business_hours'];?>】</div>
-                <?php else:?>
-                    <div class="reserve-question-sub">【営業時間　09:00〜21:00】</div>
                 <?php endif;?>
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_01" id="time_01" class="input-time">
@@ -120,8 +118,6 @@ echo $this->Html->script(
 
                 <?php if(!empty($shop['business_hours'])):?>
                     <div class="reserve-question-sub">【営業時間　<?php echo $shop['business_hours'];?>】</div>
-                <?php else:?>
-                    <div class="reserve-question-sub">【営業時間　09:00〜21:00】</div>
                 <?php endif;?>
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_02" id="time_02" class="input-time">
@@ -174,8 +170,6 @@ echo $this->Html->script(
 
                 <?php if(!empty($shop['business_hours'])):?>
                     <div class="reserve-question-sub">【営業時間　<?php echo $shop['business_hours'];?>】</div>
-                <?php else:?>
-                    <div class="reserve-question-sub">【営業時間　09:00〜21:00】</div>
                 <?php endif;?>
                 <div class="reserve-scroll-select">
                     <input type="hidden" name="time_03" id="time_03" class="input-time">
