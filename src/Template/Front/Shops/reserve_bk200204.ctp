@@ -49,44 +49,8 @@ echo $this->Html->script(
     </div>
     <div class="reserve-input">
         <div class="reserve-input-inner">
-            <?= $this->ExForm->text('visit_date_1', ['class' => 'datepicker', 'placeholder' => '第1希望 例）2020/01/01', 'id' => 'datetimepicker','required' => true]); ?>
+            <?= $this->ExForm->text('visit_date_1', ['class' => 'datepicker', 'placeholder' => '第１希望 例）2020/01/01', 'id' => 'datetimepicker','required' => true]); ?>
         </div>
-        <div class="reserve-input-inner">
-            <?php
-            echo $this->ExForm->text(
-                'visit_date_2', [
-                    'placeholder' => '第2希望 例）'.date('Y/m/d H:00'),
-                    'id'          => 'visit_date_2',
-                    'class'       => 'datetimepicker visit_dates',
-                    'required'    => 2
-                ]
-            );
-            ?>
-        </div>
-        <div class="reserve-input-inner">
-            <?php
-            echo $this->ExForm->text(
-                'visit_date_3', [
-                    'placeholder' => '第3希望 例）'.date('Y/m/d H:00'),
-                    'id'          => 'visit_date_3',
-                    'class'       => 'datetimepicker visit_dates',
-                    'required'    => 3
-                ]
-            );
-            ?>
-        </div>
-        <!-- <div class="reserve-input-inner">
-            <?php
-            echo $this->ExForm->text(
-                'visit_date_4', [
-                    'placeholder' => '第4希望 例）'.date('Y/m/d H:00'),
-                    'id'          => 'visit_date_4',
-                    'class'       => 'datetimepicker visit_dates',
-                    'required'    => 4
-                ]
-            );
-            ?>
-        </div> -->
     </div>
 </section>
 <section class="content-base reserve-section">
@@ -128,12 +92,50 @@ echo $this->Html->script(
         ?>
     </div>
 </section>
-<!-- <section class="content-base reserve-section">
-    <!-- <div class="reserve-question reserve-question-mod">
+<section class="content-base reserve-section">
+    <div class="reserve-question reserve-question-mod">
         <div class="reserve-question-text">来店希望日時</div>
         <div class="reserve-tag reserve-tag-option">任意</div>
-    </div> -->
-<!-- </section> -->
+    </div>
+    <div class="reserve-input">
+        <div class="reserve-input-inner">
+            <?php
+            echo $this->ExForm->text(
+                'visit_date_2', [
+                    'placeholder' => '第2希望 例）'.date('Y/m/d H:00'),
+                    'id'          => 'visit_date_2',
+                    'class'       => 'datetimepicker visit_dates',
+                    'required'    => 2
+                ]
+            );
+            ?>
+        </div>
+        <div class="reserve-input-inner">
+            <?php
+            echo $this->ExForm->text(
+                'visit_date_3', [
+                    'placeholder' => '第3希望 例）'.date('Y/m/d H:00'),
+                    'id'          => 'visit_date_3',
+                    'class'       => 'datetimepicker visit_dates',
+                    'required'    => 3
+                ]
+            );
+            ?>
+        </div>
+        <div class="reserve-input-inner">
+            <?php
+            echo $this->ExForm->text(
+                'visit_date_4', [
+                    'placeholder' => '第4希望 例）'.date('Y/m/d H:00'),
+                    'id'          => 'visit_date_4',
+                    'class'       => 'datetimepicker visit_dates',
+                    'required'    => 4
+                ]
+            );
+            ?>
+        </div>
+    </div>
+</section>
 <section class="content-base reserve-section">
     <div class="reserve-question">
         <div class="reserve-question-text">ご予約者情報</div>
@@ -141,18 +143,18 @@ echo $this->Html->script(
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-first">
-            <!-- <div class="reserve-subquestion-first-step">STEP1</div> -->
-            <div class="reserve-subquestion-text">性別</div>
+            <div class="reserve-subquestion-first-step">STEP1</div>
+            <div class="reserve-subquestion-text reserve-subquestion-first-text">性別</div>
         </div>
         <div class="reserve-input">
             <div class="reserve-input-radio-wrap">
                 <label class="reserve-input-radio">
-                    <input type="radio" name="sex" value="2" required>
-                    <div class="reserve-input-inner"><span>女</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
-                </label>
-                <label class="reserve-input-radio">
                     <input type="radio" name="sex" value="1" required>
                     <div class="reserve-input-inner"><span>男</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
+                </label>
+                <label class="reserve-input-radio">
+                    <input type="radio" name="sex" value="2" required>
+                    <div class="reserve-input-inner"><span>女</span><i class="fas fa-chevron-right reserve-input-arrow"></i></div>
                 </label>
             </div>
         </div>
@@ -374,12 +376,6 @@ echo $this->Html->script(
         <div class="reserve-tag reserve-tag-option">任意</div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-subquestion-text-top reserve-subquestion-text">住所</div>
-        <div class="reserve-input">
-            <input type="text" name="address" placeholder="サンプル住所">
-        </div>
-    </div>
-    <div class="reserve-subquestion">
     <div class="reserve-step">
         <div class="reserve-step-1st">
             <div class="reserve-subquestion">
@@ -493,6 +489,12 @@ echo $this->Html->script(
             </div>
         </div>
     </div>
+    </div>
+    <div class="reserve-subquestion">
+        <div class="reserve-subquestion-text-top reserve-subquestion-text">住所</div>
+        <div class="reserve-input">
+            <input type="text" name="address" placeholder="サンプル住所">
+        </div>
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-subquestion-text-top reserve-subquestion-text">質問など</div>

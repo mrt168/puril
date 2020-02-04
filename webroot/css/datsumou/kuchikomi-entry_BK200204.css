@@ -157,7 +157,7 @@ align-items: center;}
 }
 .question-area table td .td-inner.flex > .wrap {
   flex: 1 0 auto;
-  /* border: #e1e1e1 1px solid; */
+  border: #e1e1e1 1px solid;
   border-radius: 4px;
   padding: .5em 1em;
   /* margin-left: 10px; */
@@ -235,8 +235,3 @@ align-items: center;}
     background-color: #FF4E4E; }
     .kuchikomi-entry-post .kuchikomi-entry-button .kuchikomi-entry-button-text {
       padding-left: .5em; }
-
-.border {
-    border: #e1e1e1 1px solid;
-    border-radius: 4px;
-}

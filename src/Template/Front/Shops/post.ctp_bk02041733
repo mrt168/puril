@@ -39,7 +39,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     ?>
 </header>
 <h1 class="content kuchikomi-entry-title"><?php echo $shop['name'];?></h1>
-<?= $this->ExForm->create('Reviews', ['url' => false, 'type' => 'post', 'id' => 'form', 'enctype' => 'multipart/form-data']) ?>
+<?= $this->ExForm->create('Reviews', ['url' => false, 'type' => 'post', 'novalidate' => true, 'id' => 'form', 'enctype' => 'multipart/form-data']) ?>
 <?php
 echo $this->ExForm->hidden('Reviews.shop_name', ['class' => '', 'value' => $shop['name'], 'readonly' => 'readonly']);
 echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
@@ -64,7 +64,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
             <td>
                 <div class="td-inner-wrap">
                     <div class="td-inner">
-                        <?= $this->ExForm->text('Reviews.nickname', ['id' => 'nickname','required' => 'required', 'placeholder' => '例）脱毛 花子']); ?>
+                        <?= $this->ExForm->text('Reviews.nickname', ['id' => 'nickname', 'placeholder' => '例）脱毛 花子']); ?>
                     </div>
                 </div>
             </td>
@@ -281,7 +281,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner">
                         <div class="wrap select">
                             <?php
-                            echo $this->ExForm->pref('Reviews.pref', array('id'=> 'pref', 'required' => 'required','class'=> 'form-control'));
+                            echo $this->ExForm->pref('Reviews.pref', array('id'=> 'pref', 'class'=> 'form-control'));
                             ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
@@ -289,7 +289,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                 </div>
                 <div class="td-inner-wrap">
                     <div class="td-inner">
-                        <?= $this->ExForm->text('Reviews.station', ['id' => 'station', 'required' => 'required','placeholder' => '（回答例）東京駅']); ?>
+                        <?= $this->ExForm->text('Reviews.station', ['id' => 'title', 'placeholder' => '（回答例）東京駅']); ?>
                     </div>
                 </div>
             </td>
@@ -319,7 +319,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
             <td>
                 <div class="td-inner-wrap">
                     <div class="td-inner">
-                        <?= $this->ExForm->textarea('Reviews.reason', ['id' => 'reason', 'required' => 'required', 'cols' => 30, 'rows' => 6, 'placeholder'=>'（回答例）HPやインスタで拝見し、技術の高い○○先生にお願いしたいと思いました。']); ?>
+                        <?= $this->ExForm->textarea('Reviews.reason', ['id' => 'content', 'required' => 'required', 'cols' => 30, 'rows' => 6, 'placeholder'=>'（回答例）HPやインスタで拝見し、技術の高い○○先生にお願いしたいと思いました。']); ?>
                     </div>
                 </div>
             </td>
@@ -339,7 +339,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question1', ['class' => 'question', 'id' => 'rating1', 'required' => 'required','type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question1', ['class' => 'question', 'id' => 'rating1', 'type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -366,7 +366,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question2', ['class' => 'question', 'id' => 'rating2','required' => 'required', 'type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question2', ['class' => 'question', 'id' => 'rating2', 'type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -393,7 +393,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question3', ['class' => 'question', 'id' => 'rating3', 'type' => 'select','required' => 'required','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question3', ['class' => 'question', 'id' => 'rating3', 'type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -420,7 +420,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question4', ['class' => 'question', 'id' => 'rating4', 'required' => 'required','type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question4', ['class' => 'question', 'id' => 'rating4', 'type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
@@ -447,7 +447,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
                     <div class="td-inner flex">
                         <span style="color: #B5B5B5">評価点</span>
                         <div class="wrap select">
-                            <?= $this->ExForm->satisfaction('Reviews.question5', ['class' => 'question', 'id' => 'rating5', 'type' => 'select','required' => 'required','placeholder'=>'評価点', 'empty' => true]); ?>
+                            <?= $this->ExForm->satisfaction('Reviews.question5', ['class' => 'question', 'id' => 'rating5', 'type' => 'select','placeholder'=>'評価点', 'empty' => true]); ?>
                             <i class="fas fa-chevron-down reserve-input-arrow"></i>
                         </div>
                     </div>
