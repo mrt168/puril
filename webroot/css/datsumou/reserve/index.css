@@ -45,6 +45,7 @@
   background-color: #0065CC; }
 
 .reserve-section .reserve-question-sub {
+  line-height: 1.5;
   padding: 10px 16px; }
 
 .reserve-subquestion {
