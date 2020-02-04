@@ -21,12 +21,6 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     echo $this->element('Front/header')
     ?>
 </header>
-<header class="reserve-header">
-    <div class="reserve-header-inner"><a class="reserve-header-back" href="#"><i class="fas fa-chevron-left reserve-header-back-icon"></i>
-            <div class="reserve-header-back-text">ホーム</div></a>
-        <div class="reserve-header-title">ご予約完了</div>
-    </div>
-</header>
 <section class="content-base reserve-thanks">
     <h1 class="reserve-thanks-title-area"><i class="far fa-calendar-check reserve-thanks-title-icon"></i>
         <div class="reserve-thanks-title">仮予約完了</div>
