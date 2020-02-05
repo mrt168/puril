@@ -484,6 +484,7 @@ class ShopsController extends FrontAppController {
         $stations = $stationTable->findByAll();
 
         $this->set(compact('shop','stations'));
+        $this->set('isNoIndex', true);
         // title
         SiteInfo::$SHOP_RESERVE[SiteInfo::TITLE]= sprintf(
             SiteInfo::$SHOP_RESERVE[SiteInfo::TITLE],

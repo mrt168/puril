@@ -8,7 +8,7 @@ class ContactMailer extends Mailer {
 
 //	const ADMIN_MAIL = "y_kobayashi@acthd.co.jp";
 // 	const ADMIN_MAIL = "muraoka.act@gmail.com";
- 	const ADMIN_MAIL = "kurafuto16@gmail.com";
+    const ADMIN_MAIL = "info@tsuru-tsuru.co.jp";
 
 	// 施設情報掲載のお問い合わせ
     public function contact($data) {

@@ -37,7 +37,7 @@ if (!empty($description_for_layout)) {
 <meta name="twitter:title" content="<?php echo $title_for_layout?>" /><!-- 今いるページのタイトル -->
 <meta name="twitter:image" content="https://puril.net/img/OGP.jpg" />
 <meta itemprop="image" content="https://puril.net/img/OGP.jpg" />
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex"/>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <?php

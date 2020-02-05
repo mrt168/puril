@@ -1,10 +1,10 @@
 // 評価点平均計算
 $(function () {
-    const rId1 = "#rating1"
-    const rId2 = "#rating2"
-    const rId3 = "#rating3"
-    const rId4 = "#rating4"
-    const rId5 = "#rating5"
+    const rId1 = "#question1";
+    const rId2 = "#question2";
+    const rId3 = "#question3";
+    const rId4 = "#question4";
+    const rId5 = "#question5";
     const targetNum = "#rating-number-span"
     const targetInput = "#evaluation"
     const targetStar = 'img.rating-star-icon'

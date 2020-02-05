@@ -17,6 +17,7 @@
 <meta name="twitter:title" content="Puril - ランキングと口コミで探せる美容の検索予約サイト" /><!-- 今いるページのタイトル -->
 <meta name="twitter:image" content="https://puril.net/puril/images/ogp.png" />
 <meta itemprop="image" content="https://puril.net/puril/images/ogp.png" />
+    <meta name="robots" content="noindex"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -34,7 +35,6 @@
 
   gtag('config', 'UA-150484464-1');
 </script>
-<meta name="robots" content="noindex, nofollow">
 </head>
 <?= $this->fetch('content') ?>
 </html>

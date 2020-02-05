@@ -518,7 +518,7 @@ echo $this->ExForm->hidden('Reviews.shop_id', ['value' => $shop['shop_id']]);
         $("#song-xinsuru").click(function(e) {
 
             var $form = $('#form').get()[0];
-            var fd = new FormData();
+            var fd = new FormData($form);
             var formNickname = $('#nickname'),
                 formTitle = $('#title'),
                 birthday_y = $('#birthday_y'),

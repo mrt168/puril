@@ -234,7 +234,7 @@ class ReviewsTable extends AppTable
 
         $validator
             ->requirePresence('show_flg', 'create')
-            ->notEmpty('show_flg','ほげ');
+            ->notEmpty('show_flg','表示は入力してください');
 
         return $validator;
     }
@@ -272,6 +272,23 @@ class ReviewsTable extends AppTable
             ->scalar('content')
             ->requirePresence('content', 'create')
             ->allowEmpty('content');
+
+        $validator
+            ->allowEmpty('birthday');
+
+        $validator
+            ->allowEmpty('age');
+        $validator
+            ->notEmpty('pref', "都道府県を入力してください.");
+        $validator
+            ->notEmpty('station', "駅名を入力してください.");
+        $validator
+            ->requirePresence('sex', 'create')
+            ->notEmpty('sex', "性別を入力してください.");
+        $validator
+            ->allowEmpty('reason');
+        $validator
+            ->allowEmpty('birthday');
 
         return $validator;
     }
