@@ -41,97 +41,68 @@ echo $this->Html->css('datsumou/search');
         </div>
     </header>
     <div class="Search__contents">
+<<<<<<< HEAD
         <form id="Form">
         <div class="Search__kodawari__header">
             <input type="text" name="Area" placeholder="エリア、駅名入力" value="" class="input">
             <div class="arw"><i class="fas fa-chevron-circle-right"></i></div>
         </div>
+=======
+        <?php
+        echo $this->ExForm->create('Make', ['url'=> ['controller' => 'Makes', 'action'=> 'index'], 'type'=> 'post','id'=>'Form', 'novalidate' => true]);
+        ?>
+<!--        <div class="Search__kodawari__header">-->
+<!--            <input type="text" name="Area" placeholder="エリア、駅名入力" value="" class="input">-->
+<!--            <button class="arw"><i class="fas fa-chevron-circle-right"></i></button>-->
+<!--        </div>-->
+>>>>>>> 365f6a8e88e7475c0fee2831d4e68d7fe9306656
         <dl class="Search__kodawari__list">
             <dt>脱毛部位</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="datsumoupartsArea">
+                    <select name="Make[depilation_site_id]" id="Datsumouparts">
                         <option value=""></option>
-                        <option value="眉毛脱毛">眉毛脱毛</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                        <?php
+                        $this->ExForm->depilationSiteSelect('Make.depilation_site_id.', null);
+                        ?>
                     </select>
                 </div>
             </dd>
             <dt>価格</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="priceArea">
+                    <select name="Make[price_id]">
                         <option value=""></option>
-                        <option value="安い・低価格">安い・低価格</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                        <?php
+                        $this->ExForm->priceSelect('Make.price_id.', null);
+                        ?>
                     </select>
                 </div>
             </dd>
             <dt>支払い方法</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="paymentArea">
+                    <select name="Make[payment_id]">
                         <option value=""></option>
-                        <option value="現金可">現金可</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                        <?php $this->ExForm->paymentSelect('Make.payment_id.', null); ?>
                     </select>
                 </div>
             </dd>
-            <dt>脱毛タイプ</dt>
+            <dt>特典・割引</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="datsumoutypeArea">
+                    <select name="Make[discount_id]">
                         <option value=""></option>
-                        <option value="メンズ脱毛">メンズ脱毛</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                        <?php $this->ExForm->discountSelect('Make.discount_id.', null); ?>
                     </select>
                 </div>
             </dd>
-            <dt>診療料(医療脱毛の場合)</dt>
+            <dt>その他こだわり</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="consultationArea">
+                    <select name="Make[other_condition_id]">
                         <option value=""></option>
-                        <option value="皮膚科">皮膚科</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
-                    </select>
-                </div>
-            </dd>
-            <dt>サポート体制</dt>
-            <dd>
-                <div class="Search__select">
-                    <select name="supportArea">
-                        <option value=""></option>
-                        <option value="アフターケアつき">アフターケアつき</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
-                    </select>
-                </div>
-            </dd>
-            <dt>予約・受付・キャンセル</dt>
-            <dd>
-                <div class="Search__select">
-                    <select name="receptionArea">
-                        <option value=""></option>
-                        <option value="年中無休">年中無休</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
-                    </select>
-                </div>
-            </dd>
-            <dt>立地・施設</dt>
-            <dd>
-                <div class="Search__select">
-                    <select name="stationArea">
-                        <option value=""></option>
-                        <option value="駅チカ">駅チカ</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                        <?php $this->ExForm->discountSelect('Make.other_condition_id.', null); ?>
                     </select>
                 </div>
             </dd>
@@ -142,9 +113,11 @@ echo $this->Html->css('datsumou/search');
             <dd id="Output"><span id="OutputArea"></span><span id="OutputDatsumouparts"></span><span id="OutputPrice"></span><span id="OutputPayment"></span><span id="OutputDatsumoutype"></span><span id="OutputConsultation"></span><span id="OutputSupport"></span><span id="OutputReception"></span><span id="OutputStation"></span></dd>
         </dl>
         <div class="Search__kodawari__btns">
+
             <button type="reset" id="clear" class="Search__kodawari__btn" data-type="clear">クリア</button>
-            <button class="Search__kodawari__btn" data-type="search">検索</button>
+            <button class="Search__kodawari__btn" data-type="search" type="submit" name="search">検索</button>
         </div>
+<<<<<<< HEAD
     
         <div class="Search__kodawari__ranking"><a href=""><i class="fas fa-crown"></i>ランキングで検索する</a></div>
     </div>
@@ -159,6 +132,12 @@ echo $this->Html->css('datsumou/search');
                 <meta itemprop="position" content="2" />
             </li>
         </ol>
+=======
+            <?php
+            echo $this->ExForm->end();
+            ?>
+<!--        <div class="Search__kodawari__ranking"><a href=""><i class="fas fa-crown"></i>ランキングで検索する</a></div>-->
+>>>>>>> 365f6a8e88e7475c0fee2831d4e68d7fe9306656
     </div>
 </div>
 <div class="top-main">
@@ -498,6 +477,7 @@ echo $this->element('Front/footer') ?>
     });
     window.onload = function () {
         var $formObject = document.getElementById( "Form" );
+<<<<<<< HEAD
         $formObject.elements[0].onchange = function(){
             document.getElementById( "OutputArea" ).innerHTML = $formObject.Area.value + '&nbsp;';
         };
@@ -538,5 +518,41 @@ echo $this->element('Front/footer') ?>
             document.getElementById("Form").reset();
         };
     }
+=======
+        for( var $i = 0; $i < $formObject.length; $i++ ) {
+            console.log($formObject.elements[$i]);
+            $formObject.elements[$i].onkeyup = function(){
+                getValue();
+            };
+            $formObject.elements[$i].onchange = function(){
+                getValue();
+            };
+        }
+    }
+    function getValue() {
+        var $formObject = document.getElementById( "Form" );
+        console.log($("#Datsumouparts").val());
+        // document.getElementById( "OutputArea" ).innerHTML = $formObject.["Make.price_id"].value + '&nbsp;';
+        document.getElementById( "OutputDatsumouparts" ).innerHTML = $('[name="Make[depilation_site_id]"] option:selected').text() + '&nbsp;';
+        document.getElementById( "OutputPrice" ).innerHTML = $('[name="Make[price_id]"] option:selected').text() + '&nbsp;';
+        document.getElementById( "OutputPayment" ).innerHTML =$('[name="Make[payment_id]"] option:selected').text() + '&nbsp;';
+        document.getElementById( "OutputDatsumoutype" ).innerHTML = $('[name="Make[discount_id]"] option:selected').text() + '&nbsp;';
+        document.getElementById( "OutputConsultation" ).innerHTML = $('[name="Make[other_condition_id]"] option:selected').text() + '&nbsp;';
+        // document.getElementById( "OutputSupport" ).innerHTML = $formObject.supportArea.value + '&nbsp;';
+        // document.getElementById( "OutputReception" ).innerHTML = $formObject.receptionArea.value + '&nbsp;';
+        // document.getElementById( "OutputStation" ).innerHTML = $formObject.stationArea.value + '&nbsp;';
+    }
+    document.getElementById("clear").onclick = function() {
+        document.getElementById( "OutputArea" ).innerHTML = "";
+        document.getElementById( "OutputDatsumouparts" ).innerHTML = "";
+        document.getElementById( "OutputPrice" ).innerHTML = "";
+        document.getElementById( "OutputPayment" ).innerHTML = "";
+        document.getElementById( "OutputDatsumoutype" ).innerHTML = "";
+        document.getElementById( "OutputConsultation" ).innerHTML = "";
+        document.getElementById( "OutputSupport" ).innerHTML = "";
+        document.getElementById( "OutputReception" ).innerHTML = "";
+        document.getElementById( "OutputStation" ).innerHTML = "";
+    };
+>>>>>>> 365f6a8e88e7475c0fee2831d4e68d7fe9306656
 </script>
 </body>

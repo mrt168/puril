@@ -494,6 +494,37 @@ class ExFormHelper extends FormHelper {
 		}
 	}
 
+    /**
+     * 脱毛部位(件数)
+     */
+    public function depilationSiteSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $dsTable = TableRegistry::get('DepilationSites');
+// 		$datas = $dsTable->findByMoreNarrow($searchWheres, $baseUrl);
+
+        $isRanking = false;
+        if (empty($baseUrl)) {
+            $baseUrl = URLUtil::SEARCH;
+        } else if ($baseUrl == URLUtil::RANKING) {
+            $isRanking = true;
+        }
+
+        $datas = $dsTable->findByMoreNarrow($searchWheres, $isRanking);
+
+        $placeUrls = [];
+        $this->getPlaceUrl($placeUrls, $searchWheres);
+
+        foreach ($datas as $data) {
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            ?>
+
+            <option value="<?php echo $data['depilation_site_id'];?>"><?php echo $data['name']?></option>
+            <?php
+
+        }
+    }
+
 	/**
 	 * 支払方法.
 	 */
@@ -576,6 +607,24 @@ class ExFormHelper extends FormHelper {
 		}
 	}
 
+    /**
+     * 支払方法(option).
+     */
+    public function paymentSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $paymentTable = TableRegistry::get('Payments');
+        $isRanking = false;
+        $datas = $paymentTable->findByMoreNarrow($searchWheres, $isRanking);
+        foreach ($datas as $data) {
+            //	0件は非表示
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            echo "<option value='".$data['payment_id']."'>";
+            echo  $data['name'];
+            echo "</option>";
+        }
+    }
+
 	/**
 	 * 特典・割引.
 	 */
@@ -657,6 +706,24 @@ class ExFormHelper extends FormHelper {
 			echo "条件に一致する施設がありません。";
 		}
 	}
+
+    /**
+     * 特典・割引(件数).
+     */
+    public function discountSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $discountTable = TableRegistry::get('Discounts');
+        $isRanking = false;
+        $datas = $discountTable->findByMoreNarrow($searchWheres, $isRanking);
+        foreach ($datas as $data) {
+            //	0件は非表示
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            echo "<option value='".$data['discount_id']."'>";
+            echo  $data['name'];
+            echo "</option>";
+        }
+    }
 
 	/**
 	 * その他こだわり条件.
@@ -806,6 +873,25 @@ class ExFormHelper extends FormHelper {
 			echo "条件に一致する施設がありません。";
 		}
 	}
+
+    /**
+     * 価格(<option>).
+     */
+    public function priceSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $priceTable = TableRegistry::get('Prices');
+        $isRanking = false;
+        $datas = $priceTable->findByMoreNarrow($searchWheres, $isRanking);
+
+        foreach ($datas as $data) {
+            //	0件は非表示
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            echo "<option value='".$data['price_id']."'>";
+            echo $data['name'];
+            echo "</option>";
+        }
+    }
 
 	/**
 	 * 性別.
