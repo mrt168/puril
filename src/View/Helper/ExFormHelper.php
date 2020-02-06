@@ -793,6 +793,35 @@ class ExFormHelper extends FormHelper {
 		}
 	}
 
+
+    /**
+     * その他こだわり条件(option).
+     */
+    public function otherConditionSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $ocTable = TableRegistry::get('OtherConditions');
+
+        $isLinkRanking = false;
+        $types = OtherConditionType::valueOf();
+        foreach ($types as $type) {
+            print_r($type);
+            $datas = [];
+            $datas = $ocTable->findByMoreNarrow($type['code'], $searchWheres, $isLinkRanking);
+
+            $datas = $datas->toArray();
+            foreach ($datas as $key=> $data) {
+                //	0件は非表示
+                if ($data['cnt'] <= 0) {
+                    unset($datas[$key]);
+                    continue ;
+                }
+
+                echo "<option value='".$data['price_id']."'>";
+                echo $data['name'];
+                echo "</option>";
+            }
+        }
+    }
+
 	/**
 	 * 価格.
 	 */
@@ -888,6 +917,101 @@ class ExFormHelper extends FormHelper {
                 continue;
             }
             echo "<option value='".$data['price_id']."'>";
+            echo $data['name'];
+            echo "</option>";
+        }
+    }
+
+    /**
+     *  脱毛タイプ(<option>).
+     */
+    public function depilationSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $ocTable = TableRegistry::get('OtherConditions');
+        $isRanking = false;
+        $datas = $ocTable->findByMoreNarrow(1,$searchWheres, $isRanking);
+
+        foreach ($datas as $data) {
+            //	0件は非表示
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            echo "<option value='".$data['other_condition_id']."'>";
+            echo $data['name'];
+            echo "</option>";
+        }
+    }
+
+    /**
+     *  診療科(医療脱毛の場合)(<option>).
+     */
+    public function departmentSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $ocTable = TableRegistry::get('OtherConditions');
+        $isRanking = false;
+        $datas = $ocTable->findByMoreNarrow(2,$searchWheres, $isRanking);
+
+        foreach ($datas as $data) {
+            //	0件は非表示
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            echo "<option value='".$data['other_condition_id']."'>";
+            echo $data['name'];
+            echo "</option>";
+        }
+    }
+
+    /**
+     *  サポート体制(<option>).
+     */
+    public function supportSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $ocTable = TableRegistry::get('OtherConditions');
+        $isRanking = false;
+        $datas = $ocTable->findByMoreNarrow(3,$searchWheres, $isRanking);
+
+        foreach ($datas as $data) {
+            //	0件は非表示
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            echo "<option value='".$data['other_condition_id']."'>";
+            echo $data['name'];
+            echo "</option>";
+        }
+    }
+
+    /**
+     *  予約・受付・キャンセル(<option>).
+     */
+    public function receptionistSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $ocTable = TableRegistry::get('OtherConditions');
+        $isRanking = false;
+        $datas = $ocTable->findByMoreNarrow(4,$searchWheres, $isRanking);
+
+        foreach ($datas as $data) {
+            //	0件は非表示
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            echo "<option value='".$data['other_condition_id']."'>";
+            echo $data['name'];
+            echo "</option>";
+        }
+    }
+
+    /**
+     *  立地・施設(<option>).
+     */
+    public function locationSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+        $ocTable = TableRegistry::get('OtherConditions');
+        $isRanking = false;
+        $datas = $ocTable->findByMoreNarrow(5,$searchWheres, $isRanking);
+
+        foreach ($datas as $data) {
+            //	0件は非表示
+            if ($data['cnt'] <= 0) {
+                continue;
+            }
+            echo "<option value='".$data['other_condition_id']."'>";
             echo $data['name'];
             echo "</option>";
         }

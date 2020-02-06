@@ -13,6 +13,7 @@
           justify-content: space-between;
   padding: 1em 16px; }
   .search-condition .search-condition-text {
+    line-height: 1.5;
     font-size: 13px; }
   .search-condition .button-base.search-condition-change {
     padding: 1em;

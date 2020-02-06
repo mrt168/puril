@@ -85,12 +85,48 @@ echo $this->Html->css('datsumou/search');
                     </select>
                 </div>
             </dd>
-            <dt>その他こだわり</dt>
+            <dt>脱毛タイプ</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="Make[other_condition_id]">
+                    <select name="Make[other_condition_id][]">
                         <option value=""></option>
-                        <?php $this->ExForm->discountSelect('Make.other_condition_id.', null); ?>
+                        <?php $this->ExForm->depilationSelect('Make.other_condition_id.', null); ?>
+                    </select>
+                </div>
+            </dd>
+            <dt>診療料(医療脱毛の場合)</dt>
+            <dd>
+                <div class="Search__select">
+                    <select name="Make[other_condition_id][]">
+                        <option value=""></option>
+                        <?php $this->ExForm->departmentSelect('Make.other_condition_id.', null); ?>
+                    </select>
+                </div>
+            </dd>
+            <dt>サポート体制</dt>
+            <dd>
+                <div class="Search__select">
+                    <select name="Make[other_condition_id][]">
+                        <option value=""></option>
+                        <?php $this->ExForm->supportSelect('Make.other_condition_id.', null); ?>
+                    </select>
+                </div>
+            </dd>
+            <dt>予約・受付・キャンセル</dt>
+            <dd>
+                <div class="Search__select">
+                    <select name="Make[other_condition_id][]">
+                        <option value=""></option>
+                        <?php $this->ExForm->receptionistSelect('Make.other_condition_id.', null); ?>
+                    </select>
+                </div>
+            </dd>
+            <dt>立地・施設</dt>
+            <dd>
+                <div class="Search__select">
+                    <select name="Make[other_condition_id][]">
+                        <option value=""></option>
+                        <?php $this->ExForm->locationSelect('Make.other_condition_id.', null); ?>
                     </select>
                 </div>
             </dd>
@@ -463,7 +499,13 @@ echo $this->Html->css('datsumou/search');
         document.getElementById( "OutputPrice" ).innerHTML = $('[name="Make[price_id]"] option:selected').text() + '&nbsp;';
         document.getElementById( "OutputPayment" ).innerHTML =$('[name="Make[payment_id]"] option:selected').text() + '&nbsp;';
         document.getElementById( "OutputDatsumoutype" ).innerHTML = $('[name="Make[discount_id]"] option:selected').text() + '&nbsp;';
-        document.getElementById( "OutputConsultation" ).innerHTML = $('[name="Make[other_condition_id]"] option:selected').text() + '&nbsp;';
+        var otherText = '';
+        $('[name="Make[other_condition_id][]"] option:selected').each(function(){
+           if($(this).text() != '') {
+               otherText+= $(this).text() + ' ';
+           }
+        });
+        document.getElementById( "OutputConsultation" ).innerHTML = otherText + '&nbsp;';
         // document.getElementById( "OutputSupport" ).innerHTML = $formObject.supportArea.value + '&nbsp;';
         // document.getElementById( "OutputReception" ).innerHTML = $formObject.receptionArea.value + '&nbsp;';
         // document.getElementById( "OutputStation" ).innerHTML = $formObject.stationArea.value + '&nbsp;';
