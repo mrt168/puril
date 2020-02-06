@@ -19,10 +19,10 @@ if (!empty($place)) {
     }
 
     if (!empty($prefNames)) {
-        $placeName = implode('、', $prefNames).'/';
+        $placeName = implode('、', $prefNames).' / ';
     }
 } else {
-    $placeName = "全国/";
+    $placeName = "全国 / ";
 }
 
 // 店舗タイプ
@@ -43,7 +43,7 @@ if (empty($this->request->data['Make']['shop_type'])) {
 $condition = null;
 if (!empty($conditions)) {
 // 	$condition = implode('、', $conditions)."から";
-    $condition = implode('/', $conditions);
+    $condition = '/ '. implode(' / ', $conditions);
 }
 ?>
 <body>
@@ -58,7 +58,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 </header>
 <div class="content search-condition">
     <div class="search-condition-text"><?php echo $placeName;?> <?php echo $shopTypeVal;	?> <?php echo $condition;?></div>
-    <div class="button-base search-condition-change"><a class="plain-link search-condition-change-text" href="/datsumou/search"><i class="fas fa-search search-condition-change-icon"></i>条件変更</a></div>
+    <div class="button-base search-condition-change"><a class="plain-link search-condition-change-text" href="/datsumou/">条件変更</a></div>
 </div>
 <div class="content-base search-shop">
     <ul class="search-shop-list">
