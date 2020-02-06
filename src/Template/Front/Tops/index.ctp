@@ -44,7 +44,7 @@ echo $this->Html->css('datsumou/search');
         <form id="Form">
         <div class="Search__kodawari__header">
             <input type="text" name="Area" placeholder="エリア、駅名入力" value="" class="input">
-            <button class="arw"><i class="fas fa-chevron-circle-right"></i></button>
+            <div class="arw"><i class="fas fa-chevron-circle-right"></i></div>
         </div>
         <dl class="Search__kodawari__list">
             <dt>脱毛部位</dt>
@@ -136,6 +136,7 @@ echo $this->Html->css('datsumou/search');
                 </div>
             </dd>
         </dl>
+        </form>
         <dl id="" class="Search__kodawari__selected">
             <dt>現在設定している条件</dt>
             <dd id="Output"><span id="OutputArea"></span><span id="OutputDatsumouparts"></span><span id="OutputPrice"></span><span id="OutputPayment"></span><span id="OutputDatsumoutype"></span><span id="OutputConsultation"></span><span id="OutputSupport"></span><span id="OutputReception"></span><span id="OutputStation"></span></dd>
@@ -144,7 +145,7 @@ echo $this->Html->css('datsumou/search');
             <button type="reset" id="clear" class="Search__kodawari__btn" data-type="clear">クリア</button>
             <button class="Search__kodawari__btn" data-type="search">検索</button>
         </div>
-    </form>
+    
         <div class="Search__kodawari__ranking"><a href=""><i class="fas fa-crown"></i>ランキングで検索する</a></div>
     </div>
     <div class="Search__breadcrumbs">
@@ -494,41 +495,48 @@ echo $this->element('Front/footer') ?>
             $('.top-main').show()
         })
         $(Search__kodawari__btn)
-    })
+    });
     window.onload = function () {
-        getValue();
         var $formObject = document.getElementById( "Form" );
-        for( var $i = 0; $i < $formObject.length; $i++ ) {
-            $formObject.elements[$i].onkeyup = function(){
-                getValue();
-            };
-            $formObject.elements[$i].onchange = function(){
-                getValue();
-            };
-        }
+        $formObject.elements[0].onchange = function(){
+            document.getElementById( "OutputArea" ).innerHTML = $formObject.Area.value + '&nbsp;';
+        };
+        $formObject.elements[1].onchange = function(){
+            document.getElementById( "OutputDatsumouparts" ).innerHTML = $formObject.datsumoupartsArea.value + '&nbsp;';
+        };
+        $formObject.elements[2].onchange = function(){
+            document.getElementById( "OutputPrice" ).innerHTML = $formObject.priceArea.value + '&nbsp;';
+        };
+        $formObject.elements[3].onchange = function(){
+            document.getElementById( "OutputPayment" ).innerHTML = $formObject.paymentArea.value + '&nbsp;';
+        };
+        $formObject.elements[4].onchange = function(){
+            document.getElementById( "OutputDatsumoutype" ).innerHTML = $formObject.datsumoutypeArea.value + '&nbsp;';
+        };
+        $formObject.elements[5].onchange = function(){
+            document.getElementById( "OutputConsultation" ).innerHTML = $formObject.consultationArea.value + '&nbsp;';
+        };
+        $formObject.elements[6].onchange = function(){
+            document.getElementById( "OutputSupport" ).innerHTML = $formObject.supportArea.value + '&nbsp;';
+        };
+        $formObject.elements[7].onchange = function(){
+            document.getElementById( "OutputReception" ).innerHTML = $formObject.receptionArea.value + '&nbsp;';
+        };
+        $formObject.elements[8].onchange = function(){
+            document.getElementById( "OutputStation" ).innerHTML = $formObject.stationArea.value + '&nbsp;';
+        };
+        document.getElementById("clear").onclick = function() {
+            document.getElementById( "OutputArea" ).innerHTML = "";
+            document.getElementById( "OutputDatsumouparts" ).innerHTML = "";
+            document.getElementById( "OutputPrice" ).innerHTML = "";
+            document.getElementById( "OutputPayment" ).innerHTML = "";
+            document.getElementById( "OutputDatsumoutype" ).innerHTML = "";
+            document.getElementById( "OutputConsultation" ).innerHTML = "";
+            document.getElementById( "OutputSupport" ).innerHTML = "";
+            document.getElementById( "OutputReception" ).innerHTML = "";
+            document.getElementById( "OutputStation" ).innerHTML = "";
+            document.getElementById("Form").reset();
+        };
     }
-    function getValue() {
-        var $formObject = document.getElementById( "Form" );
-        document.getElementById( "OutputArea" ).innerHTML = $formObject.Area.value + '&nbsp;';
-        document.getElementById( "OutputDatsumouparts" ).innerHTML = $formObject.datsumoupartsArea.value + '&nbsp;';
-        document.getElementById( "OutputPrice" ).innerHTML = $formObject.priceArea.value + '&nbsp;';
-        document.getElementById( "OutputPayment" ).innerHTML = $formObject.paymentArea.value;
-        document.getElementById( "OutputDatsumoutype" ).innerHTML = $formObject.datsumoutypeArea.value + '&nbsp;';
-        document.getElementById( "OutputConsultation" ).innerHTML = $formObject.consultationArea.value + '&nbsp;';
-        document.getElementById( "OutputSupport" ).innerHTML = $formObject.supportArea.value + '&nbsp;';
-        document.getElementById( "OutputReception" ).innerHTML = $formObject.receptionArea.value + '&nbsp;';
-        document.getElementById( "OutputStation" ).innerHTML = $formObject.stationArea.value + '&nbsp;';
-    }
-    document.getElementById("clear").onclick = function() {
-        document.getElementById( "OutputArea" ).innerHTML = "";
-        document.getElementById( "OutputDatsumouparts" ).innerHTML = "";
-        document.getElementById( "OutputPrice" ).innerHTML = "";
-        document.getElementById( "OutputPayment" ).innerHTML = "";
-        document.getElementById( "OutputDatsumoutype" ).innerHTML = "";
-        document.getElementById( "OutputConsultation" ).innerHTML = "";
-        document.getElementById( "OutputSupport" ).innerHTML = "";
-        document.getElementById( "OutputReception" ).innerHTML = "";
-        document.getElementById( "OutputStation" ).innerHTML = "";
-    };
 </script>
 </body>
