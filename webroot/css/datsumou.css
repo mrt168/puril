@@ -603,7 +603,7 @@ body {
 .datsumou-area__list > li:nth-child(2) a::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  content: "\f007";
+  /* content: "\f007"; */
 }
 
 .datsumou-area__list > li:nth-child(3) a::before {

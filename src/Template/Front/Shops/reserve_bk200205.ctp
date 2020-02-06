@@ -239,7 +239,7 @@ echo $this->Html->script(
     </div>
     <div class="reserve-subquestion">
         <div class="reserve-input">
-            <div class="reserve-input-parent pt-10">
+            <div class="reserve-input-parent">
                 <div class="reserve-input-child">
                     <label class="reserve-subquestion-text">せい<div class="reserve-tag reserve-tag-required">必須</div></label>
                     <input type="text" id="last_kana" name="last_kana" placeholder="やまだ" required>
@@ -251,7 +251,7 @@ echo $this->Html->script(
             </div>
         </div>
     </div>
-    <div class="reserve-subquestion pt-20">
+    <div class="reserve-subquestion">
         <div class="reserve-subquestion-first">
             <div class="reserve-subquestion-text">性別</div>
             <div class="reserve-tag reserve-tag-required">必須</div>
@@ -270,7 +270,7 @@ echo $this->Html->script(
         </div>
     </div>
     <div class="reserve-subquestion">
-        <div class="reserve-subquestion-text-top reserve-subquestion-text pt-15">生年月日<div class="reserve-tag reserve-tag-required">必須</div></div>
+        <div class="reserve-subquestion-text-top reserve-subquestion-text">生年月日<div class="reserve-tag reserve-tag-required">必須</div></div>
         <div class="reserve-input">
             <div class="reserve-input-born">
                 <div class="reserve-input-born-common reserve-input-year">
@@ -467,7 +467,7 @@ echo $this->Html->script(
         <div class="reserve-step reserve-step-other">
             <div class="reserve-step-1st">
                 <div class="reserve-subquestion">
-                    <div class="reserve-subquestion-first pt-20">
+                    <div class="reserve-subquestion-first">
                         <div class="reserve-subquestion-first-step">STEP1</div>
                         <div class="reserve-subquestion-text reserve-subquestion-first-text">利用人数</div>
                     </div>
@@ -498,7 +498,7 @@ echo $this->Html->script(
                     </div>
                 </div>
             </div>
-            <div class="reserve-step-2nd pt-20">
+            <div class="reserve-step-2nd">
                 <div class="reserve-subquestion">
                     <div class="reserve-subquestion-first">
                         <div class="reserve-subquestion-first-step">STEP2</div>
@@ -524,7 +524,7 @@ echo $this->Html->script(
                     </div>
                 </div>
             </div>
-            <div class="reserve-step-3rd pt-20">
+            <div class="reserve-step-3rd">
                 <div class="reserve-subquestion">
                     <div class="reserve-subquestion-first">
                         <div class="reserve-subquestion-first-step">STEP3</div>
@@ -550,7 +550,7 @@ echo $this->Html->script(
                     </div>
                 </div>
             </div>
-            <div class="reserve-step-4th pt-20">
+            <div class="reserve-step-4th">
                 <div class="reserve-subquestion">
                     <div class="reserve-subquestion-first">
                         <div class="reserve-subquestion-first-step">STEP4</div>

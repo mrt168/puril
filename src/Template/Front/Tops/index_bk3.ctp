@@ -41,107 +41,99 @@ echo $this->Html->css('datsumou/search');
         </div>
     </header>
     <div class="Search__contents">
-        <form id="Form">
         <div class="Search__kodawari__header">
-            <input type="text" name="Area" placeholder="エリア、駅名入力" value="" class="input">
+            <input type="text" name="" placeholder="エリア、駅名入力" class="input">
             <button class="arw"><i class="fas fa-chevron-circle-right"></i></button>
         </div>
+        <form>
         <dl class="Search__kodawari__list">
             <dt>脱毛部位</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="datsumoupartsArea">
-                        <option value=""></option>
-                        <option value="眉毛脱毛">眉毛脱毛</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                    <select>
+                        <option>眉毛脱毛</option>
+                        <option>テキスト</option>
+                        <option>テキスト</option>
                     </select>
                 </div>
             </dd>
             <dt>価格</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="priceArea">
-                        <option value=""></option>
-                        <option value="安い・低価格">安い・低価格</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                    <select>
+                        <option>安い・低価格</option>
+                        <option>テキスト</option>
+                        <option>テキスト</option>
                     </select>
                 </div>
             </dd>
             <dt>支払い方法</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="paymentArea">
-                        <option value=""></option>
-                        <option value="現金可">現金可</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                    <select>
+                        <option>現金可</option>
+                        <option>テキスト</option>
+                        <option>テキスト</option>
                     </select>
                 </div>
             </dd>
             <dt>脱毛タイプ</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="datsumoutypeArea">
-                        <option value=""></option>
-                        <option value="メンズ脱毛">メンズ脱毛</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                    <select>
+                        <option>メンズ脱毛</option>
+                        <option>テキスト</option>
+                        <option>テキスト</option>
                     </select>
                 </div>
             </dd>
             <dt>診療料(医療脱毛の場合)</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="consultationArea">
-                        <option value=""></option>
-                        <option value="皮膚科">皮膚科</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                    <select>
+                        <option>皮膚科</option>
+                        <option>テキスト</option>
+                        <option>テキスト</option>
                     </select>
                 </div>
             </dd>
             <dt>サポート体制</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="supportArea">
-                        <option value=""></option>
-                        <option value="アフターケアつき">アフターケアつき</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                    <select>
+                        <option>アフターケアつき</option>
+                        <option>テキスト</option>
+                        <option>テキスト</option>
                     </select>
                 </div>
             </dd>
             <dt>予約・受付・キャンセル</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="receptionArea">
-                        <option value=""></option>
-                        <option value="年中無休">年中無休</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                    <select>
+                        <option>年中無休</option>
+                        <option>テキスト</option>
+                        <option>テキスト</option>
                     </select>
                 </div>
             </dd>
             <dt>立地・施設</dt>
             <dd>
                 <div class="Search__select">
-                    <select name="stationArea">
-                        <option value=""></option>
-                        <option value="駅チカ">駅チカ</option>
-                        <option value="テキスト">テキスト</option>
-                        <option value="テキスト">テキスト</option>
+                    <select>
+                        <option>駅チカ</option>
+                        <option>テキスト</option>
+                        <option>テキスト</option>
                     </select>
                 </div>
             </dd>
         </dl>
-        <dl id="" class="Search__kodawari__selected">
+        <dl class="Search__kodawari__selected">
             <dt>現在設定している条件</dt>
-            <dd id="Output"><span id="OutputArea"></span><span id="OutputDatsumouparts"></span><span id="OutputPrice"></span><span id="OutputPayment"></span><span id="OutputDatsumoutype"></span><span id="OutputConsultation"></span><span id="OutputSupport"></span><span id="OutputReception"></span><span id="OutputStation"></span></dd>
+            <dd>東京 新宿、キレイモ 、眉毛脱毛、安い・低価格、現金可、メンズ脱毛、皮膚科、アフターケアつき、年中無休、駅チカ</dd>
         </dl>
         <div class="Search__kodawari__btns">
-            <button type="reset" id="clear" class="Search__kodawari__btn" data-type="clear">クリア</button>
+            <button type="reset" class="Search__kodawari__btn" data-type="clear">クリア</button>
             <button class="Search__kodawari__btn" data-type="search">検索</button>
         </div>
     </form>
@@ -493,42 +485,6 @@ echo $this->element('Front/footer') ?>
             $('.Search').removeClass('active')
             $('.top-main').show()
         })
-        $(Search__kodawari__btn)
     })
-    window.onload = function () {
-        getValue();
-        var $formObject = document.getElementById( "Form" );
-        for( var $i = 0; $i < $formObject.length; $i++ ) {
-            $formObject.elements[$i].onkeyup = function(){
-                getValue();
-            };
-            $formObject.elements[$i].onchange = function(){
-                getValue();
-            };
-        }
-    }
-    function getValue() {
-        var $formObject = document.getElementById( "Form" );
-        document.getElementById( "OutputArea" ).innerHTML = $formObject.Area.value + '&nbsp;';
-        document.getElementById( "OutputDatsumouparts" ).innerHTML = $formObject.datsumoupartsArea.value + '&nbsp;';
-        document.getElementById( "OutputPrice" ).innerHTML = $formObject.priceArea.value + '&nbsp;';
-        document.getElementById( "OutputPayment" ).innerHTML = $formObject.paymentArea.value;
-        document.getElementById( "OutputDatsumoutype" ).innerHTML = $formObject.datsumoutypeArea.value + '&nbsp;';
-        document.getElementById( "OutputConsultation" ).innerHTML = $formObject.consultationArea.value + '&nbsp;';
-        document.getElementById( "OutputSupport" ).innerHTML = $formObject.supportArea.value + '&nbsp;';
-        document.getElementById( "OutputReception" ).innerHTML = $formObject.receptionArea.value + '&nbsp;';
-        document.getElementById( "OutputStation" ).innerHTML = $formObject.stationArea.value + '&nbsp;';
-    }
-    document.getElementById("clear").onclick = function() {
-        document.getElementById( "OutputArea" ).innerHTML = "";
-        document.getElementById( "OutputDatsumouparts" ).innerHTML = "";
-        document.getElementById( "OutputPrice" ).innerHTML = "";
-        document.getElementById( "OutputPayment" ).innerHTML = "";
-        document.getElementById( "OutputDatsumoutype" ).innerHTML = "";
-        document.getElementById( "OutputConsultation" ).innerHTML = "";
-        document.getElementById( "OutputSupport" ).innerHTML = "";
-        document.getElementById( "OutputReception" ).innerHTML = "";
-        document.getElementById( "OutputStation" ).innerHTML = "";
-    };
 </script>
 </body>

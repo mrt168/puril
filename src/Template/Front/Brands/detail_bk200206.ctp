@@ -7,61 +7,8 @@ use App\Vendor\Code\Pref;
 use App\Vendor\URLUtil;
 use App\Vendor\Code\DepilationType;
 use App\Vendor\Code\Sex;
-use App\Vendor\Code\ImageType;
-use App\Vendor\Code\ImagePositionType;
-?>
-<?php
-echo $this->Html->css('datsumou');
-echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/brand/common', 'datsumou/brand/index']);
 ?>
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMXTyYIMqJTZPtem60iMfu3ZKYn3Nj0wI"></script>
-<!-- <?php var_dump($brand);?>-->
-<header class="brand-header">
-      <div class="brand-header-inner"><a class="brand-header-back" href="/datsumou/"><i class="fas fa-chevron-left"></i></a>
-        <div class="brand-header-title"><?=$brand['name']?></div>
-        <div class="brand-header-void"></div>
-      </div>
-    </header>
-<nav class="content-base brand-breadcrumbs">
-      <ul class="brand-breadcrumbs-list">
-        <li><a href="<?=Router::url('/')?>">Purilトップ</a></li>
-        <li><?php echo $this->Html->link("<span>店舗名から探す</span>", ['controller'=> 'brands'], ['escape'=> false])?></li>
-        <li><?=$brand['name']?></li>
-      </ul>
-    </nav>
-<nav class="content brand-nav">
-      <div class="brand-nav-item active"><a class="brand-nav-item-text" href="/datsumou/brand/">トップ</a></div>
-      <div class="brand-nav-item"><a class="brand-nav-item-text" href="/datsumou/brand/#">料金プラン</a></div>
-      <div class="brand-nav-item"><a class="brand-nav-item-text" href="/datsumou/brand/#">脱毛部位</a></div>
-      <div class="brand-nav-item"><a class="brand-nav-item-text" href="/datsumou/brand/#">口コミ</a></div>
-      <div class="brand-nav-item"><a class="brand-nav-item-text" href="/datsumou/brand/#">キャンペーン</a></div>
-      <div class="brand-nav-item"><a class="brand-nav-item-text" href="/datsumou/brand/#">運営店舗</a></div>
-    </nav>
-<section class="content brand-top">
-      <div class="brand-top-img-area">
-        <div class="brand-top-img-base">
-                                <?php //保留
-                                if(!empty($brand['image_path'])) {
-                                    ?>
-                                        <?php echo $this->Html->image(['controller'=> 'images', 'action'=> 'brandImage', $brand['brand_id']], ['alt'=> ''])?>
-                                    <?php  }?>
-      </div>
-      <div class="brand-top-desc-area">
-        <div class="brand-top-desc-category"><?=$this->Html->link(ShopType::convert($brand['shop_type'],CodePattern::$VALUE), ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($brand['shop_type'],CodePattern::$VALUE2)]);?></div>
-        <div class="brand-top-desc-middle">
-          <div class="brand-top-desc-review">
-            <div class="shop-star-area">
-              <div class="shop-star"><img src="/img/star-on.png"><img src="/img/star-on.png"><img src="/img/star-on.png"><img src="/img/star-off.png"><img src="/img/star-off.png">
-              </div>
-              <div class="shop-point">4.6</div>
-            </div>
-            <div class="shop-comment-area"><i class="shop-comment-icon fas fa-comments"></i>
-              <div class="shop-comment-count">142件</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 <div class="ShopDetail">
     <div id="bread">
         <div class="inner cf">

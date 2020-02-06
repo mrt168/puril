@@ -498,10 +498,9 @@
 
 .price_list {
   line-height: 18px;
-  margin-top: 15px;
   font-size: 12px;
-  margin-left: -15px;
-  margin-right: -15px;
+  margin: 15px -15px 0 -15px;
+  width: calc(100% + 30px);
 }
 
 .price_list th {
@@ -526,9 +525,6 @@
     border: solid 1px #EEECE4;
     padding: 10px;
     vertical-align: middle;
-}
-.price_list tbody {
-    display: block;
 }
 
 .shop-share {
