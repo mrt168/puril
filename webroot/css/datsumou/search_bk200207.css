@@ -345,11 +345,8 @@
   font-size: 12px;
 }
 .Search__kodawari__selected dd {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   margin: 0;
-  padding: 0 15px;
+  padding: 19px 15px;
   min-height: 58px;
   background: #fbf9f7;
   border-radius: 4px;
