@@ -478,7 +478,6 @@ echo $this->Html->css('datsumou/search');
             $('.Search').removeClass('active')
             $('.top-main').show()
         })
-        $(Search__kodawari__btn)
     });
     window.onload = function () {
         var $formObject = document.getElementById( "Form" );

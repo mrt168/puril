@@ -11,13 +11,17 @@
      -moz-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  align-items: center;
   padding: 1em 16px; }
   .search-condition .search-condition-text {
     line-height: 1.5;
+    width: calc( 100% - 110px );
     font-size: 13px; }
   .search-condition .button-base.search-condition-change {
     padding: 1em;
-    background-color: #82AE25; }
+    background-color: #82AE25;
+  width: 100px;
+  }
     .search-condition .button-base.search-condition-change .search-condition-change-text {
       padding-left: .5em; }
 

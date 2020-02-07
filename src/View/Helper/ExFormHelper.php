@@ -497,31 +497,22 @@ class ExFormHelper extends FormHelper {
     /**
      * 脱毛部位(件数)
      */
-    public function depilationSiteSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function depilationSiteSelect($name,$now_id) {
         $dsTable = TableRegistry::get('DepilationSites');
-// 		$datas = $dsTable->findByMoreNarrow($searchWheres, $baseUrl);
-
         $isRanking = false;
-        if (empty($baseUrl)) {
-            $baseUrl = URLUtil::SEARCH;
-        } else if ($baseUrl == URLUtil::RANKING) {
-            $isRanking = true;
-        }
-
-        $datas = $dsTable->findByMoreNarrow($searchWheres, $isRanking);
-
-        $placeUrls = [];
-        $this->getPlaceUrl($placeUrls, $searchWheres);
+        $datas = $dsTable->findByMoreNarrow(null, $isRanking);
 
         foreach ($datas as $data) {
-            if ($data['cnt'] <= 0) {
-                continue;
-            }
             ?>
-
-            <option value="<?php echo $data['depilation_site_id'];?>"><?php echo $data['name']?></option>
             <?php
 
+            if($now_id && in_array($data['depilation_site_id'], $now_id)) {
+                echo "<option selected value='".$data['depilation_site_id']."'>";
+            } else {
+                echo "<option value='".$data['depilation_site_id']."'>";
+            }
+            echo  $data['name'];
+            echo "</option>";
         }
     }
 
@@ -610,16 +601,17 @@ class ExFormHelper extends FormHelper {
     /**
      * 支払方法(option).
      */
-    public function paymentSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function paymentSelect($name,$now_id) {
         $paymentTable = TableRegistry::get('Payments');
         $isRanking = false;
-        $datas = $paymentTable->findByMoreNarrow($searchWheres, $isRanking);
+        $datas = $paymentTable->findByMoreNarrow(null, $isRanking);
         foreach ($datas as $data) {
-            //	0件は非表示
-            if ($data['cnt'] <= 0) {
-                continue;
+
+			if($now_id && in_array($data['payment_id'], $now_id)) {
+                echo "<option selected value='".$data['payment_id']."'>";
+            } else {
+                echo "<option value='".$data['payment_id']."'>";
             }
-            echo "<option value='".$data['payment_id']."'>";
             echo  $data['name'];
             echo "</option>";
         }
@@ -710,16 +702,17 @@ class ExFormHelper extends FormHelper {
     /**
      * 特典・割引(件数).
      */
-    public function discountSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function discountSelect($name,$now_id) {
         $discountTable = TableRegistry::get('Discounts');
         $isRanking = false;
-        $datas = $discountTable->findByMoreNarrow($searchWheres, $isRanking);
+        $datas = $discountTable->findByMoreNarrow(null, $isRanking);
         foreach ($datas as $data) {
-            //	0件は非表示
-            if ($data['cnt'] <= 0) {
-                continue;
+
+			if($now_id && in_array($data['discount_id'], $now_id)) {
+                echo "<option selected value='".$data['discount_id']."'>";
+            } else {
+                echo "<option value='".$data['discount_id']."'>";
             }
-            echo "<option value='".$data['discount_id']."'>";
             echo  $data['name'];
             echo "</option>";
         }
@@ -906,17 +899,18 @@ class ExFormHelper extends FormHelper {
     /**
      * 価格(<option>).
      */
-    public function priceSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function priceSelect($name,$now_id) {
         $priceTable = TableRegistry::get('Prices');
         $isRanking = false;
-        $datas = $priceTable->findByMoreNarrow($searchWheres, $isRanking);
+        $datas = $priceTable->findByMoreNarrow(null, $isRanking);
 
         foreach ($datas as $data) {
-            //	0件は非表示
-            if ($data['cnt'] <= 0) {
-                continue;
+
+			if($now_id && in_array($data['price_id'], $now_id)) {
+                echo "<option selected value='".$data['price_id']."'>";
+            } else {
+                echo "<option value='".$data['price_id']."'>";
             }
-            echo "<option value='".$data['price_id']."'>";
             echo $data['name'];
             echo "</option>";
         }
@@ -925,17 +919,18 @@ class ExFormHelper extends FormHelper {
     /**
      *  脱毛タイプ(<option>).
      */
-    public function depilationSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function depilationSelect($name,$now_id) {
         $ocTable = TableRegistry::get('OtherConditions');
         $isRanking = false;
-        $datas = $ocTable->findByMoreNarrow(1,$searchWheres, $isRanking);
+        $datas = $ocTable->findByMoreNarrow(1,null, $isRanking);
 
         foreach ($datas as $data) {
-            //	0件は非表示
-            if ($data['cnt'] <= 0) {
-                continue;
+
+			if($now_id && in_array($data['other_condition_id'], $now_id)) {
+                echo "<option selected value='".$data['other_condition_id']."'>";
+            } else {
+                echo "<option value='".$data['other_condition_id']."'>";
             }
-            echo "<option value='".$data['other_condition_id']."'>";
             echo $data['name'];
             echo "</option>";
         }
@@ -944,17 +939,18 @@ class ExFormHelper extends FormHelper {
     /**
      *  診療科(医療脱毛の場合)(<option>).
      */
-    public function departmentSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function departmentSelect($name,$now_id) {
         $ocTable = TableRegistry::get('OtherConditions');
         $isRanking = false;
-        $datas = $ocTable->findByMoreNarrow(2,$searchWheres, $isRanking);
+        $datas = $ocTable->findByMoreNarrow(2,null, $isRanking);
 
         foreach ($datas as $data) {
-            //	0件は非表示
-            if ($data['cnt'] <= 0) {
-                continue;
+
+			if($now_id && in_array($data['other_condition_id'], $now_id)) {
+                echo "<option selected value='".$data['other_condition_id']."'>";
+            } else {
+                echo "<option value='".$data['other_condition_id']."'>";
             }
-            echo "<option value='".$data['other_condition_id']."'>";
             echo $data['name'];
             echo "</option>";
         }
@@ -963,17 +959,17 @@ class ExFormHelper extends FormHelper {
     /**
      *  サポート体制(<option>).
      */
-    public function supportSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function supportSelect($name,$now_id) {
         $ocTable = TableRegistry::get('OtherConditions');
         $isRanking = false;
-        $datas = $ocTable->findByMoreNarrow(3,$searchWheres, $isRanking);
+        $datas = $ocTable->findByMoreNarrow(3,null, $isRanking);
 
         foreach ($datas as $data) {
-            //	0件は非表示
-            if ($data['cnt'] <= 0) {
-                continue;
+			if($now_id && in_array($data['other_condition_id'], $now_id)) {
+                echo "<option selected value='".$data['other_condition_id']."'>";
+            } else {
+                echo "<option value='".$data['other_condition_id']."'>";
             }
-            echo "<option value='".$data['other_condition_id']."'>";
             echo $data['name'];
             echo "</option>";
         }
@@ -982,17 +978,17 @@ class ExFormHelper extends FormHelper {
     /**
      *  予約・受付・キャンセル(<option>).
      */
-    public function receptionistSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function receptionistSelect($name,$now_id) {
         $ocTable = TableRegistry::get('OtherConditions');
         $isRanking = false;
-        $datas = $ocTable->findByMoreNarrow(4,$searchWheres, $isRanking);
+        $datas = $ocTable->findByMoreNarrow(4,null, $isRanking);
 
         foreach ($datas as $data) {
-            //	0件は非表示
-            if ($data['cnt'] <= 0) {
-                continue;
+			if($now_id && in_array($data['other_condition_id'], $now_id)) {
+                echo "<option selected value='".$data['other_condition_id']."'>";
+            } else {
+                echo "<option value='".$data['other_condition_id']."'>";
             }
-            echo "<option value='".$data['other_condition_id']."'>";
             echo $data['name'];
             echo "</option>";
         }
@@ -1001,17 +997,17 @@ class ExFormHelper extends FormHelper {
     /**
      *  立地・施設(<option>).
      */
-    public function locationSelect($name, $array = array(), $isLink = true, $searchWheres = null, $baseUrl = null) {
+    public function locationSelect($name,$now_id) {
         $ocTable = TableRegistry::get('OtherConditions');
         $isRanking = false;
-        $datas = $ocTable->findByMoreNarrow(5,$searchWheres, $isRanking);
+        $datas = $ocTable->findByMoreNarrow(5,null, $isRanking);
 
         foreach ($datas as $data) {
-            //	0件は非表示
-            if ($data['cnt'] <= 0) {
-                continue;
+			if($now_id && in_array($data['other_condition_id'], $now_id)) {
+                echo "<option selected value='".$data['other_condition_id']."'>";
+            } else {
+                echo "<option value='".$data['other_condition_id']."'>";
             }
-            echo "<option value='".$data['other_condition_id']."'>";
             echo $data['name'];
             echo "</option>";
         }
