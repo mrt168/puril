@@ -7,7 +7,7 @@ use Cake\Routing\Router;
 <?php
 echo $this->Html->css(['css/main', 'css/search']);
 ?>
-<div class="Search"><!-- test -->
+<div class="Search">
     <header class="Search__header">
         <div class="Search__header__inner">
             <a href="#" class="Search__header__back"><i class="fas fa-chevron-left"></i></a>

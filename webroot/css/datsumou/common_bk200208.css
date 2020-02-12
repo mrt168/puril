@@ -61,7 +61,7 @@
   color: #1DA1F2; }
 
 .content-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold; }
 
 .show-more {
@@ -156,9 +156,7 @@
             transform: translateY(-50%);
     color: #B5B5B5; }
 
-.datsumou-footer {
-      /*padding: 1em 16px;*/
-}
+.datsumou-footer {}
   .datsumou-footer .datsumou-footer-list {
     display: -webkit-box;
     display: -webkit-flex;
@@ -167,11 +165,9 @@
     display: flex;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 1em 16px;
-    }
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
     .datsumou-footer .datsumou-footer-list .datsumou-footer-item.active {
       color: #6AADBF; }
     .datsumou-footer .datsumou-footer-list .datsumou-footer-item {

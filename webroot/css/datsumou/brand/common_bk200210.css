@@ -1,0 +1,100 @@
+.brand-header {
+  background-color: #ffffff; }
+  .brand-header .brand-header-inner {
+    padding: 0 16px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 45px;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .brand-header .brand-header-inner .brand-header-back {
+      font-size: 16px; }
+    .brand-header .brand-header-inner .brand-header-title {
+      font-size: 16px;
+      font-weight: bold; }
+
+.brand-nav {
+  height: 45px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .brand-nav .brand-nav-item {
+    width: 100%;
+    line-height: 45px;
+    text-align: center;
+    font-weight: bold;
+    color: #595960; }
+    .brand-nav .brand-nav-item .brand-nav-item-text {
+      text-decoration: none;
+      color: inherit; }
+  .brand-nav .brand-nav-item.active {
+    border-bottom: 4px solid #6AADBF;
+    color: #6AADBF; }
+
+.brand-breadcrumbs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em 16px;
+  border-top: 1px solid #E0DCCC;
+  border-bottom: 1px solid #E0DCCC; }
+  .brand-breadcrumbs .home-icon {
+    color: #B5B5B5; }
+  .brand-breadcrumbs ul.brand-breadcrumbs-list li {
+    display: inline;
+    list-style: none; }
+    .brand-breadcrumbs ul.brand-breadcrumbs-list li a {
+      text-decoration: none;
+      color: inherit; }
+  .brand-breadcrumbs ul.brand-breadcrumbs-list li:after {
+    content: '>';
+    padding: 0 .5em;
+    color: #B5B5B5; }
+  .brand-breadcrumbs ul.brand-breadcrumbs-list li:last-child:after {
+    content: ''; }
+
+.brand-footer-kuchikomi-button-wrap {
+  display: block;
+  -webkit-box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: .5em; }
+  .brand-footer-kuchikomi-button-wrap .brand-footer-kuchikomi-button {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-items: center;
+    padding: 1em 3em;
+    background-color: #DD67A0;
+    color: #ffffff;
+    border-radius: .5em;
+    -webkit-box-shadow: 2px 2px white;
+            box-shadow: 2px 2px white; }
+    .brand-footer-kuchikomi-button-wrap .brand-footer-kuchikomi-button .brand-footer-kuchikomi-text {
+      padding-left: .5em; }

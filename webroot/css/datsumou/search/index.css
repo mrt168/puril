@@ -63,6 +63,8 @@
         display: flex; }
     .search-shop .search-shop-list .search-shop-item .search-shop-title-sub {
       padding: 0 16px 1em 16px; }
+    .search-shop .search-shop-list .search-shop-item .search-shop-title-sub > a {
+      color: #595960 ; }
     .search-shop .search-shop-list .search-shop-item .search-shop-photo-area {
       display: -webkit-box;
       display: -webkit-flex;

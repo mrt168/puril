@@ -13,15 +13,11 @@
     .brand-top .brand-top-img-area .brand-top-img-base .brand-top-img {
       opacity: .95;
       width: 100%;
-      display: block;
-      height: 233px;
-      object-fit: cover;  }
+      display: block; }
 
 .brand-top .brand-top-desc-area {
-  padding: 10px 1.25em;
-  color: #595960;
-  border-bottom: 1px solid #e1ddcc;
-   }
+  padding: 1.25em;
+  color: #595960; }
   .brand-top .brand-top-desc-area .brand-top-desc-middle {
     padding-top: 1em;
     display: -webkit-box;
@@ -68,67 +64,26 @@
         border: 1px solid #E0DCCC; }
 
 .brand-info {
-  padding: 1.25em;
-  position: relative;
-  border-bottom: 1px solid #e1ddcc;
-  border-top: 1px solid #e1ddcc;}
+  padding: 1.5em 16px;
+  position: relative; }
   .brand-info .content-feature {
     position: absolute;
-    top: 0.6em;
+    top: 1em;
     right: 16px;
     font-size: 14px;
     font-weight: bold;
-    color: #0065CC;
-    }
+    color: #0065CC; }
     .brand-info .content-feature .content-feature-large {
       font-size: 18px; }
   .brand-info .content-title-sub {
     padding-top: 1.5em;
     font-size: 14px;
-    font-weight: bold;
-    line-height: 18px;
-    }
+    font-weight: bold; }
   .brand-info .content-text {
-    padding-top: 10px;
-    }
-.brand-plan {
-  padding: 1.5em 15px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc;}
+    padding-top: 1em; }
+
 .brand-plan .content-title {
-  padding-left: 1px; }
-  .price_list {
-  line-height: 18px;
-  font-size: 12px;
-  margin: 15px -15px 0 -15px;
-  width: calc(100% + 30px);
-}
-
-.price_list th {
-    width: 24%;
-    background-color: #F9F7F5;
-    border: solid 1px #EEECE4;
-    border-right: none;
-    padding: 10px;
-    text-align: center; vertical-align: middle;
-    font-size: 11px;
-    line-height: 1.4;
-}
-
-.price_list .price {
-    width: 27.5%;
-    border: solid 1px #EEECE4;
-    border-right: none;
-    padding: 10px;
-    text-align: center; vertical-align: middle;
-}
-
-.price_list td {
-    width: 48%;
-    border: solid 1px #EEECE4;
-    padding: 10px;
-    vertical-align: middle;
-}
+  padding: 1em 16px 0.25em 16px; }
 
 .brand-plan .brand-plan-line .brand-plan-line-item-wrap .brand-plan-line-item:not(:last-child) {
   border-bottom: 2px solid #F9F7F5; }
@@ -182,29 +137,22 @@
       color: #B5B5B5; }
 
 .brand-datsumou {
-  padding: 15px 16px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc; }
+  padding: 1.5em 16px; }
   .brand-datsumou .brand-part-list {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
     -webkit-box-pack: justify;
-    -webkit-justify-content: flex-start;
+    -webkit-justify-content: space-between;
        -moz-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: flex-start;
-    padding-top: 1em;
-  flex-wrap: wrap;
-    width: calc( 100% + 10px);
-    margin-left: -5px; }
+            justify-content: space-between;
+    padding-top: 1em; }
     .brand-datsumou .brand-part-list .brand-part-common {
-       width: calc( 33% - 10px );
+      width: 100%;
       padding: .25em 1em;
-      margin: 5px 5px 0;
       text-align: center; }
     .brand-datsumou .brand-part-list .brand-part-common:not(:first-child) {
       margin-left: 1em; }
@@ -213,11 +161,6 @@
       border-radius: .25em; }
     .brand-datsumou .brand-part-list .brand-part-none {
       background-color: #F9F7F5; }
-
-.brand-kuchikomi {
-    border-top: 1px solid #e1ddcc;
-    border-bottom: 1px solid #e1ddcc;
-}
 
 .brand-kuchikomi .content-title {
   padding: 1em 16px; }
@@ -241,9 +184,9 @@
   border-bottom: 1px solid #E0DCCC; }
 
 .brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-title {
-  padding: 1em 16px;
-    font-size: 14px;
-    font-weight: bold;}
+  padding: 1em 16px 0 16px;
+  font-size: 14px;
+  font-weight: bold; }
 
 .brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-title-sub {
   padding: 1em 16px;
@@ -253,8 +196,8 @@
   padding: 0em 16px; }
 
 .brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-month {
-   padding: 0 16px 1em 16px;
-  color: #B5B5B5;}
+  padding: 0 16px 1em 16px;
+  color: #B5B5B5; }
 
 .brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-arrow {
   position: absolute;
@@ -278,9 +221,7 @@
       padding: 1em 0; }
 
 .brand-info-detail {
-  padding: 15px 16px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc; }
+  padding: 1em 16px; }
   .brand-info-detail .content-title {
     padding-bottom: .5em; }
   .brand-info-detail .brand-info-detail-area-wrap .brand-info-detail-area:not(:first-child) {
@@ -339,9 +280,7 @@
     font-weight: bold; }
 
 .brand-share {
-  padding: 15px 16px 15px 16px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc; }
+  padding: 1em 16px; }
 
 .brand-shops .content-title {
   padding: 1.5em 16px;
@@ -362,7 +301,3 @@
     position: absolute;
     right: 16px;
     color: #B5B5B5; }
-.brand-shops {
-    border-top: 1px solid #e1ddcc;
-    border-bottom: 1px solid #e1ddcc;
-}

@@ -48,7 +48,7 @@
       text-shadow: 0 1px 2px #595960; }
 
 .shop-top .shop-top-desc-area {
-  padding: 10px 1.25em;
+  padding: 1.25em;
   color: #595960;
   border-bottom: 1px solid #e1ddcc; }
   .shop-top .shop-top-desc-area .shop-top-desc-middle {
@@ -87,7 +87,6 @@
       display: flex; }
   .shop-top .shop-top-desc-area .shop-top-desc-category {
     line-height: 1.5;
-    margin-bottom: 9px;
   }
   .shop-top .shop-top-desc-area .shop-top-desc-info {
     display: -webkit-box;
@@ -121,20 +120,19 @@
         padding-left: .5em; }
     .shop-top .shop-top-desc-area .shop-top-desc-info .shop-top-desc-info-business {
       padding-right: 1em;
-      line-height: 1.5;
     }
 .shop-top .shop-top-desc-area .shop-top-desc-info .shop-top-desc-info-holiday {
   padding-right: 1em;
   }
 
 .shop-info {
-  padding: 1.25em;
+  padding: 1.5em 16px;
   position: relative;
   border-bottom: 1px solid #e1ddcc;
   border-top: 1px solid #e1ddcc; }
   .shop-info .content-feature {
     position: absolute;
-    top: 0.6em;
+    top: 1em;
     right: 16px;
     font-size: 14px;
     font-weight: bold;
@@ -148,7 +146,7 @@
     line-height: 18px;
    }
   .shop-info .content-text {
-    padding-top: 10px; }
+    padding-top: 1em; }
 
 .shop-plan {
   padding: 1.5em 15px;
@@ -428,8 +426,7 @@
     color: #0065CC; }
   .shop-address .shop-address-detail .shop-address-text {
     padding: 0 16px 1em 16px;
-    font-size: 14px;
-    line-height:1.4 ; }
+    font-size: 14px; }
   .shop-address .shop-address-detail .shop-address-arrow {
     position: absolute;
     right: 16px;
@@ -447,7 +444,7 @@
   .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area:not(:first-child) {
     padding-top: 2em; }
   .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area .shop-info-detail-title {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     padding: 1em 0; }
   .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area table.shop-info-detail-table {
@@ -459,15 +456,13 @@
       .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area table.shop-info-detail-table tr th {
         width: 30%;
         font-weight: bold;
-        font-size: 11px;
         padding-right: 1em; }
       .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area table.shop-info-detail-table tr td {
         padding: 1em 0; }
         .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area table.shop-info-detail-table tr td dt {
           font-weight: bold; }
         .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area table.shop-info-detail-table tr td dd {
-          padding: 1em 0;
-          line-height: 1.5;}
+          padding: 1em 0; }
         .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area table.shop-info-detail-table tr td a {
           word-wrap: break-word; }
       .shop-info-detail .shop-info-detail-area-wrap .shop-info-detail-area table.shop-info-detail-table tr .tel-area-wrap {
@@ -493,8 +488,7 @@
             font-weight: bold;
             padding-left: .25em; }
   .shop-info-detail .shop-info-detail-remark {
-    padding: 1.5em 0;
-    line-height: 1.5; }
+    padding: 1.5em 0; }
   .shop-info-detail .shop-info-detail-report .shop-info-detail-report-button {
     border: 1px solid #E0DCCC;
     border-radius: .25em;
@@ -516,8 +510,6 @@
     border-right: none;
     padding: 10px;
     text-align: center; vertical-align: middle;
-    font-size: 11px;
-    line-height: 1.4;
 }
 
 .price_list .price {
