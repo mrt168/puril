@@ -19,7 +19,7 @@ echo $this->Html->css(['css/main', 'css/search']);
         </div>
     </header>
     <div class="Search__contents">
-        <h1 class="Search__title"><span>店舗名から探す</span></h1>
+        <div class="Search__title"><span>店舗名から探す</span></div>
         <div class="Search__btns">
             <a href="" class="Search__btn" data-color="default">脱毛サロン</a>
             <a href="" class="Search__btn" data-color="white">医療脱毛クリニック</a>

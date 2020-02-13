@@ -5,11 +5,11 @@ use Cake\Routing\Router;
 ?>
 <body class="Puril">
 <header class="home-header">
-    <h1 class="home-header-inner">
+    <div class="home-header-inner">
         <a href="/">
-            <img class="home-header-inner__img" src="puril/images/header-logo-sp.png" srcset="puril/images/header-logo-sp.png 1x, puril/images/header-logo-sp@2x.png 2x" alt="Puril - ランキングと口コミで探せる美容の検索予約サイト">
+            <img class="home-header-inner__img" src="puril/images/header-logo-sp.png" srcset="puril/images/header-logo-sp.png 1x, puril/images/header-logo-sp@2x.png 2x" alt="puril">
         </a>
-    </h1>
+    </div>
     <div class="home-header-mv">
         <div class="home-header-mv-inner">
             <div class="home-header-mv-inner__title"><img class="home-header-inner__img" src="puril/images/header-mv-title-sp.png" alt="みんなの美容口コミサイト"></div>
@@ -69,7 +69,7 @@ use Cake\Routing\Router;
 
     <div class="home-area">
         <div class="home-area__inner">
-            <h2 class="home-area__title"><img src="puril/images/area-title-ico-sp.png" alt=""><span>地域<span class="small">から探す</span></span></h2>
+            <h2 class="home-area__title"><img src="puril/images/area-title-ico-sp.png" alt=""><p>地域<span class="small">から探す</span></p></h2>
             <ul class="home-area__list">
                 <li>
                     <p><a href="<?php echo Router::url('/datsumou/')?>">脱毛</a></p>
@@ -89,7 +89,7 @@ use Cake\Routing\Router;
 
     <div class="home-ranking">
         <div class="home-ranking__inner">
-            <h2 class="home-ranking__title">ランキングから探す</h2>
+            <h2 class="home-ranking__title"><p>ランキングから探す</p></h2>
             <div class="home-ranking__tab">
                 <input id="tab01-01" type="radio" name="tab_btn01" checked>
                 <input id="tab01-02" type="radio" name="tab_btn01">
@@ -172,7 +172,7 @@ use Cake\Routing\Router;
     </a>
     <div class="home-evaluation">
         <div class="home-evaluation__inner">
-            <h2 class="home-evaluation__title">新着口コミから探す</h2>
+            <h2 class="home-evaluation__title"><p>新着口コミから探す</p></h2>
             <div class="home-evaluation__tab">
                 <input id="tab02-01" type="radio" name="tab_btn02" checked>
                 <input id="tab02-02" type="radio" name="tab_btn02">
@@ -264,7 +264,7 @@ use Cake\Routing\Router;
     </div>
 
     <div class="home-characteristic">
-        <h2 class="home-characteristic__title">Purilの3つの特徴</h2>
+        <h2 class="home-characteristic__title"><p>Purilの3つの特徴</p></h2>
         <ul class="home-characteristic-inner">
             <li>
                 <h3 class="home-characteristic-inner__title">サロンもクリニックも掲載</h3>
