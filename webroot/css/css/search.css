@@ -239,6 +239,11 @@ body {
   justify-content: center;
   padding: 15px 0;
 }
+
+.Search__btn.active {
+  background: #6aadbf;
+  color: #fff;
+}
 .Search__btn {
   min-width: 112px;
   font-size: 11px;
@@ -246,6 +251,8 @@ body {
   padding: 6px 5px;
   text-align: center;
   border-radius: 3px;
+  background: #fff;
+  border: 1px solid #e1ddcc;
 }
 .Search__btn[data-color="default"] {
   background: #6aadbf;

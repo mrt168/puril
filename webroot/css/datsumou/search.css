@@ -244,6 +244,11 @@
   background: #6aadbf;
   color: #fff;
 }
+
+.Search__btn.active {
+  background: #6aadbf;
+  color: #fff;
+}
 .Search__btn[data-color="white"] {
   background: #fff;
   border: 1px solid #e1ddcc;

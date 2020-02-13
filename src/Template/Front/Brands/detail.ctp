@@ -59,6 +59,8 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     <div class="brand-top-desc-area">
         <div class="brand-top-desc-category">
             <?php echo ShopType::convert($brand['shop_type'], CodePattern::$VALUE) ?></div>
+
+        <?php if(!empty($totalReview)):?>
         <div class="brand-top-desc-middle">
             <div class="brand-top-desc-review">
                 <div class="shop-star-area">
@@ -85,6 +87,7 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
                 <div class="shop-comment-count"><?=$totalReview['review_cnt']?>件</div>
             </div>
         </div>
+        <?php endif;?>
     </div>
 </section>
 <section class="content middle-content brand-info">
@@ -328,7 +331,6 @@ echo $this->element('Front/footer') ?>
 <script>
     $('.brand-nav-item').on('touchend',function(){
         $(this).addClass('active').siblings('.brand-nav-item').removeClass('active');
-        console.log($(this).data('content'));
         let contentName = $(this).data('content');
     });
 
