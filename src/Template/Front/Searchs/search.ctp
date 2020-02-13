@@ -542,6 +542,7 @@ echo $this->element('Front/footer') ?>
                 getValue();
             };
         }
+        getValue();
     }
     function getValue() {
         var $formObject = document.getElementById( "Form" );

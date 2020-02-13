@@ -16,25 +16,18 @@ echo $this->Html->css('datsumou');
 echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/brand/common', 'datsumou/brand/index']);
 ?>
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMXTyYIMqJTZPtem60iMfu3ZKYn3Nj0wI"></script>
-<nav class="content-base brand-breadcrumbs">
-      <ul class="brand-breadcrumbs-list">
-        <li><a href="/datsumou/">Top</a></li>
-        <li><?=$brand['name']?></li>
-      </ul>
-    </nav>
-<header class="brand-header">
-      <div class="brand-header-inner"><a class="brand-header-back" href="/datsumou/"><i class="fas fa-chevron-left"></i></a>
-        <div class="brand-header-title"><?=$brand['name']?></div>
-        <div class="brand-header-void"></div>
-      </div>
-    </header>
-<nav class="content-base brand-breadcrumbs">
-      <ul class="brand-breadcrumbs-list">
-        <li><a href="<?=Router::url('/')?>">Purilトップ</a></li>
-        <li><?php echo $this->Html->link("<span>店舗名から探す</span>", ['controller'=> 'brands'], ['escape'=> false])?></li>
-        <li><?=$brand['name']?></li>
-      </ul>
-    </nav>
+<header class="datsumou-header">
+    <?php
+    echo $this->element('Front/header')
+    ?>
+</header>
+<!--<nav class="content-base brand-breadcrumbs">-->
+<!--      <ul class="brand-breadcrumbs-list">-->
+<!--        <li><a href="--><?//=Router::url('/')?><!--">Purilトップ</a></li>-->
+<!--        <li>--><?php //echo $this->Html->link("<span>店舗名から探す</span>", ['controller'=> 'brands'], ['escape'=> false])?><!--</li>-->
+<!--        <li>--><?//=$brand['name']?><!--</li>-->
+<!--      </ul>-->
+<!--    </nav>-->
 <nav class="content brand-nav">
       <div class="brand-nav-item active" data-content="brand-top"><span class="brand-nav-item-text">トップ</span></div>
       <div class="brand-nav-item" data-content="brand-plan"><span class="brand-nav-item-text">料金プラン</span></div>
@@ -291,85 +284,45 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
         <div class="brand-shops-search-text">全国から探す</div><i class="fas fa-chevron-right brand-shops-search-arrow"></i>
       </div>
     </section>
-<div class="content-base campaign"><a href="#"><img src="/puril/images/img/datsumou/brand/cashback-campaign.jpg" alt="キャッシュバックキャンペーン"></a></div>
-<nav class="content-base breadcrumbs"><i class="fas fa-home home-icon"></i>
-      <ul class="breadcrumbs-list">
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">脱毛</a></li>
-        <li><a href="#">全国脱</a></li>
-        <li><a href="#">全国脱毛サ</a></li>
-        <li><a href="#">東京脱</a></li>
-        <li><a href="#">キレイモ新宿</a></li>
-      </ul>
-    </nav>
-<footer class="datsumou-footer">
-    <div class="datsumou-footer__inner">
-        <ul class="datsumou-footer__category01">
-            <li class="datsumou-footer__category__li">
-                <a href="/datsumou/" class="datsumou-footer__category__li__link">脱毛</a>
-            </li>
-            <li class="datsumou-footer__category__li no-link">
-                <a href="" class="datsumou-footer__category__li__link">リラク</a>
-            </li>
-            <li class="datsumou-footer__category__li no-link">
-                <a href="" class="datsumou-footer__category__li__link">痩身</a>
-            </li>
-            <li class="datsumou-footer__category__li no-link">
-                <a href="" class="datsumou-footer__category__li__link">フェイシャル</a>
-            </li>
-        </ul>
+<a href="https://puril.net/campaign/">
+    <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+</a>
 
-        <ul class="datsumou-footer__category02">
-            <li class="datsumou-footer__category__li">
-                <a href="https://tsuru-tsuru.co.jp/" target="_blank" class="datsumou-footer__category__li__link">運営企業</a>
-            </li>
-            <li class="datsumou-footer__category__li">
-                <a href="/regulation" class="datsumou-footer__category__li__link">利用規約</a>
-            </li>
-            <li class="datsumou-footer__category__li">
-                <a href="/privacy-policy" class="datsumou-footer__category__li__link">プライバシーポリシー</a>
-            </li>
-            <li class="datsumou-footer__category__li">
-                <a href="/sitemap" class="datsumou-footer__category__li__link">サイトマップ</a>
-            </li>
-        </ul>
-        <ul class="datsumou-footer__category03">
-            <li class="datsumou-footer__category__li">
-                <a href="https://puril.net/campaign/" class="datsumou-footer__category__li__link">口コミキャッシュバック</a>
-            </li>
-            <li class="datsumou-footer__category__li">
-                <a href="/form_user" class="datsumou-footer__category__li__link">ユーザーレビューのお問い合わせ</a>
-            </li>
-            <li class="datsumou-footer__category__li last">
-                <a href="/form_facility" class="datsumou-footer__category__li__link">施設情報掲載のお問い合わせ</a>
-            </li>
-        </ul>
-    </div>
-    <div class="datsumou-footer__credit">
-        <a href="/">
-            <img src="/puril/images/footer-logo-sp.png" alt="">
-        </a>
-        <p>Copyright © ツルツル株式会社 All rights reserved.</p>
-    </div>
-      <ul class="datsumou-footer-list">
-        <li class="datsumou-footer-item active"><a href="/datsumou/search/"><i class="fas fa-search datsumou-footer-item-icon"></i>
-            <div class="datsumou-footer-item-text">探す</div></a></li>
-        <li class="datsumou-footer-item"><a href="#"><i class="fas fa-comments datsumou-footer-item-icon"></i>
-            <div class="datsumou-footer-item-text">口コミ</div></a></li>
-        <li class="datsumou-footer-item"><a href="/datsumou/ranking/"><i class="fas fa-crown datsumou-footer-item-icon"></i>
-            <div class="datsumou-footer-item-text">ランキング</div></a></li>
-        <li class="datsumou-footer-item"><a class="brand-footer-kuchikomi-button-wrap" href="#">
-            <div class="brand-footer-kuchikomi-button">               <i class="fas fa-edit brand-footer-kuchikomi-icon">    </i>
-              <div class="brand-footer-kuchikomi-text">口コミ投稿</div>
-            </div></a></li>
-      </ul>
-</footer>
-<script type="text/javascript" src="/js/datsumou/brand/common.js"></script>
-<script>
-    $('.brand-nav-item').on('touchend',function(){
-        $(this).addClass('active').siblings('.brand-nav-item').removeClass('active');
-        console.log($(this).data('content'));
-        let contentName = $(this).data('content');
-    });
+<div class="Search__breadcrumbs">
+    <ol>
+        <li>
+            <a href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li>
+            <a href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
+            <meta itemprop="position" content="2">
+        </li>
+        <li>
+            <a href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
+            <meta itemprop="position" content="3">
+        </li>
+        <li>
+            <a href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の<?php echo ShopType::convert($shop['shop_type'], CodePattern::$VALUE)?></span></a>
+            <meta itemprop="position" content="4">
+        </li>
+        <li>
+            <?php echo $this->Html->link("<span>全国の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
+            <meta itemprop="position" content="5">
+        </li>
 
-</script>
+        <li>
+            <?php echo $this->Html->link("<span>{$shop['Area']['name']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], URLUtil::CITY.$shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
+            <meta itemprop="position" content="6">
+        </li>
+
+        <li>
+            <?php echo "<span itemprop='name' class='name'>{$shop['name']}</span>"?>
+            <meta itemprop="position" content="7">
+        </li>
+    </ol>
+</div>
+<?php
+echo $this->element('Front/footer') ?>
+</body>
+</html>
