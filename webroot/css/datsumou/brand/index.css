@@ -206,13 +206,42 @@
       padding: .25em 1em;
       margin: 5px 5px 0;
       text-align: center; }
-    .brand-datsumou .brand-part-list .brand-part-common:not(:first-child) {
-      margin-left: 1em; }
+    /*.brand-datsumou .brand-part-list .brand-part-common:not(:first-child) {*/
+    /*  margin-left: 1em; }*/
     .brand-datsumou .brand-part-list .brand-part-active {
       border: 1px solid #6AADBF;
       border-radius: .25em; }
     .brand-datsumou .brand-part-list .brand-part-none {
       background-color: #F9F7F5; }
+.brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-item-below {
+  display: none; }
+.brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-item-below .shop-kuchikomi-item-detail-wrap {
+  padding: 1em 0; }
+.brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-item-below .shop-kuchikomi-item-detail-wrap .shop-kuchikomi-item-detail {
+  padding: 1em 16px 0 16px; }
+.brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-item-below .shop-kuchikomi-item-detail-wrap .shop-kuchikomi-item-detail .shop-kuchikomi-item-detail-title {
+  font-size: 14px;
+  font-weight: bold; }
+.brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-item-below .shop-kuchikomi-item-detail-wrap .shop-kuchikomi-item-detail .shop-kuchikomi-item-detail-review {
+  padding-top: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+  -moz-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline; }
+.brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-item-below .shop-kuchikomi-item-detail-wrap .shop-kuchikomi-item-detail .shop-kuchikomi-item-detail-review .shop-kuchikomi-item-detail-review-point {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FF4E4E;
+  padding-left: .5em; }
+.brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-item-below .shop-kuchikomi-item-detail-wrap .shop-kuchikomi-item-detail .shop-kuchikomi-item-detail-text {
+  font-size: 14px;
+  padding: .5em 0; }
 
 .brand-kuchikomi {
     border-top: 1px solid #e1ddcc;
@@ -366,3 +395,69 @@
     border-top: 1px solid #e1ddcc;
     border-bottom: 1px solid #e1ddcc;
 }
+
+.brand-shops .shop-list {
+  width: 100%;
+}
+
+.brand-shops .shop-list th{
+  width: 100%;
+  font-size: 11px;
+}
+.brand-shops .shop-list th:nth-child(1){
+  width: 20%;
+
+  text-align: center;
+  background-color: #F9F7F5;
+  border: solid 1px #EEECE4;
+  border-right: none;
+  padding: 10px;
+}
+.brand-shops .shop-list th:nth-child(2){
+  width: 30%;
+  border: solid 1px #EEECE4;
+  border-right: none;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+.brand-shops .shop-list th:nth-child(3){
+  width: 50%;
+  border: solid 1px #EEECE4;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.brand-shops .shop-list td{
+  width: 100%;
+  color: black;
+  font-size: 11px;
+}
+
+.brand-shops .shop-list td a{
+  color: black;
+}
+.brand-shops .shop-list td:nth-child(1){
+  width: 20%;
+  text-align: center;
+  background-color: #F9F7F5;
+  border: solid 1px #EEECE4;
+  border-right: none;
+  padding: 10px;
+  vertical-align: middle;
+}
+.brand-shops .shop-list td:nth-child(2){
+  width: 30%;
+  border: solid 1px #EEECE4;
+  border-right: none;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+.brand-shops .shop-list td:nth-child(3){
+  width: 50%;
+  border: solid 1px #EEECE4;
+  padding: 10px;
+  vertical-align: middle;
+}
+

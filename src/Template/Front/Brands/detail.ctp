@@ -29,261 +29,275 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
 <!--      </ul>-->
 <!--    </nav>-->
 <nav class="content brand-nav">
-      <div class="brand-nav-item active" data-content="brand-top"><span class="brand-nav-item-text">トップ</span></div>
-      <div class="brand-nav-item" data-content="brand-plan"><span class="brand-nav-item-text">料金プラン</span></div>
-      <div class="brand-nav-item" data-content="brand-datsumou"><span class="brand-nav-item-text">脱毛部位</span></div>
-      <div class="brand-nav-item" data-content="brand-kuchikomi"><span class="brand-nav-item-text">口コミ</span></div>
-      <div class="brand-nav-item" data-content="brand-campaign"><span class="brand-nav-item-text">キャンペーン</span></div>
-      <div class="brand-nav-item" data-content="brand-shop"><span class="brand-nav-item-text">運営店舗</span></div>
-    </nav>
+    <div class="brand-nav-item active" data-content="brand-top"><span class="brand-nav-item-text">トップ</span></div>
+    <?php if (!empty($brand['price_plan_html'])) {?>
+        <a href="#brand_price" class="brand-nav-item" data-content="brand-plan"><span class="brand-nav-item-text">料金プラン</span></a>
+    <?php }?>
+    <?php if (!empty($brand['depilation_sites'])) {?>
+        <a href="#brand_depilation" class="brand-nav-item" data-content="brand-datsumou"><span class="brand-nav-item-text">脱毛部位</span></a>
+    <?php }?>
+    <?php if (count($reviews) > 0) {?>
+        <a href="#brand_reviews" class="brand-nav-item" data-content="brand-kuchikomi"><span class="brand-nav-item-text">口コミ</span></a>
+    <?php }?>
+    <!--      <div class="brand-nav-item" data-content="brand-campaign"><span class="brand-nav-item-text">キャンペーン</span></div>-->
+    <?php if (!empty($brand['shops'])) { ?>
+        <a href="#brand_shops" class="brand-nav-item" data-content="brand-shop"><span class="brand-nav-item-text">運営店舗</span></a>
+    <?php }?>
+</nav>
 <section class="content brand-top">
-      <div class="brand-top-img-area">
-      <div class="brand-top-img-base"><img class="brand-top-img" src="https://datsumou.love/shop_img/366" alt="<?=$brand['name']?>"></div>
-      </div>
-      <div class="brand-top-desc-area">
-        <div class="brand-top-desc-category">脱毛サロン・全身</div>
+    <?php
+    if(!empty($brand['image_path'])) {
+        ?>
+        <div class="brand-top-img-area">
+            <div class="brand-top-img-base">
+                <?php echo $this->Html->image(['controller'=> 'images', 'action'=> 'brandImage', $brand['brand_id']], ['class'=>'brand-top-img','alt'=> ''])?>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+    <div class="brand-top-desc-area">
+        <div class="brand-top-desc-category">
+            <?php echo ShopType::convert($brand['shop_type'], CodePattern::$VALUE) ?></div>
         <div class="brand-top-desc-middle">
-          <div class="brand-top-desc-review">
-            <div class="shop-star-area">
-              <div class="shop-star"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-off.png"><img src="/puril/images/img/star-off.png">
-              </div>
-              <div class="shop-point">4.6</div>
+            <div class="brand-top-desc-review">
+                <div class="shop-star-area">
+                    <div class="shop-star">
+                        <?php
+                        $star = empty($totalReview['star']) ? 0 : $totalReview['star'];
+                        $reviewCount = 0;
+                        while($reviewCount < $star):
+                            echo '<img src="/puril/images/img/star-on.png">';
+                            $reviewCount++;
+                        endwhile;
+                        ?>
+                        <?php
+                        while(5 - $reviewCount > 0):
+                            echo '<img src="/puril/images/img/star-off.png">';
+                            $reviewCount++;
+                        endwhile;
+                        ?>
+                    </div>
+                </div>
+                <div class="shop-point"><?=number_format($totalReview['star'], 1)?></div>
             </div>
             <div class="shop-comment-area"><i class="shop-comment-icon fas fa-comments"></i>
-              <div class="shop-comment-count">142件</div>
+                <div class="shop-comment-count"><?=$totalReview['review_cnt']?>件</div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</section>
+<section class="content middle-content brand-info">
+    <h2 class="content-title">店舗情報</h2>
+    <p class="content-feature"><span>最大</span><span class="content-feature-large">5,000</span><span>円のキャッシュバックあり！</span></p>
+    <div class="content-text"><?=$brand['feature_html']?></div>
+</section>
+<?php if (!empty($brand['price_plan_html'])) {?>
+<section class="content middle-content brand-plan" id="brand_price">
+    <h2 class="content-title">料金プラン</h2>
+    <div>
+        <?=	$brand['price_plan_html']?>
+    </div>
+</section>
+<?php }
+if (!empty($brand['depilation_sites'])) { ?>
+    <section class="content middle-content brand-datsumou" id="brand_depilation">
+        <h2 class="content-title">脱毛部位</h2>
+        <ul class="brand-part-list">
+            <?php
+            foreach ($brand['depilation_sites'] as $depilationSite) {
+                echo '<li class="brand-part-common brand-part-active">' . $depilationSite['name'] . '</li>';
+            }
+            ?>
+        </ul>
     </section>
-    <section class="content middle-content brand-info">
-      <h2 class="content-title">店舗情報</h2>
-      <p class="content-feature"><span>最大</span><span class="content-feature-large">5,000</span><span>円のキャッシュバックあり！</span></p>
-      <h3 class="content-title-sub">業界口コミ＆予約が取りやすい脱毛サロンNo.1</h3>
-      <p class="content-text">タレントやモデルの来店多数で業界口コミNo.1！スリムアップ美容全身脱毛で脱毛しながら美しいボディラインを実現します。予約も取りやすいから忙しくても通いやすい♪キレイモ一号店でありプロフェッショナルのスタッフが、お客様のキレイのために全力でサポートしていますよ！各線「新宿駅」から近く便利◎</p>
+    <?php
+}
+if (count($reviews) > 0) {
+    ?>
+    <section class="content middle-content brand-kuchikomi" id="brand_reviews">
+        <h2 class="content-title">口コミ</h2>
+        <ul class="brand-kuchikomi-list">
+            <?php
+            foreach ($reviews as $key => $review) {
+                ?>
+                <li class="brand-kuchikomi-item">
+                    <div class="brand-kuchikomi-item-wrap">
+                        <div class="brand-kuchikomi-item-above">
+                            <div class="brand-kuchikomi-title"><?=$this->Html->link($review['Shop']['name']. "[". Pref::convert($review['Shop']['pref'], CodePattern::$VALUE). "]",
+                                    ['controller'=> 'shops', 'action'=> 'detail', $review['Shop']['shop_id']])?></div>
+                            <div class="brand-user-star-area">
+                                <div class="shop-star-area">
+                                    <div class="shop-star">
+                                        <?php
+                                        $star = empty($review['evaluation']) ? 0 : $review['evaluation'];
+                                        $reviewCount = 0;
+                                        while($reviewCount < $star):
+                                            echo '<img src="/puril/images/img/star-on.png">';
+                                            $reviewCount++;
+                                        endwhile;
+                                        ?>
+                                        <?php
+                                        while(5 - $reviewCount > 0):
+                                            echo '<img src="/puril/images/img/star-off.png">';
+                                            $reviewCount++;
+                                        endwhile;
+                                        ?>
+                                    </div>
+                                    <div class="shop-point"><?= $review['evaluation'] ?></div>
+                                </div>
+                            </div>
+                            <div class="shop-reviewer-area">
+                                <div class="shop-reviewer-name-area">
+                                    <div class="shop-reviewer-name"><?=$review['nickname']?></div>
+                                </div>
+                            </div>
+                            <div class="brand-kuchikomi-month">
+                                <?php
+                                echo !empty($review['visit_date']) ? "<span>来店日：". date('Y/m/d', strtotime($review['visit_date'])). "</span>" : "";
+                                echo !empty($review['post_date']) ? "<span>投稿日：". date('Y/m/d', strtotime($review['post_date'])). "</span>" : "";
+                                ?>
+                            </div>
+                            <i class="fas fa-chevron-down brand-kuchikomi-arrow"></i>
+                        </div>
+                        <div class="brand-kuchikomi-item-below">
+                            <div class="shop-kuchikomi-item-detail-wrap">
+                                <?php if(!empty($review['content'])):?>
+                                    <div class="shop-kuchikomi-item-detail">
+                                        <div class="shop-kuchikomi-item-detail-title">この店舗の総合的な感想を教えて下さい</div>
+                                        <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['content']) ?></p>
+                                    </div>
+                                <?php endif;?>
+                                <?php if(!empty($review['reason'])):?>
+                                    <div class="shop-kuchikomi-item-detail">
+                                        <div class="shop-kuchikomi-item-detail-title">この店舗を選んだ理由を教えてください。</div>
+                                        <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['reason']) ?></p>
+                                    </div>
+                                <?php endif;?>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">店舗の「接客／サービス」はいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question1'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question1_evaluation']?></p>
+                                </div>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">受けたサービスの「メニューや料金」についてはいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question2'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question2_evaluation']?></p>
+                                </div>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">施術の「効果（技術や仕上がり）」はいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question3'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question3_evaluation']?></p>
+                                </div>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">店舗の「雰囲気」はいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question4'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question4_evaluation']?></p>
+                                </div>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">店舗の「通いやすさ／予約の取りやすさ」はいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question5'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question5_evaluation']?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php } ?>
+        </ul>
+        <!--<a class="show-more clickable-button" href="#">口コミをもっと見る（4件）</a>-->
     </section>
-    <section class="content middle-content brand-plan">
-      <h2 class="content-title">料金プラン</h2>
-<div>
-    <table class="price_list">
-        <tbody>
-            <tr>
-                <th>月額定額プラン　スリムアップ脱毛</th>
-                <td class="price">4,800円</td>
-                <td> </td>
-            </tr>
-</tbody>
-</table>
-</div>
-<!--
-      <ul class="brand-plan-line">
-        <li class="brand-plan-line-item-wrap"><a class="clickable-button brand-plan-line-item" href="#"><img class="brand-plan-line-item-img" src="/puril/images/img/datsumou/brand/slimplan.jpg" alt="スリムアップ脱毛">
-            <div class="brand-plan-line-item-desc">
-              <div class="brand-plan-lin-item-desc-title">月額定額プラン　スリムアップ脱毛</div>
-              <div class="brand-plan-lin-item-desc-price">
-                <div class="brand-plan-lin-item-desc-price-amount">4,800円</div>
-                <div class="brand-plan-lin-item-desc-price-tax">（税抜）</div>
-              </div><i class="fas fa-chevron-right brand-plan-lin-item-desc-arrow"></i>
-            </div></a></li>
-      </ul><a class="show-more clickable-button" href="#">プランをもっと見る（4件）</a>
--->
-    </section>
-    <section class="content middle-content brand-datsumou">
-          <h2 class="content-title">脱毛部位</h2>
-          <ul class="brand-part-list">
-            <li class="brand-part-common brand-part-active">全身</li>
-          </ul>
-    </section>
-<section class="content middle-content brand-kuchikomi">
-      <h2 class="content-title">口コミ</h2>
-      <ul class="brand-kuchikomi-list">
-<!--
-        <li class="brand-kuchikomi-item brand-kuchikomi-item-pickup">
-          <div class="brand-kuchikomi-item-pickup-wrap">
-            <div class="brand-kuchikomi-item-pickup-text">Purilが選ぶピックアップ！口コミ</div>
-            <div class="brand-kuchikomi-item-pickup-star"><img src="/puril/images/img/datsumou/ribbon-star.png"></div>
-          </div>
--->
-        <li class="brand-kuchikomi-item">
-          <div class="brand-kuchikomi-item-wrap">
-            <div class="brand-kuchikomi-item-above">
-              <div class="brand-kuchikomi-title">キレイモ 新宿本店</div>
-              <!--<div class="brand-kuchikomi-title-sub">スタッフが一番よかった。</div>-->
-              <div class="brand-user-star-area">
-                <div class="shop-star-area">
-                  <div class="shop-star"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-off.png"><img src="/puril/images/img/star-off.png">
-                  </div>
-                  <div class="shop-point">4.6</div>
-                </div>
-              </div>
-              <div class="shop-reviewer-area">
-                <div class="shop-reviewer-name-area">
-                  <div class="shop-reviewer-name">yazawasuzu0127</div>
-                  <div class="shop-reviewer-count">（4,878）</div>
-                </div>
-                <div class="shop-reviewer-good-area"><i class="fas fa-heart shop-reviewer-good-icon"></i>
-                  <div class="shop-reviewer-good-count">24件</div>
-                </div>
-              </div>
-              <div class="brand-kuchikomi-month">2020/01/18(土)</div><i class="fas fa-chevron-down brand-kuchikomi-arrow"></i>
-            </div>
-            <div class="brand-kuchikomi-item-below">
-              <div class="brand-kuchikomi-item-detail">
-                <p>腕と脚の毛の脱毛はしていなかったのでカミソリで自己処置をしていました。</p>
-                <p>カミソリを使うことでポツポツして痒くなったり、翌日にはすぐに生えてくるのでチクチクしていました。</p>
-                <p>脱毛はずっとしたいと思っていたので、ネットで検索してスリムアップ効果もできる脱毛、キレイモで施術することに決めて通い始めました。</p>
-                <p>まだスリムの効果はわからないですが、自己処理していたストレスは軽減しています。そしてローションのおかげで肌はスベスベで彼氏には褒められます。スタッフさんはテキパキ施術をしてくれるので不安はないです。</p>
-              </div>
-              <div class="datsumou-kuchikomi-item-detail-button-area"><a class="clickable-button datsumou-kuchikomi-item-detail-button" href="#"><i class="fas fa-reply datsumou-kuchikomi-item-detail-button-icon"></i>
-                  <div class="datsumou-kuchikomi-item-detail-button-text">返信</div></a><a class="clickable-button datsumou-kuchikomi-item-detail-button" href="#"><i class="fas fa-heart datsumou-kuchikomi-item-detail-button-icon"></i>
-                  <div class="datsumou-kuchikomi-item-detail-button-text">いいね！</div></a></div>
-            </div>
-          </div>
-        </li>
-        <li class="brand-kuchikomi-item brand-kuchikomi-item-wrap">
-          <div class="brand-kuchikomi-item-above">
-            <div class="brand-kuchikomi-title">キレイモ 新宿本店</div>
-            <!--<div class="brand-kuchikomi-title-sub">ストレスフリー</div>-->
-            <div class="brand-user-star-area">
-              <div class="shop-star-area">
-                <div class="shop-star"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-off.png"><img src="/puril/images/img/star-off.png">
-                </div>
-                <div class="shop-point">4.6</div>
-              </div>
-            </div>
-            <div class="shop-reviewer-area">
-              <div class="shop-reviewer-name-area">
-                <div class="shop-reviewer-name">yazawasuzu0127</div>
-                <div class="shop-reviewer-count">（4,878）</div>
-              </div>
-              <div class="shop-reviewer-good-area"><i class="fas fa-heart shop-reviewer-good-icon"></i>
-                <div class="shop-reviewer-good-count">24件</div>
-              </div>
-            </div>
-            <div class="brand-kuchikomi-month">投稿日：01/18</div><i class="fas fa-chevron-down brand-kuchikomi-arrow"></i>
-          </div>
-          <div class="brand-kuchikomi-item-below">
-            <div class="brand-kuchikomi-item-detail">
-              <p>腕と脚の毛の脱毛はしていなかったのでカミソリで自己処置をしていました。</p>
-              <p>カミソリを使うことでポツポツして痒くなったり、翌日にはすぐに生えてくるのでチクチクしていました。</p>
-              <p>脱毛はずっとしたいと思っていたので、ネットで検索してスリムアップ効果もできる脱毛、キレイモで施術することに決めて通い始めました。</p>
-              <p>まだスリムの効果はわからないですが、自己処理していたストレスは軽減しています。そしてローションのおかげで肌はスベスベで彼氏には褒められます。スタッフさんはテキパキ施術をしてくれるので不安はないです。</p>
-            </div>
-            <div class="datsumou-kuchikomi-item-detail-button-area"><a class="clickable-button datsumou-kuchikomi-item-detail-button" href="#"><i class="fas fa-reply datsumou-kuchikomi-item-detail-button-icon"></i>
-                <div class="datsumou-kuchikomi-item-detail-button-text">返信</div></a><a class="clickable-button datsumou-kuchikomi-item-detail-button" href="#"><i class="fas fa-heart datsumou-kuchikomi-item-detail-button-icon"></i>
-                <div class="datsumou-kuchikomi-item-detail-button-text">いいね！</div></a></div>
-          </div>
-        </li>
-        <li class="brand-kuchikomi-item brand-kuchikomi-item-wrap">
-          <div class="brand-kuchikomi-item-above">
-            <div class="brand-kuchikomi-title">キレイモ 新宿本店</div>
-            <div class="brand-kuchikomi-title-sub">周りを気にせず施術が受けられる。</div>
-            <div class="brand-user-star-area">
-              <div class="shop-star-area">
-                <div class="shop-star"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-on.png"><img src="/puril/images/img/star-off.png"><img src="/puril/images/img/star-off.png">
-                </div>
-                <div class="shop-point">4.6</div>
-              </div>
-            </div>
-            <div class="shop-reviewer-area">
-              <div class="shop-reviewer-name-area">
-                <div class="shop-reviewer-name">yazawasuzu0127</div>
-                <div class="shop-reviewer-count">（4,878）</div>
-              </div>
-              <div class="shop-reviewer-good-area"><i class="fas fa-heart shop-reviewer-good-icon"></i>
-                <div class="shop-reviewer-good-count">24件</div>
-              </div>
-            </div>
-            <div class="brand-kuchikomi-month">2020/01/18(土)</div><i class="fas fa-chevron-down brand-kuchikomi-arrow"></i>
-          </div>
-          <div class="brand-kuchikomi-item-below">
-            <div class="brand-kuchikomi-item-detail">
-              <p>腕と脚の毛の脱毛はしていなかったのでカミソリで自己処置をしていました。</p>
-              <p>カミソリを使うことでポツポツして痒くなったり、翌日にはすぐに生えてくるのでチクチクしていました。</p>
-              <p>脱毛はずっとしたいと思っていたので、ネットで検索してスリムアップ効果もできる脱毛、キレイモで施術することに決めて通い始めました。</p>
-              <p>まだスリムの効果はわからないですが、自己処理していたストレスは軽減しています。そしてローションのおかげで肌はスベスベで彼氏には褒められます。スタッフさんはテキパキ施術をしてくれるので不安はないです。</p>
-            </div>
-            <div class="datsumou-kuchikomi-item-detail-button-area"><a class="clickable-button datsumou-kuchikomi-item-detail-button" href="#"><i class="fas fa-reply datsumou-kuchikomi-item-detail-button-icon"></i>
-                <div class="datsumou-kuchikomi-item-detail-button-text">返信</div></a><a class="clickable-button datsumou-kuchikomi-item-detail-button" href="#"><i class="fas fa-heart datsumou-kuchikomi-item-detail-button-icon"></i>
-                <div class="datsumou-kuchikomi-item-detail-button-text">いいね！</div></a></div>
-          </div>
-        </li>
-      </ul>
-<!--<a class="show-more clickable-button" href="#">口コミをもっと見る（4件）</a>-->
-    </section>
+<?php } ?>
 <section class="content middle-content brand-info-detail">
-      <div class="brand-info-detail-area-wrap">
+    <div class="brand-info-detail-area-wrap">
+        <?php
+        if (!empty($brand['affiliate_page_url'])) {
+        ?>
         <div class="brand-info-detail-area">
-          <h3 class="brand-info-detail-title">料金プラン</h3>
-          <table class="brand-info-detail-table">
-            <tbody>
-              <tr>
-                <th>月額定額プラン</th>
-                <td>
-                  <dd>
-                    <p>スリムアップ脱毛…月額9,500円(税抜)</p>
-                    <p>脱毛部位：全身</p>
-                  </dd>
-                  <dd>
-                    <p>プレミアム美白脱毛…月額12,800円(税抜)</p>
-                    <p>脱毛部位：全身</p>
-                  </dd>
-                </td>
-              </tr>
-              <tr>
-                <th>パックプラン</th>
-                <td>
-                  <dd>
-                    <p>6回…114,000円(税抜)</p>
-                    <p>脱毛部位：全身　回数：6回</p>
-                  </dd>
-                  <dd>
-                    <p>12回…212,040円(税抜)</p>
-                    <p>脱毛部位：全身　回数：12回</p>
-                  </dd>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <h3 class="brand-info-detail-title">特徴・関連情報</h3>
+            <table class="brand-info-detail-table">
+                <tbody>
+                <tr>
+                    <th>ホームページ</th>
+                    <td><a href="<?php echo $brand['affiliate_page_url'];?>">公式サイトから予約する</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="brand-info-detail-area">
-          <h3 class="brand-info-detail-title">特徴・関連情報</h3>
-          <table class="brand-info-detail-table">
-            <tbody>
-              <tr>
-                <th>ホームページ</th>
-                <td><a href="https://kireimo.jp/lp181019/?adcode=aaaf_06&amp;hc_uus=750da4f43047826f16d914aaed697ee6">https://kireimo.jp/lp181019/?adcode=aaaf_06&amp;hc_uus=750da4f43047826f16d914aaed697ee6</a></td>
-              </tr>
-              <tr>
-                <th>公式アカウント</th>
-                <td><a href="#"><i class="fab fa-twitter twitter-icon"></i></a></td>
-              </tr>
-              <tr>
-                <th>電話番号</th>
-                <td>0120-444-680</td>
-              </tr>
-              <tr>
-                <th>備考</th>
-                <td>※備考ダミー備考ダミー備考ダミー備考ダミー備考備考ダミー備考ダミー備考ダミー備考ダミー備考ダ備考ダミー備考ダミー</td>
-              </tr>
-            </tbody>
-          </table>
+        <?php } ?>
+    </div>
+    <div class="brand-info-detail-remark"><?= $brand['name'];?>の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</div>
+    <div class="brand-info-detail-report">
+        <?php echo $this->Html->link('誤りを報告する', ['controller'=> 'contacts', 'action'=> 'contact'],['class'=>'clickable-button brand-info-detail-report-button']);?>
         </div>
-      </div>
-      <div class="brand-info-detail-remark">●●の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</div>
-      <div class="brand-info-detail-report"><a class="clickable-button brand-info-detail-report-button" href="#">誤りを報告する</a></div>
-    </section>
+</section>
 <section class="content middle-content brand-share">
-      <h2 class="content-title">シェア</h2>
-      <div class="share-twitter"><a class="clickable-button share-twitter-button" href="#"><i class="fab fa-twitter twitter-icon"></i>
-          <div class="share-twitter-text">Twitter</div></a></div>
-    </section>
-<section class="content brand-shops">
-      <h2 class="content-title">キレイモの運営店舗一覧</h2>
-      <div class="brand-shops-search"><img class="brand-shops-search-icon" src="/puril/images/img/japan.png">
-        <div class="brand-shops-search-text">全国から探す</div><i class="fas fa-chevron-right brand-shops-search-arrow"></i>
-      </div>
-    </section>
+    <h2 class="content-title">シェア</h2>
+    <?php $shareurl = Router::url(null,true);?>
+    <div class="share-twitter"><a class="clickable-button share-twitter-button" href="//twitter.com/share?url=<?php echo $shareurl ?>"><i class="fab fa-twitter twitter-icon"></i>
+            <div class="share-twitter-text">Twitter</div></a></div>
+</section>
+<?php if (!empty($brand['shops'])) {
+?>
+<section class="content brand-shops" id="brand_shops">
+    <h2 class="content-title"><?=$brand['name']?>の運営店舗一覧</h2>
+    <table class="shop-list">
+        <tbody>
+        <tr>
+            <th>都道府県</th>
+            <th>最寄駅</th>
+            <th>店舗名</th>
+        </tr>
+        <?php
+        foreach ($brand['shops'] as $shop) {
+            ?>
+            <tr>
+                <td>
+                    <?=$this->Html->link(Pref::convert($shop['pref'], CodePattern::$VALUE), ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($brand['shop_type'], CodePattern::$VALUE2), $shop['pref_url_text']])?>
+                </td>
+                <td>
+                    <?php
+                    if (!empty($shop['StationG'])) {
+                        foreach ($shop['StationG'] as $stationG) {
+
+                            $connection = ",";
+                            if ($stationG === reset($shop['StationG'])) {
+                                $connection = "";
+                            }
+
+                            echo $connection. $this->Html->link($stationG['name'],
+                                    ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($brand['shop_type'], CodePattern::$VALUE2), $shop['pref_url_text'], URLUtil::CITY.$stationG['area_id'], URLUtil::STATION_G. $stationG['station_g_cd']]);
+                        }
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?=$this->Html->link($shop['name'], ['controller'=> 'shops', 'action'=> 'detail', $shop['shop_id']])?>
+                </td>
+            </tr>
+            <?php
+        }
+        ?>
+        </tbody>
+    </table>
+    <?php
+    }?>
+</section>
 <a href="https://puril.net/campaign/">
     <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
 </a>
@@ -299,30 +313,25 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
             <meta itemprop="position" content="2">
         </li>
         <li>
-            <a href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
+            <?php echo $this->Html->link("<span itemprop='name' class='name'>店舗名から探す</span>", ['controller'=> 'brands'], ['escape'=> false])?>
             <meta itemprop="position" content="3">
         </li>
         <li>
-            <a href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の<?php echo ShopType::convert($shop['shop_type'], CodePattern::$VALUE)?></span></a>
+            <?php echo "<span itemprop='name' class='name'>{$brand['name']}</span>"?>
             <meta itemprop="position" content="4">
-        </li>
-        <li>
-            <?php echo $this->Html->link("<span>全国の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
-            <meta itemprop="position" content="5">
-        </li>
-
-        <li>
-            <?php echo $this->Html->link("<span>{$shop['Area']['name']}の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', $shop['PrefData']['url_text'], URLUtil::CITY.$shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
-            <meta itemprop="position" content="6">
-        </li>
-
-        <li>
-            <?php echo "<span itemprop='name' class='name'>{$shop['name']}</span>"?>
-            <meta itemprop="position" content="7">
         </li>
     </ol>
 </div>
 <?php
 echo $this->element('Front/footer') ?>
+<script type="text/javascript" src="/js/datsumou/brand/common.js"></script>
+<script>
+    $('.brand-nav-item').on('touchend',function(){
+        $(this).addClass('active').siblings('.brand-nav-item').removeClass('active');
+        console.log($(this).data('content'));
+        let contentName = $(this).data('content');
+    });
+
+</script>
 </body>
 </html>
