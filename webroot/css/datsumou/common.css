@@ -38,7 +38,6 @@
     font-size: 13px; }
 
 .kuchikomi-button {
-  background-color: #FF4E4E;
   color: #ffffff;
   border-radius: .5em;
   text-align: center;
@@ -52,10 +51,13 @@
      -moz-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 1em 0;
+  padding: 0;
   text-decoration: none; }
   .kuchikomi-button .kuchikomi-button-text {
      }
+  .button-base　.button-base-img{
+    width: 100%;
+  }
 
 .twitter-icon {
   color: #1DA1F2; }
@@ -284,26 +286,26 @@
   left: 0;
   z-index: 1;
   margin: auto;
-  height: 66px;
   max-width: 600px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 15px 8px 15px 8px;
+  padding: 5px 0;
   }
   .shop-footer .kuchikomi-button {
-    width: 60%;
-    background-color: #FF4E4E; }
+    width: 46%;
+  margin: 0 2%;
+  padding: 0;}
 .shop-footer .kuchikomi-button.kuchikomi-only {
   width: 100%; }
     .shop-footer .kuchikomi-button .kuchikomi-button-text {
       padding-left: .5em; }
   .shop-footer .reservatopn-button {
-    width: 40%;
-    background-color: #6AADBF;
-    margin-left: 1em; }
+    width: 46%;
+    margin: 0 2%;
+    padding: 0;}
     .shop-footer .reservatopn-button .reservatopn-button-text {
        }
 

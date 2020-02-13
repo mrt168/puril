@@ -288,11 +288,6 @@ if (!empty($shop['reviews'])) {
         </ul>
     </section>
 <?php } ?>
-<section class="content middle-content shop-kuchikomi-post">
-    <h2 class="content-title">口コミ投稿</h2>
-    <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-comments kuchikomi-button-icon"></i>
-            <div class="kuchikomi-button-text">口コミを書く</div></a></div>
-</section>
 <section class="content middle-content shop-address" id="address">
     <h2 class="content-title">住所</h2>
     <a class="clickable-button shop-address-detail" href="">
@@ -423,14 +418,14 @@ if (!empty($shop['reviews'])) {
 <?php if ( FormUtil::checkUseForm($shop['name'],$shop['shop_id'] ) ){ ?>
 <footer class="content shop-footer">
     <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
-        <div class="kuchikomi-button-text">口コミを書く</div></a>
+        <img src="/puril/images/review_btn.png" class="button-base-img kuchikomi-button-img" alt=""></a>
     <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>">
-        <div class="reservatopn-button-text">ネット予約</div></a></footer>
+        <img src="/puril/images/reserve_btn.png" class="button-base-img reservatopn-button-img" alt=""></a></footer>
 <?php } else {
     ?>
     <footer class="content shop-footer">
         <a class="button-base kuchikomi-button kuchikomi-only" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
-            <div class="kuchikomi-button-text">口コミを書く</div></a></footer>
+            <img src="/puril/images/review_btn_long.png" class="button-base-img kuchikomi-button-img" alt=""></a></footer>
 <?php
 }
 ?>
