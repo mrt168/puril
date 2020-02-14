@@ -10,7 +10,6 @@ use App\Vendor\Code\Sex;
 use App\Vendor\Code\ImageType;
 use App\Vendor\Code\ImagePositionType;
 ?>
-<!-- <?php var_dump($brand);?>-->
 <?php
 echo $this->Html->css('datsumou');
 echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/brand/common', 'datsumou/brand/index']);

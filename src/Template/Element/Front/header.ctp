@@ -8,6 +8,7 @@ use Cake\Routing\Router;
     <img class="datsumou-header-inner__img" src="/puril/images/header-logo-sp.png"
          srcset="/puril/images/header-logo-sp.png 1x, /puril/images/header-logo-sp@2x.png 2x" alt="puril">
     </a>
+    <p class="datsumou-header-inner__text">美容サロンの口コミサイト</p>
     <button type="button" class="datsumou-header-inner__navToggle">
         <span></span><span></span><span></span>
     </button>
