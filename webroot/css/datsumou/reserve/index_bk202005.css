@@ -294,18 +294,19 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center; }
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+  -moz-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline; }
 .reserve-section .reserve-subquestion .reserve-subquestion-first .reserve-subquestion-first-step {
   background-color: #6AADBF;
   font-weight: bold;
   color: #ffffff;
   padding: .25em;
   font-size: 11px;
-  border-radius: .25em;}
+  border-radius: .25em;
+  margin-top: 20px; }
 .reserve-section .reserve-subquestion .reserve-subquestion-first .reserve-subquestion-first-text {
   padding-left: .75em;
   padding-top: 0 !important; }
@@ -315,7 +316,7 @@
   font-size: 13px;
   color: #797152;
   display: block;
- }
+  padding-top: 10px; }
 
 .reserve-section .reserve-subquestion .reserve-email-desc {
   padding: 10px 16px 0px; }
@@ -432,9 +433,6 @@
 }
 .form-contact .agreement .textarea {
   line-height: 15px;
-}
-.pt-10{
-  padding-top: 10px !important;
 }
 .pt-15{
   padding-top: 15px !important;

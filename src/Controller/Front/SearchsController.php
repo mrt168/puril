@@ -300,13 +300,13 @@ class SearchsController extends FrontAppController {
 
 			$this->set('isNoIndex', $this->isNoIndex);
 
-// 			$this->set('searchWheres', $wheres);
-			$searchWheres['depilation_site_id'] = [];
-			$searchWheres['price_id'] = [];
-			$searchWheres['payment_id'] = [];
-			$searchWheres['discount_id'] = [];
-			$searchWheres['other_condition_id'] = [];
-			$this->set('searchWheres', $searchWheres);
+ 			$this->set('searchWheres', $wheres);
+//			$searchWheres['depilation_site_id'] = [];
+//			$searchWheres['price_id'] = [];
+//			$searchWheres['payment_id'] = [];
+//			$searchWheres['discount_id'] = [];
+//			$searchWheres['other_condition_id'] = [];
+//			$this->set('searchWheres', $searchWheres);
 		} else {
 			echo "検索条件なし";
 			exit;

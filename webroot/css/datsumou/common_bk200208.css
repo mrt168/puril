@@ -38,27 +38,30 @@
     font-size: 13px; }
 
 .kuchikomi-button {
+  background-color: #FF4E4E;
   color: #ffffff;
   border-radius: .5em;
   text-align: center;
-  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em 0;
   text-decoration: none; }
-.kuchikomi-button .kuchikomi-button-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
   .kuchikomi-button .kuchikomi-button-text {
      }
-  .button-base　.button-base-img{
-    width: 100%;
-  }
 
 .twitter-icon {
   color: #1DA1F2; }
 
 .content-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold; }
 
 .show-more {
@@ -114,16 +117,15 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-    -webkit-justify-content: flex-start;
+    -webkit-justify-content: space-between;
        -moz-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: flex-start;
+            justify-content: space-between;
     -webkit-box-align: center;
     -webkit-align-items: center;
        -moz-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-
 
 .datsumou-search-header .datsumou-search-header-inner .datsumou-search-header-input-area {
   position: relative;
@@ -154,9 +156,7 @@
             transform: translateY(-50%);
     color: #B5B5B5; }
 
-.datsumou-footer {
-      /*padding: 1em 16px;*/
-}
+.datsumou-footer {}
   .datsumou-footer .datsumou-footer-list {
     display: -webkit-box;
     display: -webkit-flex;
@@ -165,11 +165,9 @@
     display: flex;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 1em 16px;
-    }
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
     .datsumou-footer .datsumou-footer-list .datsumou-footer-item.active {
       color: #6AADBF; }
     .datsumou-footer .datsumou-footer-list .datsumou-footer-item {
@@ -282,26 +280,26 @@
   left: 0;
   z-index: 1;
   margin: auto;
+  height: 66px;
   max-width: 600px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 5px 0;
+  padding: 15px 8px 15px 8px;
   }
   .shop-footer .kuchikomi-button {
-    width: 46%;
-  margin: 0 2%;
-  padding: 0;}
+    width: 60%;
+    background-color: #FF4E4E; }
 .shop-footer .kuchikomi-button.kuchikomi-only {
   width: 100%; }
     .shop-footer .kuchikomi-button .kuchikomi-button-text {
       padding-left: .5em; }
   .shop-footer .reservatopn-button {
-    width: 46%;
-    margin: 0 2%;
-    padding: 0;}
+    width: 40%;
+    background-color: #6AADBF;
+    margin-left: 1em; }
     .shop-footer .reservatopn-button .reservatopn-button-text {
        }
 

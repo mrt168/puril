@@ -174,7 +174,7 @@ echo $this->Html->css('datsumou/search');
         ?>
     </header>
     <div class="content search-condition">
-        <h1 class="search-condition-text"><?php echo $placeName;?> <?php echo $shopTypeVal;	?> <?php echo $condition;?></h1>
+        <div class="search-condition-text"><?php echo $placeName;?> <?php echo $shopTypeVal;	?> <?php echo $condition;?></div>
         <div class="button-base search-condition-change"><a class="plain-link search-condition-change-text" href="">条件変更</a></div>
     </div>
     <div class="content-base search-shop">
@@ -184,7 +184,7 @@ echo $this->Html->css('datsumou/search');
                 ?>
                 <li class="content search-shop-item"><a class="plain-link" href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $shop->shop_id], true);?>">
                         <h2 class="search-shop-title">
-                            <span class="search-shop-title-text"><?php echo $shop->name;?></span>
+                            <div class="search-shop-title-text"><?php echo $shop->name;?></div>
                         </h2>
                         <div class="search-shop-title-sub"><?php
                             if (!empty($shop->station_name)) {
@@ -542,7 +542,6 @@ echo $this->element('Front/footer') ?>
                 getValue();
             };
         }
-        getValue();
     }
     function getValue() {
         var $formObject = document.getElementById( "Form" );

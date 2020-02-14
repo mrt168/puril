@@ -7,712 +7,332 @@ use App\Vendor\Code\Pref;
 use App\Vendor\URLUtil;
 use App\Vendor\Code\DepilationType;
 use App\Vendor\Code\Sex;
+use App\Vendor\Code\ImageType;
+use App\Vendor\Code\ImagePositionType;
+?>
+<?php
+echo $this->Html->css('datsumou');
+echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/common', 'datsumou/brand/common', 'datsumou/brand/index']);
 ?>
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMXTyYIMqJTZPtem60iMfu3ZKYn3Nj0wI"></script>
-<div class="ShopDetail">
-    <div id="bread">
-        <div class="inner cf">
-            <span class="breaditem"><a href="<?=Router::url('/')?>"><span>Purilトップ</span></a></span>
-            <span class="breaditem"><?php echo $this->Html->link("<span>店舗名から探す</span>", ['controller'=> 'brands'], ['escape'=> false])?></span>
-            <span class="breaditem"><?=$brand['name']?></span>
-        </div>
-    </div>
-    <div id="container">
-        <div class="inner">
-            <div class="undercontentwrap cf">
-                <main id="maincolumn">
-                    <div class="">
-                        <div id="shopdetailwrap" class="brands">
-                            <div class="leadwrap">
-                                <div class="tag">
-                                    <ul>
-                                        <li><?=$this->Html->link(ShopType::convert($brand['shop_type'],CodePattern::$VALUE), ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($brand['shop_type'],CodePattern::$VALUE2)]);?></li>
-                                    </ul>
-                                </div>
-                                <h1 class="coomontit_h1"><?=$brand['name']?></h1>
-                                <div class="flex-row flex-space align-center mb20">
-                                    <div class="ratingwrap cf">
-                                        <?php
-                                        if (!empty($totalReview['star'])) {
-                                            $percent = $totalReview['star'] * 20;
-                                            ?>
-                                            <div class="star_rating_box">
-                                                <div class="star_rating">
-                                                    <div class="empty_star">★★★★★</div>
-                                                    <div class="filled_star" style=" width: <?=$percent?>%">★★★★★</div>
-                                                </div>
-
-                                                <div class="number_and_reviews">
-                                                    <span class="number"><?=number_format($totalReview['star'], 2)?></span>
-                                                    <span class="reviews"><a href="#shop_dt_reviews"><?php echo $this->Html->image('/img/Shop/icon_comment.png', ['alt'=> '口コミ'])?><?=$totalReview['review_cnt']?>件</a></span>
-                                                </div>
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-
-                                    <div class="snsshare">
-                                        <ul class="snsshare cf">
-                                            <li class="tw"><a href="//twitter.com/share?url=<?php echo $shareurl ?>" target="_blank">ツイート</a></li>
-                                            <li class="fb"><a href="//www.facebook.com/sharer/sharer.php?u=<?php echo $shareurl ?>" target="_blank">シェア</a></li>
-                                            <li class="hb"><a href="//b.hatena.ne.jp/add?mode=confirm&url=<?php echo $shareurl ?>" target="_blank" rel="nofollow">はてぶ</a></li>
-                                            <li class="li"><a href="//line.me/R/msg/text/?<?php echo $shareurl ?>" target="_blank">シェア</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="menu pc">
-                                    <ul class="cf">
-
-                                        <li><a href="#shop_dt_feature" class="<?php if (empty($brand['feature_html'])) { echo 'disable';}?>">特徴</a></li>
-                                        <li><a href="#shop_dt_menu" class="<?php if (empty($brand['depilation_sites'])) { echo 'disable';}?>">対応部位</a></li>
-                                        <li><a href="#shop_dt_price" class="<?php if (empty($brand['price_plan_html'])) { echo 'disable';}?>">料金プラン</a></li>
-                                        <li><a href="#shop_dt_campaign" class="<?php if (empty($brand['campaign_html'])) { echo 'disable';}?>">キャンペーン</a></li>
-                                        <li><a href="#shop_dt_reviews" class="<?php if (count($reviews) > 0) { echo 'disable';}?>">口コミ</a></li>
-                                        <li><a href="#shop_dt_shop" class="<?php if (empty($brand['shops'])) { echo 'disable';}?>">運営店舗</a></li>
-                                        <li><a href="#shop_dt_interview" class="<?php if (empty($interviews)) { echo 'disable';}?>">インタビュー</a></li>
-                                    </ul>
-                                </div>
-                                <div class="menu-box">
-                                    <div class="menu sp">
-                                        <?php
-                                        $count = 0;
-                                        if (!empty($brand['feature_html'])) {
-                                            $count++;
-                                        }
-                                        if (!empty($brand['depilation_sites'])) {
-                                            $count++;
-                                        }
-                                        if (!empty($brand['price_plan_html'])) {
-                                            $count++;
-                                        }
-                                        if (!empty($brand['campaign_html'])) {
-                                            $count++;
-                                        }
-                                        if (count($reviews) > 0) {
-                                            $count++;
-                                        }
-                                        if (!empty($brand['shops'])) {
-                                            $count++;
-                                        }
-                                        if (!empty($interviews)) {
-                                            $count++;
-                                        }
-                                        $width = 96 * $count;
-                                        ?>
-                                        <ul class="cf sp" style="width: <?php echo $width; ?>px;">
-                                            <?php if (!empty($brand['feature_html'])) {?>
-                                                <li><a href="#shop_dt_feature">特徴</a></li>
-                                            <?php }?>
-                                            <?php if (!empty($brand['depilation_sites'])) {?>
-                                                <li><a href="#shop_dt_menu">対応部位</a></li>
-                                            <?php }?>
-                                            <?php if (!empty($brand['price_plan_html'])) {?>
-                                                <li><a href="#shop_dt_price">料金プラン</a></li>
-                                            <?php }?>
-                                            <?php if (!empty($brand['campaign_html'])) {?>
-                                                <li><a href="#shop_dt_campaign">キャンペーン</a></li>
-                                            <?php }?>
-                                            <?php if (count($reviews) > 0) {?>
-                                                <li><a href="#shop_dt_reviews">口コミ</a></li>
-                                            <?php }?>
-                                            <?php if (!empty($brand['shops'])) {?>
-                                                <li><a href="#shop_dt_shop">運営店舗</a></li>
-                                            <?php }?>
-                                            <?php if (!empty($interviews)) {?>
-                                                <li><a href="#shop_dt_interview">インタビュー</a></li>
-                                            <?php }?>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <?php
-                                if(!empty($brand['image_path'])) {
-                                    ?>
-                                    <div class="imgbox">
-                                        <?php echo $this->Html->image(['controller'=> 'images', 'action'=> 'brandImage', $brand['brand_id']], ['alt'=> ''])?>
-                                    </div>
-                                    <?php
-                                }
-                                if (!empty($brand['affiliate_page_url'])) {
-                                    ?>
-                                    <div class="btnarea">
-                                        <a href="<?=$brand['affiliate_page_url']?>" class="green" onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">公式サイトへ</a>
-                                    </div>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                            <?php
-                            if (!empty($brand['feature_html'])) {
-                                ?>
-                                <div id="shop_dt_feature" class="listwrap shopinfo brands">
-                                    <h2 class="coomontit_h2"><?=$brand['name']?>の特徴</h2>
-                                    <?=$brand['feature_html']?>
-                                    <?php
-                                    if (!empty($brand['affiliate_page_url'])) {
-                                        ?>
-                                        <div class="btnarea">
-                                            <a href="<?=$brand['affiliate_page_url']?>" class="green" onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">公式サイトへ</a>
-                                        </div>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-                                <?php
-                            }
-                            if (!empty($brand['depilation_sites'])) {
-
-                                $mens = "";
-                                if ($brand['depilation_type'] == DepilationType::$MENS[CodePattern::$CODE]) {
-                                    $mens = '_mens';
-                                }
-                                ?>
-                                <div id="shop_dt_menu<?=$mens?>" class="listwrap shopmenu<?=!empty($mens) ? " mens" : ""?>">
-                                    <h2 class="coomontit_h2"><?=$brand['name']?>が対応している脱毛部位</h2>
-                                    <div class="partwrap">
-                                        <div class="imgbox">
-                                            <?php
-                                            echo $this->Html->image('/img/shop_dt_part_img'.$mens.'.gif', ['alt'=> '']);
-                                            foreach ($brand['depilation_sites'] as $depilationSite) {
-                                                ?>
-                                                <span class="pointcircle <?php echo $depilationSite['url_text']?>"></span>
-                                                <?php
-                                            }
-                                            ?>
-                                        </div>
-                                        <div class="partbox cf">
-                                            <div class="part_list left">
-                                                <ul>
-                                                    <?php
-                                                    foreach ($brand['depilation_sites'] as $depilationSite) {
-                                                    $allClass = null;
-                                                    if ($depilationSite['depilation_site_id'] == 1) {
-                                                        $allClass = " class='all'";
-                                                    }
-                                                    echo "<li{$allClass}>{$depilationSite['name']}</li>";
-                                                    if ($depilationSite['depilation_site_id'] == 11) {
-                                                    ?>
-                                                </ul>
-                                            </div>
-                                            <div class="part_list right">
-                                                <ul>
-                                                    <?php
-                                                    }
-                                                    }
-                                                    ?>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                            if (!empty($brand['price_plan_html'])) {
-                                ?>
-                                <div id="shop_dt_price" class="listwrap shopmenu">
-                                    <h2 class="coomontit_h2"><?=$brand['name']?>の料金プラン</h2>
-                                    <div class="scroll">
-                                        <?=	$brand['price_plan_html']?>
-                                    </div>
-                                    <?php
-                                    if (!empty($brand['affiliate_page_url'])) {
-                                        ?>
-                                        <div class="btnarea">
-                                            <a href="<?=$brand['affiliate_page_url']?>" class="green" onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">公式サイトへ</a>
-                                        </div>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-                                <?php
-                            }
-                            if (!empty($brand['campaign_html'])) {
-                                ?>
-                                <div id="shop_dt_campaign" class="listwrap shopmenu">
-                                    <h2 class="coomontit_h2"><?=$brand['name']?>のキャンペーン</h2>
-                                    <?=$brand['campaign_html']?>
-                                    <?php
-                                    if (!empty($brand['affiliate_page_url'])) {
-                                        ?>
-                                        <div class="btnarea">
-                                            <a href="<?=$brand['affiliate_page_url']?>" class="green" onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">公式サイトへ</a>
-                                        </div>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-                                <?php
-                            }
-                            if (count($reviews) > 0) {
-                                ?>
-                                <div id="shop_dt_reviews" class="listwrap shopblog reviews">
-                                    <h2 class="coomontit_h2"><?=$brand['name']?>の評判・口コミ</h2>
-                                    <div class="reviewslist_wrap">
-                                        <?php
-                                        foreach ($reviews as $key => $review) {
-                                            $moreview = "";
-                                            if ($key >= 3) {
-                                                $moreview = " moreview hide";
-                                            }
-                                            ?>
-                                            <div class="itembox<?=$moreview?>">
-                                                <div class="titlearea cf">
-                                                    <div class="shopnamebox">
-                                                        <?=$this->Html->link($review['Shop']['name']. "[". Pref::convert($review['Shop']['pref'], CodePattern::$VALUE). "]",
-                                                            ['controller'=> 'shops', 'action'=> 'detail', $review['Shop']['shop_id']])?>
-                                                    </div>
-                                                    <div class="titbox cf">
-                                                        <div class="usericon">
-                                                            <?php
-                                                            $imgPath = "/img/reviews_icon_";
-                                                            if ($review['sex'] == Sex::$MAN[CodePattern::$CODE]) {
-                                                                $imgPath .= Sex::$MAN[CodePattern::$VALUE2];
-                                                            } else {
-                                                                $imgPath .= Sex::$WOMAN[CodePattern::$VALUE2];
-                                                            }
-
-                                                            if ($review['evaluation'] < 3) {
-                                                                $imgPath .= "_b";
-                                                            } else if ($review['evaluation'] >= 3 && $review['evaluation'] < 4) {
-                                                                $imgPath .= "_n";
-                                                            } else {
-                                                                $imgPath .= "_g";
-                                                            }
-
-                                                            $imgPath .= ".png";
-
-                                                            echo $this->Html->image($imgPath, ['alt'=> $review['nickname']]);
-                                                            ?>
-                                                        </div>
-                                                        <div class="namewrap">
-                                                            <div class="name"><?=$review['nickname']?></div>
-                                                            <div class="star_box">
-                                                                <div class="star-rating-box">
-                                                                    <div class="empty-star">★★★★★</div>
-                                                                    <div class="filled-star" style=" width: <?=$review['evaluation'] * 20?>%;">★★★★★</div>
-                                                                </div>
-                                                                <span class="points"><?=$review['evaluation']?></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="snsarea cf">
-                                                        <?php if (!empty($review['instagram_account'])) {?>
-                                                            <li><a href="https://www.instagram.com/<?=$review['instagram_account']?>" target="_blank"><?php echo $this->Html->image('/img/auther_icon_inst.png', ['alt'=> ''])?></a></li>
-                                                        <?php }?>
-                                                        <?php if (!empty($review['twitter_account'])) {?>
-                                                            <li><a href="https://twitter.com/<?=$review['twitter_account']?>" target="_blank"><?php echo $this->Html->image('/img/auther_icon_twt.png', ['alt'=> ''])?></a></li>
-                                                        <?php }?>
-                                                    </ul>
-                                                </div>
-                                                <div class="contentwrap">
-                                                    <div class="tit"><?=$review['title']?></div>
-                                                    <div class="txtarea"><?=nl2br($review['content'])?></div>
-                                                    <div class="underbox cf">
-                                                        <div class="daycont">
-                                                            <?php
-                                                            echo !empty($review['visit_date']) ? "<span>来店日：". date('m/d', strtotime($review['visit_date'])). "</span>" : "";
-                                                            echo !empty($review['post_date']) ? "<span>投稿日：". date('m/d', strtotime($review['post_date'])). "</span>" : "";
-                                                            ?>
-                                                        </div>
-                                                        <?php
-                                                        $isQuestion = false;
-                                                        for ($i=1; $i<=6; $i++) {
-                                                            $questionColumn = "question". $i;
-                                                            if (!empty($review[$questionColumn])) {
-                                                                $isQuestion = true;
-                                                                break;
-                                                            }
-                                                        }
-                                                        if ($isQuestion) {
-                                                            ?>
-                                                            <div class="cntlbtn">
-                                                                <a href="" class="btn">評価をもっと見る</a>
-                                                            </div>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </div>
-                                                    <div class="dolwcont">
-                                                        <ul>
-                                                            <?php
-                                                            if (!empty($review['question1'])) {
-                                                                ?>
-                                                                <li class="cf">
-                                                                    <p class="txt">
-                                                                        治療前の説明は十分でしたか？
-                                                                    </p>
-                                                                    <div class="star_box">
-                                                                        <div class="star-rating-box">
-                                                                            <div class="empty-star">★★★★★</div>
-                                                                            <div class="filled-star" style=" width: <?= Satisfaction::convert($review['question1'], CodePattern::$VALUE2)?>%;">★★★★★</div>
-                                                                        </div>
-                                                                        <span class="points"><?= Satisfaction::convert($review['question1'], CodePattern::$VALUE)?></span>
-                                                                    </div>
-                                                                </li>
-                                                                <?php
-                                                            }
-                                                            if (!empty($review['question2'])) {
-                                                                ?>
-                                                                <li class="cf">
-                                                                    <p class="txt">
-                                                                        痛みへの配慮はいかがでしたか？
-                                                                    </p>
-                                                                    <div class="star_box">
-                                                                        <div class="star-rating-box">
-                                                                            <div class="empty-star">★★★★★</div>
-                                                                            <div class="filled-star" style=" width: <?= Satisfaction::convert($review['question2'], CodePattern::$VALUE2)?>%;">★★★★★</div>
-                                                                        </div>
-                                                                        <span class="points"><?= Satisfaction::convert($review['question2'], CodePattern::$VALUE)?></span>
-                                                                    </div>
-                                                                </li>
-                                                                <?php
-                                                            }
-                                                            if (!empty($review['question3'])) {
-                                                                ?>
-                                                                <li class="cf">
-                                                                    <p class="txt">
-                                                                        スタッフの態度、対応はいかがでしたか？
-                                                                    </p>
-                                                                    <div class="star_box">
-                                                                        <div class="star-rating-box">
-                                                                            <div class="empty-star">★★★★★</div>
-                                                                            <div class="filled-star" style=" width: <?= Satisfaction::convert($review['question3'], CodePattern::$VALUE2)?>%;">★★★★★</div>
-                                                                        </div>
-                                                                        <span class="points"><?= Satisfaction::convert($review['question3'], CodePattern::$VALUE)?></span>
-                                                                    </div>
-                                                                </li>
-                                                                <?php
-                                                            }
-                                                            if (!empty($review['question4'])) {
-                                                                ?>
-                                                                <li class="cf">
-                                                                    <p class="txt">
-                                                                        店舗の雰囲気、設備、清潔感はいかがでしたか？
-                                                                    </p>
-                                                                    <div class="star_box">
-                                                                        <div class="star-rating-box">
-                                                                            <div class="empty-star">★★★★★</div>
-                                                                            <div class="filled-star" style=" width: <?= Satisfaction::convert($review['question4'], CodePattern::$VALUE2)?>%;">★★★★★</div>
-                                                                        </div>
-                                                                        <span class="points"><?= Satisfaction::convert($review['question4'], CodePattern::$VALUE)?></span>
-                                                                    </div>
-                                                                </li>
-                                                                <?php
-                                                            }
-                                                            if (!empty($review['question5'])) {
-                                                                ?>
-                                                                <li class="cf">
-                                                                    <p class="txt">
-                                                                        待ち時間、予約対応はいかがでしたか？
-                                                                    </p>
-                                                                    <div class="star_box">
-                                                                        <div class="star-rating-box">
-                                                                            <div class="empty-star">★★★★★</div>
-                                                                            <div class="filled-star" style=" width: <?= Satisfaction::convert($review['question5'], CodePattern::$VALUE2)?>%;">★★★★★</div>
-                                                                        </div>
-                                                                        <span class="points"><?= Satisfaction::convert($review['question5'], CodePattern::$VALUE)?></span>
-                                                                    </div>
-                                                                </li>
-                                                                <?php
-                                                            }
-                                                            if (!empty($review['question6'])) {
-                                                                ?>
-                                                                <li class="cf">
-                                                                    <p class="txt">
-                                                                        術前、術中、術後の対応はいかがでしたか？
-                                                                    </p>
-                                                                    <div class="star_box">
-                                                                        <div class="star-rating-box">
-                                                                            <div class="empty-star">★★★★★</div>
-                                                                            <div class="filled-star" style=" width: <?= Satisfaction::convert($review['question6'], CodePattern::$VALUE2)?>%;">★★★★★</div>
-                                                                        </div>
-                                                                        <span class="points"><?= Satisfaction::convert($review['question6'], CodePattern::$VALUE)?></span>
-                                                                    </div>
-                                                                </li>
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                        <div class="linkbtn">
-                                            <?php
-                                            echo $this->Html->link('<span>口コミ一覧はこちら</span>', ['controller'=> 'brands', 'action'=> 'reviewIndex', 'brand_id'=> $brand['brand_id']], ['escape'=> false]);
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                            if (!empty($brand['shops'])) {
-                                ?>
-                                <div id="shop_dt_shop" class="listwrap search">
-                                    <h2 class="coomontit_h2"><?=$brand['name']?>の運営店舗一覧</h2>
-                                    <ul class="jp_map">
-                                        <?php
-                                        $prefs = Pref::getPrefForBrandDetail();
-                                        foreach ($prefs as $pref) {
-
-                                            $active = null;
-                                            if (in_array($pref[CodePattern::$CODE], $brand['pref_cds'])) {
-                                                $active = " class='active'";
-                                            }
-                                            ?>
-                                            <li><a href="javascript:void(0);"<?=$active?>><span><?=$pref[CodePattern::$VALUE2]?></span></a></li>
-                                            <?php
-                                        }
-                                        ?>
-                                    </ul>
-                                    <div class="published_wrap">
-                                        <div class="tbl">
-                                            <table>
-                                                <tbody>
-                                                <tr>
-                                                    <th>都道府県</th>
-                                                    <th>最寄駅</th>
-                                                    <th>店舗名</th>
-                                                </tr>
-                                                <?php
-                                                foreach ($brand['shops'] as $shop) {
-                                                    ?>
-                                                    <tr>
-                                                        <td>
-                                                            <?=$this->Html->link(Pref::convert($shop['pref'], CodePattern::$VALUE), ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($brand['shop_type'], CodePattern::$VALUE2), $shop['pref_url_text']])?>
-                                                        </td>
-                                                        <td>
-                                                            <?php
-                                                            if (!empty($shop['StationG'])) {
-                                                                foreach ($shop['StationG'] as $stationG) {
-
-                                                                    $connection = ",";
-                                                                    if ($stationG === reset($shop['StationG'])) {
-                                                                        $connection = "";
-                                                                    }
-
-                                                                    echo $connection. $this->Html->link($stationG['name'],
-                                                                            ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($brand['shop_type'], CodePattern::$VALUE2), $shop['pref_url_text'], URLUtil::CITY.$stationG['area_id'], URLUtil::STATION_G. $stationG['station_g_cd']]);
-                                                                }
-                                                            }
-                                                            ?>
-                                                        </td>
-                                                        <td>
-                                                            <?=$this->Html->link($shop['name'], ['controller'=> 'shops', 'action'=> 'detail', $shop['shop_id']])?>
-                                                        </td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                                ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <?php
-                                        if (!empty($brand['affiliate_page_url'])) {
-                                            ?>
-                                            <div class="btnarea">
-                                                <a href="<?=$brand['affiliate_page_url']?>" class="green" onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">公式サイトへ</a>
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                            if (count($interviews) > 0) {
-                                ?>
-                                <div id="shop_dt_interview" class="listwrap shopblog">
-                                    <h2 class="coomontit_h2"><?=$brand['name']?>のインタビュー</h2>
-                                    <div class="shopblogarea">
-                                        <?php
-                                        foreach ($interviews as $interview) {
-                                            $url = Router::url(['controller'=> 'shops', 'action'=> 'detail', $interview['shop_id']]);
-                                            ?>
-                                            <a href="<?=$url?>/" class="blogbox cf">
-                                                <?php
-                                                if (!empty($interview['interview_image_path'])) {
-                                                    ?>
-                                                    <div class="imgbox">
-                                                        <?=$this->Html->image(['controller'=> 'images', 'action'=> 'interviewShopImage', $interview['shop_id']]);?>
-                                                    </div>
-                                                    <?php
-                                                }
-                                                ?>
-                                                <div class="textbox">
-                                                    <div class="day"><?=$interview['name']?>[<?=Pref::convert($interview['pref'], CodePattern::$VALUE)?>]</div>
-                                                    <div class="tit"><?=$interview['interview_title']?></div>
-                                                </div>
-                                            </a>
-                                            <?php
-                                        }
-                                        if (count($interviews) > 3) {
-                                            ?>
-                                            <div class="morebtn">
-                                                <a href="" class="btn"><span>もっと見る</span></a>
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                            if (!empty($brand['affiliate_banner_url'])) {
-                                ?>
-                                <div class="ad_banner_area listwrap">
-                                    <a href="<?= $brand['affiliate_page_url']?>" onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">
-                                        <?php echo $this->Html->image($brand['affiliate_banner_url'], ['alt'=> ''])?>
-                                    </a>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                            <div class="listwrap shopblog reviews">
-                                <h2 class="coomontit_h2">Purilがおすすめする<?= ShopType::convert($brand['shop_type'], CodePattern::$VALUE)?></h2>
-                                <div class="recommend_box">
-                                    <ul class="cf">
-                                        <?php
-                                        if ($brand['shop_type'] == ShopType::$DEPILATION_SALON[CodePattern::$CODE]) {
-                                            $osusumes = [
-                                                '恋肌'=> [
-                                                    'url'=> 'https://t.afi-b.com/visit.php?guid=ON&a=a6684E-M243966D&p=j648053O',
-                                                    'img'=> '/img/Top/koihada_top.jpg'
-                                                ],
-                                                'ストラッシュ'=> [
-                                                    'url'=> 'https://track.affiliate-b.com/visit.php?guid=ON&a=47719r-V298788m&p=j648053O',
-                                                    'img'=> '/img/stlassh.jpg'
-                                                ],
-                                                'ラココ'=> [
-                                                    'url'=> 'https://www.tcs-asp.net/alink?AC=C102738&LC=MBTY1&SQ=0&isq=100',
-                                                    'img'=> '/shop_img/466'
-                                                ],
-                                            ];
-                                        } else {
-                                            $osusumes = [
-                                                'レジーナクリニック'=> [
-                                                    'url'=> 'https://t.afi-b.com/visit.php?guid=ON&a=B8551a-G303613s&p=j648053O',
-                                                    'img'=> 'https://puril.net/shop_img/576'
-                                                ],
-                                                'HMRクリニック'=> [
-                                                    'url'=> 'https://t.afi-b.com/visit.php?guid=ON&a=x10802l-5364750L&p=j648053O',
-                                                    'img'=> 'https://www.afi-b.com/upload_image/10802-1553274671-3.jpg'
-                                                ],
-                                                'リゼクリニック'=> [
-                                                    'url'=> 'https://track.affiliate-b.com/visit.php?guid=ON&a=O5974K-t195506G&p=j648053O',
-                                                    'img'=> 'https://www.affiliate-b.com/upload_image/5974-1379886349-3.gif'
-                                                ]
-                                            ];
-                                        }
-
-                                        foreach ($osusumes as $name => $osusume) {
-                                            ?>
-                                            <li>
-                                                <a href="<?=$osusume['url']?>" target='_blank'>
-                                                    <div class="logo"><?php echo $this->Html->image($osusume['img'], ['alt'=> ''])?></div>
-                                                    <span><?=$name?></span>
-                                                </a>
-                                            </li>
-                                            <?php
-                                        }
-                                        ?>
-                                    </ul>
-                                    <div class="linkbtn">
-                                        <a href="<?=Router::url(['controller'=> 'brands', 'action'=> 'index'])?>/#brands_<?=ShopType::convert($brand['shop_type'], CodePattern::$VALUE2)?>">
-                                            <span><?=$brand['shop_type'] == ShopType::$DEPILATION_SALON[CodePattern::$CODE] ? "サロン一覧へ" : "クリニック一覧へ";?></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="listwrap column">
-                                <div id="shopbtcolumn">
-                                    <h2 class="coomontit_h2"><?php echo $brand['name'];?>の脱毛に関連するコラム</h2>
-                                    <ul class="toc_list">
-                                        <?php
-                                        if (!empty($brand['brand_urls'])) {
-                                            foreach ($brand['brand_urls'] as $brandUrl) {
-                                                ?>
-                                                <li><a href="<?=$brandUrl['url']?>"><?=$brandUrl['title']?></a></li>
-                                                <?php
-                                            }
-                                        }
-                                        ?>
-                                        <li><a href="/column/special/">脱毛したい人必見！脱毛サロン・医療脱毛クリニックのおすすめ総合ランキング</a></li>
-                                        <li><a href="/column/campaign/">脱毛オトク情報｜キャンペーン・モニター情報でオトクに脱毛！</a></li>
-                                        <li><a href="/column/qa/advantage/">脱毛の掛け持ちで最高に得する方法とは？</a></li>
-                                        <li><a href="/column/useful/">脱毛について完全理解！脱毛前後で知りたいこと、全部まとめました！</a></li>
-                                        <li><a href="/column/useful/cost/">脱毛の費用と効果を比較！サロン？クリニック？自宅？あなたはどれ向き！？</a></li>
-                                        <li><a href="/column/epilator/">家庭用脱毛器を徹底比較！おすすめ人気ランキングBEST20</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="shopdtbtsnsarea">
-                                <h2 class="coomontit_h2">友達にシェアする</h2>
-                                <?php $shareurl = Router::url(null,true);?>
-                                <ul class="snsshare cf">
-                                    <li class="tw"><a href="//twitter.com/share?url=<?php echo $shareurl ?>" target="_blank">ツイート</a></li>
-                                    <li class="fb"><a href="//www.facebook.com/sharer/sharer.php?u=<?php echo $shareurl ?>" target="_blank">シェア</a></li>
-                                    <li class="hb"><a href="//b.hatena.ne.jp/add?mode=confirm&url=<?php echo $shareurl ?>" target="_blank" rel="nofollow">はてぶ</a></li>
-                                    <li class="li"><a href="//line.me/R/msg/text/?<?php echo $shareurl ?>" target="_blank">シェア</a></li>
-                                    <li class="ml"><a href="mailto:?body=<?php echo $shareurl ?>">メール</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <?= $this->element('Front/SearchResult/side')?>
-            </div>
-        </div>
-    </div>
+<header class="datsumou-header">
     <?php
-    if (!empty($shop['affiliate_page_url'])) {
+    echo $this->element('Front/header')
+    ?>
+</header>
+<!--<nav class="content-base brand-breadcrumbs">-->
+<!--      <ul class="brand-breadcrumbs-list">-->
+<!--        <li><a href="--><?//=Router::url('/')?><!--">Purilトップ</a></li>-->
+<!--        <li>--><?php //echo $this->Html->link("<span>店舗名から探す</span>", ['controller'=> 'brands'], ['escape'=> false])?><!--</li>-->
+<!--        <li>--><?//=$brand['name']?><!--</li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<nav class="content brand-nav">
+    <div class="brand-nav-item active" data-content="brand-top"><span class="brand-nav-item-text">トップ</span></div>
+    <?php if (!empty($brand['price_plan_html'])) {?>
+        <a href="#brand_price" class="brand-nav-item" data-content="brand-plan"><span class="brand-nav-item-text">料金プラン</span></a>
+    <?php }?>
+    <?php if (!empty($brand['depilation_sites'])) {?>
+        <a href="#brand_depilation" class="brand-nav-item" data-content="brand-datsumou"><span class="brand-nav-item-text">脱毛部位</span></a>
+    <?php }?>
+    <?php if (count($reviews) > 0) {?>
+        <a href="#brand_reviews" class="brand-nav-item" data-content="brand-kuchikomi"><span class="brand-nav-item-text">口コミ</span></a>
+    <?php }?>
+    <!--      <div class="brand-nav-item" data-content="brand-campaign"><span class="brand-nav-item-text">キャンペーン</span></div>-->
+    <?php if (!empty($brand['shops'])) { ?>
+        <a href="#brand_shops" class="brand-nav-item" data-content="brand-shop"><span class="brand-nav-item-text">運営店舗</span></a>
+    <?php }?>
+</nav>
+<section class="content brand-top">
+    <?php
+    if(!empty($brand['image_path'])) {
         ?>
-        <div id="dtfixbtnarea">
-            <a href="<?php echo $shop['affiliate_page_url']?>" class="green" onclick="gtag('event', 'click', {'event_category': 'af','event_label': 'all'});">公式サイトへ</a>
+        <div class="brand-top-img-area">
+            <div class="brand-top-img-base">
+                <?php echo $this->Html->image(['controller'=> 'images', 'action'=> 'brandImage', $brand['brand_id']], ['class'=>'brand-top-img','alt'=> ''])?>
+            </div>
         </div>
         <?php
     }
     ?>
-    <script>
-        function initMap(address) {
-            var geocoder = new google.maps.Geocoder();
-            //住所から座標を取得する
-            geocoder.geocode(
-                {
-                    'address': address,//検索する住所　〒◯◯◯-◯◯◯◯ 住所　みたいな形式でも検索できる
-                    'region': 'jp'
-                },
-                function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        google.maps.event.addDomListener(window, 'load', function () {
-                            var map_tag = document.getElementById('map');
-                            // 取得した座標をセット緯度経度をセット
-                            var map_location = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-                            //マップ表示のオプション
-                            var map_options =
-                                {
-                                    zoom: 17,//縮尺
-                                    center: map_location,//地図の中心座標
-                                    //ここをfalseにすると地図上に人みたいなアイコンとか表示される
-                                    disableDefaultUI: true,
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP//地図の種類を指定
-                                };
+    <div class="brand-top-desc-area">
+        <div class="brand-top-desc-category">
+            <?php echo ShopType::convert($brand['shop_type'], CodePattern::$VALUE) ?></div>
 
-                            //マップを表示する
-                            var map = new google.maps.Map(map_tag, map_options);
+        <?php if(!empty($totalReview)):?>
+        <div class="brand-top-desc-middle">
+            <div class="brand-top-desc-review">
+                <div class="shop-star-area">
+                    <div class="shop-star">
+                        <?php
+                        $star = empty($totalReview['star']) ? 0 : $totalReview['star'];
+                        $reviewCount = 0;
+                        while($reviewCount < $star):
+                            echo '<img src="/puril/images/img/star-on.png">';
+                            $reviewCount++;
+                        endwhile;
+                        ?>
+                        <?php
+                        while(5 - $reviewCount > 0):
+                            echo '<img src="/puril/images/img/star-off.png">';
+                            $reviewCount++;
+                        endwhile;
+                        ?>
+                    </div>
+                </div>
+                <div class="shop-point"><?=number_format($totalReview['star'], 1)?></div>
+            </div>
+            <div class="shop-comment-area"><i class="shop-comment-icon fas fa-comments"></i>
+                <div class="shop-comment-count"><?=$totalReview['review_cnt']?>件</div>
+            </div>
+        </div>
+        <?php endif;?>
+    </div>
+</section>
+<section class="content middle-content brand-info">
+    <h2 class="content-title">店舗情報</h2>
+    <p class="content-feature"><span>最大</span><span class="content-feature-large">5,000</span><span>円のキャッシュバックあり！</span></p>
+    <div class="content-text"><?=$brand['feature_html']?></div>
+</section>
+<?php if (!empty($brand['price_plan_html'])) {?>
+<section class="content middle-content brand-plan" id="brand_price">
+    <h2 class="content-title">料金プラン</h2>
+    <div>
+        <?=	$brand['price_plan_html']?>
+    </div>
+</section>
+<?php }
+if (!empty($brand['depilation_sites'])) { ?>
+    <section class="content middle-content brand-datsumou" id="brand_depilation">
+        <h2 class="content-title">脱毛部位</h2>
+        <ul class="brand-part-list">
+            <?php
+            foreach ($brand['depilation_sites'] as $depilationSite) {
+                echo '<li class="brand-part-common brand-part-active">' . $depilationSite['name'] . '</li>';
+            }
+            ?>
+        </ul>
+    </section>
+    <?php
+}
+if (count($reviews) > 0) {
+    ?>
+    <section class="content middle-content brand-kuchikomi" id="brand_reviews">
+        <h2 class="content-title">口コミ</h2>
+        <ul class="brand-kuchikomi-list">
+            <?php
+            foreach ($reviews as $key => $review) {
+                ?>
+                <li class="brand-kuchikomi-item">
+                    <div class="brand-kuchikomi-item-wrap">
+                        <div class="brand-kuchikomi-item-above">
+                            <div class="brand-kuchikomi-title"><?=$this->Html->link($review['Shop']['name']. "[". Pref::convert($review['Shop']['pref'], CodePattern::$VALUE). "]",
+                                    ['controller'=> 'shops', 'action'=> 'detail', $review['Shop']['shop_id']])?></div>
+                            <div class="brand-user-star-area">
+                                <div class="shop-star-area">
+                                    <div class="shop-star">
+                                        <?php
+                                        $star = empty($review['evaluation']) ? 0 : $review['evaluation'];
+                                        $reviewCount = 0;
+                                        while($reviewCount < $star):
+                                            echo '<img src="/puril/images/img/star-on.png">';
+                                            $reviewCount++;
+                                        endwhile;
+                                        ?>
+                                        <?php
+                                        while(5 - $reviewCount > 0):
+                                            echo '<img src="/puril/images/img/star-off.png">';
+                                            $reviewCount++;
+                                        endwhile;
+                                        ?>
+                                    </div>
+                                    <div class="shop-point"><?= $review['evaluation'] ?></div>
+                                </div>
+                            </div>
+                            <div class="shop-reviewer-area">
+                                <div class="shop-reviewer-name-area">
+                                    <div class="shop-reviewer-name"><?=$review['nickname']?></div>
+                                </div>
+                            </div>
+                            <div class="brand-kuchikomi-month">
+                                <?php
+                                echo !empty($review['visit_date']) ? "<span>来店日：". date('Y/m/d', strtotime($review['visit_date'])). "</span>" : "";
+                                echo !empty($review['post_date']) ? "<span>投稿日：". date('Y/m/d', strtotime($review['post_date'])). "</span>" : "";
+                                ?>
+                            </div>
+                            <i class="fas fa-chevron-down brand-kuchikomi-arrow"></i>
+                        </div>
+                        <div class="brand-kuchikomi-item-below">
+                            <div class="shop-kuchikomi-item-detail-wrap">
+                                <?php if(!empty($review['content'])):?>
+                                    <div class="shop-kuchikomi-item-detail">
+                                        <div class="shop-kuchikomi-item-detail-title">この店舗の総合的な感想を教えて下さい</div>
+                                        <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['content']) ?></p>
+                                    </div>
+                                <?php endif;?>
+                                <?php if(!empty($review['reason'])):?>
+                                    <div class="shop-kuchikomi-item-detail">
+                                        <div class="shop-kuchikomi-item-detail-title">この店舗を選んだ理由を教えてください。</div>
+                                        <p class="shop-kuchikomi-item-detail-text"><?= nl2br($review['reason']) ?></p>
+                                    </div>
+                                <?php endif;?>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">店舗の「接客／サービス」はいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question1'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question1_evaluation']?></p>
+                                </div>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">受けたサービスの「メニューや料金」についてはいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question2'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question2_evaluation']?></p>
+                                </div>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">施術の「効果（技術や仕上がり）」はいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question3'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question3_evaluation']?></p>
+                                </div>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">店舗の「雰囲気」はいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question4'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question4_evaluation']?></p>
+                                </div>
+                                <div class="shop-kuchikomi-item-detail">
+                                    <div class="shop-kuchikomi-item-detail-title">店舗の「通いやすさ／予約の取りやすさ」はいかがでしたか？</div>
+                                    <div class="shop-kuchikomi-item-detail-review">
+                                        <div class="shop-kuchikomi-item-detail-review-tag">評価点</div>
+                                        <div class="shop-kuchikomi-item-detail-review-point"><?= Satisfaction::convert($review['question5'], CodePattern::$VALUE) ?></div>
+                                    </div>
+                                    <p class="shop-kuchikomi-item-detail-text"><?= $review['question5_evaluation']?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php } ?>
+        </ul>
+        <!--<a class="show-more clickable-button" href="#">口コミをもっと見る（4件）</a>-->
+    </section>
+<?php } ?>
+<section class="content middle-content brand-info-detail">
+    <div class="brand-info-detail-area-wrap">
+        <?php
+        if (!empty($brand['affiliate_page_url'])) {
+        ?>
+        <div class="brand-info-detail-area">
+            <h3 class="brand-info-detail-title">特徴・関連情報</h3>
+            <table class="brand-info-detail-table">
+                <tbody>
+                <tr>
+                    <th>ホームページ</th>
+                    <td><a href="<?php echo $brand['affiliate_page_url'];?>">公式サイトから予約する</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <?php } ?>
+    </div>
+    <div class="brand-info-detail-remark"><?= $brand['name'];?>の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</div>
+    <div class="brand-info-detail-report">
+        <?php echo $this->Html->link('誤りを報告する', ['controller'=> 'contacts', 'action'=> 'contact'],['class'=>'clickable-button brand-info-detail-report-button']);?>
+        </div>
+</section>
+<section class="content middle-content brand-share">
+    <h2 class="content-title">シェア</h2>
+    <?php $shareurl = Router::url(null,true);?>
+    <div class="share-twitter"><a class="clickable-button share-twitter-button" href="//twitter.com/share?url=<?php echo $shareurl ?>"><i class="fab fa-twitter twitter-icon"></i>
+            <div class="share-twitter-text">Twitter</div></a></div>
+</section>
+<?php if (!empty($brand['shops'])) {
+?>
+<section class="content brand-shops" id="brand_shops">
+    <h2 class="content-title"><?=$brand['name']?>の運営店舗一覧</h2>
+    <table class="shop-list">
+        <tbody>
+        <tr>
+            <th>都道府県</th>
+            <th>最寄駅</th>
+            <th>店舗名</th>
+        </tr>
+        <?php
+        foreach ($brand['shops'] as $shop) {
+            ?>
+            <tr>
+                <td>
+                    <?=$this->Html->link(Pref::convert($shop['pref'], CodePattern::$VALUE), ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($brand['shop_type'], CodePattern::$VALUE2), $shop['pref_url_text']])?>
+                </td>
+                <td>
+                    <?php
+                    if (!empty($shop['StationG'])) {
+                        foreach ($shop['StationG'] as $stationG) {
 
-                            //地図上にマーカーを表示させる
-                            var marker = new google.maps.Marker({
-                                position: map_location,//マーカーを表示させる座標
-                                map: map//マーカーを表示させる地図
-                            });
-                        });
+                            $connection = ",";
+                            if ($stationG === reset($shop['StationG'])) {
+                                $connection = "";
+                            }
+
+                            echo $connection. $this->Html->link($stationG['name'],
+                                    ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($brand['shop_type'], CodePattern::$VALUE2), $shop['pref_url_text'], URLUtil::CITY.$stationG['area_id'], URLUtil::STATION_G. $stationG['station_g_cd']]);
+                        }
                     }
-                }
-            );
+                    ?>
+                </td>
+                <td>
+                    <?=$this->Html->link($shop['name'], ['controller'=> 'shops', 'action'=> 'detail', $shop['shop_id']])?>
+                </td>
+            </tr>
+            <?php
         }
-        initMap("<?php echo $shop['address']?>");
-    </script>
+        ?>
+        </tbody>
+    </table>
+    <?php
+    }?>
+</section>
+<a href="https://puril.net/campaign/">
+    <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
+</a>
+
+<div class="Search__breadcrumbs">
+    <ol>
+        <li>
+            <a href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
+            <meta itemprop="position" content="1">
+        </li>
+        <li>
+            <a href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
+            <meta itemprop="position" content="2">
+        </li>
+        <li>
+            <?php echo $this->Html->link("<span itemprop='name' class='name'>店舗名から探す</span>", ['controller'=> 'brands'], ['escape'=> false])?>
+            <meta itemprop="position" content="3">
+        </li>
+        <li>
+            <?php echo "<span itemprop='name' class='name'>{$brand['name']}</span>"?>
+            <meta itemprop="position" content="4">
+        </li>
+    </ol>
 </div>
+<?php
+echo $this->element('Front/footer') ?>
+<script type="text/javascript" src="/js/datsumou/brand/common.js"></script>
+<script>
+    $('.brand-nav-item').on('touchend',function(){
+        $(this).addClass('active').siblings('.brand-nav-item').removeClass('active');
+        let contentName = $(this).data('content');
+    });
+
+</script>
+</body>
+</html>

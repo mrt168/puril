@@ -29,8 +29,8 @@ AddOutputFilterByType DEFLATE application/x-font-opentype
 
 <IfModule mod_rewrite.c>
 RewriteEngine on
-RewriteRule ^shop/(.*)$ https://puril.net/datsumou/shop/$1 [R=301,L]
-RewriteRule ^search/(.*)$ https://puril.net/datsumou/search/$1 [R=301,L]
+RewriteRule ^shop/(.*)$ /datsumou/shop/$1 [R=301,L]
+RewriteRule ^search/(.*)$ /datsumou/search/$1 [R=301,L]
 </IfModule>
 <IfModule mod_rewrite.c>
     RewriteEngine On

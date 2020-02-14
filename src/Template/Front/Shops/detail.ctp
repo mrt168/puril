@@ -290,8 +290,8 @@ if (!empty($shop['reviews'])) {
 <?php } ?>
 <section class="content middle-content shop-kuchikomi-post">
     <h2 class="content-title">口コミ投稿</h2>
-    <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>"><i class="fas fa-comments kuchikomi-button-icon"></i>
-            <div class="kuchikomi-button-text">口コミを書く</div></a></div>
+    <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
+            <img src="/puril/images/review_btn_long.png" class="button-base-img kuchikomi-button-img" alt=""></a></div>
 </section>
 <section class="content middle-content shop-address" id="address">
     <h2 class="content-title">住所</h2>
@@ -423,14 +423,14 @@ if (!empty($shop['reviews'])) {
 <?php if ( FormUtil::checkUseForm($shop['name'],$shop['shop_id'] ) ){ ?>
 <footer class="content shop-footer">
     <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
-        <div class="kuchikomi-button-text">口コミを書く</div></a>
+        <img src="/puril/images/review_btn.png" class="button-base-img kuchikomi-button-img" alt=""></a>
     <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>">
-        <div class="reservatopn-button-text">ネット予約</div></a></footer>
+        <img src="/puril/images/reserve_btn.png" class="button-base-img reservatopn-button-img" alt=""></a></footer>
 <?php } else {
     ?>
     <footer class="content shop-footer">
         <a class="button-base kuchikomi-button kuchikomi-only" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
-            <div class="kuchikomi-button-text">口コミを書く</div></a></footer>
+            <img src="/puril/images/review_btn_long.png" class="button-base-img kuchikomi-button-img" alt=""></a></footer>
 <?php
 }
 ?>
@@ -575,7 +575,7 @@ if (!empty($shop['reviews'])) {
             <meta itemprop="position" content="4">
         </li>
         <li>
-            <?php echo $this->Html->link("<span>全国の".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
+            <?php echo $this->Html->link("<span>{$shop['pref']}".ShopType::convert($shop['shop_type'], CodePattern::$VALUE)."</span>", ['controller'=> 'searchs', 'action'=> 'search', ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape'=> false,'itemscope'=>'','itemtype'=>'http://schema.org/Thing','itemprop'=>'item'])?>
             <meta itemprop="position" content="5">
         </li>
 

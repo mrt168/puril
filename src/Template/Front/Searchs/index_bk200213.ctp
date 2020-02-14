@@ -16,7 +16,7 @@ echo $this->Html->css(['css/main', 'css/search']);
 <div class="Search">
 
     <div class="Search__contents">
-        <h1 class="Search__title"><span>脱毛サロン・クリニックを全国から探す</span></h1>
+        <div class="Search__title"><span>脱毛サロン・クリニックを全国から探す</span></div>
         <div class="Search__input">
             <?php
             echo $this->ExForm->create('Make', ['url'=> ['controller' => 'Makes', 'action'=> 'index'], 'type'=> 'post', 'novalidate' => true, 'id'=> 'form01', 'class'=> 'cf', 'templates'=> ['submitContainer'=> '{{content}}']]);
