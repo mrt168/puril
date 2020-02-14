@@ -288,6 +288,11 @@ if (!empty($shop['reviews'])) {
         </ul>
     </section>
 <?php } ?>
+<section class="content middle-content shop-kuchikomi-post">
+    <h2 class="content-title">口コミ投稿</h2>
+    <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
+            <img src="/puril/images/review_btn_long.png" class="button-base-img kuchikomi-button-img" alt=""></a></div>
+</section>
 <section class="content middle-content shop-address" id="address">
     <h2 class="content-title">住所</h2>
     <a class="clickable-button shop-address-detail" href="">
@@ -295,11 +300,6 @@ if (!empty($shop['reviews'])) {
     <div class="shop-address-map">
         <div id="map"></div>
     </div>
-</section>
-<section class="content middle-content shop-kuchikomi-post">
-    <h2 class="content-title">口コミ投稿</h2>
-    <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
-            <img src="/puril/images/review_btn_long.png" class="button-base-img kuchikomi-button-img" alt=""></a></div>
 </section>
 <section class="content middle-content shop-info-detail">
     <h2 class="content-title">店舗情報（詳細）</h2>
