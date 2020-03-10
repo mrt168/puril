@@ -221,6 +221,9 @@ echo $this->Html->css('datsumou/search');
                     <li class="kodawari-search">
                         <a href=""><img src="/puril/images/datsumou-area-ico02-sp.png" alt="">こだわり条件<span class="small">から探す</span></a>
                     </li>
+                    <li class="">
+                        <a href="<?php echo Router::url('/datsumou/brands')?>">脱毛サロン、クリニック一覧<span class="small">から探す</span></a>
+                    </li>
                 </ul>
             </div>
         </div>

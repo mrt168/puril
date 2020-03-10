@@ -52,7 +52,7 @@ echo $this->Html->css(['css/main', 'css/search']);
             }
             ?>
         </div>
-        <div class="Search__brand__wrap" id="clinic">
+        <div class="Search__brand__wrap Search__brand__wrap--none" id="clinic">
             <?php
             $jaBlock = 1;
             foreach ($clinics['JA'] as $line => $japanesSyllabary) {
@@ -105,6 +105,7 @@ echo $this->Html->css(['css/main', 'css/search']);
 <?php
 echo $this->element('Front/footer') ?>
 <script>
+    $('.Search__brand__wrap--none').hide();
     $('.Search__btn').each(function(){
        $(this).click(function(e){
            e.preventDefault();
