@@ -42,6 +42,8 @@ echo $this->Html->css(['reset', 'all.min', 'Chart.min','common', 'datsumou/commo
     if (!empty($shop['reviews'])) {
         ?>
         <div class="shop-nav-item"><a class="shop-nav-item-text" href="#kuchikomi">口コミ</a></div>
+    <?php } else {?>
+        <div class="shop-nav-item"><a class="shop-nav-item-text" href="#kuchikomi-post">口コミ</a></div>
     <?php } ?>
     <div class="shop-nav-item"><a class="shop-nav-item-text" href="#address">地図</a></div>
 </nav>
@@ -288,7 +290,7 @@ if (!empty($shop['reviews'])) {
         </ul>
     </section>
 <?php } ?>
-<section class="content middle-content shop-kuchikomi-post">
+<section class="content middle-content shop-kuchikomi-post" id="kuchikomi-post">
     <h2 class="content-title">口コミ投稿</h2>
     <div class="shop-kuchikomi-button-area"><a class="kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id'];?>">
             <img src="/puril/images/review_btn_long.png" class="button-base-img kuchikomi-button-img" alt=""></a></div>
