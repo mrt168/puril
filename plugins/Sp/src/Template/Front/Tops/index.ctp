@@ -295,7 +295,7 @@ echo $this->Html->css('datsumou/search');
                                 ?>
                             </ul>
                             <a href="<?php echo Router::url('/datsumou/ranking')?>"
-                               class="datsumou-ranking__btn">ランキングを見るPC</a>
+                               class="datsumou-ranking__btn">ランキングを見る</a>
                         </div>
                         <div id="panel02" class="datsumou-ranking-panel-inner panel02">
                             <ul class="datsumou-ranking-panel__list">

@@ -153,14 +153,14 @@ echo $this->Html->css('datsumou/search');
         ?>
 
         <div class="datsumou-header-mv">
-            <h1 class="datsumou-header-mv-inner">
-                <span class="datsumou-header-mv-inner__text--large">みんな</span>の<br>
-                <span class="datsumou-header-mv-inner__text--middle">脱毛口コミ</span>サイト
-                <span class="datsumou-header-mv-inner__text-search__list">
-                    <span class="datsumou-header-mv-inner__text--small">掲載件数</span>
-                    <span class="datsumou-header-mv-inner__text--middle">10000件以上！</span>
-                </span>
-            </h1>
+            <div class="datsumou-header-mv-inner">
+                <p><span class="datsumou-header-mv-inner__text--large">みんな</span>の</p>
+                <p><span class="datsumou-header-mv-inner__text--middle">脱毛口コミ</span>サイト</p>
+                <div class="datsumou-header-mv-inner__text-search__list">
+                    <p>掲載件数</p>
+                    <p class="datsumou-header-mv-inner__text--middle">10000件以上！</p>
+                </div>
+            </div>
         </div>
     </header>
     <main class="datsumou-main">
@@ -221,9 +221,6 @@ echo $this->Html->css('datsumou/search');
                     <li class="kodawari-search">
                         <a href=""><img src="/puril/images/datsumou-area-ico02-sp.png" alt="">こだわり条件<span class="small">から探す</span></a>
                     </li>
-                    <li class="">
-                        <a href="<?php echo Router::url('/datsumou/brands')?>">脱毛サロン、クリニック一覧<span class="small">から探す</span></a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -231,7 +228,7 @@ echo $this->Html->css('datsumou/search');
         <div class="datsumou-ranking">
             <div class="datsumou-ranking__inner">
                 <h2 class="datsumou-ranking__title">
-                    脱毛ランキングから探す
+                    <p>脱毛ランキングから探す</p>
                 </h2>
                 <div class="datsumou-ranking__tab">
                     <input id="tab01-01" type="radio" name="tab_btn01" checked>
@@ -283,7 +280,7 @@ echo $this->Html->css('datsumou/search');
                                             <p
                                                     class="datsumou-ranking-panel__evaluation <?php echo $countCss; ?>">
                                                 <?=number_format($osusume['star'], 2)?>
-                                            </<span>
+                                            </p>
                                             <?php echo $this->Html->image($osusume['img'], ['alt'=> ''])?>
                                             <p class="datsumou-ranking-panel__text"><?=$name?>
                                             </p>
@@ -295,7 +292,7 @@ echo $this->Html->css('datsumou/search');
                                 ?>
                             </ul>
                             <a href="<?php echo Router::url('/datsumou/ranking')?>"
-                               class="datsumou-ranking__btn">ランキングを見るPC</a>
+                               class="datsumou-ranking__btn">ランキングを見る</a>
                         </div>
                         <div id="panel02" class="datsumou-ranking-panel-inner panel02">
                             <ul class="datsumou-ranking-panel__list">
@@ -360,7 +357,7 @@ echo $this->Html->css('datsumou/search');
             <div class="datsumou-evaluation">
                 <div class="datsumou-evaluation__inner">
                     <h2 class="datsumou-evaluation__title">
-                        新着口コミから探す
+                        <p>新着口コミから探す</p>
                     </h2>
                     <div class="datsumou-evaluation__tab">
                         <div class="datsumou-evaluation-panel">
@@ -435,7 +432,7 @@ echo $this->Html->css('datsumou/search');
         </div>
         <div class="datsumou-characteristic">
             <h2 class="datsumou-characteristic__title">
-                Purilの3つの特徴
+                <p>Purilの3つの特徴</p>
             </h2>
             <ul class="datsumou-characteristic-inner">
                 <li>
