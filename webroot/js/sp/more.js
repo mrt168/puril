@@ -2,7 +2,6 @@ const morekeys = ['comment', 'staff', 'news', 'blog'];
 const moreprefix = `more-content-`;
 
 window.addEventListener('load', () => {
-    console.log('loaded')
     hideMoreContents()
 });
 

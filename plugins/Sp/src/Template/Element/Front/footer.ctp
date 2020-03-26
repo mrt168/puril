@@ -1,11 +1,12 @@
 <?php
+
 use App\Vendor\Code\Pref;
 use App\Vendor\Code\CodePattern;
 use Cake\Routing\Router;
 
 ?>
 
-    <footer class="datsumou-footer">
+<footer class="datsumou-footer">
     <div class="datsumou-footer__inner">
         <ul class="datsumou-footer__category01">
             <li class="datsumou-footer__category__li">
@@ -24,8 +25,7 @@ use Cake\Routing\Router;
 
         <ul class="datsumou-footer__category02">
             <li class="datsumou-footer__category__li">
-                <a href="https://tsuru-tsuru.co.jp/" target="_blank"
-                   class="datsumou-footer__category__li__link">運営企業</a>
+                <a href="https://tsuru-tsuru.co.jp/" target="_blank" class="datsumou-footer__category__li__link">運営企業</a>
             </li>
             <li class="datsumou-footer__category__li">
                 <a href="/regulation" class="datsumou-footer__category__li__link">利用規約</a>

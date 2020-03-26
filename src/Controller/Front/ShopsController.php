@@ -66,6 +66,18 @@ class ShopsController extends FrontAppController {
 			}
 		}
 
+		// ギャラリー
+		$galleryTable = TableRegistry::get('ShopImages');
+		$shopGallery = $galleryTable->findByShopId($shop['shop_id'])->toArray();
+		if (!empty($shopGallery)) {
+			$shop['gallery'] = [];
+			foreach ($shopGallery as $gallery) {
+				if($gallery['image_type'] ===  1) {
+					array_push($shop['gallery'], $gallery);
+				}
+			}
+		}
+
 
 		// 最寄駅情報
 		$ssTable = TableRegistry::get('ShopStations');
@@ -161,8 +173,6 @@ class ShopsController extends FrontAppController {
 		$product['release_date'] = date('Y-m-d H:i:s', strtotime($shop['created']));
 		$product['img_url'] = !empty($shop['shop_images']) ? Router::url(array('controller'=> 'images', 'action'=> 'shopImage', $shop['shop_images'][0]['shop_image_id']), true). "/" : null;
 		$product['rating_value'] = $shop['star'];
-
-		array_push($structureds, parent::structuredProduct($product));
 
 		//Bread
 		$pankuzus = [
