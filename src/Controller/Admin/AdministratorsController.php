@@ -92,7 +92,7 @@ class AdministratorsController extends AdminAppController {
 			}
 			return $this->redirect(array('controller'=> 'administrators', 'action'=> 'index'));
 		}
-		$this->set('administratorDatas', $administratorDatas);
+		// $this->set('administratorDatas', $administratorDatas);
 		$this->setAction('moveRegist');
 	}
 

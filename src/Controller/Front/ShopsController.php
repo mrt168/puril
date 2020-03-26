@@ -49,10 +49,22 @@ class ShopsController extends FrontAppController {
 		if (empty($shop['shop_id'])) {
 			throw new NotFoundException();
 		}
-		
+
 		if($shop['show_flg'] == 2) {
             $this->set('noindex', true);
-        }
+				}
+
+		// こだわり
+		$commitmentTable = TableRegistry::get('ShopOtherConditions');
+		$commitments = TableRegistry::get('OtherConditions');
+		$shopCommitment = $commitmentTable->findByShopId($shop['shop_id'])->toArray();
+		if(!empty($shopCommitment)) {
+			$shop['other_commitments'] = [];
+			foreach ($shopCommitment as $commitment) {
+				$commitmentDetail = $commitments->findByIdAndDelFlg($commitment['other_condition_id']);
+				array_push($shop['other_commitments'], $commitmentDetail);
+			}
+		}
 
 
 		// 最寄駅情報
@@ -106,9 +118,9 @@ class ShopsController extends FrontAppController {
 		$wherePref['pref'] = $shop['pref'];
 
 		$othreShops = [];
-		$othreShops['station_data'] = $shopTable->findRandForFront($whereStation, 3, true);
-		$othreShops['area_data'] = $shopTable->findRandForFront($whereArea, 3, true);
-		$othreShops['shop_data'] = $shopTable->findRandForFront($wherePref, 3, true);
+		$othreShops['station_data'] = $shopTable->findRandForFront($whereStation, 3, true)->toArray();
+		$othreShops['area_data'] = $shopTable->findRandForFront($whereArea, 3, true)->toArray();
+		$othreShops['pref_data'] = $shopTable->findRandForFront($wherePref, 3, true)->toArray();
 
 		// 関連URL ブランド
 		$brandUrlTable = TableRegistry::get('BrandUrls');
@@ -437,7 +449,7 @@ class ShopsController extends FrontAppController {
 		if (empty($shop['shop_id'])) {
 			throw new NotFoundException();
 		}
-		
+
 		// Purilからの予約を行なってほしくない店舗
 		if ( strpos($shop['name'],'キレイモ') !== false || strpos($shop['name'],'ジェイエステティック') !== false || strpos($shop['name'],'キレイモ') !== false || strpos($shop['name'],'エステティックTBC') !== false || strpos($shop['name'],'銀座カラー') !== false ) {
 			return $this->redirect(['action' => 'detail', $shop['shop_id']]);

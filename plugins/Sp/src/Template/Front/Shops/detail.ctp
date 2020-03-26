@@ -21,6 +21,7 @@ use App\Vendor\Code\ImagePositionType;
     <?php
     echo $this->Html->css('datsumou');
     echo $this->Html->css('sp/shop-detail');
+    echo $this->Html->script('sp/more');
     echo $this->Html->css(['reset', 'all.min', 'Chart.min', 'common', 'datsumou/common', 'datsumou/shop/common', 'datsumou/shop/index', 'datsumou/photodetail']);
     ?>
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMXTyYIMqJTZPtem60iMfu3ZKYn3Nj0wI"></script>
@@ -43,7 +44,7 @@ use App\Vendor\Code\ImagePositionType;
                     echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img',));
                     break;
                 } else :
-                echo '<img class="top-img" src="/puril/images/img/datsumou/no-photo.jpg" alt="' . $shop->name . '">';
+                echo $this->Html->image('Shop/noimage.jpg', ['alt' => 'NoImage']);
             endif;
             ?>
             <div class="top-content">
@@ -212,31 +213,54 @@ use App\Vendor\Code\ImagePositionType;
                     </h2>
                 </div>
                 <div class="price-between-margin"></div>
+                <?php
+                if ($shop['price_plan_html']) {
+                ?>
+                    <div class="inner-elm-padding">
+                        <!-- 店舗名+料金プラン -->
+                        <h3 class="section-inner-sub-title price-sub-title">
+                            <?php echo $shop['name']; ?>の料金プラン
+                        </h3>
+                    </div>
+                    <div class="price-table-wrap">
+                        <!-- 料金プラン -->
+                        <?php
+                        echo $shop['price_plan_html'];
+                        ?>
+                    </div>
+                <?php
+                }
+                ?>
+                <script>
+                    function extractFromShopPlanHTML() {
+                        const shopPlanParent = document.getElementById('price');
+                        const title = shopPlanParent.getElementsByTagName('H2')[0].innerText.trim();
+                        const plans = [];
+                        const trs = shopPlanParent.getElementsByTagName('TR');
+                        for (let i = 0; i < trs.length; i++) {
+                            const tr = trs[i];
+                            const children = tr.children;
+                            const menu = children.length >= 1 ? children[0].innerText.trim() : "";
+                            const price = children.length >= 2 ? children[1].innerText.trim() : "";
+                            const description = children.length >= 3 ? children[2].innerText.trim() : "";
+                            plans.push({
+                                menu,
+                                price,
+                                description
+                            })
+                        }
+                        console.log(plans);
+                        return plans;
+                    }
+                </script>
                 <div class="inner-elm-padding">
-                    <!-- 店舗名+料金プラン -->
-                    <h3 class="section-inner-sub-title price-sub-title">
-                        <?php echo $shop['name']; ?>の料金プラン
-                    </h3>
-                </div>
-                <div class="price-table-wrap">
-                    <!-- DBから取得 -->
-                    <ul class="price-table">
-                        <li class="price-table-elm">
-                            <div class="price-table-elm-part price-table-left">永久メンテナンスコース</div>
-                            <div class="price-table-elm-part price-table-middle">月額 5,834円（税抜）</div>
-                            <div class="price-table-elm-part price-table-right">
-                                全身53パーツ・安心の永久保証　※初回は7,138円・36回支払いを利用した場合の月額料金(別途ボーナス加算あり)</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="inner-elm-padding">
-                    <!-- 店舗名+ -->
+                    <!-- 店舗名+脱毛部位 -->
                     <h3 class="section-inner-sub-title services-sub-title">
                         <?php echo $shop['name']; ?>が対応できる脱毛部位
                     </h3>
                 </div>
                 <div class="inner-elm-padding">
-                    <!-- DBから取得 -->
+                    <!-- サービス内容 -->
                     <ul class="services">
                         <?php
                         foreach ($shop['depilation_sites'] as $depilationSite) {
@@ -255,218 +279,180 @@ use App\Vendor\Code\ImagePositionType;
                 <!-- 店舗名+特徴+こだわり -->
                 <h2 class="section-inner-title"><?php echo $shop['name']; ?>の特徴・こだわり</h2>
                 <div class="kodawaris-wrap">
-                    <!-- DBから取得 -->
-                    <ul class="kodawaris">
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                        <li class="kodawari">
-                            <img class="kodawari-img" src="./img/shop-detail/hospital.png" />
-                        </li>
-                    </ul>
+                    <!-- こだわり -->
+                    <?php if ($shop['other_conditions']) : ?>
+                        <ul class="kodawaris">
+                            <?php foreach ($shop['other_conditions'] as $commitment) {
+                                $commitmentImageUrl = "Shop/commitment/$commitment[url_text].png";
+                                echo '<li class="kodawari">';
+                                echo $this->Html->image($commitmentImageUrl, ['alt' => "$commitment[name]"]);
+                                echo '</li>';
+                            } ?>
+                        </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
         <div class="separator"></div>
         <section id="comment-section" class="section">
             <div class="section-padding-inner comment-section-inner">
-                <!-- DBから取得 -->
+                <!-- 口コミ -->
                 <h2 class="section-inner-title comment-section-title">
                     <?php echo $shop['name']; ?>の口コミ（<?php echo count($shop['reviews']) ?>件）
                 </h2>
                 <?php
-                foreach ($shop['reviews'] as $key => $review) {
+                if (!empty($shop['reviews'])) {
+                    foreach ($shop['reviews'] as $key => $review) {
                 ?>
-                    <article class="comment-wrap">
-                        <input class="comment-input" type="checkbox" id="comment-input-1" />
-                        <label class="comment-label" for="comment-input-1">
-                            <div class="comment-label-left">
-                                <div class="comment-label-top">
-                                    <!-- 口コミのタイトル -->
-                                    <h4 class="comment-title"><?= $review['title'] ?></h4>
-                                </div>
-                                <div class="comment-label-second">
-                                    <div class="info-star-wrap">
-                                        <!-- DBから取得 -->
-                                        <ul class="stars">
+                        <article class="comment-wrap more-content-comment">
+                            <input class="comment-input" type="checkbox" id="comment-input-1" />
+                            <label class="comment-label" for="comment-input-1">
+                                <div class="comment-label-left">
+                                    <div class="comment-label-top">
+                                        <!-- 口コミのタイトル -->
+                                        <h4 class="comment-title"><?= $review['title'] ?></h4>
+                                    </div>
+                                    <div class="comment-label-second">
+                                        <div class="info-star-wrap">
+                                            <!-- 評価星 -->
+                                            <ul class="stars">
+                                                <?php
+                                                $star = empty($review['evaluation']) ? 0 : $review['evaluation'];
+                                                $reviewCount = 0;
+                                                while ($reviewCount < $star) :
+                                                    echo '<li class="star">';
+                                                    echo '<img src="/puril/images/img/star-on.png">';
+                                                    echo '</li>';
+                                                    $reviewCount++;
+                                                endwhile;
+                                                ?>
+                                                <?php
+                                                while (5 - $reviewCount > 0) :
+                                                    echo '<li class="star">';
+                                                    echo '<img src="/puril/images/img/star-off.png">';
+                                                    echo '</li>';
+                                                    $reviewCount++;
+                                                endwhile;
+                                                ?>
+                                            </ul>
+                                            <!-- 評価 -->
+                                            <p class="star-expression">
+                                                <?= $review['evaluation'] ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="comment-label-third">
+                                        <!-- ニックネーム+カウント -->
+                                        <a class="comment-user-wrap">
+                                            <p class="comment-user-name"><?= $review['nickname'] ?></p>
+                                            <!-- 口コミ総数 -->
+                                            <!-- <p class="comment-user-count">（4,878）</p> -->
+                                        </a>
+                                    </div>
+                                    <div class="comment-label-bottom">
+                                        <!-- 登校日 -->
+                                        <p class="comment-date">
                                             <?php
-                                            $star = empty($review['evaluation']) ? 0 : $review['evaluation'];
-                                            $reviewCount = 0;
-                                            while ($reviewCount < $star) :
-                                                echo '<li class="star">';
-                                                echo '<img src="/puril/images/img/star-on.png">';
-                                                echo '</li>';
-                                                $reviewCount++;
-                                            endwhile;
+                                            echo !empty($review['post_date']) ? "投稿日：" . date('Y/m', strtotime($review['post_date'])) : "";
                                             ?>
-                                            <?php
-                                            while (5 - $reviewCount > 0) :
-                                                echo '<li class="star">';
-                                                echo '<img src="/puril/images/img/star-off.png">';
-                                                echo '</li>';
-                                                $reviewCount++;
-                                            endwhile;
-                                            ?>
-                                        </ul>
-                                        <!-- 評価 -->
-                                        <p class="star-expression">
-                                            <?= $review['evaluation'] ?>
                                         </p>
                                     </div>
                                 </div>
-                                <div class="comment-label-third">
-                                    <!-- ニックネーム+カウント -->
-                                    <a class="comment-user-wrap">
-                                        <p class="comment-user-name"><?= $review['nickname'] ?></p>
-                                        <p class="comment-user-count">（4,878）</p>
-                                    </a>
+                                <div class="comment-label-right">
+                                    <i class="fas fa-chevron-down"></i>
+                                    <i class="fas fa-chevron-up"></i>
                                 </div>
-                                <div class="comment-label-bottom">
-                                    <!-- 登校日 -->
-                                    <p class="comment-date">
-                                        <?php
-                                        echo !empty($review['post_date']) ? "投稿日：" . date('Y/m', strtotime($review['post_date'])) : "";
-                                        ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="comment-label-right">
-                                <i class="fas fa-chevron-down"></i>
-                                <i class="fas fa-chevron-up"></i>
-                            </div>
-                        </label>
-                        <div class="comment-input-target">
-                            <div class="comment-content-wrap">
-                                <div class="comment-elm-wrap">
-                                    <canvas class="comment-chart" id="commentChart1"></canvas>
-                                </div>
-                                <div class="comment-elm-wrap">
-                                    <p class="comment-elm-title">この店舗を選んだ理由を教えてください。</p>
-                                    <!-- 店舗を選んだ理由 -->
-                                    <p class="comment-elm-text">
-                                        <?= nl2br($review['reason']) ?>
-                                    </p>
-                                </div>
-                                <div class="comment-elm-wrap">
-                                    <p class="comment-elm-title">店舗の「接客／サービス」はいかがでしたか？</p>
-                                    <!-- 接客／サービス.評価点 -->
-                                    <p class="comment-elm-rate">
-                                        評価点
-                                        <span class="star-expression comment-elm-rate-expression">
-                                            <?= Satisfaction::convert($review['question1'], CodePattern::$VALUE) ?>
-                                        </span>
-                                    </p>
-                                    <!-- 接客／サービス.理由 -->
-                                    <p class="comment-elm-text">
-                                        <?= $review['question1_evaluation'] ?>
-                                    </p>
-                                </div>
-                                <div class="comment-elm-wrap">
-                                    <p class="comment-elm-title">受けたサービスの「メニューや料金」については いかがでしたか？</p>
-                                    <!-- メニューや料金.評価 -->
-                                    <p class="comment-elm-rate">
-                                        評価点
-                                        <span class="star-expression comment-elm-rate-expression">
-                                            <?= Satisfaction::convert($review['question2'], CodePattern::$VALUE) ?>
-                                        </span></p>
-                                    <!-- メニューや料金.理由 -->
-                                    <p class="comment-elm-text">
-                                        <?= $review['question2_evaluation'] ?>
-                                    </p>
-                                </div>
-                                <div class="comment-elm-wrap">
-                                    <p class="comment-elm-title">施術の「効果（技術や仕上がり）」はいかがでしたか？</p>
-                                    <!-- 効果（技術や仕上がり）.評価 -->
-                                    <p class="comment-elm-rate">
-                                        評価点
-                                        <span class="star-expression comment-elm-rate-expression">
-                                            <?= Satisfaction::convert($review['question3'], CodePattern::$VALUE) ?>
-                                        </span>
-                                    </p>
-                                    <!-- 効果（技術や仕上がり）.理由 -->
-                                    <p class="comment-elm-text">
-                                        <?= $review['question3_evaluation'] ?>
-                                    </p>
-                                </div>
-                                <div class="comment-elm-wrap">
-                                    <p class="comment-elm-title">店舗の「雰囲気」はいかがでしたか？</p>
-                                    <!-- 雰囲気.評価 -->
-                                    <p class="comment-elm-rate">
-                                        評価点
-                                        <span class="star-expression comment-elm-rate-expression">
-                                            <?= Satisfaction::convert($review['question4'], CodePattern::$VALUE) ?>
-                                        </span>
-                                    </p>
-                                    <!-- 雰囲気.理由 -->
-                                    <p class="comment-elm-text">
-                                        <?= $review['question4_evaluation'] ?>
-                                    </p>
-                                </div>
-                                <div class="comment-elm-wrap">
-                                    <p class="comment-elm-title">店舗の「通いやすさ／予約の取りやすさ」は いかがでしたか？</p>
-                                    <!-- 通いやすさ／予約の取りやすさ.評価 -->
-                                    <p class="comment-elm-rate">
-                                        評価点
-                                        <span class="star-expression comment-elm-rate-expression">
-                                            <?= Satisfaction::convert($review['question5'], CodePattern::$VALUE) ?>
-                                        </span>
-                                    </p>
-                                    <!-- 通いやすさ／予約の取りやすさ.理由 -->
-                                    <p class="comment-elm-text">
-                                        <?= $review['question5_evaluation'] ?>
-                                    </p>
+                            </label>
+                            <div class="comment-input-target">
+                                <div class="comment-content-wrap">
+                                    <div class="comment-elm-wrap">
+                                        <canvas class="comment-chart" id="commentChart1"></canvas>
+                                    </div>
+                                    <div class="comment-elm-wrap">
+                                        <p class="comment-elm-title">この店舗を選んだ理由を教えてください。</p>
+                                        <!-- 店舗を選んだ理由 -->
+                                        <p class="comment-elm-text">
+                                            <?= nl2br($review['reason']) ?>
+                                        </p>
+                                    </div>
+                                    <div class="comment-elm-wrap">
+                                        <p class="comment-elm-title">店舗の「接客／サービス」はいかがでしたか？</p>
+                                        <!-- 接客／サービス.評価点 -->
+                                        <p class="comment-elm-rate">
+                                            評価点
+                                            <span class="star-expression comment-elm-rate-expression">
+                                                <?= Satisfaction::convert($review['question1'], CodePattern::$VALUE) ?>
+                                            </span>
+                                        </p>
+                                        <!-- 接客／サービス.理由 -->
+                                        <p class="comment-elm-text">
+                                            <?= $review['question1_evaluation'] ?>
+                                        </p>
+                                    </div>
+                                    <div class="comment-elm-wrap">
+                                        <p class="comment-elm-title">受けたサービスの「メニューや料金」については いかがでしたか？</p>
+                                        <!-- メニューや料金.評価 -->
+                                        <p class="comment-elm-rate">
+                                            評価点
+                                            <span class="star-expression comment-elm-rate-expression">
+                                                <?= Satisfaction::convert($review['question2'], CodePattern::$VALUE) ?>
+                                            </span></p>
+                                        <!-- メニューや料金.理由 -->
+                                        <p class="comment-elm-text">
+                                            <?= $review['question2_evaluation'] ?>
+                                        </p>
+                                    </div>
+                                    <div class="comment-elm-wrap">
+                                        <p class="comment-elm-title">施術の「効果（技術や仕上がり）」はいかがでしたか？</p>
+                                        <!-- 効果（技術や仕上がり）.評価 -->
+                                        <p class="comment-elm-rate">
+                                            評価点
+                                            <span class="star-expression comment-elm-rate-expression">
+                                                <?= Satisfaction::convert($review['question3'], CodePattern::$VALUE) ?>
+                                            </span>
+                                        </p>
+                                        <!-- 効果（技術や仕上がり）.理由 -->
+                                        <p class="comment-elm-text">
+                                            <?= $review['question3_evaluation'] ?>
+                                        </p>
+                                    </div>
+                                    <div class="comment-elm-wrap">
+                                        <p class="comment-elm-title">店舗の「雰囲気」はいかがでしたか？</p>
+                                        <!-- 雰囲気.評価 -->
+                                        <p class="comment-elm-rate">
+                                            評価点
+                                            <span class="star-expression comment-elm-rate-expression">
+                                                <?= Satisfaction::convert($review['question4'], CodePattern::$VALUE) ?>
+                                            </span>
+                                        </p>
+                                        <!-- 雰囲気.理由 -->
+                                        <p class="comment-elm-text">
+                                            <?= $review['question4_evaluation'] ?>
+                                        </p>
+                                    </div>
+                                    <div class="comment-elm-wrap">
+                                        <p class="comment-elm-title">店舗の「通いやすさ／予約の取りやすさ」は いかがでしたか？</p>
+                                        <!-- 通いやすさ／予約の取りやすさ.評価 -->
+                                        <p class="comment-elm-rate">
+                                            評価点
+                                            <span class="star-expression comment-elm-rate-expression">
+                                                <?= Satisfaction::convert($review['question5'], CodePattern::$VALUE) ?>
+                                            </span>
+                                        </p>
+                                        <!-- 通いやすさ／予約の取りやすさ.理由 -->
+                                        <p class="comment-elm-text">
+                                            <?= $review['question5_evaluation'] ?>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
+                    <?php } ?>
+                    <div class="more-wrap bottom-border">
+                        <!-- onclickの追加だけお願いします。 -->
+                        <p class="more-text" onclick="moreButtonTapped('comment')">もっと見る</p>
+                        <i class="more-icon fas fa-chevron-right"></i>
+                    </div>
                 <?php } ?>
                 <script>
                     function renderCommentChart() {
@@ -595,13 +581,15 @@ use App\Vendor\Code\ImagePositionType;
         <section id="access-section" class="section">
             <div class="section-padding-inner access-section-inner">
                 <div class="inner-elm-padding">
-                    <!-- DBから取得 -->
-                    <h2 class="section-inner-title">キレイモ 新宿本店へのアクセス</h2>
+                    <!-- 店舗名 -->
+                    <h2 class="section-inner-title">
+                        <?php echo $shop['name']; ?>へのアクセス
+                    </h2>
                 </div>
                 <div class="access-between-margin"></div>
                 <div class="inner-elm-padding access-text-wrap">
-                    <!-- DBから取得 -->
-                    <p class="access-text">東京都新宿区西新宿１-１９-８　新東京ビルディング5F</p>
+                    <!-- 住所 -->
+                    <p class="access-text"><?php echo $shop['address']; ?></p>
                     <i class="access-icon fas fa-chevron-right"></i>
                 </div>
                 <div class="access-map" id="map" style="width:500px; height:300px"></div>
@@ -648,11 +636,11 @@ use App\Vendor\Code\ImagePositionType;
                         );
                     }
                     // DBから取得
-                    initMap("千葉県柏市旭町1-5-4 プラザパスカビル6F");
+                    initMap(<?php $shop['address']; ?>);
                 </script>
                 <div class="inner-elm-padding">
                     <!-- DBから取得 -->
-                    <a class="simple-button blue access-button">
+                    <a class="simple-button blue access-button" href="http://maps.google.com/maps?q=<?php echo $shop['address']; ?>">
                         <span class="button-text">アプリで地図を開く</span>
                     </a>
                 </div>
@@ -660,19 +648,32 @@ use App\Vendor\Code\ImagePositionType;
                     <ul class="access-details">
                         <li class="access-detail">
                             <p class="access-detail-left">施設住所</p>
-                            <!-- DBから取得 -->
-                            <p class="access-detail-right">ダミーダミーダミーダミーダミーダミー</p>
+                            <!-- 住所 -->
+                            <p class="access-detail-right">
+                                <?php echo $shop['address']; ?>
+                            </p>
                         </li>
                         <li class="access-detail">
                             <p class="access-detail-left">最寄り駅</p>
-                            <!-- DBから取得 -->
-                            <p class="access-detail-right">ダミーダミーダミーダミーダミーダミー</p>
+                            <!-- 最寄駅 -->
+                            <p class="access-detail-right">
+                                <?php if (!empty($shop['station'])) :
+                                    echo $shop['station'];
+                                endif; ?>
+                            </p>
                         </li>
                         <li class="access-detail">
                             <p class="access-detail-left">路線</p>
-                            <!-- DBから取得 -->
+                            <!-- 路線 -->
                             <p class="access-detail-right">
-                                ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+                                <?php
+                                if (!empty($shop['Station'])) {
+                                    foreach ($shop['Station'] as $stationLine) {
+                                        echo $stationLine['name'];
+                                        echo '<br>';
+                                    }
+                                }
+                                ?>
                             </p>
                         </li>
                     </ul>
@@ -683,225 +684,160 @@ use App\Vendor\Code\ImagePositionType;
         <section class="section">
             <div class="section-padding-inner">
                 <h2 class="section-inner-title">キレイモ 新宿本店への詳細道順</h2>
-                <div class="gallery-wrap">
-                    <!-- DBから取得 -->
-                    <ul class="galleries">
-                        <li class="gallery">
-                            <img class="gallery-img" src="./img/shop-detail/sinjuku.png" />
-                            <p class="gallery-text">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</p>
-                        </li>
-                        <li class="gallery">
-                            <img class="gallery-img" src="./img/shop-detail/sinjuku.png" />
-                            <p class="gallery-text">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</p>
-                        </li>
-                        <li class="gallery">
-                            <img class="gallery-img" src="./img/shop-detail/sinjuku.png" />
-                            <p class="gallery-text">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</p>
-                        </li>
-                        <li class="gallery">
-                            <img class="gallery-img" src="./img/shop-detail/sinjuku.png" />
-                            <p class="gallery-text">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <div class="separator"></div>
-        <section class="section">
-            <div class="section-padding-inner staffs-padding-inner">
-                <div class="inner-elm-padding">
-                    <h2 class="section-inner-title">キレイモ 新宿本店のスタッフ紹介</h2>
-                </div>
-                <div class="staffs-wrap">
-                    <div class="inner-elm-padding">
-                        <ul class="staffs">
-                            <li class="staff">
-                                <!-- DBから取得 -->
-                                <img class="staff-img" src="./img/shop-detail/staff.png" />
-                                <div class="staff-content-wrap">
-                                    <div class="staff-content-top">
-                                        <p class="staff-name">スタッフ名スタッフ名</p>
-                                        <!-- DBから取得 -->
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/insta.png" />
-                                        </a>
-                                        <!-- DBから取得 -->
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/twitter.png" />
-                                        </a>
-                                        <!-- DBから取得 -->
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/facebook.png" />
-                                        </a>
-                                    </div>
-                                    <div class="staff-content-middle">
-                                        <!-- DBから取得 -->
-                                        <p class="staff-furigana">ふりがなふりがな</p>
-                                    </div>
-                                    <div class="staff-content-bottom">
-                                        <!-- DBから取得 -->
-                                        <p class="staff-introduction">説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- 共通化できるのでDB情報は上と同じ -->
-                            <li class="staff">
-                                <img class="staff-img" src="./img/shop-detail/staff.png" />
-                                <div class="staff-content-wrap">
-                                    <div class="staff-content-top">
-                                        <p class="staff-name">スタッフ名スタッフ名</p>
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/hospital.png" />
-                                        </a>
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/hospital.png" />
-                                        </a>
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/hospital.png" />
-                                        </a>
-                                    </div>
-                                    <div class="staff-content-middle">
-                                        <p class="staff-furigana">ふりがなふりがな</p>
-                                    </div>
-                                    <div class="staff-content-bottom">
-                                        <p class="staff-introduction">説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- 共通化できるのでDB情報は上と同じ -->
-                            <li class="staff">
-                                <img class="staff-img" src="./img/shop-detail/staff.png" />
-                                <div class="staff-content-wrap">
-                                    <div class="staff-content-top">
-                                        <p class="staff-name">スタッフ名スタッフ名</p>
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/hospital.png" />
-                                        </a>
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/hospital.png" />
-                                        </a>
-                                        <a class="staff-sns">
-                                            <img class="staff-sns-img" src="./img/shop-detail/hospital.png" />
-                                        </a>
-                                    </div>
-                                    <div class="staff-content-middle">
-                                        <p class="staff-furigana">ふりがなふりがな</p>
-                                    </div>
-                                    <div class="staff-content-bottom">
-                                        <p class="staff-introduction">説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文</p>
-                                    </div>
-                                </div>
-                            </li>
+                <?php if ($shop['shop_access_images']) { ?>
+                    <div class="gallery-wrap">
+                        <!-- 道順 -->
+                        <ul class="galleries">
+                            <?php foreach ($shop['shop_access_images'] as $accessImage) { ?>
+                                <li class="gallery">
+                                    <img class="gallery-img" src=<?php echo $accessImage['image_path'] ?> />
+                                    <p class="gallery-text">
+                                        <?php echo $accessImage['text'] ?>
+                                    </p>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
-                    <div class="more-wrap">
-                        <!-- DBなど動作がどうなるか確認中 -->
-                        <p class="more-text">もっと見る</p>
-                        <i class="more-icon fas fa-chevron-right"></i>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </section>
         <div class="separator"></div>
+        <!-- スタッフ -->
+        <?php if ($shop['staffs']) : ?>
+            <section class="section">
+                <div class="section-padding-inner staffs-padding-inner">
+                    <div class="inner-elm-padding">
+                        <h2 class="section-inner-title"><?php echo $shop['name']; ?>のスタッフ紹介</h2>
+                    </div>
+                    <div class="staffs-wrap">
+                        <div class="inner-elm-padding">
+                            <ul class="staffs">
+                                <?php foreach ($shop['staffs'] as $staff) { ?>
+                                    <li class="staff">
+                                        <img class="staff-img" src=<?php echo $staff['image_path'] ?> />
+                                        <div class="staff-content-wrap">
+                                            <div class="staff-content-top">
+                                                <p class="staff-name"><?php echo $staff['name'] ?></p>
+                                                <?php if ($staff['instagram_account']) : ?>
+                                                    <!-- インスタグラム  -->
+                                                    <a class="staff-sns" href=<?php echo $staff['instagram_account'] ?>>
+                                                        <img class="staff-sns-img" src="./img/shop-detail/insta.png" />
+                                                    </a>
+                                                <?php endif; ?>
+                                                <?php if ($staff['twitter_account']) : ?>
+                                                    <!-- ツイッター -->
+                                                    <a class="staff-sns" href=<?php echo $staff['twitter_account'] ?>>
+                                                        <img class="staff-sns-img" src="./img/shop-detail/twitter.png" />
+                                                    </a>
+                                                <?php endif; ?>
+                                                <?php if ($staff['facebook_account']) : ?>
+                                                    <!-- フェイスブック -->
+                                                    <a class="staff-sns" href=<?php echo $staff['facebook_account'] ?>>
+                                                        <img class="staff-sns-img" src="./img/shop-detail/facebook.png" />
+                                                    </a>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="staff-content-middle">
+                                                <!-- かな -->
+                                                <p class="staff-furigana"><?php echo $staff['name_kana'] ?></p>
+                                            </div>
+                                            <div class="staff-content-bottom">
+                                                <!-- 説明文 -->
+                                                <p class="staff-introduction">
+                                                    <?php echo $staff['description'] ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <div class="more-wrap">
+                            <p class="more-text" onclick="moreButtonTapped('staff')">もっと見る</p>
+                            <i class="more-icon fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php endif; ?>
+        <div class="separator"></div>
+        <!-- ブログ+お知らせ -->
         <section class="section">
             <div class="section-padding-inner news-section-inner">
                 <!-- DBから取得 -->
                 <div class="inner-elm-padding">
-                    <h2 class="section-inner-title">キレイモ 新宿本店のお知らせ・ブログ</h2>
+                    <h2 class="section-inner-title"><?php echo $shop['name']; ?>のお知らせ・ブログ</h2>
                 </div>
                 <div class="news-between-margin"></div>
                 <div class="news-list-wrap">
-                    <!-- DBから取得 -->
-                    <div class="inner-elm-padding">
-                        <h3 class="section-inner-sub-title price-sub-title">キレイモ 新宿本店のお知らせ</h3>
-                    </div>
-                    <div class="inner-elm-padding">
-                        <ul class="news">
-                            <li class="news-elm">
-                                <a class="news-wrap">
-                                    <!-- DBから取得 -->
-                                    <p class="news-date">2020/02/12</p>
-                                    <!-- DBから取得 -->
-                                    <p class="news-title">お知らせダミーお知らせダミーお知らせダミー</p>
-                                </a>
-                            </li>
-                            <li class="news-elm">
-                                <a class="news-wrap">
-                                    <!-- DBから取得 -->
-                                    <p class="news-date">2020/02/12</p>
-                                    <!-- DBから取得 -->
-                                    <p class="news-title">お知らせダミーお知らせダミーお知らせダミー</p>
-                                </a>
-                            </li>
-                            <li class="news-elm">
-                                <a class="news-wrap">
-                                    <!-- DBから取得 -->
-                                    <p class="news-date">2020/02/12</p>
-                                    <!-- DBから取得 -->
-                                    <p class="news-title">お知らせダミーお知らせダミーお知らせダミー</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="more-wrap bottom-border">
-                        <!-- DBなど動作がどうなるか確認中 -->
-                        <p class="more-text">もっと見る</p>
-                        <i class="more-icon fas fa-chevron-right"></i>
-                    </div>
-                    <div class="blogs-wrap">
-                        <!-- DBから取得 -->
+                    <!-- タイトル+ブログ+お知らせ -->
+                    <?php if ($shop['infos']) : ?>
                         <div class="inner-elm-padding">
-                            <h3 class="section-inner-sub-title price-sub-title">キレイモ 新宿本店のブログ</h3>
+                            <h3 class="section-inner-sub-title price-sub-title"><?php echo $shop['name']; ?>のお知らせ</h3>
                         </div>
                         <div class="inner-elm-padding">
-                            <ul class="blogs">
-                                <li class="blog">
-                                    <a class="blog-wrap">
-                                        <!-- DBから取得 -->
-                                        <img class="blog-img" src="./img/shop-detail/blog1.png" />
-                                        <div class="blog-info-wrap">
-                                            <!-- DBから取得 -->
-                                            <p class="blog-date">2020/02/12</p>
-                                            <!-- DBから取得 -->
-                                            <p class="blog-title">ブログタイトルダミーブログタイトルダミー</p>
-                                        </div>
-                                        <i class="blog-icon fas fa-chevron-right"></i>
-                                    </a>
-                                </li>
-                                <li class="blog">
-                                    <a class="blog-wrap">
-                                        <!-- DBから取得 -->
-                                        <img class="blog-img" src="./img/shop-detail/blog1.png" />
-                                        <div class="blog-info-wrap">
-                                            <!-- DBから取得 -->
-                                            <p class="blog-date">2020/02/12</p>
-                                            <!-- DBから取得 -->
-                                            <p class="blog-title">ブログタイトルダミーブログタイトルダミー</p>
-                                        </div>
-                                        <i class="blog-icon fas fa-chevron-right"></i>
-                                    </a>
-                                </li>
-                                <li class="blog">
-                                    <a class="blog-wrap">
-                                        <!-- DBから取得 -->
-                                        <img class="blog-img" src="./img/shop-detail/blog1.png" />
-                                        <div class="blog-info-wrap">
-                                            <!-- DBから取得 -->
-                                            <p class="blog-date">2020/02/12</p>
-                                            <!-- DBから取得 -->
-                                            <p class="blog-title">ブログタイトルダミーブログタイトルダミー</p>
-                                        </div>
-                                        <i class="blog-icon fas fa-chevron-right"></i>
-                                    </a>
-                                </li>
+                            <ul class="news">
+                                <?php foreach ($shop['infos'] as $info) { ?>
+                                    <li class="news-elm">
+                                        <a class="news-wrap">
+                                            <!-- お知らせ日付 -->
+                                            <p class="news-date">
+                                                <?php echo date('m/d', strtotime($info['date'])) ?>
+                                            </p>
+                                            <!-- お知らせタイトル -->
+                                            <p class="news-title">
+                                                <?php echo $info['title']; ?>
+                                            </p>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
-                        <div class="more-wrap">
-                            <!-- DBなど動作がどうなるか確認中 -->
-                            <p class="more-text">もっと見る</p>
+                        <div class="more-wrap bottom-border">
+                            <p class="more-text" onclick="moreButtonTapped('news')">もっと見る</p>
                             <i class="more-icon fas fa-chevron-right"></i>
                         </div>
-                    </div>
+                    <?php endif; ?>
+                    <?php if ($shop['blogs']) : ?>
+                        <div class="blogs-wrap">
+                            <!-- ブログ -->
+                            <div class="inner-elm-padding">
+                                <h3 class="section-inner-sub-title price-sub-title">キレイモ 新宿本店のブログ</h3>
+                            </div>
+                            <div class="inner-elm-padding">
+                                <ul class="blogs">
+                                    <?php $blog_count = 0;
+                                    foreach ($shop['blogs'] as $blog) {
+                                        if ($i >= 3) {
+                                            break;
+                                        }
+                                    ?>
+                                        <li class="blog">
+                                            <a class="blog-wrap">
+                                                <!-- ブログ画像 -->
+                                                <img class="blog-img" src=<?php echo $blog['image_path']; ?> />
+                                                <div class="blog-info-wrap">
+                                                    <!-- 日付 -->
+                                                    <p class="blog-date">
+                                                        <?php echo date('m/d', strtotime($blog['date'])) ?>
+                                                    </p>
+                                                    <!-- タイトル -->
+                                                    <p class="blog-title">
+                                                        <?php echo $blog['title']; ?>
+                                                    </p>
+                                                </div>
+                                                <i class="blog-icon fas fa-chevron-right"></i>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                            <div class="more-wrap">
+                                <p class="more-text" onclick="moreButtonTapped('blog')">もっと見る</p>
+                                <i class="more-icon fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
         </section>
         <div class="separator"></div>
@@ -1001,11 +937,15 @@ use App\Vendor\Code\ImagePositionType;
                         <li class="access-detail">
                             <p class="access-detail-left">ホームページ</p>
                             <!-- DBから取得 -->
-                            <p class="access-detail-right">
-                                <a href="<?php echo $shop['affiliate_page_url']; ?>">
-                                    公式サイトから予約する
-                                </a>
-                            </p>
+                            <?php
+                            if (!empty($shop['affiliate_page_url'])) {
+                            ?>
+                                <p class="access-detail-right">
+                                    <a href="<?php echo $shop['affiliate_page_url']; ?>">
+                                        公式サイトから予約する
+                                    </a>
+                                </p>
+                            <?php } ?>
                         </li>
                     </ul>
                 </div>
@@ -1034,64 +974,33 @@ use App\Vendor\Code\ImagePositionType;
             </div>
         </section>
         <div class="separator"></div>
-        <section class="section">
-            <div class="section-padding-inner">
-                <!-- DBから取得 -->
-                <h2 class="section-inner-title">キレイモ 新宿本店からの一言</h2>
-                <div class="one-point">
-                    <!-- DBから取得 -->
-                    <img class="one-point-img" src="./img/shop-detail/staff.png" />
-                    <!-- DBから取得 -->
-                    <p class="one-point-text">
-                        ひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミーひとことダミー。
-                    </p>
+        <?php if (!empty($shop['interviews'])) : ?>
+            <section class="section" id="interview-section">
+                <div class="section-padding-inner">
+                    <!-- インタビュー -->
+                    <h2 class="section-inner-title"><?php echo $shop['name']; ?>のインタビュー</h2>
+                    <div class="interviews-wrap">
+                        <ul class="interviews">
+                            <?php foreach ($shop['interviews'] as $interview) { ?>
+                                <li>
+                                    <img class='interview-img' src=<?php echo $interview['image_path'] ?> />
+                                    <p class="interview-title">この店舗を選んだ理由を教えてください。</p>
+                                    <p class="interview-text">
+                                        <?php echo $interview['content'] ?>
+                                    </p>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <div class="separator"></div>
-        <section class="section" id="interview-section">
-            <div class="section-padding-inner">
-                <!-- DBから取得 -->
-                <h2 class="section-inner-title">キレイモ 新宿本店のインタビュー</h2>
-                <div class="interviews-wrap">
-                    <ul class="interviews">
-                        <li class="interview">
-                            <!-- DBから取得 -->
-                            <img class="interview-img" src="./img/shop-detail/interview.png" />
-                            <p class="interview-title">この店舗を選んだ理由を教えてください。</p>
-                            <!-- DBから取得 -->
-                            <p class="interview-text">
-                                ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
-                            </p>
-                        </li>
-                        <li class="interview">
-                            <!-- DBから取得 -->
-                            <img class="interview-img" src="./img/shop-detail/interview.png" />
-                            <p class="interview-title">この店舗を選んだ理由を教えてください。</p>
-                            <!-- DBから取得 -->
-                            <p class="interview-text">
-                                ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
-                            </p>
-                        </li>
-                        <li class="interview">
-                            <!-- DBから取得 -->
-                            <img class="interview-img" src="./img/shop-detail/interview.png" />
-                            <p class="interview-title">この店舗を選んだ理由を教えてください。</p>
-                            <!-- DBから取得 -->
-                            <p class="interview-text">
-                                ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
+        <?php endif ?>
         <div class="separator"></div>
         <section class="section">
             <div class="section-padding-inner related-section-inner">
                 <!-- DBから取得 -->
                 <div class="inner-elm-padding">
-                    <h2 class="section-inner-title">キレイモ 新宿本店を見た方はこんな施設もご覧になっています</h2>
+                    <h2 class="section-inner-title"><?php echo $shop['name']; ?>を見た方はこんな施設もご覧になっています</h2>
                 </div>
                 <ul class="related-term-tabs">
                     <li class="related-term active" onclick="relatedTermTapped(this)" id="related-nearby">
@@ -1118,100 +1027,88 @@ use App\Vendor\Code\ImagePositionType;
                 <div class="inner-elm-padding">
                     <div class="blogs-wrap">
                         <ul class="blogs related-nearby relateds">
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
+                            <?php
+                            if (!empty($othreShops['station_data'])) {
+                                foreach ($othreShops['station_data'] as $shopStation) {
+                            ?>
+                                    <li class="blog">
+                                        <a class="blog-wrap">
+                                            <?php if (!empty($shopStation['shop_images']) && !empty($shopStation['shop_images']['image_path'])) { ?>
+                                                <img class="blog-img" src=<?php echo $shopStation['shop_images']['image_path'][0] ?> />
+                                            <?php } else { ?>
+                                                <img class="blog-img" src="/puril/images/img/datsumou/no-photo.jpg" />
+                                            <?php } ?>
+                                            <div class="blog-info-wrap">
+                                                <p class="blog-title related-shop-title">
+                                                    <?php echo $shopStation['name'] ?>
+                                                </p>
+                                                <p class="blog-date">
+                                                    <?php echo $shopStation['station'] ?>
+                                                </p>
+                                            </div>
+                                            <i class="blog-icon fas fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                            <?php
+                                }
+                            }
+                            ?>
                         </ul>
                         <ul style="display: none;" class="blogs related-town relateds">
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">2.脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">2.脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">2.脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
+                            <?php
+                            if (!empty($othreShops['area_data'])) {
+                                foreach ($othreShops['area_data'] as $shopArea) {
+                            ?>
+                                    <li class="blog">
+                                        <a class="blog-wrap">
+                                            <?php if (!empty($shopArea['shop_images']) && !empty($shopArea['shop_images']['image_path'])) { ?>
+                                                <img class="blog-img" src=<?php echo $shopArea['shop_images']['image_path'][0] ?> />
+                                            <?php } else { ?>
+                                                <img class="blog-img" src="/puril/images/img/datsumou/no-photo.jpg" />
+                                            <?php } ?>
+                                            <div class="blog-info-wrap">
+                                                <p class="blog-title related-shop-title">
+                                                    <?php echo $shopArea['name'] ?>
+                                                </p>
+                                                <p class="blog-date">
+                                                    <?php echo $shopArea['station'] ?>
+                                                </p>
+                                            </div>
+                                            <i class="blog-icon fas fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                            <?php
+                                }
+                            }
+                            ?>
                         </ul>
                         <ul style="display: none;" class="blogs related-prefecture relateds">
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">3.脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">3.脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li class="blog">
-                                <a class="blog-wrap">
-                                    <img class="blog-img" src="./img/shop-detail/another-shop.png" />
-                                    <div class="blog-info-wrap">
-                                        <p class="blog-title related-shop-title">3.脱毛サロン ラココ 渋谷店(la coco)</p>
-                                        <p class="blog-date">東京都 / 新宿区</p>
-                                    </div>
-                                    <i class="blog-icon fas fa-chevron-right"></i>
-                                </a>
-                            </li>
+                            <?php
+                            if (!empty($othreShops['pref_data'])) {
+                                foreach ($othreShops['pref_data'] as $shopdata) {
+                            ?>
+                                    <li class="blog">
+                                        <a class="blog-wrap">
+                                            <?php if (!empty($shopArea['shop_images']) && !empty($shopArea['shop_images']['image_path'])) { ?>
+                                                <img class="blog-img" src=<?php echo $shopArea['shop_images']['image_path'][0] ?> />
+                                            <?php } else { ?>
+                                                <img class="blog-img" src="/puril/images/img/datsumou/no-photo.jpg" />
+                                            <?php } ?>
+                                            <div class="blog-info-wrap">
+                                                <p class="blog-title related-shop-title">
+                                                    <?php echo $shopArea['name'] ?>
+                                                </p>
+                                                <p class="blog-date">
+                                                    <?php echo $shopArea['station'] ?>
+                                                </p>
+                                            </div>
+                                            <i class="blog-icon fas fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                            <?php
+                                }
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -1220,15 +1117,17 @@ use App\Vendor\Code\ImagePositionType;
         <div class="separator"></div>
         <section class="section">
             <div class="section-padding-inner">
-                <h2 class="section-inner-title">キレイモの他の店舗を見る</h2>
+                <h2 class="section-inner-title"><?php echo $shop['name']; ?>他の店舗を見る</h2>
                 <div class="other-shops-buttons-wrap">
                     <a class="simple-button simple-blue">
-                        <span class="button-text">キレイモ TOPへ</span>
+                        <span class="button-text"><?php echo $shop['name']; ?> TOPへ</span>
                     </a>
                     <div class="other-shops-buttons-margin"></div>
-                    <a class="simple-button green">
-                        <span class="button-text">公式サイトへ</span>
-                    </a>
+                    <?php if ($shop['affiliate_page_url']) : ?>
+                        <a class="simple-button green" href="<?php echo $shop['affiliate_page_url']; ?>">
+                            <span class="button-text">公式サイトへ</span>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -1266,7 +1165,7 @@ use App\Vendor\Code\ImagePositionType;
                         echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'shop-top-img',));
                         break;
                     } else :
-                    echo '<img class="shop-top-img" src="/puril/images/img/datsumou/no-photo.jpg" alt="' . $shop->name . '">';
+                    echo '<img class="shop-top-img" src="/purxil/images/img/datsumou/no-photo.jpg" alt="' . $shop->name . '">';
                 endif;
                 ?></div>
             <div class="shop-top-img-desc">
@@ -1605,12 +1504,12 @@ use App\Vendor\Code\ImagePositionType;
                     <h3 class="shop-info-detail-title">特徴・関連情報</h3>
                     <table class="shop-info-detail-table">
                         <tbody>
-
                             <tr>
                                 <th>ホームページ</th>
-                                <td><a href="<?php echo $shop['affiliate_page_url']; ?>">公式サイトから予約する</a></td>
+                                <td>
+                                    <a href="<?php echo $shop['affiliate_page_url']; ?>">公式サイトから予約する</a>
+                                </td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div>
