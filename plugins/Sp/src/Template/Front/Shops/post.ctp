@@ -62,7 +62,6 @@ const RESERVE_TABLE = [
             </button>
         </div>
     </div>
-    <!-- 追加しました_html -->
     <div class="separator"></div>
     <div class="after-question-finish">
         <p class="final-title">入力確認</p>
