@@ -60,12 +60,23 @@ class AppController extends Controller {
 
     public function beforeFilter(Event $event)
     {
-    	parent::beforeFilter($event);
+        parent::beforeFilter($event);
 
-    	if ($this->request->is('get')) {
-    		Log::debug('【GET】 '.Router::url().' '.var_export($_GET, true));
-    	} else {
-    		Log::debug('【POST】 '.Router::url().' '.var_export($_POST, true));
-    	}
+        if ($this->request->is('get')) {
+            Log::debug('【GET】 '.Router::url().' '.var_export($_GET, true));
+        } else {
+            Log::debug('【POST】 '.Router::url().' '.var_export($_POST, true));
+        }
+    }
+
+    public function beforeRender(Event $event)
+    {
+        parent::beforeRender($event);
+
+        // PC／スマホのview切り替え
+        if ($this->request->isMobile()) {
+            // plugins/Sp/Template内のviewが読み込まれる
+            $this->viewBuilder()->theme('Sp');
+        }
     }
 }

@@ -786,7 +786,7 @@ class ShopsTable extends AppTable
      * 検索結果が20件未満時の不足分取得用
      */
     public function findRandForFront($wheres = null, $limit = null, $isShopDetail = false) {
-    	$options = $this->makeFindForFront($wheres, $limit);
+			$options = $this->makeFindForFront($wheres, $limit);
 
     	if (!empty($wheres['shop_id'])) {
 	    	$shopId = ['NOT' => ['Shops.shop_id IN' => $wheres['shop_id']]];
@@ -809,7 +809,6 @@ class ShopsTable extends AppTable
 	    		array_push($options['conditions']['or'], parent::eq('Shops.pref', $wheres['pref']));
 	    	}
     	}
-
     	return parent::find('all', $options);
     }
 

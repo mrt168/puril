@@ -1,0 +1,246 @@
+<?php
+use App\Vendor\Code\Pref;
+use App\Vendor\Code\CodePattern;
+use Cake\Routing\Router;
+?>
+<body class="Puril">
+<header class="Header">
+    <a href="<?php echo Router::url('/')?>" class="Header__logo">
+        <img class="Header__logo__img" src="/puril/images/header_logo.png" alt="puril">
+    </a>
+    <nav class="Header__nav">
+        <ul class="Header__nav__sns">
+            <li class="Header__nav__sns__li">
+                <a href="//twitter.com/share?url=https://puril.net" target="_blank" class="Header__nav__sns__li__link">
+                    <img class="Header__nav__sns__li__link__icon" src="/puril/images/header_icon_twitter.png" alt="twitter">
+                </a>
+            </li>
+            <li class="Header__nav__sns__li">
+                <a href="//www.facebook.com/sharer/sharer.php?u=https://puril.net" target="_blank" class="Header__nav__sns__li__link">
+                    <img class="Header__nav__sns__li__link__icon" src="/puril/images/header_icon_fb.png" alt="facebook">
+                </a>
+            </li>
+            <li class="Header__nav__sns__li">
+                <a href="//b.hatena.ne.jp/add?mode=confirm&url=https://puril.net" target="_blank" rel="nofollow" class="Header__nav__sns__li__link">
+                    <img class="Header__nav__sns__li__link__icon" src="/puril/images/header_icon_hatebu.png" alt="hatebu">
+                </a>
+            </li>
+            <li class="Header__nav__sns__li">
+                <a href="//line.me/R/msg/text/?https://puril.net" target="_blank" class="Header__nav__sns__li__link">
+                    <img class="Header__nav__sns__li__link__icon" src="/puril/images/header_icon_line.png" alt="line">
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="Main">
+    <div class="Fv">
+        <div class="Fv__inner">
+            <div class="Fv__box">
+                <h2 class="Fv__box__title">
+                    <span class="Fv__box__title__big">みんな</span>の<br>
+                    <span class="Fv__box__title__middle">美容口コミ</span>サイト
+                </h2>
+                <p class="Fv__box__published">掲載件数11,406件！</p>
+            </div>
+        </div>
+    </div>
+    <?php
+            echo $this->ExForm->create('Make', ['url'=> ['controller' => 'Makes', 'action'=> 'index'], 'type'=> 'post', 'novalidate' => true, 'id'=> 'form02', 'class'=> 'Search']);
+            ?>
+        <p class="Search__label">店舗を探す</p>
+        <div class="Search__form">
+            <div class="Search__form__genre">
+                <select name="genre" id="genre" class="Search__form__genre__select">
+	                <option value="">ジャンル</option>
+                    <option value="datsumou">脱毛</option>
+                </select>
+                <i class="fas fa-angle-down"></i>
+            </div>
+<!--
+            <div class="Search__form__pref">
+                <select name="pref" class="Search__form__pref__select">
+                    <option value="" selected>都道府県</option>
+                    <option value="1">北海道</option>
+                    <option value="2">青森県</option>
+                    <option value="3">岩手県</option>
+                    <option value="4">宮城県</option>
+                    <option value="5">秋田県</option>
+                    <option value="6">山形県</option>
+                    <option value="7">福島県</option>
+                    <option value="8">茨城県</option>
+                    <option value="9">栃木県</option>
+                    <option value="10">群馬県</option>
+                    <option value="11">埼玉県</option>
+                    <option value="12">千葉県</option>
+                    <option value="13">東京都</option>
+                    <option value="14">神奈川県</option>
+                    <option value="15">新潟県</option>
+                    <option value="16">富山県</option>
+                    <option value="17">石川県</option>
+                    <option value="18">福井県</option>
+                    <option value="19">山梨県</option>
+                    <option value="20">長野県</option>
+                    <option value="21">岐阜県</option>
+                    <option value="22">静岡県</option>
+                    <option value="23">愛知県</option>
+                    <option value="24">三重県</option>
+                    <option value="25">滋賀県</option>
+                    <option value="26">京都府</option>
+                    <option value="27">大阪府</option>
+                    <option value="28">兵庫県</option>
+                    <option value="29">奈良県</option>
+                    <option value="30">和歌山県</option>
+                    <option value="31">鳥取県</option>
+                    <option value="32">島根県</option>
+                    <option value="33">岡山県</option>
+                    <option value="34">広島県</option>
+                    <option value="35">山口県</option>
+                    <option value="36">徳島県</option>
+                    <option value="37">香川県</option>
+                    <option value="38">愛媛県</option>
+                    <option value="39">高知県</option>
+                    <option value="40">福岡県</option>
+                    <option value="41">佐賀県</option>
+                    <option value="42">長崎県</option>
+                    <option value="43">熊本県</option>
+                    <option value="44">大分県</option>
+                    <option value="45">宮崎県</option>
+                    <option value="46">鹿児島県</option>
+                    <option value="47">沖縄県</option>
+                </select>
+
+                <i class="fas fa-angle-down"></i>
+            </div>
+-->
+            <input type="text" name="Make[free_word]" placeholder="地名、サロン名、駅名などで検索" class="Search__form__freeword">
+            <button type="submit" name="free_word_search" class="Search__form__btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <?php
+	        echo $this->ExForm->end();
+            ?>
+    <section class="Genre">
+        <h2 class="Title Genre__title"><i class="fas fa-search"></i><span class="Title__text Genre__title__text">ジャンルから探す</span></h2>
+        <div class="Genre__list">
+            <a href="<?php echo Router::url('/datsumou/')?>" class="Genre__list__box Genre__list__box--datsumou">
+                <div class="Genre__list__box__text">
+                    <h3 class="Genre__list__box__text__main">脱毛</h3>
+                </div>
+                <div class="Genre__list__box__img">
+                    <img class="Genre__list__box__img__img" src="/puril/images/datsumou.png" alt="脱毛">
+                </div>
+            </a>
+            <a href="" class="Genre__list__box Genre__list__box--relax nolink">
+                <div class="Genre__list__box__text">
+                    <h3 class="Genre__list__box__text__main">リラク</h3>
+                    <p class="Genre__list__box__text__ready">※準備中</p>
+                </div>
+                <div class="Genre__list__box__img">
+                    <img class="Genre__list__box__img__img" src="/puril/images/relax.png" alt="リラク">
+                </div>
+            </a>
+            <a href="" class="Genre__list__box Genre__list__box--facial nolink">
+                <div class="Genre__list__box__text">
+                    <h3 class="Genre__list__box__text__main">フェイシャル</h3>
+                    <p class="Genre__list__box__text__ready">※準備中</p>
+                </div>
+                <div class="Genre__list__box__img">
+                    <img class="Genre__list__box__img__img" src="/puril/images/facial.png" alt="フェイシャル">
+                </div>
+            </a>
+            <a href="" class="Genre__list__box Genre__list__box--soushin nolink">
+                <div class="Genre__list__box__text">
+                    <h3 class="Genre__list__box__text__main">痩身</h3>
+                    <p class="Genre__list__box__text__ready">※準備中</p>
+                </div>
+                <div class="Genre__list__box__img">
+                    <img class="Genre__list__box__img__img" src="/puril/images/soushin.png" alt="痩身">
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="Parts">
+        <h2 class="Title Parts__title"><i class="fas fa-search"></i><span class="Title__text Parts__title__text">部位から探す</span></h2>
+        <div class="Parts__nav">
+            <div class="Parts__nav__btn on" id="datsumou_parts">
+                脱毛
+            </div>
+            <div class="Parts__nav__btn" id="relax_parts">
+                リラク(準備中)
+            </div>
+            <div class="Parts__nav__btn" id="soushin_parts">
+                痩身(準備中)
+            </div>
+        </div>
+        <?php
+            echo $this->ExForm->create('Make', ['url'=> ['controller' => 'Makes', 'action'=> 'index'], 'type'=> 'post', 'novalidate' => true, 'id'=> 'form02', 'class'=> 'Parts__box']);
+            ?>
+			<ul class="prt cf">
+							<?php
+							$this->ExForm->depilationSiteCnt('Make.depilation_site_id.', null, true, $searchWheres);
+							?>
+			</ul>
+			<div class="Parts__box__submit">
+			<button type="submit" name="search" class="Parts__box__submit__btn">
+                <i class="fas fa-search"></i><span class="Parts__box__submit__btn__text">この条件で検索</span>
+            </button>
+			</div>
+			<?php
+	        echo $this->ExForm->end();
+            ?>
+    </section>
+</div>
+<footer class="Footer">
+    <div class="Footer__inner">
+        <a href="<?php echo Router::url('/')?>" class="Footer__logo">
+            <img src="/puril/images/header_logo.png" alt="Puril" class="Footer__logo__img">
+        </a>
+        <ul class="Footer__category Footer__category--type">
+            <li class="Footer__category__li nolink">
+                <a href="<?php echo Router::url('/datsumou/')?>" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>脱毛</a>
+            </li>
+            <li class="Footer__category__li nolink">
+                <a href="" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>リラク（準備中）</a>
+            </li>
+            <li class="Footer__category__li nolink">
+                <a href="" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>フェイシャル（準備中）</a>
+            </li>
+            <li class="Footer__category__li nolink">
+                <a href="" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>痩身（準備中）</a>
+            </li>
+        </ul>
+
+        <ul class="Footer__category">
+            <li class="Footer__category__li">
+            	<a href="https://tsuru-tsuru.co.jp/" target="_blank" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>運営企業</a>
+            </li>
+            <li class="Footer__category__li">
+                <a href="<?php echo Router::url(['controller'=> 'indexes', 'action'=> 'terms'])?>" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>利用規約</a>
+            </li>
+            <li class="Footer__category__li">
+                <a href="<?php echo Router::url(['controller'=> 'indexes', 'action'=> 'privacyPolicy'])?>" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>プライバシーポリシー</a>
+            </li>
+            <li class="Footer__category__li">
+                <a href="<?php echo Router::url(['controller'=> 'indexes', 'action'=> 'siteMap'])?>" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>サイトマップ</a>
+            </li>
+        </ul>
+        <ul class="Footer__category">
+            <li class="Footer__category__li">
+                <a href="https://puril.net/campaign/" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>口コミキャッシュバック</a>
+            </li>
+            <li class="Footer__category__li">
+                <a href="<?php echo Router::url(['controller'=> 'contacts', 'action'=> 'contact_user'])?>" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>ユーザーレビューのお問い合わせ</a>
+            </li>
+            <li class="Footer__category__li last">
+                <a href="<?php echo Router::url(['controller'=> 'contacts', 'action'=> 'contact'])?>" class="Footer__category__li__link"><i class="fas fa-angle-right"></i>施設情報掲載のお問い合わせ</a>
+            </li>
+        </ul>
+    </div>
+    <div class="Footer__credit">
+        Copyright © ツルツル株式会社 All rights reserved.
+    </div>
+</footer>
+
+</body>

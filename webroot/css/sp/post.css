@@ -1,0 +1,238 @@
+body {
+    font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif !important;
+}
+
+.stars-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    width: 137px;
+}
+
+.count-wrap {
+    background: white;
+}
+
+.count-text {
+    color: #949499;
+    text-align: right;
+    padding: 5px 10px;
+}
+
+.separator {
+    height: 8px;
+    border-top: 1px solid #eeece4;
+    border-bottom: 1px solid #eeece4;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #EEECE4;
+}
+
+.datsumou-header-inner {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.datsumou-header-inner__text {
+    color: #595960 !important;
+}
+
+.question-area table tr:last-child {
+    border-bottom: none !important;
+}
+
+.kuchikomi-entry-title {
+    padding: 20px 10px 16px !important;
+}
+
+input[name="Reviews[sex]"]~label {
+    padding: 13px.5em !important;
+    border-color: #BCB08A;
+}
+
+label[for="reviews-sex-2"].active {
+    color: white !important;
+    background: #FF9FC0 !important;
+    margin-left: 0 !important;
+}
+
+label[for="reviews-sex-1"].active {
+    color: white !important;
+    background: #6AADBF !important;
+    margin-right: 0 !important;
+}
+
+select {
+    line-height: 23px;
+    font-size: 13px;
+}
+
+select[name="Reviews[question1]"] {
+    font-weight: bold;
+}
+
+.question-area table td .td-inner-wrap .td-inner .select .fa-chevron-down {
+    right: 10px;
+}
+
+.Search__breadcrumbs {
+    margin-top: 0 !important;
+}
+
+.Search__breadcrumbs ol {
+    height: auto !important;
+}
+
+.question-area {
+    overflow-x: hidden;
+    min-height: calc(100vh - 300px);
+}
+
+textarea {
+    resize: none;
+}
+
+.question-table {}
+
+.question-tbody {
+    transform: 0;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    width: 1100vw;
+    display: flex;
+    align-items: flex-start;
+}
+
+.column-tbody {
+    flex-direction: column;
+    transform: unset !important;
+    align-items: normal;
+    width: 100%;
+}
+
+.question-table tr {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-title,
+.question-table th {
+    border-top: none !important;
+    border-color: #eeece4 !important;
+}
+
+.question-text {
+    line-height: 19.6px;
+    font-size: 14px;
+    padding-left: 6px !important;
+    font-weight: 600;
+}
+
+.td-inner-wrap {
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}
+
+.td-inner {
+    padding: 0 !important;
+}
+
+.td-inner input {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.question-area table td .td-inner.flex>.wrap {
+    margin-right: 6px;
+}
+
+.border {
+    border-color: #BCB08A;
+}
+
+.td-inner-wrap-white {
+    background: white;
+}
+
+/* 現行のspに対応するための処置 */
+td {
+    max-width: 600px;
+}
+
+/* 以下、必須項目ですが、追加スクリプトが大変だと思うので強引に処理しています */
+
+.required-question {
+    padding-top: 44px !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+    align-items: flex-start !important;
+}
+
+.required-expression {
+    position: relative;
+    bottom: 24px;
+    padding: 3px;
+    background: #E64C30;
+    color: white;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    width: 28px;
+    flex: none;
+}
+
+.question-number {
+    margin-left: -28px;
+    padding: 1.5px 4px !important;
+    border-radius: 2px;
+    font-family: Helvetica;
+    position: relative;
+    top: 1.5px;
+}
+
+.next-question-wrap {
+    /*display: flex!important;*/
+    font-weight: 300 !important;
+    padding: 14px 10px;
+    font-size: 14px;
+    background: white;
+    border-top: 1px solid #EEECE4;
+    border-bottom: 1px solid #EEECE4;
+    align-items: center;
+    flex-wrap: nowrap;
+    vertical-align: unset !important;
+    width: 100%;
+}
+
+.next-question-text {
+    width: calc(100% - 20px);
+    text-align: center;
+    color: #CCCCCC;
+    display: inline-grid;
+    float: left;
+}
+
+.next-question-wrap .arrow-icon {
+    width: 10px;
+    color: #E0DCCC;
+    float: right;
+}
+
+.after-question-finish {
+    display: none;
+}
+
+.final-title {
+    background: white;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0 0px;
+    margin-bottom: -4px;
+}
