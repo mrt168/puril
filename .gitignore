@@ -1,14 +1,14 @@
 # CakePHP specific files #
 ##########################
-# /config/app.php
-# /config/.env
+ /config/app.php
+ /config/.env
 /config/Migrations/schema-dump-default.lock
 /logs/*
 /tmp/*
 /vendor/*
 /webroot/column/*
 /src/outside_webroot/*
-# /config/*
+ /config/*
 
 
 # OS generated files #
