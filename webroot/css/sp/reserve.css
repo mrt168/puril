@@ -1,0 +1,191 @@
+body {
+    font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif !important;
+}
+
+.reserve-form {
+    background: white;
+}
+
+textarea {
+    resize: none!important;
+}
+
+.reserve-section .reserve-input input#shop_name {
+    background-color: #EEECE4;
+}
+
+.reserve-question-mod {
+    margin-top: 5px;
+}
+
+.reserve-title {
+    border-top: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.reserve-tag-required {
+    padding: 3px !important;
+    background: #E64C30 !important;
+    color: white !important;
+    border-radius: 2px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    width: 28px !important;
+    flex: none !important;
+}
+
+#man+div span,
+#woman+div span {
+    text-align: center !important;
+}
+
+.reserve-section .reserve-input .reserve-input-radio-wrap .reserve-input-radio input[type="radio"]:checked+.reserve-input-inner>span {
+    padding: 13px.5em !important;
+    border-color: #BCB08A;
+    border: none !important;
+}
+
+#woman:checked+.reserve-input-inner>span {
+    color: white !important;
+    background: #FF9FC0 !important;
+    margin-left: 0 !important;
+}
+
+#man:checked+.reserve-input-inner>span {
+    color: white !important;
+    background: #6AADBF !important;
+    margin-right: 0 !important;
+}
+
+.reserve-section .reserve-input {
+    padding: 10px 10px 0px;
+}
+
+.reserve-section .reserve-question,
+.reserve-section .reserve-subquestion .reserve-subquestion-first {
+    padding: 20px 10px 10px;
+}
+
+.reserve-subquestion-text {
+    font-weight: 600 !important;
+}
+
+.color-main {
+    font-size: 12px !important;
+    color: #463E2C !important;
+}
+
+.color-sub {
+    font-size: 13px !important;
+    color: #797152 !important;
+}
+
+.reserve-email-desc {
+    line-height: 15px;
+    font-size: 10px;
+    color: #13121E;
+}
+
+.reserve-section .reserve-subquestion .reserve-subquestion-text-top {
+    padding-left: 10px !important;
+}
+
+#reserve_table {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+    #reserve_table th {
+        font-size: 11px;
+        line-height: 15.4px;
+
+    }
+}
+
+.reserve-confirm-content {
+    margin-top: 20px;
+}
+
+.reserve-confirm-content a {
+    color: #0463CB;
+}
+
+.reserve-section .reserve-button-area {
+    padding: 20px 16px;
+    margin-bottom: 0px;
+}
+
+.reserve-section .reserve-button-area .reserve-button {
+    border-color: #82AE25;
+}
+
+
+.calendar-weeks {
+    display: flex;
+    justify-content: space-between;
+}
+
+.calendar-week {
+    color: #0066CC;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.calendar-week.disable {
+    color: #C1C4C5;
+}
+
+#reserve_table th{
+    background: #EEECE4;
+    vertical-align: middle;
+}
+
+.calendar-cell {
+    padding: 0 !important;
+    height: 34px !important;
+    vertical-align: middle !important;
+}
+
+.calendar-cell-text {
+    line-height: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px;
+    background: #6AADBF;
+    display: inline-block;
+    border-radius: 12px;
+    color: white;
+}
+
+.calendar-date-time-wrap {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+}
+
+.calendar-date-time {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    border: 1px solid #BEB99B;
+    border-radius: 4px;
+    padding: 3px 10px;
+    margin: 5px 0;
+}
+
+.calendar-date-time p {
+    flex: 1;
+    text-align: center;
+    font-weight: 300;
+    font-size: 13px;
+    padding: 11px 0;
+}
+
+.calendar-date-time p:first-of-type {
+    border-right: solid 1px #BEB99B;
+}
+
+#calendar-input-area {
+    display: none;
+}

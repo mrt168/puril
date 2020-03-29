@@ -36,10 +36,7 @@ use App\Vendor\Code\ImagePositionType;
             <!-- 店舗画像 -->
             <?php
             $imagenum = count($shop['shop_images']);
-            if ($imagenum === 1) :
-                foreach ($shop['shop_images'] as $shopImage) {
-                    echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img',));
-                } elseif ($imagenum > 1) :
+            if ($imagenum === 1 || $imagenum > 1) :
                 foreach ($shop['shop_images'] as $shopImage) {
                     echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img',));
                     break;
@@ -47,6 +44,16 @@ use App\Vendor\Code\ImagePositionType;
                 echo $this->Html->image('Shop/noimage.jpg', ['alt' => 'NoImage']);
             endif;
             ?>
+            <script>
+                $(document).ready(function() {
+                    $('.top-img').error(function() {
+                        $(this).attr({
+                            src: '/img/Shop/noimage.jpg',
+                            alt: 'NoImage'
+                        });
+                    });
+                });
+            </script>
             <div class="top-content">
                 <!-- 店舗説明 -->
                 <p class="top-catch">
@@ -173,11 +180,16 @@ use App\Vendor\Code\ImagePositionType;
                 const key = id.split('for-')[1];
                 console.log(key)
 
-                $(".fix-head").removeClass("active");
-                $(`#${id}`).addClass("active");
+                //headNavActivate(id);
+
                 $("html,body").animate({
                     scrollTop: $(`#${key}`).offset().top - 53
                 }); // 43pxはfix-head
+            }
+
+            function headNavActivate(id) {
+                $(".fix-head").removeClass("active");
+                $(`#${id}`).addClass("active");
             }
         </script>
         <section id="top-section" class="section">
@@ -302,11 +314,13 @@ use App\Vendor\Code\ImagePositionType;
                 </h2>
                 <?php
                 if (!empty($shop['reviews'])) {
+                    $reviewContentCount = 0;
                     foreach ($shop['reviews'] as $key => $review) {
+                        $reviewContentCount++;
                 ?>
                         <article class="comment-wrap more-content-comment">
-                            <input class="comment-input" type="checkbox" id="comment-input-1" />
-                            <label class="comment-label" for="comment-input-1">
+                            <input class="comment-input" type="checkbox" id="comment-input-<?php echo $reviewContentCount ?>" />
+                            <label class="comment-label" for="comment-input-<?php echo $reviewContentCount ?>">
                                 <div class="comment-label-left">
                                     <div class="comment-label-top">
                                         <!-- 口コミのタイトル -->
@@ -921,6 +935,13 @@ use App\Vendor\Code\ImagePositionType;
                 </div>
             </div>
         </section>
+        <footer class="content shop-footer">
+            <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id']; ?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
+                <img src="/puril/images/review_btn.png" class="button-base-img kuchikomi-button-img" alt="">
+            </a>
+            <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
+                <img src="/puril/images/reserve_btn.png" class="button-base-img reservatopn-button-img" alt="">
+            </a></footer>
         <div class="separator"></div>
         <?php if (!empty($shop['interviews'])) : ?>
             <section class="section" id="interview-section">
@@ -1078,6 +1099,60 @@ use App\Vendor\Code\ImagePositionType;
             </div>
         </section>
     </div>
+    <script>
+        window.addEventListener('load', () => {
+            const nav = $('#head-nav');
+            const navHeight = nav.outerHeight();
+            const navTop = nav.offset().top;
+
+            const topSection = $("#top-section").offset().top;
+            const priceSection = $("#price-section").offset().top;
+            const commentSection = $("#comment-section").offset().top;
+            const gallerySection = $("#gallery-section").offset().top;
+            const accessSection = $("#access-section").offset().top;
+            const blogSection = $("#blog-section").offset().top;
+            const baseInfoSection = $("#baseinfo-section").offset().top;
+            const interviewSection = $("#interview-section").offset().top;
+            /*const sectionScrollTopList = [topSection, priceSection, commentSection, gallerySection, accessSection,
+                interviewSection
+            ];*/
+
+            function detectWhichActive(winTop) {
+                winTop += 100; // いい感じに高さ調整
+                if (topSection > winTop) {
+                    return 'for-top-section'
+                } else if (priceSection >= winTop) {
+                    return 'for-top-section'
+                } else if (commentSection >= winTop) {
+                    return 'for-price-section'
+                } else if (gallerySection >= winTop) {
+                    return 'for-comment-section'
+                } else if (accessSection >= winTop) {
+                    return 'for-gallery-section'
+                } else if (blogSection >= winTop) {
+                    return 'for-access-section'
+                } else if (baseInfoSection >= winTop) {
+                    return 'for-blog-section'
+                } else if (interviewSection >= winTop) {
+                    return 'for-baseinfo-section'
+                } else {
+                    return 'for-interview-section'
+                }
+            }
+
+            $(window).scroll(function() {
+                const winTop = $(this).scrollTop();
+                if (winTop >= navTop) {
+                    nav.addClass('fixed');
+                    $('#head-nav-section').css('height', `${navHeight}px`);
+                } else if (winTop <= navTop) {
+                    nav.removeClass('fixed')
+                    $('#head-nav-section').css('height', `auto`);
+                }
+                headNavActivate(detectWhichActive(winTop));
+            });
+        });
+    </script>
     <div class="Search__breadcrumbs">
         <ol>
             <li>
@@ -1110,59 +1185,6 @@ use App\Vendor\Code\ImagePositionType;
         <script type="text/javascript" src="/js/datsumou/shop/common.js"></script>
         <script type="text/javascript" src="/js/datsumou/photo-modal.js"></script>
         <script>
-            window.addEventListener('load', () => {
-                const nav = $('#head-nav');
-                const navHeight = nav.outerHeight();
-                const navTop = nav.offset().top;
-
-                const topSection = $("#top-section").offset().top;
-                const priceSection = $("#price-section").offset().top;
-                const commentSection = $("#comment-section").offset().top;
-                const gallerySection = $("#gallery-section").offset().top;
-                const accessSection = $("#access-section").offset().top;
-                const blogSection = $("#blog-section").offset().top;
-                const baseInfoSection = $("#baseinfo-section").offset().top;
-                const interviewSection = $("#interview-section").offset().top;
-                /*const sectionScrollTopList = [topSection, priceSection, commentSection, gallerySection, accessSection,
-                    interviewSection
-                ];*/
-
-                function detectWhichActive(winTop) {
-                    winTop += 100; // いい感じに高さ調整
-                    if (topSection > winTop) {
-                        return 'for-top-section'
-                    } else if (priceSection >= winTop) {
-                        return 'for-top-section'
-                    } else if (commentSection >= winTop) {
-                        return 'for-price-section'
-                    } else if (gallerySection >= winTop) {
-                        return 'for-comment-section'
-                    } else if (accessSection >= winTop) {
-                        return 'for-gallery-section'
-                    } else if (blogSection >= winTop) {
-                        return 'for-access-section'
-                    } else if (baseInfoSection >= winTop) {
-                        return 'for-blog-section'
-                    } else if (interviewSection >= winTop) {
-                        return 'for-baseinfo-section'
-                    } else {
-                        return 'for-interview-section'
-                    }
-                }
-
-                $(window).scroll(function() {
-                    const winTop = $(this).scrollTop();
-                    if (winTop >= navTop) {
-                        nav.addClass('fixed');
-                        $('#head-nav-section').css('height', `${navHeight}px`);
-                    } else if (winTop <= navTop) {
-                        nav.removeClass('fixed')
-                        $('#head-nav-section').css('height', `auto`);
-                    }
-                    headNavActivate(detectWhichActive(winTop));
-                });
-            });
-
             function initMap(address) {
                 var geocoder = new google.maps.Geocoder();
                 //住所から座標を取得する
