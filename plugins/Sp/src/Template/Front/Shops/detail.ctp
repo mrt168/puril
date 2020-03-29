@@ -1101,6 +1101,8 @@ use App\Vendor\Code\ImagePositionType;
     </div>
     <script>
         window.addEventListener('load', () => {
+            console.log($)
+            console.log("ok");
             const nav = $('#head-nav');
             const navHeight = nav.outerHeight();
             const navTop = nav.offset().top;
@@ -1141,6 +1143,7 @@ use App\Vendor\Code\ImagePositionType;
             }
 
             $(window).scroll(function() {
+                console.log("スクロール");
                 const winTop = $(this).scrollTop();
                 if (winTop >= navTop) {
                     nav.addClass('fixed');
