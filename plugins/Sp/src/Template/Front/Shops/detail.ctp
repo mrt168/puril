@@ -165,11 +165,17 @@ use App\Vendor\Code\ImagePositionType;
                     <li class="fix-head" onclick="headNavTapped(this)" id="for-access-section">
                         <span class="fix-head-text">アクセス</span>
                     </li>
+                    <li class="fix-head" onclick="headNavTapped(this)" id="for-blog-section">
+                        <span class="fix-head-text">ブログ</span>
+                    </li>
+                    <li class="fix-head" onclick="headNavTapped(this)" id="for-baseinfo-section">
+                        <span class="fix-head-text">基本情報</span>
+                    </li>
                     <li class="fix-head" onclick="headNavTapped(this)" id="for-interview-section">
                         <span class="fix-head-text">インタビュー</span>
                     </li>
                     <li class="fix-head">
-                        <a href="" class="fix-head-text">予約</a>
+                        <a href="<?php echo $shop['affiliate_page_url']; ?>" class="fix-head-text">予約</a>
                     </li>
                 </ul>
             </div>
@@ -493,7 +499,7 @@ use App\Vendor\Code\ImagePositionType;
                                 </div>
                             </div>
                         </article>
-                    <?php }?>
+                    <?php } ?>
                     <div class="more-wrap bottom-border">
                         <!-- onclickの追加だけお願いします。 -->
                         <p class="more-text" onclick="moreButtonTapped('comment')">もっと見る</p>
@@ -680,7 +686,7 @@ use App\Vendor\Code\ImagePositionType;
         <div class="separator"></div>
         <section class="section">
             <div class="section-padding-inner">
-                <h2 class="section-inner-title">キレイモ 新宿本店への詳細道順</h2>
+                <h2 class="section-inner-title"><?php echo $shop['name']; ?>への詳細道順</h2>
                 <?php if ($shop['shop_access_images']) { ?>
                     <div class="gallery-wrap">
                         <!-- 道順 -->
@@ -758,7 +764,7 @@ use App\Vendor\Code\ImagePositionType;
         <?php endif; ?>
         <div class="separator"></div>
         <!-- ブログ+お知らせ -->
-        <section class="section">
+        <section id="blog-section" class="section">
             <div class="section-padding-inner news-section-inner">
                 <div class="inner-elm-padding">
                     <h2 class="section-inner-title"><?php echo $shop['name']; ?>のお知らせ・ブログ</h2>
@@ -797,7 +803,7 @@ use App\Vendor\Code\ImagePositionType;
                         <div class="blogs-wrap">
                             <!-- ブログ -->
                             <div class="inner-elm-padding">
-                                <h3 class="section-inner-sub-title price-sub-title">キレイモ 新宿本店のブログ</h3>
+                                <h3 class="section-inner-sub-title price-sub-title"><?php echo $shop['name']; ?>のブログ</h3>
                             </div>
                             <div class="inner-elm-padding">
                                 <ul class="blogs">
@@ -836,7 +842,7 @@ use App\Vendor\Code\ImagePositionType;
                 </div>
         </section>
         <div class="separator"></div>
-        <section id="access-section" class="section">
+        <section id="baseinfo-section" class="section">
             <div class="section-padding-inner base-info-section-inner">
                 <div class="inner-elm-padding">
                     <!-- 店舗名+基本情報 -->
@@ -945,7 +951,7 @@ use App\Vendor\Code\ImagePositionType;
                     </ul>
                 </div>
                 <div class="inner-elm-padding">
-                    <p class="in-case-wrong-info-text">●●の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</p>
+                    <p class="in-case-wrong-info-text"><?php echo $shop['name']; ?>の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</p>
                     <div class="in-case-wrong-info-button-wrap">
                         <!-- DBから生成 -->
                         <?php echo $this->Html->link(
@@ -968,6 +974,15 @@ use App\Vendor\Code\ImagePositionType;
                 </div>
             </div>
         </section>
+        <div class="separator"></div>
+        <section class="section">
+            <div class="section-padding-inner">
+                <!-- DBから取得 -->
+                <h2 class="section-inner-title">キレイモ 新宿本店からの一言</h2>
+                <div class="one-point">
+                </div>
+            </div>
+        </section>
         <footer class="content shop-footer">
             <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id']; ?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
                 <img src="/puril/images/review_btn.png" class="button-base-img kuchikomi-button-img" alt="">
@@ -975,27 +990,25 @@ use App\Vendor\Code\ImagePositionType;
             <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
                 <img src="/puril/images/reserve_btn.png" class="button-base-img reservatopn-button-img" alt="">
             </a></footer>
-        <?php if (!empty($shop['interviews'])) : ?>
-            <section class="section" id="interview-section">
-                <div class="section-padding-inner">
-                    <!-- インタビュー -->
-                    <h2 class="section-inner-title"><?php echo $shop['name']; ?>のインタビュー</h2>
-                    <div class="interviews-wrap">
-                        <ul class="interviews">
-                            <?php foreach ($shop['interviews'] as $interview) { ?>
-                                <li>
-                                    <img class='interview-img' src=<?php echo $interview['image_path'] ?> />
-                                    <p class="interview-title">この店舗を選んだ理由を教えてください。</p>
-                                    <p class="interview-text">
-                                        <?php echo $interview['content'] ?>
-                                    </p>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
+        <section class="section" id="interview-section">
+            <div class="section-padding-inner">
+                <!-- インタビュー -->
+                <h2 class="section-inner-title"><?php echo $shop['name']; ?>のインタビュー</h2>
+                <div class="interviews-wrap">
+                    <ul class="interviews">
+                        <?php foreach ($shop['interviews'] as $interview) { ?>
+                            <li>
+                                <img class='interview-img' src=<?php echo $interview['image_path'] ?> />
+                                <p class="interview-title">この店舗を選んだ理由を教えてください。</p>
+                                <p class="interview-text">
+                                    <?php echo $interview['content'] ?>
+                                </p>
+                            </li>
+                        <?php } ?>
+                    </ul>
                 </div>
-            </section>
-        <?php endif ?>
+            </div>
+        </section>
         <div class="separator"></div>
         <section class="section">
             <div class="section-padding-inner related-section-inner">
@@ -1132,11 +1145,10 @@ use App\Vendor\Code\ImagePositionType;
         </section>
     </div>
     <script>
-        window.addEventListener('load', () => {
+        window.onload = function() {
             const nav = $('#head-nav');
             const navHeight = nav.outerHeight();
             const navTop = nav.offset().top;
-
             const topSection = $("#top-section").offset().top;
             const priceSection = $("#price-section").offset().top;
             const commentSection = $("#comment-section").offset().top;
@@ -1173,18 +1185,19 @@ use App\Vendor\Code\ImagePositionType;
             }
 
             $(window).scroll(function() {
-                console.log("スクロール");
                 const winTop = $(this).scrollTop();
                 if (winTop >= navTop) {
                     nav.addClass('fixed');
                     $('#head-nav-section').css('height', `${navHeight}px`);
+                    $('.datsumou-header-inner').css('display', 'none');
                 } else if (winTop <= navTop) {
                     nav.removeClass('fixed')
                     $('#head-nav-section').css('height', `auto`);
+                    $('.datsumou-header-inner').css('display', 'flex');
                 }
                 headNavActivate(detectWhichActive(winTop));
             });
-        });
+        };
     </script>
     <div class="Search__breadcrumbs">
         <ol>
