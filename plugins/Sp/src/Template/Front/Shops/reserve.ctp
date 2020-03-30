@@ -15,9 +15,9 @@ use App\Vendor\Code\ImagePositionType;
 <body>
     <?php
     echo $this->Html->css('datsumou');
-    echo $this->Html->css('sp/reserve');
     echo $this->Html->script('sp/reserve');
     echo $this->Html->css(['reset', 'all.min', 'Chart.min', 'common', 'datsumou/common', 'datsumou/reserve/index', 'datsumou/reserve/common']);
+    echo $this->Html->css('sp/reserve');
     ?>
     <?php
     echo $this->Html->script(
