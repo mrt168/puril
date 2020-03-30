@@ -493,8 +493,7 @@ use App\Vendor\Code\ImagePositionType;
                                 </div>
                             </div>
                         </article>
-                    <?php }
-                    var_dump($teatdata) ?>
+                    <?php }?>
                     <div class="more-wrap bottom-border">
                         <!-- onclickの追加だけお願いします。 -->
                         <p class="more-text" onclick="moreButtonTapped('comment')">もっと見る</p>
@@ -525,7 +524,7 @@ use App\Vendor\Code\ImagePositionType;
                             "予約・立地": 40
                         }]
                         // var testData = JSON.parse('<?php echo $teatdata ?>');
-                        console.log(testData);
+                        // console.log(testData);
                         const charts = document.getElementsByClassName('comment-chart');
                         //const width = window.innerWidth - 20;
                         for (let i = 0; i < charts.length; i++) {
