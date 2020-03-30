@@ -129,7 +129,7 @@ textarea {
 
 .question-text {
     line-height: 19.6px;
-    font-size: 14px;
+    font-size: 14px !important;
     padding-left: 6px !important;
     font-weight: 600;
 }
