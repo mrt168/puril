@@ -361,7 +361,7 @@ const RESERVE_TABLE = [
                     <td class="question-answer-wrap">
                         <div class="td-inner-wrap">
                             <div class="td-inner">
-                                <?= $this->ExForm->textarea('Reviews.reason', ["oninput" => "validation('textarea')", 'id' => 'reason', 'required' => 'required', 'cols' => 30, 'rows' => 6, 'placeholder' => '（回答例）HPやインスタで拝見し、技術の高い○○先生にお願いしたいと思いました。']); ?>
+                                <textarea oninput="validation('textarea')" name="Reviews[reason]" id="reason" required="required" cols="30" rows="6" placeholder="（回答例）HPやインスタで拝見し、技術の高い○○先生にお願いしたいと思いました。"></textarea>
                             </div>
                         </div>
                     </td>
@@ -388,19 +388,19 @@ const RESERVE_TABLE = [
                                     <div id="question1-stars">
                                         <ul class="stars">
                                             <li class="star">
-                                                <img class="star-img" src="/puril/images/img/star-fill.png" />
+                                                <img class="star-img" src="./img/star-fill.png" />
                                             </li>
                                             <li class="star">
-                                                <img class="star-img" src="/puril/images/img/star-fill.png" />
+                                                <img class="star-img" src="./img/star-fill.png" />
                                             </li>
                                             <li class="star">
-                                                <img class="star-img" src="/puril/images/img/star-fill.png" />
+                                                <img class="star-img" src="./img/star-fill.png" />
                                             </li>
                                             <li class="star">
-                                                <img class="star-img" src="/puril/images/img/star-empty.png" />
+                                                <img class="star-img" src="./img/star-empty.png" />
                                             </li>
                                             <li class="star">
-                                                <img class="star-img" src="/puril/images/img/star-empty.png" />
+                                                <img class="star-img" src="./img/star-empty.png" />
                                             </li>
                                         </ul>
                                     </div>
@@ -410,14 +410,13 @@ const RESERVE_TABLE = [
                                         <option value="3" selected>3.0</option>
                                         <option value="2">2.0</option>
                                         <option value="1">1.0</option>
-                                    </select>
-                                    <i class="fas fa-chevron-down reserve-input-arrow"></i>
+                                    </select> <i class="fas fa-chevron-down reserve-input-arrow"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="td-inner-wrap">
                             <div class="td-inner">
-                                <?= $this->ExForm->textarea('Reviews.question1_evaluation', ["oninput" => "validation('select-textarea');reviewChange(1);", 'id' => 'question1_evaluation', 'class' => 'evaluation', 'required' => 'required', 'cols' => 30, 'rows' => 6, 'placeholder' => 'スタッフさんの対応に大変好感が持てました。質問に対しても丁寧に答えてくださるほか、気さくに話かけてくれるので、楽しく通うことができています！']); ?>
+                                <textarea oninput="validation('select-textarea');reviewChange(1);" name="Reviews[question1_evaluation]" id="question1_evaluation" class="evaluation" required="required" cols="30" rows="6" placeholder="スタッフさんの対応に大変好感が持てました。質問に対しても丁寧に答えてくださるほか、気さくに話かけてくれるので、楽しく通うことができています！"></textarea>
                             </div>
                         </div>
                     </td>
