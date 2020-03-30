@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   font-size: 12px;
-  font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック","Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
+  font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック","Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif !important;
   background-color: #F9F7F5;
   color: #13131E;
   margin: 0 auto;
