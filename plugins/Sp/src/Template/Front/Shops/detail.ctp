@@ -19,9 +19,9 @@ use App\Vendor\Code\ImagePositionType;
         }
     </style>
     <?php
-    echo $this->Html->css('datsumou');
     echo $this->Html->script('sp/more');
     echo $this->Html->css(['reset', 'all.min', 'Chart.min', 'common', 'datsumou/common', 'datsumou/shop/common', 'datsumou/shop/index', 'datsumou/photodetail']);
+    echo $this->Html->css('datsumou');
     echo $this->Html->css('sp/shop-detail');
     ?>
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCMXTyYIMqJTZPtem60iMfu3ZKYn3Nj0wI"></script>

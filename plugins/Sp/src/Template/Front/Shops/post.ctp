@@ -31,9 +31,8 @@ const RESERVE_TABLE = [
 
 <body>
     <?php
-
-    echo $this->Html->css('datsumou');
     echo $this->Html->css(['reset', 'all.min', 'Chart.min', 'common', 'datsumou/common', 'datsumou/brand/common',  'datsumou/kuchikomi-entry']);
+    echo $this->Html->css('datsumou');
     echo $this->Html->css('sp/post');
     ?>
     <header class="datsumou-header">
