@@ -44,6 +44,11 @@ span {
 a {
   word-break: break-all;
   text-decoration: none;
+  color:black;
+}
+
+.blogs-wrap a:link, .blogs-wrap a:visited, .blogs-wrap a:hover, .blogs-wrap a:active {
+  color: black;
 }
 
 .section {

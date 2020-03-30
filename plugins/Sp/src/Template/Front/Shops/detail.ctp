@@ -275,10 +275,21 @@ use App\Vendor\Code\ImagePositionType;
                     <!-- サービス内容 -->
                     <ul class="services">
                         <?php
+                        $depilation_site_num = 0;
+                        $depilation_sites_length = count($shop['depilation_sites']);
                         foreach ($shop['depilation_sites'] as $depilationSite) {
                             echo '<li class="service">';
                             echo '<span class="service-text">' . $depilationSite['name'] . '</span>';
                             echo '</li>';
+
+                            $depilation_site_num++;
+                            if ($depilation_site_num == $depilation_sites_length) {
+                                for ($i = 0; $i < 3 - ($depilation_sites_length % 3); $i++) {
+                                    echo '<li style="border:none" class="service">';
+                                    echo '<div></div>';
+                                    echo '</li>';
+                                }
+                            }
                         }
                         ?>
                     </ul>
@@ -292,13 +303,25 @@ use App\Vendor\Code\ImagePositionType;
                 <h2 class="section-inner-title"><?php echo $shop['name']; ?>の特徴・こだわり</h2>
                 <div class="kodawaris-wrap">
                     <!-- こだわり -->
-                    <?php if ($shop['other_conditions']) : ?>
+                    <?php if ($shop['other_conditions']) :
+                        $commitment_num = 0;
+                        $other_conditions_length = count($shop['other_conditions']);
+                    ?>
                         <ul class="kodawaris">
                             <?php foreach ($shop['other_conditions'] as $commitment) {
                                 $commitmentImageUrl = "Shop/commitment/$commitment[url_text].png";
                                 echo '<li class="kodawari">';
                                 echo $this->Html->image($commitmentImageUrl, ['alt' => "$commitment[name]"]);
                                 echo '</li>';
+
+                                $commitment_num++;
+                                if ($commitment_num == $other_conditions_length) {
+                                    for ($i = 0; $i < 6 - ($other_conditions_length % 6); $i++) {
+                                        echo '<li class="kodawari">';
+                                        echo '<div></div>';
+                                        echo '</li>';
+                                    }
+                                }
                             } ?>
                         </ul>
                     <?php endif; ?>
@@ -664,7 +687,6 @@ use App\Vendor\Code\ImagePositionType;
                 <?php } ?>
             </div>
         </section>
-        <div class="separator"></div>
         <!-- スタッフ -->
         <?php if ($shop['staffs']) : ?>
             <section class="section">
@@ -942,7 +964,6 @@ use App\Vendor\Code\ImagePositionType;
             <a class="button-base reservatopn-button" href="/datsumou/shop/reserve?shop_id=<?= $shop['shop_id'] ?>"><i class="fas fa-phone-alt reservatopn-button-icon"></i>
                 <img src="/puril/images/reserve_btn.png" class="button-base-img reservatopn-button-img" alt="">
             </a></footer>
-        <div class="separator"></div>
         <?php if (!empty($shop['interviews'])) : ?>
             <section class="section" id="interview-section">
                 <div class="section-padding-inner">
@@ -999,7 +1020,7 @@ use App\Vendor\Code\ImagePositionType;
                                 foreach ($othreShops['station_data'] as $shopStation) {
                             ?>
                                     <li class="blog">
-                                        <a class="blog-wrap">
+                                        <a class="blog-wrap" href="/datsumou/shop/detail/<?= $shopStation["shop_id"] ?>">
                                             <?php if (!empty($shopStation['shop_images']) && !empty($shopStation['shop_images']['image_path'])) { ?>
                                                 <img class="blog-img" src=<?php echo $shopStation['shop_images']['image_path'][0] ?> />
                                             <?php } else { ?>
@@ -1027,7 +1048,7 @@ use App\Vendor\Code\ImagePositionType;
                                 foreach ($othreShops['area_data'] as $shopArea) {
                             ?>
                                     <li class="blog">
-                                        <a class="blog-wrap">
+                                        <a class="blog-wrap" href="/datsumou/shop/detail/<?= $shopArea["shop_id"] ?>">
                                             <?php if (!empty($shopArea['shop_images']) && !empty($shopArea['shop_images']['image_path'])) { ?>
                                                 <img class="blog-img" src=<?php echo $shopArea['shop_images']['image_path'][0] ?> />
                                             <?php } else { ?>
@@ -1055,18 +1076,18 @@ use App\Vendor\Code\ImagePositionType;
                                 foreach ($othreShops['pref_data'] as $shopdata) {
                             ?>
                                     <li class="blog">
-                                        <a class="blog-wrap">
-                                            <?php if (!empty($shopArea['shop_images']) && !empty($shopArea['shop_images']['image_path'])) { ?>
-                                                <img class="blog-img" src=<?php echo $shopArea['shop_images']['image_path'][0] ?> />
+                                        <a class="blog-wrap" href="/datsumou/shop/detail/<?= $shopdata["shop_id"] ?>">
+                                            <?php if (!empty($shopdata['shop_images']) && !empty($shopdata['shop_images']['image_path'])) { ?>
+                                                <img class="blog-img" src=<?php echo $shopdata['shop_images']['image_path'][0] ?> />
                                             <?php } else { ?>
                                                 <img class="blog-img" src="/puril/images/img/datsumou/no-photo.jpg" />
                                             <?php } ?>
                                             <div class="blog-info-wrap">
                                                 <p class="blog-title related-shop-title">
-                                                    <?php echo $shopArea['name'] ?>
+                                                    <?php echo $shopdata['name'] ?>
                                                 </p>
                                                 <p class="blog-date">
-                                                    <?php echo $shopArea['station'] ?>
+                                                    <?php echo $shopdata['station'] ?>
                                                 </p>
                                             </div>
                                             <i class="blog-icon fas fa-chevron-right"></i>
