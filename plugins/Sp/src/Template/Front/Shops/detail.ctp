@@ -336,10 +336,19 @@ use App\Vendor\Code\ImagePositionType;
                     <?php echo $shop['name']; ?>の口コミ（<?php echo count($shop['reviews']) ?>件）
                 </h2>
                 <?php
+                $teatdata = array();
                 if (!empty($shop['reviews'])) {
                     $reviewContentCount = 0;
                     foreach ($shop['reviews'] as $key => $review) {
                         $reviewContentCount++;
+                        $reviewData = array(
+                            "接客・サービス" => $review['question1'] * 10,
+                            "メニュー・ 料金" => $review['question2'] * 10,
+                            "効果" => $review['question3'] * 10,
+                            "雰囲気" => $review['question4'] * 10,
+                            "予約・立地" => $review['question5'] * 10
+                        );
+                        array_push($teatdata, $reviewData);
                 ?>
                         <article class="comment-wrap more-content-comment">
                             <input class="comment-input" type="checkbox" id="comment-input-<?php echo $reviewContentCount ?>" />
@@ -484,7 +493,8 @@ use App\Vendor\Code\ImagePositionType;
                                 </div>
                             </div>
                         </article>
-                    <?php } ?>
+                    <?php }
+                    var_dump($teatdata) ?>
                     <div class="more-wrap bottom-border">
                         <!-- onclickの追加だけお願いします。 -->
                         <p class="more-text" onclick="moreButtonTapped('comment')">もっと見る</p>
@@ -514,6 +524,8 @@ use App\Vendor\Code\ImagePositionType;
                             "雰囲気": 20,
                             "予約・立地": 40
                         }]
+                        // var testData = JSON.parse('<?php echo $teatdata ?>');
+                        console.log(testData);
                         const charts = document.getElementsByClassName('comment-chart');
                         //const width = window.innerWidth - 20;
                         for (let i = 0; i < charts.length; i++) {
@@ -1122,8 +1134,6 @@ use App\Vendor\Code\ImagePositionType;
     </div>
     <script>
         window.addEventListener('load', () => {
-            console.log($)
-            console.log("ok");
             const nav = $('#head-nav');
             const navHeight = nav.outerHeight();
             const navTop = nav.offset().top;
