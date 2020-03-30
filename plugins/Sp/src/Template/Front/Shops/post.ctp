@@ -388,19 +388,19 @@ const RESERVE_TABLE = [
                                     <div id="question1-stars">
                                         <ul class="stars">
                                             <li class="star">
-                                                <img class="star-img" src="./img/star-fill.png" />
+                                                <img class="star-img" src="/puril/images/img/star-fill.png" />
                                             </li>
                                             <li class="star">
-                                                <img class="star-img" src="./img/star-fill.png" />
+                                                <img class="star-img" src="/puril/images/img/star-fill.png" />
                                             </li>
                                             <li class="star">
-                                                <img class="star-img" src="./img/star-fill.png" />
+                                                <img class="star-img" src="/puril/images/img/star-fill.png" />
                                             </li>
                                             <li class="star">
-                                                <img class="star-img" src="./img/star-empty.png" />
+                                                <img class="star-img" src="/puril/images/img/star-empty.png" />
                                             </li>
                                             <li class="star">
-                                                <img class="star-img" src="./img/star-empty.png" />
+                                                <img class="star-img" src="/puril/images/img/star-empty.png" />
                                             </li>
                                         </ul>
                                     </div>
