@@ -208,7 +208,6 @@
 .reserve-section .reserve-input .reserve-input-radio-wrap .reserve-input-radio input[type="radio"]:checked + .reserve-input-inner > span {
   background-color: #6AADBF; }
 .reserve-section .reserve-input .reserve-input-radio-wrap .reserve-input-radio span {
-  padding: 1em;
   border: 1px solid #BEB99B;
   border-radius: 4px;
   background-color: #ffffff;

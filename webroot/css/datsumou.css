@@ -221,6 +221,10 @@ footer {
 }
 */
 
+.fa, .fas {
+  font-weight:900 !important;
+}
+
 body {
   max-width: 600px;
   margin: 0 auto;

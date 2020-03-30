@@ -48,7 +48,7 @@ use App\Vendor\Code\ImagePositionType;
     ]) ?>
     <section class="content-base reserve-section">
         <div class="reserve-question reserve-question-mod">
-            <div class="reserve-question-text">店舗名</div>
+            <div class="reserve-question-text reserve-subquestion-text color-main">店舗名</div>
             <div class="reserve-tag reserve-tag-required">必須</div>
         </div>
         <div class="reserve-input">

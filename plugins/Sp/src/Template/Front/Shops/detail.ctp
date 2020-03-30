@@ -894,7 +894,7 @@ use App\Vendor\Code\ImagePositionType;
             <div class="section-padding-inner">
                 <h2 class="section-inner-title">シェア</h2>
                 <div class="share-button-wrap">
-                    <a href="//twitter.com/share?url=https://puril.net" class="simple-button simple button-13 fab fa-twitter twitter-icon">
+                    <a class="simple-button simple button-13 fab fa-twitter twitter-icon">
                         <span class="button-text">Twitter</span>
                     </a>
                 </div>

@@ -380,9 +380,9 @@ const RESERVE_TABLE = [
                         </div>
                     </th>
                     <td class="question-answer-wrap">
-                        <div class="td-inner-wrap">
+                        <div class="td-inner-wrap td-inner-wrap-white">
                             <div class="td-inner flex">
-                                <span style="color: #B5B5B5">評価点</span>
+                                <span style="color: #13121E">評価点</span>
                                 <div class="wrap select stars-wrap">
                                     <div id="question1-stars">
                                         <ul class="stars">
@@ -438,9 +438,9 @@ const RESERVE_TABLE = [
                         </div>
                     </th>
                     <td class="question-answer-wrap">
-                        <div class="td-inner-wrap">
+                        <div class="td-inner-wrap td-inner-wrap-white">
                             <div class="td-inner flex">
-                                <span style="color: #B5B5B5">評価点</span>
+                                <span style="color: #13121E">評価点</span>
                                 <div class="wrap select stars-wrap">
                                     <div id="question2-stars">
                                         <ul class="stars">
@@ -497,9 +497,9 @@ const RESERVE_TABLE = [
                         </div>
                     </th>
                     <td class="question-answer-wrap">
-                        <div class="td-inner-wrap">
+                        <div class="td-inner-wrap td-inner-wrap-white">
                             <div class="td-inner flex">
-                                <span style="color: #B5B5B5">評価点</span>
+                                <span style="color: #13121E">評価点</span>
                                 <div class="wrap select stars-wrap">
                                     <div id="question3-stars">
                                         <ul class="stars">
@@ -555,9 +555,9 @@ const RESERVE_TABLE = [
                         </div>
                     </th>
                     <td class="question-answer-wrap">
-                        <div class="td-inner-wrap">
+                        <div class="td-inner-wrap td-inner-wrap-white">
                             <div class="td-inner flex">
-                                <span style="color: #B5B5B5">評価点</span>
+                                <span style="color: #13121E">評価点</span>
                                 <div class="wrap select stars-wrap">
                                     <div id="question4-stars">
                                         <ul class="stars">
@@ -613,9 +613,9 @@ const RESERVE_TABLE = [
                         </div>
                     </th>
                     <td class="question-answer-wrap">
-                        <div class="td-inner-wrap">
+                        <div class="td-inner-wrap td-inner-wrap-white">
                             <div class="td-inner flex">
-                                <span style="color: #B5B5B5">評価点</span>
+                                <span style="color: #13121E">評価点</span>
                                 <div class="wrap select stars-wrap">
                                     <div id="question5-stars">
                                         <ul class="stars">
