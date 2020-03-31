@@ -202,7 +202,11 @@ textarea {
 
 .reserve-subquestion-first {
     margin:0 auto;
+}
+
+.main_text {
     width: 250px;
+    margin:0 auto;
 }
 
 .fas-left {

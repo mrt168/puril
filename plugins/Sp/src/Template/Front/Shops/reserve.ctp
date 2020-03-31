@@ -69,7 +69,7 @@ use App\Vendor\Code\ImagePositionType;
     <section class="content-base reserve-section">
         <div class="reserve-subquestion">
             <div>
-                <div class="reserve-subquestion-first">
+                <div class="reserve-subquestion-first main_text">
                     <div class="reserve-subquestion-text color-main" id="calendar-title">第<span id="calendar-title-number">1</span>希望日を選択してください</div>
                     <div class="reserve-tag reserve-tag-required">必須</div>
                 </div>
