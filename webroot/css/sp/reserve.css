@@ -207,11 +207,6 @@ textarea {
     width: 250px;
 }
 
-.calendar-weeks .fas {
-    position: absolute;
-    color:#6AADBF
-}
-
 .fas-left {
     left: 10px;
 }
@@ -222,4 +217,13 @@ textarea {
 
 .reserve-input-arrow {
     color: #463F2D !important;
+}
+
+.calendar-weeks .fas {
+    position: absolute;
+    color:#6AADBF !important
+}
+
+.want_day {
+    width:100%;
 }

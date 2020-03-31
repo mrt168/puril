@@ -267,7 +267,7 @@ use App\Vendor\Code\ImagePositionType;
                 </tbody>
             </table>
             <div>
-                <div class="reserve-subquestion-first" style="padding:0;">
+                <div class="reserve-subquestion-first want_day" style="padding:0;">
                     <div style="width:100%;padding: 0 10px;">
                         <div class="reserve-subquestion-text color-main">来店希望日時</div>
                         <ul class="calendar-date-time-wrap">
