@@ -73,6 +73,7 @@ use App\Vendor\Code\ImagePositionType;
                     <div class="reserve-subquestion-text color-main" id="calendar-title">第<span id="calendar-title-number">1</span>希望日を選択してください</div>
                     <div class="reserve-tag reserve-tag-required">必須</div>
                 </div>
+                <p style="font-size: 10px;padding-left: 10px;margin: -8px 0 16px;color: #ef00e5;opacity: 0.8;">※希望日時をタップしてください</p>
                 <div class="calendar-weeks" style="margin: 0px 10px 16px;">
                     <a id="pre7days" class="calendar-week disable" href="#" onclick="pre7days();return false;">
                         <i class="fas fa-chevron-left reserve-input-arrow fas-left"></i>
