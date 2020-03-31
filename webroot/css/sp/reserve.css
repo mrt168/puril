@@ -236,7 +236,7 @@ textarea {
 }
 
 .fa-chevron-down {
-    right: 10px!important;
+    right: 15px!important;
     padding: 0;
 }
 
@@ -255,4 +255,8 @@ textarea {
     padding-left: 10px !important;
     align-items: flex-start !important;
     padding-bottom: 12px !important;
+}
+
+.reserve-input-born {
+    font-size: 12px !important;
 }
