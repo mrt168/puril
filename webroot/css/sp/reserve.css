@@ -219,3 +219,7 @@ textarea {
 .fas-right {
     right: 10px;
 }
+
+.reserve-input-arrow {
+    color: #463F2D !important;
+}

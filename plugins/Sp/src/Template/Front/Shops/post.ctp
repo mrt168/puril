@@ -491,8 +491,7 @@ const RESERVE_TABLE = [
                             <span class="required-expression">必須</span>
                             <div class="question-number">9</div>
                             <div class="question-text">
-                                <p>施術の「効果（技術や仕上がり）」はいかがでしたか？</p>
-                                <p>「5点満点の数字＆100文字以上の感想」をお願いします！</p>
+                                <p>施術の「効果（技術や仕上がり）」はいかがでしたか？5点満点の数字＆100文字以上の感想」をお願いします！</p>
                             </div>
                         </div>
                     </th>
