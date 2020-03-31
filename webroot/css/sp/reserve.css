@@ -131,9 +131,13 @@ textarea {
 }
 
 .calendar-week {
-    color: #0066CC;
+    color: black;
     font-size: 13px;
     font-weight: 300;
+    border:1px #6AADBF solid;
+    border-radius: 4px;
+    padding:10px 38px;
+    position: relative;
 }
 
 .calendar-week.disable {
@@ -196,4 +200,22 @@ textarea {
 
 .reserve-confirm-content-policy {
     font-size:12px !important
+}
+
+.reserve-subquestion-first {
+    margin:0 auto;
+    width: 250px;
+}
+
+.calendar-weeks .fas {
+    position: absolute;
+    color:#6AADBF
+}
+
+.fas-left {
+    left: 10px;
+}
+
+.fas-right {
+    right: 10px;
 }

@@ -75,10 +75,12 @@ use App\Vendor\Code\ImagePositionType;
                 </div>
                 <div class="calendar-weeks" style="margin: 0px 10px 16px;">
                     <a id="pre7days" class="calendar-week disable" href="#" onclick="pre7days();return false;">
+                        <i class="fas fa-chevron-left reserve-input-arrow fas-left"></i>
                         前の１週間
                     </a>
                     <a id="next7days" class="calendar-week" href="#" onclick="next7days();return false;">
                         次の１週間
+                        <i class="fas fa-chevron-right reserve-input-arrow fas-right"></i>
                     </a>
                 </div>
             </div>

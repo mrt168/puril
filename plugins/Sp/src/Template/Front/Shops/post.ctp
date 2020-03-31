@@ -665,38 +665,7 @@ const RESERVE_TABLE = [
     </div>
     <?= $this->ExForm->end(); ?>
     <script type="text/javascript" src="/js/datsumou/kuchikomi-entry.js"></script>
-    <div class="Search__breadcrumbs">
-        <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemtype="http://schema.org/Thing" itemprop="item" href="<?= Router::url('/') ?>"><span itemprop="name" class="name">TOP</span></a>
-                <meta itemprop="position" content="1">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemtype="http://schema.org/Thing" itemprop="item" href="<?= Router::url('/datsumou') ?>"><span itemprop="name" class="name">脱毛</span></a>
-                <meta itemprop="position" content="2">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemtype="http://schema.org/Thing" itemprop="item" href="<?= Router::url('/datsumou/search') ?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
-                <meta itemprop="position" content="3">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <?php echo $this->Html->link("<span itemprop='name' class='name'>{$shop['pref']}の" . ShopType::convert($shop['shop_type'], CodePattern::$VALUE) . "</span>", ['controller' => 'searchs', 'action' => 'search', $shop['PrefData']['url_text'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape' => false, 'itemscope' => '', 'itemtype' => 'http://schema.org/Thing', 'itemprop' => 'item']) ?>
-                <meta itemprop="position" content="4">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <?php echo $this->Html->link("<span itemprop='name' class='name'>{$shop['Area']['name']}の" . ShopType::convert($shop['shop_type'], CodePattern::$VALUE) . "</span>", ['controller' => 'searchs', 'action' => 'search', $shop['PrefData']['url_text'], URLUtil::CITY . $shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape' => false, 'itemscope' => '', 'itemtype' => 'http://schema.org/Thing', 'itemprop' => 'item']) ?>
-                <meta itemprop="position" content="5">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <?php echo $this->Html->link("<span itemprop='name' class='name'>{$shop['name']}</span>", ['controller' => 'shops', 'action' => 'detail', $shop['shop_id']], ['escape' => false, 'itemscope' => '', 'itemtype' => 'http://schema.org/Thing', 'itemprop' => 'item']) ?>
-                <meta itemprop="position" content="6">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <span itemprop='name' class='name'>口コミ投稿</span>
-                <meta itemprop="position" content="7">
-            </li>
-        </ol>
-    </div>
+    <?php echo $this->element('Front/search_breadcrumbs'); ?>
     <script type="text/javascript">
         $(function() {
             $("#song-xinsuru").click(function(e) {

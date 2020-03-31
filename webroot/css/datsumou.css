@@ -111,6 +111,20 @@ section {
 *[hidden] {
   display: none;
 }
+
+a {
+  word-break: break-all;
+  text-decoration: none;
+  color:black;
+}
+.Search__breadcrumbs p, .Search__breadcrumbs span {
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    font-weight: 300 ;
+}
+.Search__breadcrumbs .footer-elm-text.fas {
+  color: #BEBA9B;
+}
 body {
   line-height: 1;
 }
@@ -1089,4 +1103,8 @@ body {
   .datsumou-header-inner__globalmenusp.active {
     opacity: 1;
   }
+}
+
+:focus {
+    outline: none;
 }

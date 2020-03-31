@@ -1125,79 +1125,50 @@ use App\Vendor\Code\ImagePositionType;
             });
         };
     </script>
-    <div class="Search__breadcrumbs">
-        <ol>
-            <li>
-                <a href="<?= Router::url('/datsumou') ?>"><span class="footer-elm-text fas fa-home"></span></a></a>
-                <meta itemprop="position" content="2">
-            </li>
-            <li>
-                <a href="<?= Router::url('/datsumou/search') ?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
-                <meta itemprop="position" content="3">
-            </li>
-            <li>
-                <a href="<?= Router::url('/datsumou/search') ?>"><span itemprop="name" class="name">全国の<?php echo ShopType::convert($shop['shop_type'], CodePattern::$VALUE) ?></span></a>
-                <meta itemprop="position" content="4">
-            </li>
-            <li>
-                <?php echo $this->Html->link("<span>{$shop['pref']}" . ShopType::convert($shop['shop_type'], CodePattern::$VALUE) . "</span>", ['controller' => 'searchs', 'action' => 'search', ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape' => false, 'itemscope' => '', 'itemtype' => 'http://schema.org/Thing', 'itemprop' => 'item']) ?>
-                <meta itemprop="position" content="5">
-            </li>
+    <script type="text/javascript" src="/js/datsumou/shop/common.js"></script>
+    <script type="text/javascript" src="/js/datsumou/photo-modal.js"></script>
+    <script>
+        function initMap(address) {
+            var geocoder = new google.maps.Geocoder();
+            //住所から座標を取得する
+            geocoder.geocode({
+                    'address': address, //検索する住所　〒◯◯◯-◯◯◯◯ 住所　みたいな形式でも検索できる
+                    'region': 'jp'
+                },
+                function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        google.maps.event.addDomListener(window, 'load', function() {
+                            var map_tag = document.getElementById('map');
+                            // 取得した座標をセット緯度経度をセット
+                            var map_location = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+                            //マップ表示のオプション
+                            var map_options = {
+                                zoom: 17, //縮尺
+                                center: map_location, //地図の中心座標
+                                //ここをfalseにすると地図上に人みたいなアイコンとか表示される
+                                disableDefaultUI: true,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP //地図の種類を指定
+                            };
 
-            <li>
-                <?php echo $this->Html->link("<span>{$shop['Area']['name']}の" . ShopType::convert($shop['shop_type'], CodePattern::$VALUE) . "</span>", ['controller' => 'searchs', 'action' => 'search', $shop['PrefData']['url_text'], URLUtil::CITY . $shop['Area']['area_id'], ShopType::convert($shop['shop_type'], CodePattern::$VALUE2)], ['escape' => false, 'itemscope' => '', 'itemtype' => 'http://schema.org/Thing', 'itemprop' => 'item']) ?>
-                <meta itemprop="position" content="6">
-            </li>
+                            //マップを表示する
+                            var map = new google.maps.Map(map_tag, map_options);
 
-            <li>
-                <?php echo "<span itemprop='name' class='name'>{$shop['name']}</span>" ?>
-                <meta itemprop="position" content="7">
-            </li>
-        </ol>
-        <script type="text/javascript" src="/js/datsumou/shop/common.js"></script>
-        <script type="text/javascript" src="/js/datsumou/photo-modal.js"></script>
-        <script>
-            function initMap(address) {
-                var geocoder = new google.maps.Geocoder();
-                //住所から座標を取得する
-                geocoder.geocode({
-                        'address': address, //検索する住所　〒◯◯◯-◯◯◯◯ 住所　みたいな形式でも検索できる
-                        'region': 'jp'
-                    },
-                    function(results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            google.maps.event.addDomListener(window, 'load', function() {
-                                var map_tag = document.getElementById('map');
-                                // 取得した座標をセット緯度経度をセット
-                                var map_location = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-                                //マップ表示のオプション
-                                var map_options = {
-                                    zoom: 17, //縮尺
-                                    center: map_location, //地図の中心座標
-                                    //ここをfalseにすると地図上に人みたいなアイコンとか表示される
-                                    disableDefaultUI: true,
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP //地図の種類を指定
-                                };
-
-                                //マップを表示する
-                                var map = new google.maps.Map(map_tag, map_options);
-
-                                //地図上にマーカーを表示させる
-                                var marker = new google.maps.Marker({
-                                    position: map_location, //マーカーを表示させる座標
-                                    map: map //マーカーを表示させる地図
-                                });
+                            //地図上にマーカーを表示させる
+                            var marker = new google.maps.Marker({
+                                position: map_location, //マーカーを表示させる座標
+                                map: map //マーカーを表示させる地図
                             });
-                        }
+                        });
                     }
-                );
-            }
-            initMap("<?php echo $shop['address'] ?>");
+                }
+            );
+        }
+        initMap("<?php echo $shop['address'] ?>");
 
-            // 口コミ投稿処理
-        </script>
-    </div>
+        // 口コミ投稿処理
+    </script>
     <?php
+    echo $this->element('Front/search_breadcrumbs');
     echo $this->element('Front/footer') ?>
 </body>
 
