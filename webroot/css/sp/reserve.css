@@ -227,3 +227,30 @@ textarea {
 .want_day {
     width:100%;
 }
+
+.question-area table td .td-inner-wrap .td-inner .select .fa-chevron-down {
+    right: 10px;
+    padding: 0;
+}
+
+.fa-chevron-down {
+    right: 10px!important;
+    padding: 0;
+}
+
+.question-area table td .td-inner.flex>.wrap {
+    margin-right: 6px!important;
+}
+
+.question-area table td .td-inner.flex > span {
+    flex: 0 1 auto;
+    font-size: 12px;
+}
+
+.required-question {
+    padding-top: 44px !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+    align-items: flex-start !important;
+    padding-bottom: 12px !important;
+}
