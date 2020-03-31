@@ -56,10 +56,8 @@ textarea {
     margin-left: 0 !important;
 }
 
-#man:checked+.reserve-input-inner>span {
-    color: white !important;
-    background: #6AADBF !important;
-    margin-right: 0 !important;
+.reserve-input-inner span {
+    font-size: 12px !important;
 }
 
 .reserve-section .reserve-input {

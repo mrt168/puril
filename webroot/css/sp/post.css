@@ -267,7 +267,21 @@ td {
     padding: 36px 16px 12px !important;
 }
 
+.question-area table td .td-inner-wrap .td-inner .select .fa-chevron-down {
+    right: 10px;
+    padding: 0!important;
+}
+
 .fa, .fas {
     font-weight: 900;
     font-size: 12px;
+}
+
+.question-area table td .td-inner.flex > span {
+    flex: 0 1 auto;
+    font-size: 12px!important;
+}
+
+.question-area table td .td-inner.flex>.wrap {
+    margin-right: 6px !important;
 }
