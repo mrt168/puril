@@ -994,3 +994,7 @@ a {
 .info-common-content {
   color:#595960 !important;
 }
+
+.comment-chart {
+  height: auto !important;
+}
