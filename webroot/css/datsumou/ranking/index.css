@@ -43,12 +43,12 @@
 
 .right-side-arrow {
   right: 15px;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
 }
 
 .right-side-arrow:before {
-  color: #d6ceb4;
+  color: #E0DCCC;
 }
 
 .ranking-searchfrom .ranking-searchfrom-item-wrap:last-child {

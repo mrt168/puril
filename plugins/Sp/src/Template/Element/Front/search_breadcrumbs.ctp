@@ -18,6 +18,7 @@ use App\Vendor\URLUtil;
       <a href="<?= Router::url('/datsumou/search') ?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
       <meta itemprop="position" content="3">
     </li>
+    <?php if(!empty($shop)) { ?>
     <li>
       <a href="<?= Router::url('/datsumou/search') ?>"><span itemprop="name" class="name">全国の<?php echo ShopType::convert($shop['shop_type'], CodePattern::$VALUE) ?></span></a>
       <meta itemprop="position" content="4">
@@ -36,5 +37,6 @@ use App\Vendor\URLUtil;
       <?php echo "<span itemprop='name' class='name'>{$shop['name']}</span>" ?>
       <meta itemprop="position" content="7">
     </li>
+    <?php } ?>
   </ol>
 </div>

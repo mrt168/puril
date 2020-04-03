@@ -199,7 +199,7 @@ footer {
 .home-genre__list li {
   width: 48%;
   margin-top: 1em;
-  border: 1px solid #E1DDCC;
+  border: 1px solid #eeece4;
   border-radius: 4px;
   background: #fff;
   overflow: hidden;
@@ -226,8 +226,8 @@ footer {
 /* 地域から探す */
 .home-area {
   padding-top: 20px;
-  border-top: 1px solid #E1DDCC;
-  border-bottom: 1px solid #E1DDCC;
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4;
   background: #fff;
   font-size: 14px;
 }
@@ -253,11 +253,11 @@ footer {
 }
 .home-area__list > li {
   width: 50%;
-  border-top: 1px solid #E1DDCC;
+  border-top: 1px solid #eeece4;
   background: #fff;
 }
 .home-area__list > li:nth-child(odd) {
-  border-right: 1px solid #E1DDCC;
+  border-right: 1px solid #eeece4;
 }
 .home-area__list > li a {
   position: relative;
@@ -270,7 +270,7 @@ footer {
   position: absolute;
   top: calc(50% - 8px);
   right: 16px;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -284,7 +284,7 @@ footer {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-top: 1px solid #E1DDCC;
+  border-top: 1px solid #eeece4;
   background: #fff;
   font-size: 14px;
 }
@@ -307,7 +307,7 @@ footer {
 }
 .home-ranking__tab-area label {
   width: 24%;
-  border: 1px solid #E1DDCC;
+  border: 1px solid #eeece4;
   border-radius: 4px;
   padding-top: 0.8em;
   padding-bottom: 0.8em;
@@ -401,7 +401,7 @@ footer {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #E1DDCC;
+  border-bottom: 1px solid #eeece4;
   background: #fff;
   font-size: 14px;
 }
@@ -424,7 +424,7 @@ footer {
 }
 .home-evaluation__tab-area label {
   width: 24%;
-  border: 1px solid #E1DDCC;
+  border: 1px solid #eeece4;
   border-radius: 4px;
   padding-top: 0.9em;
   padding-bottom: 0.9em;
@@ -470,7 +470,7 @@ footer {
   position: absolute;
   top: calc(50% - 8px);
   right: 16px;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -548,8 +548,8 @@ footer {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-top: 1px solid #E1DDCC;
-  border-bottom: 1px solid #E1DDCC;
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4;
   background: #fff;
   font-size: 14px;
 }
@@ -572,7 +572,7 @@ footer {
 }
 .home-certified-store__tab-area label {
   width: 24%;
-  border: 1px solid #E1DDCC;
+  border: 1px solid #eeece4;
   border-radius: 4px;
   padding-top: 0.9em;
   padding-bottom: 0.9em;
@@ -621,7 +621,7 @@ footer {
   position: absolute;
   top: calc(50% - 8px);
   right: 16px;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -677,7 +677,7 @@ footer {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-top: 1px solid #E1DDCC;
+  border-top: 1px solid #eeece4;
   background: #fff;
   font-size: 14px;
 }

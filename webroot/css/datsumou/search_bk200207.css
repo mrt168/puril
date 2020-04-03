@@ -246,7 +246,7 @@
 }
 .Search__btn[data-color="white"] {
   background: #fff;
-  border: 1px solid #e1ddcc;
+  border: 1px solid #eeece4;
 }
 
 .Search__list__header {
@@ -287,7 +287,7 @@
   position: absolute;
   right: 16px;
   top: calc(50% - 8px);
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
 }
 

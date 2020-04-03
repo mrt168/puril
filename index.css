@@ -25,11 +25,11 @@
   .search-shop .search-shop-list {
     background-color: #F9F7F5; }
 .search-shop .search-shop-list .search-shop-item {
-  border-bottom: 1px solid #e1ddcc;
-  border-top: 1px solid #e1ddcc;
+  border-bottom: 1px solid #eeece4;
+  border-top: 1px solid #eeece4;
 }
     .search-shop .search-shop-list .search-shop-item:not(:first-child) {
-      margin-top: 5px; }
+      margin-top: 8px; }
     .search-shop .search-shop-list .search-shop-item .search-shop-title {
       padding: 1em 16px;
       display: -webkit-box;

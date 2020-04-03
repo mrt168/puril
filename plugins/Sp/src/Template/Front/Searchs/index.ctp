@@ -56,24 +56,7 @@ echo $this->Html->css(['css/main', 'css/search']);
 <a href="https://puril.net/campaign/">
     <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
 </a>
-<div class="Search__breadcrumbs">
-    <ol>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
-            <meta itemprop="position" content="1">
-        </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
-            <meta itemprop="position" content="2">
-        </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <?php echo "<span itemprop='name' class='name'>全国の脱毛施設</span>"?>
-            <meta itemprop="position" content="3">
-        </li>
-    </ol>
-</div>
 <?php
+echo $this->element('Front/search_breadcrumbs');
 echo $this->element('Front/footer') ?>
 </body>

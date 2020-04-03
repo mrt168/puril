@@ -473,50 +473,8 @@ echo $this->Html->css('datsumou/search');
         <div class="search-shop-ranking"><a class="button-base search-shop-rainking-button" href="<?php echo Router::url('/datsumou/ranking')?>">ランキングを見る</a></div>
     </div>
 </div>
-<div class="Search__breadcrumbs">
-    <ol>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
-            <meta itemprop="position" content="1">
-        </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
-            <meta itemprop="position" content="2">
-        </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-            <a itemtype="http://schema.org/Thing" itemprop="item"
-               href="<?=Router::url('/datsumou/search')?>"><span itemprop="name" class="name">全国の脱毛施設</span></a>
-            <meta itemprop="position" content="3">
-        </li>
-        <?php
-        $i = 1;
-        $pankzuCnt = count($pankuzus);
-        foreach ($pankuzus as  $pankuzu) {
-            if ($i == $pankzuCnt) {
-
-                ?>
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <?php echo "<span itemprop='name' class='name'>{$pankuzu['val']}</span>"?>
-                    <meta itemprop="position" content="<?php echo $i + 3;?>">
-                </li>
-                <?php
-                continue;
-            }
-            ?>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemtype="http://schema.org/Thing" itemprop="item"
-                   href="<?=$pankuzu['url']. "/"?>"><span itemprop="name" class="name"><?php echo $pankuzu['val']?></span></a>
-                <meta itemprop="position" content="<?php echo $i + 3;?>">
-            </li>
-            <?php
-            $i++;
-        }
-        ?>
-    </ol>
-</div>
 <?php
+echo $this->element('Front/search_breadcrumbs');
 echo $this->element('Front/footer') ?>
 <script>
     $(function () {

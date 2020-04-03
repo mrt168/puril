@@ -227,16 +227,16 @@ use App\Vendor\Code\ImagePositionType;
         <?php } ?>
         <section id="price-section" class="section">
             <div class="section-padding-inner price-section-inner">
-                <div class="inner-elm-padding">
-                    <!-- 店舗名+脱毛メニュー+料金プラン -->
-                    <h2 class="section-inner-title">
-                        <?php echo $shop['name']; ?>の脱毛メニューと料金プラン
-                    </h2>
-                </div>
-                <div class="price-between-margin"></div>
                 <?php
                 if ($shop['price_plan_html']) {
                 ?>
+                    <div class="inner-elm-padding">
+                        <!-- 店舗名+脱毛メニュー+料金プラン -->
+                        <h2 class="section-inner-title">
+                            <?php echo $shop['name']; ?>の脱毛メニューと料金プラン
+                        </h2>
+                    </div>
+                    <div class="price-between-margin"></div>
                     <div class="inner-elm-padding">
                         <!-- 店舗名+料金プラン -->
                         <h3 class="section-inner-sub-title price-sub-title">
@@ -274,48 +274,52 @@ use App\Vendor\Code\ImagePositionType;
                         return plans;
                     }
                 </script>
-                <div class="inner-elm-padding">
-                    <!-- 店舗名+脱毛部位 -->
-                    <h3 class="section-inner-sub-title services-sub-title">
-                        <?php echo $shop['name']; ?>が対応できる脱毛部位
-                    </h3>
-                </div>
-                <div class="inner-elm-padding">
-                    <!-- サービス内容 -->
-                    <ul class="services">
-                        <?php
-                        $depilation_site_num = 0;
-                        $depilation_sites_length = count($shop['depilation_sites']);
-                        foreach ($shop['depilation_sites'] as $depilationSite) {
-                            echo '<li class="service">';
-                            echo '<span class="service-text">' . $depilationSite['name'] . '</span>';
-                            echo '</li>';
+                <?php if ($shop['depilation_sites']) { ?>
+                    <div class="inner-elm-padding">
+                        <!-- 店舗名+脱毛部位 -->
+                        <h3 class="section-inner-sub-title services-sub-title">
+                            <?php echo $shop['name']; ?>が対応できる脱毛部位
+                        </h3>
+                    </div>
+                    <div class="inner-elm-padding">
+                        <!-- サービス内容 -->
+                        <ul class="services">
+                            <?php
+                            $depilation_site_num = 0;
+                            $depilation_sites_length = count($shop['depilation_sites']);
+                            foreach ($shop['depilation_sites'] as $depilationSite) {
+                                echo '<li class="service">';
+                                echo '<span class="service-text">' . $depilationSite['name'] . '</span>';
+                                echo '</li>';
 
-                            $depilation_site_num++;
-                            if ($depilation_site_num == $depilation_sites_length) {
-                                for ($i = 0; $i < 3 - ($depilation_sites_length % 3); $i++) {
-                                    echo '<li style="border:none" class="service">';
-                                    echo '<div></div>';
-                                    echo '</li>';
+                                $depilation_site_num++;
+                                if ($depilation_site_num == $depilation_sites_length) {
+                                    for ($i = 0; $i < 3 - ($depilation_sites_length % 3); $i++) {
+                                        echo '<li style="border:none" class="service">';
+                                        echo '<div></div>';
+                                        echo '</li>';
+                                    }
                                 }
                             }
-                        }
-                        ?>
-                    </ul>
-                </div>
+                            ?>
+                        </ul>
+                    </div>
+                <?php } ?>
             </div>
         </section>
-        <div class="separator"></div>
+        <?php if ($shop['depilation_sites']) { ?>
+            <div class="separator"></div>
+        <?php } ?>
         <section class="section">
-            <div class="section-padding-inner">
-                <!-- 店舗名+特徴+こだわり -->
-                <h2 class="section-inner-title"><?php echo $shop['name']; ?>の特徴・こだわり</h2>
-                <div class="kodawaris-wrap">
-                    <!-- こだわり -->
-                    <?php if ($shop['other_conditions']) :
-                        $commitment_num = 0;
-                        $other_conditions_length = count($shop['other_conditions']);
-                    ?>
+            <?php if ($shop['other_conditions']) {
+                $commitment_num = 0;
+                $other_conditions_length = count($shop['other_conditions']);
+            ?>
+                <div class="section-padding-inner">
+                    <!-- 店舗名+特徴+こだわり -->
+                    <h2 class="section-inner-title"><?php echo $shop['name']; ?>の特徴・こだわり</h2>
+                    <div class="kodawaris-wrap">
+                        <!-- こだわり -->
                         <ul class="kodawaris">
                             <?php foreach ($shop['other_conditions'] as $commitment) {
                                 $commitmentImageUrl = "Shop/commitment/$commitment[url_text].png";
@@ -333,32 +337,35 @@ use App\Vendor\Code\ImagePositionType;
                                 }
                             } ?>
                         </ul>
-                    <?php endif; ?>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </section>
-        <div class="separator"></div>
+        <?php if ($shop['other_conditions']) { ?>
+            <div class="separator"></div>
+        <?php } ?>
         <section id="comment-section" class="section">
-            <div class="section-padding-inner comment-section-inner">
-                <!-- 口コミ -->
-                <h2 class="section-inner-title comment-section-title">
-                    <?php echo $shop['name']; ?>の口コミ（<?php echo count($shop['reviews']) ?>件）
-                </h2>
-                <?php
-                $teatdata = array();
-                if (!empty($shop['reviews'])) {
+            <?php
+            $testData = array();
+            if (!empty($shop['reviews'])) { ?>
+                <div class="section-padding-inner comment-section-inner">
+                    <!-- 口コミ -->
+                    <h2 class="section-inner-title comment-section-title">
+                        <?php echo $shop['name']; ?>の口コミ（<?php echo count($shop['reviews']) ?>件）
+                    </h2>
+                    <?php
                     $reviewContentCount = 0;
                     foreach ($shop['reviews'] as $key => $review) {
                         $reviewContentCount++;
                         $reviewData = array(
-                            "接客・サービス" => $review['question1'] * 10,
-                            "メニュー・ 料金" => $review['question2'] * 10,
-                            "効果" => $review['question3'] * 10,
-                            "雰囲気" => $review['question4'] * 10,
-                            "予約・立地" => $review['question5'] * 10
+                            "接客・サービス" => Satisfaction::convert($review['question1'], CodePattern::$VALUE) * 10,
+                            "メニュー・ 料金" => Satisfaction::convert($review['question2'], CodePattern::$VALUE) * 10,
+                            "効果" => Satisfaction::convert($review['question3'], CodePattern::$VALUE) * 10,
+                            "雰囲気" => Satisfaction::convert($review['question4'], CodePattern::$VALUE) * 10,
+                            "予約・立地" => Satisfaction::convert($review['question5'], CodePattern::$VALUE) * 10
                         );
-                        array_push($teatdata, $reviewData);
-                ?>
+                        array_push($testData, $reviewData);
+                    ?>
                         <article class="comment-wrap more-content-comment">
                             <input class="comment-input" type="checkbox" id="comment-input-<?php echo $reviewContentCount ?>" />
                             <label class="comment-label" for="comment-input-<?php echo $reviewContentCount ?>">
@@ -508,13 +515,18 @@ use App\Vendor\Code\ImagePositionType;
                         <p class="more-text" onclick="moreButtonTapped('comment')">もっと見る</p>
                         <i class="more-icon fas fa-chevron-right"></i>
                     </div>
-                <?php } ?>
+                </div>
+                <?php $testData = json_encode($testData) ?>
                 <script>
-                    renderCommentChart();
+                    const testData = <?php echo $testData; ?>;
+                    console.log(testData)
+                    renderCommentChart(testData);
                 </script>
-            </div>
+            <?php } ?>
         </section>
-        <div class="separator"></div>
+        <?php if (!empty($shop['reviews'])) { ?>
+            <div class="separator"></div>
+        <?php } ?>
         <section class="section">
             <div class="section-padding-inner">
                 <h2 class="section-inner-title">
@@ -528,8 +540,8 @@ use App\Vendor\Code\ImagePositionType;
             </div>
         </section>
         <div class="separator"></div>
-        <?php if ($shop['gallery']) { ?>
-            <section id="gallery-section" class="section">
+        <section id="gallery-section" class="section">
+            <?php if (!empty($shop['gallery'])) { ?>
                 <div class="section-padding-inner">
                     <!-- DBから取得 -->
                     <h2 class="section-inner-title">
@@ -549,71 +561,76 @@ use App\Vendor\Code\ImagePositionType;
                         </ul>
                     </div>
                 </div>
-            </section>
-        <?php } ?>
-        <div class="separator"></div>
-        <section id="access-section" class="section">
-            <div class="section-padding-inner access-section-inner">
-                <div class="inner-elm-padding">
-                    <!-- 店舗名 -->
-                    <h2 class="section-inner-title">
-                        <?php echo $shop['name']; ?>へのアクセス
-                    </h2>
-                </div>
-                <div class="access-between-margin"></div>
-                <div class="inner-elm-padding access-text-wrap">
-                    <!-- 住所 -->
-                    <p class="access-text"><?php echo $shop['address']; ?></p>
-                    <i class="access-icon fas fa-chevron-right"></i>
-                </div>
-                <div class="access-map" id="map" style="width:500px; height:300px"></div>
-                <div class="inner-elm-padding">
-                    <!-- 地図 -->
-                    <a class="simple-button blue access-button" href="http://maps.google.com/maps?q=<?php echo $shop['address']; ?>">
-                        <span class="button-text">アプリで地図を開く</span>
-                    </a>
-                </div>
-                <div class="access-details-wrap">
-                    <ul class="access-details">
-                        <li class="access-detail">
-                            <p class="access-detail-left">施設住所</p>
-                            <!-- 住所 -->
-                            <p class="access-detail-right">
-                                <?php echo $shop['address']; ?>
-                            </p>
-                        </li>
-                        <li class="access-detail">
-                            <p class="access-detail-left">最寄り駅</p>
-                            <!-- 最寄駅 -->
-                            <p class="access-detail-right">
-                                <?php if (!empty($shop['station'])) :
-                                    echo $shop['station'];
-                                endif; ?>
-                            </p>
-                        </li>
-                        <li class="access-detail">
-                            <p class="access-detail-left">路線</p>
-                            <!-- 路線 -->
-                            <p class="access-detail-right">
-                                <?php
-                                if (!empty($shop['Station'])) {
-                                    foreach ($shop['Station'] as $stationLine) {
-                                        echo $stationLine['name'];
-                                        echo '<br>';
-                                    }
-                                }
-                                ?>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <?php } ?>
         </section>
-        <div class="separator"></div>
+        <?php if (!empty($shop['gallery'])) { ?>
+            <div class="separator"></div>
+        <?php } ?>
+        <section id="access-section" class="section">
+            <?php if (!empty($shop['address'])) { ?>
+                <div class="section-padding-inner access-section-inner">
+                    <div class="inner-elm-padding">
+                        <!-- 店舗名 -->
+                        <h2 class="section-inner-title">
+                            <?php echo $shop['name']; ?>へのアクセス
+                        </h2>
+                    </div>
+                    <div class="inner-elm-padding access-text-wrap">
+                        <!-- 住所 -->
+                        <p class="access-text"><?php echo $shop['address']; ?></p>
+                        <i class="access-icon fas fa-chevron-right"></i>
+                    </div>
+                    <div class="access-map" id="map" style="width:500px; height:300px"></div>
+                    <div class="inner-elm-padding">
+                        <!-- 地図 -->
+                        <a class="simple-button blue access-button" href="http://maps.google.com/maps?q=<?php echo $shop['address']; ?>">
+                            <span class="button-text">アプリで地図を開く</span>
+                        </a>
+                    </div>
+                    <div class="access-details-wrap">
+                        <ul class="access-details">
+                            <li class="access-detail">
+                                <p class="access-detail-left">施設住所</p>
+                                <!-- 住所 -->
+                                <p class="access-detail-right">
+                                    <?php echo $shop['address']; ?>
+                                </p>
+                            </li>
+                            <li class="access-detail">
+                                <p class="access-detail-left">最寄り駅</p>
+                                <!-- 最寄駅 -->
+                                <p class="access-detail-right">
+                                    <?php if (!empty($shop['station'])) :
+                                        echo $shop['station'];
+                                    endif; ?>
+                                </p>
+                            </li>
+                            <li class="access-detail">
+                                <p class="access-detail-left">路線</p>
+                                <!-- 路線 -->
+                                <p class="access-detail-right">
+                                    <?php
+                                    if (!empty($shop['Station'])) {
+                                        foreach ($shop['Station'] as $stationLine) {
+                                            echo $stationLine['name'];
+                                            echo '<br>';
+                                        }
+                                    }
+                                    ?>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <?php } ?>
+        </section>
+        <?php if (!empty($shop['address'])) { ?>
+            <div class="separator"></div>
+        <?php } ?>
         <section class="section">
-            <div class="section-padding-inner">
-                <h2 class="section-inner-title"><?php echo $shop['name']; ?>への詳細道順</h2>
-                <?php if ($shop['shop_access_images']) { ?>
+            <?php if ($shop['shop_access_images']) { ?>
+                <div class="section-padding-inner">
+                    <h2 class="section-inner-title"><?php echo $shop['name']; ?>への詳細道順</h2>
                     <div class="gallery-wrap">
                         <!-- 道順 -->
                         <ul class="galleries">
@@ -627,12 +644,12 @@ use App\Vendor\Code\ImagePositionType;
                             <?php } ?>
                         </ul>
                     </div>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } ?>
         </section>
         <!-- スタッフ -->
-        <?php if ($shop['staffs']) : ?>
-            <section class="section">
+        <section class="section">
+            <?php if (!empty($shop['staffs'])) : ?>
                 <div class="section-padding-inner staffs-padding-inner">
                     <div class="inner-elm-padding">
                         <h2 class="section-inner-title"><?php echo $shop['name']; ?>のスタッフ紹介</h2>
@@ -686,88 +703,94 @@ use App\Vendor\Code\ImagePositionType;
                         </div>
                     </div>
                 </div>
-            </section>
-        <?php endif; ?>
-        <div class="separator"></div>
+            <?php endif; ?>
+        </section>
+        <?php if (!empty($shop['staffs'])) { ?>
+            <div class="separator"></div>
+        <?php } ?>
         <!-- ブログ+お知らせ -->
         <section id="blog-section" class="section">
-            <div class="section-padding-inner news-section-inner">
-                <div class="inner-elm-padding">
-                    <h2 class="section-inner-title"><?php echo $shop['name']; ?>のお知らせ・ブログ</h2>
-                </div>
-                <div class="news-between-margin"></div>
-                <div class="news-list-wrap">
-                    <!-- タイトル+ブログ+お知らせ -->
-                    <?php if ($shop['infos']) : ?>
-                        <div class="inner-elm-padding">
-                            <h3 class="section-inner-sub-title price-sub-title"><?php echo $shop['name']; ?>のお知らせ</h3>
-                        </div>
-                        <div class="inner-elm-padding">
-                            <ul class="news">
-                                <?php foreach ($shop['infos'] as $info) { ?>
-                                    <li class="news-elm">
-                                        <a class="news-wrap">
-                                            <!-- お知らせ日付 -->
-                                            <p class="news-date">
-                                                <?php echo date('m/d', strtotime($info['date'])) ?>
-                                            </p>
-                                            <!-- お知らせタイトル -->
-                                            <p class="news-title">
-                                                <?php echo $info['title']; ?>
-                                            </p>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                        <div class="more-wrap bottom-border">
-                            <p class="more-text" onclick="moreButtonTapped('news')">もっと見る</p>
-                            <i class="more-icon fas fa-chevron-right"></i>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($shop['blogs']) : ?>
-                        <div class="blogs-wrap">
-                            <!-- ブログ -->
+            <?php if ($shop['infos'] || $shop['blogs']) { ?>
+                <div class="section-padding-inner news-section-inner">
+                    <div class="inner-elm-padding">
+                        <h2 class="section-inner-title"><?php echo $shop['name']; ?>のお知らせ・ブログ</h2>
+                    </div>
+                    <div class="news-between-margin"></div>
+                    <div class="news-list-wrap">
+                        <!-- タイトル+ブログ+お知らせ -->
+                        <?php if ($shop['infos']) : ?>
                             <div class="inner-elm-padding">
-                                <h3 class="section-inner-sub-title price-sub-title"><?php echo $shop['name']; ?>のブログ</h3>
+                                <h3 class="section-inner-sub-title price-sub-title"><?php echo $shop['name']; ?>のお知らせ</h3>
                             </div>
                             <div class="inner-elm-padding">
-                                <ul class="blogs">
-                                    <?php $blog_count = 0;
-                                    foreach ($shop['blogs'] as $blog) {
-                                        if ($i >= 3) {
-                                            break;
-                                        }
-                                    ?>
-                                        <li class="blog">
-                                            <a class="blog-wrap">
-                                                <!-- ブログ画像 -->
-                                                <img class="blog-img" src=<?php echo $blog['image_path']; ?> />
-                                                <div class="blog-info-wrap">
-                                                    <!-- 日付 -->
-                                                    <p class="blog-date">
-                                                        <?php echo date('m/d', strtotime($blog['date'])) ?>
-                                                    </p>
-                                                    <!-- タイトル -->
-                                                    <p class="blog-title">
-                                                        <?php echo $blog['title']; ?>
-                                                    </p>
-                                                </div>
-                                                <i class="blog-icon fas fa-chevron-right"></i>
+                                <ul class="news">
+                                    <?php foreach ($shop['infos'] as $info) { ?>
+                                        <li class="news-elm">
+                                            <a class="news-wrap">
+                                                <!-- お知らせ日付 -->
+                                                <p class="news-date">
+                                                    <?php echo date('m/d', strtotime($info['date'])) ?>
+                                                </p>
+                                                <!-- お知らせタイトル -->
+                                                <p class="news-title">
+                                                    <?php echo $info['title']; ?>
+                                                </p>
                                             </a>
                                         </li>
                                     <?php } ?>
                                 </ul>
                             </div>
-                            <div class="more-wrap">
-                                <p class="more-text" onclick="moreButtonTapped('blog')">もっと見る</p>
+                            <div class="more-wrap bottom-border">
+                                <p class="more-text" onclick="moreButtonTapped('news')">もっと見る</p>
                                 <i class="more-icon fas fa-chevron-right"></i>
                             </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
+                        <?php endif; ?>
+                        <?php if ($shop['blogs']) : ?>
+                            <div class="blogs-wrap">
+                                <!-- ブログ -->
+                                <div class="inner-elm-padding">
+                                    <h3 class="section-inner-sub-title price-sub-title"><?php echo $shop['name']; ?>のブログ</h3>
+                                </div>
+                                <div class="inner-elm-padding">
+                                    <ul class="blogs">
+                                        <?php $blog_count = 0;
+                                        foreach ($shop['blogs'] as $blog) {
+                                            if ($i >= 3) {
+                                                break;
+                                            }
+                                        ?>
+                                            <li class="blog">
+                                                <a class="blog-wrap">
+                                                    <!-- ブログ画像 -->
+                                                    <img class="blog-img" src=<?php echo $blog['image_path']; ?> />
+                                                    <div class="blog-info-wrap">
+                                                        <!-- 日付 -->
+                                                        <p class="blog-date">
+                                                            <?php echo date('m/d', strtotime($blog['date'])) ?>
+                                                        </p>
+                                                        <!-- タイトル -->
+                                                        <p class="blog-title">
+                                                            <?php echo $blog['title']; ?>
+                                                        </p>
+                                                    </div>
+                                                    <i class="blog-icon fas fa-chevron-right"></i>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                                <div class="more-wrap">
+                                    <p class="more-text" onclick="moreButtonTapped('blog')">もっと見る</p>
+                                    <i class="more-icon fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php } ?>
         </section>
-        <div class="separator"></div>
+        <?php if ($shop['infos'] || $shop['blogs']) { ?>
+            <div class="separator"></div>
+        <?php } ?>
         <section id="baseinfo-section" class="section">
             <div class="section-padding-inner base-info-section-inner">
                 <div class="inner-elm-padding">
@@ -776,7 +799,6 @@ use App\Vendor\Code\ImagePositionType;
                         <?php echo $shop['name']; ?>の基本情報
                     </h2>
                 </div>
-                <div class="access-between-margin"></div>
                 <div class="inner-elm-padding">
                     <!-- 店舗名+概要 -->
                     <h3 class="section-inner-sub-title price-sub-title">
@@ -902,12 +924,11 @@ use App\Vendor\Code\ImagePositionType;
         </section>
         <div class="separator"></div>
         <section class="section">
-            <div class="section-padding-inner">
-                <!-- DBから取得 -->
+            <!-- <div class="section-padding-inner">
                 <h2 class="section-inner-title">キレイモ 新宿本店からの一言</h2>
                 <div class="one-point">
                 </div>
-            </div>
+            </div> -->
         </section>
         <footer class="content shop-footer">
             <a class="button-base kuchikomi-button" href="/datsumou/shop/post?shop_id=<?php echo $shop['shop_id']; ?>"><i class="fas fa-phone-alt kuchikomi-button-icon"></i>
@@ -917,25 +938,29 @@ use App\Vendor\Code\ImagePositionType;
                 <img src="/puril/images/reserve_btn.png" class="button-base-img reservatopn-button-img" alt="">
             </a></footer>
         <section class="section" id="interview-section">
-            <div class="section-padding-inner">
-                <!-- インタビュー -->
-                <h2 class="section-inner-title"><?php echo $shop['name']; ?>のインタビュー</h2>
-                <div class="interviews-wrap">
-                    <ul class="interviews">
-                        <?php foreach ($shop['interviews'] as $interview) { ?>
-                            <li>
-                                <img class='interview-img' src=<?php echo $interview['image_path'] ?> />
-                                <p class="interview-title">この店舗を選んだ理由を教えてください。</p>
-                                <p class="interview-text">
-                                    <?php echo $interview['content'] ?>
-                                </p>
-                            </li>
-                        <?php } ?>
-                    </ul>
+            <?php if ($shop['interviews']) { ?>
+                <div class="section-padding-inner">
+                    <!-- インタビュー -->
+                    <h2 class="section-inner-title"><?php echo $shop['name']; ?>のインタビュー</h2>
+                    <div class="interviews-wrap">
+                        <ul class="interviews">
+                            <?php foreach ($shop['interviews'] as $interview) { ?>
+                                <li>
+                                    <img class='interview-img' src=<?php echo $interview['image_path'] ?> />
+                                    <p class="interview-title">この店舗を選んだ理由を教えてください。</p>
+                                    <p class="interview-text">
+                                        <?php echo $interview['content'] ?>
+                                    </p>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </section>
-        <div class="separator"></div>
+        <?php if ($shop['interviews']) { ?>
+            <div class="separator"></div>
+        <?php } ?>
         <section class="section">
             <div class="section-padding-inner related-section-inner">
                 <div class="inner-elm-padding">
@@ -1055,12 +1080,12 @@ use App\Vendor\Code\ImagePositionType;
         <div class="separator"></div>
         <section class="section">
             <div class="section-padding-inner">
-                <h2 class="section-inner-title"><?php echo $shop['name']; ?>他の店舗を見る</h2>
+                <h2 class="section-inner-title"><?php echo $shop['name']; ?>の他の店舗を見る</h2>
                 <div class="other-shops-buttons-wrap">
-                    <a class="simple-button simple-blue">
+                    <!-- <a class="simple-button simple-blue">
                         <span class="button-text"><?php echo $shop['name']; ?> TOPへ</span>
-                    </a>
-                    <div class="other-shops-buttons-margin"></div>
+                    </a> -->
+                    <!-- <div class="other-shops-buttons-margin"></div> -->
                     <?php if ($shop['affiliate_page_url']) : ?>
                         <a class="simple-button green" href="<?php echo $shop['affiliate_page_url']; ?>">
                             <span class="button-text">公式サイトへ</span>

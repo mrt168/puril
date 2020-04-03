@@ -189,7 +189,7 @@ footer {
   right: 0;
   opacity: 0;
   width: 100%;
-  border-bottom: 1px solid #e1ddcc;
+  border-bottom: 1px solid #eeece4;
   background: #fff;
   z-index: 1;
 }
@@ -198,14 +198,14 @@ footer {
   margin-top: 0;
   font-size: 16px;
   text-align: left;
-  border-top: 1px solid #e1ddcc;
+  border-top: 1px solid #eeece4;
   overflow: hidden;
 }
 .menu-area li::after {
   position: absolute;
   top: calc(50% - 8px);
   right: 16px;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -348,7 +348,7 @@ body {
   right: 16px;
   transform: translateY(-50%);
   display: inline-block;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -360,7 +360,7 @@ body {
   right: 17px;
   transform: translateY(-50%);
   display: inline-block;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 14px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -372,7 +372,7 @@ body {
   right: 17px;
   transform: translateY(-50%);
   display: inline-block;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 14px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -471,7 +471,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 600px;
-  border-bottom: 1px solid #e1ddcc;
+  border-bottom: 1px solid #eeece4;
 
   background-color: #fff;
   padding-right: 10px;
@@ -549,7 +549,7 @@ body {
 .datsumou-searcharea__list > li {
   width: 49.5%;
   margin-top: 1em;
-  border: 1px solid #e1ddcc;
+  border: 1px solid #eeece4;
   border-radius: 4px;
   background: #fff;
   text-align: center;
@@ -571,14 +571,14 @@ body {
 
 /* サロン・クリニックを探す */
 .datsumou-search__list {
-  border-bottom: 1px solid #e1ddcc;
+  border-bottom: 1px solid #eeece4;
   background: #fff;
   font-size: 14px;
 }
 .datsumou-area__list > li {
   font-size: 16px;
   text-align: left;
-  border-top: 1px solid #e1ddcc;
+  border-top: 1px solid #eeece4;
   background: #fff;
 }
 .datsumou-area__list > li a {
@@ -615,7 +615,7 @@ body {
   position: absolute;
   top: calc(50% - 8px);
   right: 16px;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -629,8 +629,8 @@ body {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc;
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4;
   background: #fff;
   font-size: 14px;
 }
@@ -653,7 +653,7 @@ body {
 }
 .datsumou-ranking__tab-search__list label {
   width: 30%;
-  border: 1px solid #e1ddcc;
+  border: 1px solid #eeece4;
   border-radius: 4px;
   padding-top: 0.8em;
   margin-right: 1%;
@@ -765,7 +765,7 @@ body {
   position: absolute;
   top: calc(50% - 8px);
   right: 16px;
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -845,7 +845,7 @@ body {
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 20px;
-  border-top: 1px solid #e1ddcc;
+  border-top: 1px solid #eeece4;
   background: #fff;
   font-size: 14px;
 }
@@ -948,8 +948,8 @@ body {
   width: 100%;
   height: auto;
   margin-top: 1em;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc;
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4;
   background: #fbf9f7;
 }
 .Search__breadcrumbs ol {

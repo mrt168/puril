@@ -25,8 +25,8 @@
   .search-shop .search-shop-list {
     background-color: #F9F7F5; }
   .search-shop .search-shop-list .search-shop-item {
-    border-bottom: 1px solid #e1ddcc;
-    border-top: 1px solid #e1ddcc;
+    border-bottom: 1px solid #eeece4;
+    border-top: 1px solid #eeece4;
   }
     .search-shop .search-shop-list .search-shop-item:not(:first-child) {
       margin-top: 5px; }
@@ -193,11 +193,11 @@
   font-size: 13px;
   font-weight: bold;
   line-height: 30px;
-  color: #e1ddcc;
+  color: #eeece4;
   float: left;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc;
-  border-left: 1px solid #e1ddcc;
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4;
+  border-left: 1px solid #eeece4;
   cursor: pointer;
   -webkit-transition: all .2s;
   -moz-transition: all .2s;
@@ -209,7 +209,7 @@
   background: #fff;
 }
 .pager .page-numbers:last-child {
-  border-right: 1px solid #e1ddcc;
+  border-right: 1px solid #eeece4;
 }
 .pager .page-numbers a {
   display: block;
@@ -234,17 +234,17 @@
   color: #13131E;
   padding: 0 10px;
   line-height: 30px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc;
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4;
   text-decoration: none;
 }
 .pager .pagenation-prev .prev {
-  border-left: 1px solid #e1ddcc;
+  border-left: 1px solid #eeece4;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 .pager .pagenation-next .next {
-  border-right: 1px solid #e1ddcc;
+  border-right: 1px solid #eeece4;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -271,7 +271,7 @@
   margin: -1px 0 0 0;
 }
 .pager .pagenation-page-list-before .page-numbers:nth-child(7n) {
-  border-right: 1px solid #e1ddcc;
+  border-right: 1px solid #eeece4;
 }
 
 .pager .pagenation-page-list-wrap .pagenation-page-list-after {
@@ -288,7 +288,7 @@
   margin: -1px 0 0 0;
 }
 .pager .pagenation-page-list-after .page-numbers:nth-child(7n) {
-  border-right: 1px solid #e1ddcc;
+  border-right: 1px solid #eeece4;
 }
 @media ( max-width: 767px) {
   /*--- pager --------*/

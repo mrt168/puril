@@ -20,7 +20,7 @@
 .brand-top .brand-top-desc-area {
   padding: 10px 1.25em;
   color: #595960;
-  border-bottom: 1px solid #e1ddcc;
+  border-bottom: 1px solid #eeece4;
    }
   .brand-top .brand-top-desc-area .brand-top-desc-middle {
     padding-top: 1em;
@@ -70,8 +70,8 @@
 .brand-info {
   padding: 1.25em;
   position: relative;
-  border-bottom: 1px solid #e1ddcc;
-  border-top: 1px solid #e1ddcc;}
+  border-bottom: 1px solid #eeece4;
+  border-top: 1px solid #eeece4;}
   .brand-info .content-feature {
     position: absolute;
     top: 0.6em;
@@ -93,8 +93,8 @@
     }
 .brand-plan {
   padding: 1.5em 15px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc;}
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4;}
 .brand-plan .content-title {
   padding-left: 1px; }
   .price_list {
@@ -183,8 +183,8 @@
 
 .brand-datsumou {
   padding: 15px 16px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc; }
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4; }
   .brand-datsumou .brand-part-list {
     display: -webkit-box;
     display: -webkit-flex;
@@ -244,8 +244,8 @@
   padding: .5em 0; }
 
 .brand-kuchikomi {
-    border-top: 1px solid #e1ddcc;
-    border-bottom: 1px solid #e1ddcc;
+    border-top: 1px solid #eeece4;
+    border-bottom: 1px solid #eeece4;
 }
 
 .brand-kuchikomi .content-title {
@@ -308,8 +308,8 @@
 
 .brand-info-detail {
   padding: 15px 16px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc; }
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4; }
   .brand-info-detail .content-title {
     padding-bottom: .5em; }
   .brand-info-detail .brand-info-detail-area-wrap .brand-info-detail-area:not(:first-child) {
@@ -369,8 +369,8 @@
 
 .brand-share {
   padding: 15px 16px 15px 16px;
-  border-top: 1px solid #e1ddcc;
-  border-bottom: 1px solid #e1ddcc; }
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4; }
 
 .brand-shops .content-title {
   padding: 1.5em 16px;
@@ -392,8 +392,8 @@
     right: 16px;
     color: #B5B5B5; }
 .brand-shops {
-    border-top: 1px solid #e1ddcc;
-    border-bottom: 1px solid #e1ddcc;
+    border-top: 1px solid #eeece4;
+    border-bottom: 1px solid #eeece4;
 }
 
 .brand-shops .shop-list {

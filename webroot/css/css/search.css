@@ -252,7 +252,7 @@ body {
   text-align: center;
   border-radius: 3px;
   background: #fff;
-  border: 1px solid #e1ddcc;
+  border: 1px solid #eeece4;
 }
 .Search__btn[data-color="default"] {
   background: #6aadbf;
@@ -260,7 +260,7 @@ body {
 }
 .Search__btn[data-color="white"] {
   background: #fff;
-  border: 1px solid #e1ddcc;
+  border: 1px solid #eeece4;
 }
 
 .Search__list__header {
@@ -303,16 +303,16 @@ body {
 .Search__list li a {
   position: relative;
   display: block;
-  padding: 12px 15px;
+  padding: 10px 0px;
 }
 .Search__list li a::after {
   content: "\f054";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   position: absolute;
-  right: 16px;
+  right: 0px;
   top: calc(50% - 8px);
-  color: #d6ceb4;
+  color: #E0DCCC;
   font-size: 16px;
 }
 
