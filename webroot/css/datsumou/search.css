@@ -101,7 +101,7 @@
 }
 .Search__header__close {
   position: absolute;
-  left: 24px;
+  left: 10px;
   top: calc(50% - 9px);
 }
 .Search__header__close img {
@@ -326,7 +326,7 @@
 }
 .Search__kodawari__list {
   margin: 0;
-  padding: 15px;
+  padding: 10px;
 }
 .Search__kodawari__list dt {
   margin: 0;
@@ -342,7 +342,7 @@
 
 .Search__kodawari__selected {
   margin: 0;
-  padding: 0 15px 20px;
+  padding: 0 10px 20px;
 }
 .Search__kodawari__selected dt {
   margin: 0 0 15px;
@@ -365,7 +365,7 @@
 .Search__kodawari__btns {
   display: flex;
   align-items: center;
-  padding: 0 15px 20px;
+  padding: 0 10px 20px;
 }
 .Search__kodawari__btn {
   height: 44px;

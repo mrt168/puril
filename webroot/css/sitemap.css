@@ -221,7 +221,7 @@ main a {
 .area-search__list {
   display: flex;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 10px;
   border-top: 1px solid #eeece4;
   background: #F9F7F5;
 }
@@ -266,11 +266,12 @@ main a {
   color: #000;
 }
 .area-search li {
-  padding: 16px 15px;
+  padding: 16px 10px;
   list-style: none;
   border-top: 1px solid #CCC4A7;
   background: #F9F7F5;
   color: #595960;
+  line-height: 1.3;
 }
 .area-search__title {
   font-weight: bold;

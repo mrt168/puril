@@ -362,11 +362,11 @@ body {
 .datsumou-header-inner__globalmenusp__submenu a::after {
   position: absolute;
   top: 50%;
-  right: 16px;
+  right: 10px;
   transform: translateY(-50%);
   display: inline-block;
   color: #E0DCCC;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f054";
@@ -374,7 +374,7 @@ body {
 .datsumou-header-inner__globalmenusp__link.close:after {
   position: absolute;
   top: 50%;
-  right: 17px;
+  right: 10px;
   transform: translateY(-50%);
   display: inline-block;
   color: #E0DCCC;
@@ -402,7 +402,7 @@ body {
 .datsumou-header-inner__globalmenusp__link[data-icon="home"]::before {
   content: "";
   position: absolute;
-  left: 15px;
+  left: 10px;
   top: 0;
   bottom: 0;
   font-family: "Font Awesome 5 Free";
