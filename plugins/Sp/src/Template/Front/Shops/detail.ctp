@@ -36,37 +36,31 @@ use App\Vendor\Code\ImagePositionType;
     <!-- ---------------------------------------------- -->
     <div id="main-entry">
         <section class="section top-section">
-            <!-- 店舗画像 -->
-            <?php
-            $imagenum = count($shop['shop_images']);
-            if ($imagenum === 1 || $imagenum > 1) :
-                foreach ($shop['shop_images'] as $shopImage) {
-                    echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img',));
-                    break;
-                } else :
-                echo $this->Html->image('Shop/noimage.jpg', ['alt' => 'NoImage']);
-            endif;
-            ?>
-            <script>
-                $(document).ready(function() {
-                    $('.top-img').error(function() {
-                        $(this).attr({
-                            src: '/img/Shop/noimage.jpg',
-                            alt: 'NoImage'
-                        });
-                    });
-                });
-            </script>
-            <div class="top-content">
-                <!-- 店舗説明 -->
-                <p class="top-catch">
-                    <?php echo $shop['description_subject']; ?>
-                </p>
-                <!-- 店舗名 -->
-                <h1 class="top-title">
-                    <?php echo $shop['name']; ?>
-                </h1>
-            </div>
+            <div class="brand-top-img-area">
+                <div class="brand-top-img-base">
+                    <!-- 店舗画像 -->
+                    <?php
+                    $imagenum = count($shop['shop_images']);
+                    if ($imagenum === 1 || $imagenum > 1) :
+                        foreach ($shop['shop_images'] as $shopImage) {
+                            echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img brand-top-img'));
+                            break;
+                        } else :
+                        echo $this->Html->image('Shop/noimage.jpg', ['alt' => 'NoImage']);
+                    endif;
+                    ?>
+                    <div class="top-content">
+                        <!-- 店舗説明 -->
+                        <p class="top-catch">
+                            <?php echo $shop['description_subject']; ?>
+                        </p>
+                        <!-- 店舗名 -->
+                        <h1 class="top-title">
+                            <?php echo $shop['name']; ?>
+                        </h1>
+                    </div>
+                </div>
+                </div>
         </section>
         <section class="section">
             <div class="section-padding-inner top-section-inner">
@@ -412,7 +406,7 @@ use App\Vendor\Code\ImagePositionType;
                                         </a>
                                     </div>
                                     <div class="comment-label-bottom">
-                                        <!-- 登校日 -->
+                                        <!-- 投稿 -->
                                         <p class="comment-date">
                                             <?php
                                             echo !empty($review['post_date']) ? "投稿日：" . date('Y/m', strtotime($review['post_date'])) : "";
@@ -647,6 +641,9 @@ use App\Vendor\Code\ImagePositionType;
                 </div>
             <?php } ?>
         </section>
+        <?php if ($shop['shop_access_images']) { ?>
+            <div class="separator"></div>
+        <?php } ?>
         <!-- スタッフ -->
         <section class="section">
             <?php if (!empty($shop['staffs'])) : ?>
@@ -799,6 +796,7 @@ use App\Vendor\Code\ImagePositionType;
                         <?php echo $shop['name']; ?>の基本情報
                     </h2>
                 </div>
+                <div class="price-between-margin"></div>
                 <div class="inner-elm-padding">
                     <!-- 店舗名+概要 -->
                     <h3 class="section-inner-sub-title price-sub-title">
@@ -1082,10 +1080,12 @@ use App\Vendor\Code\ImagePositionType;
             <div class="section-padding-inner">
                 <h2 class="section-inner-title"><?php echo $shop['name']; ?>の他の店舗を見る</h2>
                 <div class="other-shops-buttons-wrap">
-                    <!-- <a class="simple-button simple-blue">
-                        <span class="button-text"><?php echo $shop['name']; ?> TOPへ</span>
-                    </a> -->
-                    <!-- <div class="other-shops-buttons-margin"></div> -->
+                    <?php if ($shop["brand_id"]) { ?>
+                        <a class="simple-button simple-blue" href="/datsumou/brands/<?= $shop["brand_id"] ?>/">
+                            <span class="button-text">一覧へ</span>
+                        </a>
+                    <?php } ?>
+                    <div class="other-shops-buttons-margin"></div>
                     <?php if ($shop['affiliate_page_url']) : ?>
                         <a class="simple-button green" href="<?php echo $shop['affiliate_page_url']; ?>">
                             <span class="button-text">公式サイトへ</span>

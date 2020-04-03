@@ -68,7 +68,8 @@
         border: 1px solid #E0DCCC; }
 
 .brand-info {
-  padding: 1.25em;
+  margin:0px;
+  padding-bottom: 8px;
   position: relative;
   border-bottom: 1px solid #eeece4;
   border-top: 1px solid #eeece4;}
@@ -100,8 +101,8 @@
   .price_list {
   line-height: 18px;
   font-size: 12px;
-  margin: 15px -15px 0 -15px;
-  width: calc(100% + 30px);
+  margin: 0;
+  width: calc(100%);
 }
 
 .price_list th {
@@ -182,8 +183,7 @@
       color: #B5B5B5; }
 
 .brand-datsumou {
-  padding: 15px 16px;
-  border-top: 1px solid #eeece4;
+  padding: 10px;
   border-bottom: 1px solid #eeece4; }
   .brand-datsumou .brand-part-list {
     display: -webkit-box;
@@ -361,11 +361,13 @@
   .brand-info-detail .brand-info-detail-remark {
     padding: 1.5em 0; }
   .brand-info-detail .brand-info-detail-report .brand-info-detail-report-button {
-    border: 1px solid #E0DCCC;
-    border-radius: .25em;
-    padding: 1em 0;
+    border: solid 1px #cac4a4;
+    border-radius: 5px;
+    padding: 12px 0;
     text-align: center;
-    font-weight: bold; }
+    font-weight: bold;
+    color:#13131e;
+  }
 
 .brand-share {
   padding: 15px 16px 15px 16px;

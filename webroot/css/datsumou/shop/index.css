@@ -505,8 +505,8 @@
 .price_list {
   line-height: 18px;
   font-size: 12px;
-  margin: 15px -15px 0 -15px;
-  width: calc(100% + 30px);
+  margin: 0;
+  width: calc(100%);
 }
 
 .price_list th {
