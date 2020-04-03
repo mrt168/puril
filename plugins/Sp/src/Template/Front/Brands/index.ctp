@@ -86,23 +86,8 @@ echo $this->Html->css(['css/main', 'css/search']);
         </div>
     </div>
 </div>
-<div class="Search__breadcrumbs">
-    <ol>
-        <li>
-            <a href="<?=Router::url('/')?>"><span itemprop="name"  class="name">TOP</span></a>
-            <meta itemprop="position" content="1">
-        </li>
-        <li>
-            <a href="<?=Router::url('/datsumou')?>"><span itemprop="name" class="name">脱毛</span></a>
-            <meta itemprop="position" content="2">
-        </li>
-        <li>
-            <?php echo $this->Html->link("<span itemprop='name' class='name'>店舗名から探す</span>", ['controller'=> 'brands'], ['escape'=> false])?>
-            <meta itemprop="position" content="3">
-        </li>
-    </ol>
-</div>
 <?php
+echo $this->element('Front/search_breadcrumbs');
 echo $this->element('Front/footer') ?>
 <script>
     $('.Search__brand__wrap--none').hide();

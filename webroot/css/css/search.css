@@ -154,9 +154,6 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding-top: 20px;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 20px;
 }
 
 .Search__title {
@@ -171,7 +168,7 @@ body {
 }
 .Search__title span {
   display: block;
-  padding: 8px 15px;
+  padding: 8px 10px;
   font-size: 18px;
   font-weight: bold;
 }
@@ -277,7 +274,7 @@ body {
 }
 .Search__list__header span {
   display: block;
-  padding: 5px 14px;
+  padding: 5px 10px;
 }
 .Search__list__wrap {
   padding-top: 15px;
@@ -303,17 +300,21 @@ body {
 .Search__list li a {
   position: relative;
   display: block;
-  padding: 10px 0px;
+  padding: 10px;
 }
 .Search__list li a::after {
   content: "\f054";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   position: absolute;
-  right: 0px;
+  right: 10px;
   top: calc(50% - 8px);
   color: #E0DCCC;
-  font-size: 16px;
+  /* font-size: 16px; */
+}
+
+.Search__list li:last-child::after {
+  border:none !important;
 }
 
 .Search__kodawari__header {
