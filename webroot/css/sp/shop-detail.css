@@ -337,7 +337,7 @@ a {
   padding-top: 10px;
 }
 
-.top-section-text {
+.top-section-text, .section-padding-inner .content .textbox p {
   line-height: 1.6 !important;
   color: #595960 !important;
   margin-top: 7px !important;
@@ -1003,8 +1003,9 @@ a {
   margin: 0 !important;
 }
 
-.brand-info-detail,.brand-share {
+.brand-info-detail,.brand-share,.brand-kuchikomi,.brand-datsumou,.brand-shops {
   padding:10px !important;
+  border: 0 !important;
 }
 
 .brand-top-img-base{

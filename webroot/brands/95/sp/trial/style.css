@@ -11,7 +11,8 @@ html{
 	color: #333; 
 }
 footer small{
-	font-family: Verdana;/* Android */
+	font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;;/* Android */
 }
 a{
 	text-decoration: none;

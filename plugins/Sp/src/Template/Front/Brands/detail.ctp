@@ -400,7 +400,11 @@ echo $this->Html->css('Chart.min.css');
     </div>
     <div class="brand-info-detail-remark"><?= $brand['name']; ?>の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</div>
     <div class="brand-info-detail-report">
-        <?php echo $this->Html->link('誤りを報告する', ['controller' => 'contacts', 'action' => 'contact'], ['class' => 'clickable-button brand-info-detail-report-button']); ?>
+        <?php echo $this->Html->link(
+            '<span class="button-text">誤りを報告する</span>',
+            ['controller' => 'contacts', 'action' => 'contact'],
+            ['class' => 'simple-button simple button-13', 'escape' =>  false]
+        ); ?>
     </div>
 </section>
 <div class="separator"></div>
@@ -466,28 +470,8 @@ echo $this->Html->css('Chart.min.css');
 <a href="https://puril.net/campaign/">
     <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
 </a>
-
-<div class="Search__breadcrumbs">
-    <ol>
-        <li>
-            <a href="<?= Router::url('/') ?>"><span itemprop="name" class="name">TOP</span></a>
-            <meta itemprop="position" content="1">
-        </li>
-        <li>
-            <a href="<?= Router::url('/datsumou') ?>"><span itemprop="name" class="name">脱毛</span></a>
-            <meta itemprop="position" content="2">
-        </li>
-        <li>
-            <?php echo $this->Html->link("<span itemprop='name' class='name'>店舗名から探す</span>", ['controller' => 'brands'], ['escape' => false]) ?>
-            <meta itemprop="position" content="3">
-        </li>
-        <li>
-            <?php echo "<span itemprop='name' class='name'>{$brand['name']}</span>" ?>
-            <meta itemprop="position" content="4">
-        </li>
-    </ol>
-</div>
 <?php
+echo $this->element('Front/search_breadcrumbs');
 echo $this->element('Front/footer') ?>
 <script type="text/javascript" src="/js/datsumou/brand/common.js"></script>
 <script>

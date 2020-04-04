@@ -11,7 +11,8 @@
 }
 
 .home {
-    font-family: 'Roboto', sans-serif;
+    font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
     font-size: 14px;
     line-height: 27px;
     color: #404041;
@@ -67,7 +68,8 @@ header .header-title {
 }
 
 header .header-title h1 {
-    font-family: 'Raleway', sans-serif;
+    font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
     margin: 0;
     font-style: italic;
     font-size: 18px;
@@ -81,7 +83,8 @@ header h1 {
 }
 
 h3, h4 {
-    font-family: 'Roboto', sans-serif;
+    font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
     font-size: 27px;
     line-height: 30px;
     font-weight: 300;

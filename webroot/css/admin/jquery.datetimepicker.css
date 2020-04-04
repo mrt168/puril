@@ -526,7 +526,8 @@
     font-size: 13px;
 }
 .xdsoft_datetimepicker .blue-gradient-button {
-	font-family: "museo-sans", "Book Antiqua", sans-serif;
+	font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
 	font-size: 12px;
 	font-weight: 300;
 	color: #82878c;

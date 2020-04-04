@@ -134,3 +134,34 @@ p {
 #suggest div.over{ /* マウスオーバ時のスタイル */
   background-color: #99CCFF;
 }
+
+.ranking-shop-title-text {
+  line-height: 21px !important;
+}
+
+.ranking-shop-item {
+  margin-bottom: 0px !important;
+  border:0px !important
+}
+
+.separator {
+  height: 8px;
+  border-top: 1px solid #eeece4;
+  border-bottom: 1px solid #eeece4;
+}
+
+.ranking-category-item {
+  padding:14px !important;
+}
+
+.ranking-shop-title {
+  padding: 1.5em 15px !important;
+}
+
+.reserve-tag-required,.reserve-tag-option {
+  padding: 3px !important;
+  border-radius: 2px !important;
+  font-size: 11px !important;
+  width: 28px !important;
+  font-weight: 600 !important
+}

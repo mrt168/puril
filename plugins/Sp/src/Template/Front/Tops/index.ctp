@@ -153,14 +153,14 @@ echo $this->Html->css('datsumou/search');
         ?>
 
         <div class="datsumou-header-mv">
-            <h1 class="datsumou-header-mv-inner">
+            <div class="datsumou-header-mv-inner">
                 <span class="datsumou-header-mv-inner__text--large">みんな</span>の<br>
                 <span class="datsumou-header-mv-inner__text--middle">脱毛口コミ</span>サイト
                 <span class="datsumou-header-mv-inner__text-search__list">
                     <span class="datsumou-header-mv-inner__text--small">掲載件数</span>
                     <span class="datsumou-header-mv-inner__text--middle">10000件以上！</span>
                 </span>
-            </h1>
+            </div>
         </div>
     </header>
     <main class="datsumou-main">
@@ -395,8 +395,8 @@ echo $this->Html->css('datsumou/search');
                                                         <?php
                                                         if(empty($salon['question1_evaluation'])) {
 
-                                                        } else if( mb_strlen($salon['question1_evaluation']) > 40) {
-                                                            echo mb_substr($salon['question1_evaluation'],0,40).'...';
+                                                        } else if( mb_strlen($salon['question1_evaluation']) > 35) {
+                                                            echo mb_substr($salon['question1_evaluation'],0,35).'...';
                                                         } else {
                                                             echo $salon['question1_evaluation'];
                                                         }

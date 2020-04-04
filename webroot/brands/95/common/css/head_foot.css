@@ -145,7 +145,8 @@ footer p:first-of-type a{
 footer p small{
 	font-size: 13px;
 	color: #fff;
-	font-family: Verdana;/* Android */
+	font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
 }
 
 @media screen and (max-width:750px){	

@@ -112,6 +112,12 @@ section {
   display: none;
 }
 
+h1 {
+  font-size: 16px !important;
+  line-height: 21px;
+  padding: 10px 12px 10px 12px !important;
+}
+
 a {
   word-break: break-all;
   text-decoration: none;
@@ -160,8 +166,8 @@ img {
 }
 body {
   background: #f0f0f0;
-  font-family: Helvetica Neue, Helvetica, Hiragino Sans, "ヒラギノ角ゴ ProN W3",
-    Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-serif;
+  font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
 }
 header,
 main,
@@ -321,6 +327,7 @@ body {
   margin: 0 auto;
   background-color: #fbf9f7;
   border-bottom: 1px solid #ccc4a7;
+  font-size: 15px !important;
 }
 
 .datsumou-header-inner__globalmenusp__logo img {
@@ -508,10 +515,10 @@ body {
   height: 100%;
 }
 .datsumou-header-mv-inner {
-  margin-left: 55%;
-  padding-right: 15px;
-  padding-top: 32%;
-  padding-bottom: 0.7em;
+  margin-left: 55% !important;
+  padding-right: 15px !important;
+  padding-top: 32% !important;
+  padding-bottom: 0.7em !important;
   color: #13121e;
   font-size: 3.8vw;
   font-weight: 600;
@@ -829,6 +836,7 @@ body {
 .datsumou-evaluation-panel__title {
   font-size: 14px;
   font-weight: bold;
+  line-height: 19.6px;
 }
 .datsumou-evaluation-panel__thin {
   margin-top: 0.5em;

@@ -175,7 +175,7 @@ body {
 
 .Search__input {
   background: #fff;
-  padding: 15px 0;
+  padding: 15px 10px;
 }
 .Search__input::after {
   content: "";

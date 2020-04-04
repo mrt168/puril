@@ -10,7 +10,7 @@
 
     More info at: http://lesselements.com
 -----------------------------------------------------*/
-/*CHOU �C��*/
+/*CHOU �C��*/
 .Box legend{
   display: block;
   width: 100%;
@@ -52,7 +52,8 @@ a,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Open Sans', helvetica, arial, sans-serif;
+  font-family: Helvetica, Arial, Hiragino Sans, "ヒラギノ角ゴシック",
+    "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
 }
 a:hover {
   text-decoration: none;

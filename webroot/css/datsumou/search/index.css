@@ -125,6 +125,7 @@
       .search-shop .search-shop-list .search-shop-item .search-shop-desc .search-shop-desc-text {
         padding: 10px 0; }
     .search-shop .search-shop-list .search-shop-item .search-shop-info {
+      line-height: 16.8px;
       padding: 0em 16px 1em 16px; }
       .search-shop .search-shop-list .search-shop-item .search-shop-info table {
         width: 100%; }
