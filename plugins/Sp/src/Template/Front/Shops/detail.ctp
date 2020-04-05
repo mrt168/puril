@@ -627,13 +627,13 @@ use App\Vendor\Code\ImagePositionType;
             <div class="separator"></div>
         <?php } ?>
         <section class="section">
-            <?php if ($shop['shop_access_images']) { ?>
+            <?php if ($shop['access_detail_img']) { ?>
                 <div class="section-padding-inner">
                     <h2 class="section-inner-title"><?php echo $shop['name']; ?>への詳細道順</h2>
                     <div class="gallery-wrap">
                         <!-- 道順 -->
                         <ul class="galleries">
-                            <?php foreach ($shop['shop_access_images'] as $accessImage) { ?>
+                            <?php foreach ($shop['access_detail_img'] as $accessImage) { ?>
                                 <li class="gallery">
                                     <img class="gallery-img" src=<?php echo $accessImage['image_path'] ?> />
                                     <p class="gallery-text">
