@@ -635,7 +635,7 @@ use App\Vendor\Code\ImagePositionType;
                         <ul class="galleries">
                             <?php foreach ($shop['shop_access_images'] as $accessImage) { ?>
                                 <li class="gallery">
-                                    <img class="gallery-img" src=<?php echo $accessImage['image_path'] ?> />
+                                    <?php echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $accessImage['shop_image_id']], array('class' => 'gallery-img')); ?>
                                     <p class="gallery-text">
                                         <?php echo $accessImage['text'] ?>
                                     </p>
