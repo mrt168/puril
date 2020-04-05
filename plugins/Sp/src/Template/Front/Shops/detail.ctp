@@ -43,7 +43,6 @@ use App\Vendor\Code\ImagePositionType;
                     $imagenum = count($shop['shop_images']);
                     if ($imagenum === 1 || $imagenum > 1) :
                         foreach ($shop['shop_images'] as $shopImage) {
-                            var_dump($shop['shop_images']);
                             echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img brand-top-img'));
                             break;
                         } else :
