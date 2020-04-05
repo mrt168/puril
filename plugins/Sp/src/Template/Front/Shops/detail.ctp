@@ -550,7 +550,7 @@ use App\Vendor\Code\ImagePositionType;
                                 $gallery_con++;
                                 if ($gallery_con > 1) { ?>
                                     <li class="gallery">
-                                        <?php echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'gallery-img')); ?>
+                                        <?php echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $gallery['shop_image_id']], array('class' => 'gallery-img')); ?>
                                         <p class="gallery-text">
                                             <?php echo $gallery['text'] ?>
                                         </p>
