@@ -333,10 +333,8 @@ echo $this->Html->css('datsumou/search');
                                             break;
                                     endswitch; ?>
                                     <li>
-                                        <a
-                                                href="<?=$osusume['url']?>">
-                                            <p
-                                                    class="datsumou-ranking-panel__evaluation <?php echo $countCss; ?>">
+                                        <a href="<?=$osusume['url']?>">
+                                            <p class="datsumou-ranking-panel__evaluation <?php echo $countCss; ?>">
                                                 <?=number_format($osusume['star'], 2)?>
                                             </p>
                                             <?php echo $this->Html->image($osusume['img'], ['alt'=> ''])?>

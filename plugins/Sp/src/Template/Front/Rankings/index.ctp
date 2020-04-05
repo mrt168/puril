@@ -74,11 +74,15 @@ if (!empty($conditions)) {
     <div class="content-base ranking-shop">
         <ul class="ranking-shop-list">
             <?php
+            $shops_count = 1;
             foreach ($shops as $key => $shop) {
                 if (!$isBrandRanking) {
             ?>
                     <li class="content ranking-shop-item"><a class="plain-link" href="<?php echo Router::url(['controller' => 'datsumou/shop', 'detail', $shop->shop_id], true); ?>">
-                            <div class="ranking-shop-title"><i class="fas fa-crown ranking-shop-title-icon crown-first"></i>
+                            <div class="ranking-shop-title">
+                                <div class="ranking-shop-title-icon crown-first">
+                                    <?php echo $shops_count > 3 ? $shops_count : null ?>
+                                </div>
                                 <div class="ranking-shop-title-text"><?php echo $shop->name; ?></div>
                             </div>
                             <div class="ranking-shop-photo-area">
@@ -165,8 +169,9 @@ if (!empty($conditions)) {
                                 </div>
                             <?php }
                             ?>
-                        </a></li>
-                    <div class="separator"></div>
+                        </a>
+                        <div class="separator"></div>
+                    </li>
                 <?php
                 } else {
                 ?>
@@ -329,6 +334,7 @@ if (!empty($conditions)) {
                     </div>
             <?php
                 }
+                $shops_count++;
             }
             ?>
         </ul>

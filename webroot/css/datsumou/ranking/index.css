@@ -139,6 +139,21 @@
 .ranking-shop .ranking-shop-list {
   background-color: #f9f7f5;
 }
+.ranking-shop-item .ranking-shop-title-icon {
+  content: '';
+  display: inline-block;
+  width: 19px;
+  height:17px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  background-color: #e1e1e1;
+  font-size: 11px;
+  color:#13131E;
+  text-align: center;
+  line-height: 18px;
+  font-weight: bold;
+}
 .ranking-shop-item {
   border-top: 1px solid #e0dccc;
   border-bottom: 1px solid #e0dccc;
@@ -153,13 +168,37 @@
   margin-bottom: 5px;
 }
 .ranking-shop-item:nth-child(1) .ranking-shop-title-icon {
-  color: #c4a63b !important;
+    content: '';
+  display: inline-block;
+  width: 24px;
+  height:24px;
+  background-image: url("../../../img/crown_first.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  background-color: white;
 }
 .ranking-shop-item:nth-child(2) .ranking-shop-title-icon {
-  color: #a9acb9 !important;
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height:24px;
+  background-image: url("../../../img/crown_second.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  background-color: white;
 }
 .ranking-shop-item:nth-child(3) .ranking-shop-title-icon {
-  color: #bc8f6a !important;
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height:24px;
+  background-image: url("../../../img/crown_third.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  background-color: white;
 }
 .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-title {
   padding: 1.5em 16px;
@@ -197,6 +236,7 @@
   font-weight: bold;
   padding-left: 0.5em;
   line-height: 21px;
+  width: 100%;
 }
 .ranking-shop .ranking-shop-list .ranking-shop-item .ranking-shop-photo-area {
   display: -webkit-box;

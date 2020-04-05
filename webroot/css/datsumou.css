@@ -621,17 +621,21 @@ body {
   padding: 20px 10px;
   color: #13121e;
   text-decoration: none;
+  font-weight: bold;
 }
 .datsumou-area__list > li a .small {
   font-size: 14px;
+  font-weight: initial !important;
+  padding-left: 3px;
 }
 .datsumou-area__list > li a img {
-  padding-right: 10px;
+  margin-right: 10px;
+  width: 20px;
 }
 .datsumou-area__list > li a::before {
-  padding-right: 10px;
+  margin-right: 10px;
   color: #beba9b;
-  font-size: 12px;
+  font-size: 20px;
 }
 .datsumou-area__list > li:nth-child(2) a::before {
   font-family: "Font Awesome 5 Free";
@@ -746,19 +750,30 @@ body {
 .datsumou-ranking-panel__evaluation::before {
   margin-right: 0.3em;
   color: #c4a63b;
-  font-family: "Font Awesome 5 Free";
+  /* font-family: "Font Awesome 5 Free"; */
   font-weight: 900;
-  font-size: 16px;
-  content: "\f521";
+  /* font-size: 16px; */
+  /* content: "\f521"; */
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height:24px;
+  background-image: url("../img/crown_first.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
 }
 .datsumou-ranking-panel__evaluation.first::before {
-  color: #c4a63b;
+  /* color: #c4a63b; */
+  background-image: url("../img/crown_first.jpg");
 }
 .datsumou-ranking-panel__evaluation.second::before {
-  color: #a9acb9;
+  /* color: #a9acb9; */
+  background-image: url("../img/crown_second.jpg");
 }
 .datsumou-ranking-panel__evaluation.third::before {
-  color: #bc8f6a;
+  /* color: #bc8f6a; */
+  background-image: url("../img/crown_third.jpg");
 }
 
 .datsumou-ranking__btn {
