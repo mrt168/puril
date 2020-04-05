@@ -804,7 +804,7 @@ body {
   position: relative;
   display: -webkit-box;
   display: flex;
-  padding: 10px 0px;
+  padding: 10px 10px;
   padding-bottom: 0.6em;
   margin-bottom: 15px;
   background: #faf8f6;
