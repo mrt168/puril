@@ -43,6 +43,7 @@ use App\Vendor\Code\ImagePositionType;
                     $imagenum = count($shop['shop_images']);
                     if ($imagenum === 1 || $imagenum > 1) :
                         foreach ($shop['shop_images'] as $shopImage) {
+                            var_dump($shop['shop_images']);
                             echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img brand-top-img'));
                             break;
                         } else :
@@ -562,7 +563,7 @@ use App\Vendor\Code\ImagePositionType;
                 </div>
             <?php } ?>
         </section>
-        <?php if (count($shop['gallery']) > 1) { ?>
+        <?php if (count($shop['shop_images']) > 1) { ?>
             <div class="separator"></div>
         <?php } ?>
         <section id="access-section" class="section">
@@ -627,13 +628,13 @@ use App\Vendor\Code\ImagePositionType;
             <div class="separator"></div>
         <?php } ?>
         <section class="section">
-            <?php if ($shop['access_detail_img']) { ?>
+            <?php if ($shop['shop_access_images']) { ?>
                 <div class="section-padding-inner">
                     <h2 class="section-inner-title"><?php echo $shop['name']; ?>への詳細道順</h2>
                     <div class="gallery-wrap">
                         <!-- 道順 -->
                         <ul class="galleries">
-                            <?php foreach ($shop['access_detail_img'] as $accessImage) { ?>
+                            <?php foreach ($shop['shop_access_images'] as $accessImage) { ?>
                                 <li class="gallery">
                                     <img class="gallery-img" src=<?php echo $accessImage['image_path'] ?> />
                                     <p class="gallery-text">

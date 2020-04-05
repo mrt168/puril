@@ -66,22 +66,6 @@ class ShopsController extends FrontAppController {
 			}
 		}
 
-		$galleryTable = TableRegistry::get('ShopImages');
-		$shopGallery = $galleryTable->findByShopId($shop['shop_id'])->toArray();
-		// ギャラリー
-		if (!empty($shopGallery)) {
-			$shop['gallery'] = [];
-			$shop['access_detail_img'] = [];
-			foreach ($shopGallery as $gallery) {
-				if($gallery['image_type'] ===  1) {
-					array_push($shop['gallery'], $gallery);
-				} else if ($gallery['image_type'] ===  2) {
-					array_push($shop['access_detail_img'], $gallery);
-				}
-			}
-		}
-
-
 		// 最寄駅情報
 		$ssTable = TableRegistry::get('ShopStations');
 		$stationTabel = TableRegistry::get('Stations');
