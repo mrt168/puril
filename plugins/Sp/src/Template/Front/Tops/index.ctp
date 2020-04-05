@@ -393,8 +393,8 @@ echo $this->Html->css('datsumou/search');
                                                         <?php
                                                         if(empty($salon['question1_evaluation'])) {
 
-                                                        } else if( mb_strlen($salon['question1_evaluation']) > 35) {
-                                                            echo mb_substr($salon['question1_evaluation'],0,35).'...';
+                                                        } else if( mb_strlen($salon['question1_evaluation']) > 30) {
+                                                            echo mb_substr($salon['question1_evaluation'],0,30).'...';
                                                         } else {
                                                             echo $salon['question1_evaluation'];
                                                         }
