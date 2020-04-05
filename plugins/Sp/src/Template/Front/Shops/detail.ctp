@@ -535,7 +535,7 @@ use App\Vendor\Code\ImagePositionType;
         </section>
         <div class="separator"></div>
         <section id="gallery-section" class="section">
-            <?php if (!empty($shop['gallery'])) { ?>
+            <?php if (count($shop['gallery']) > 1) { ?>
                 <div class="section-padding-inner">
                     <!-- DBから取得 -->
                     <h2 class="section-inner-title">
@@ -544,20 +544,24 @@ use App\Vendor\Code\ImagePositionType;
                     <div class="gallery-wrap">
                         <!-- DBから取得 -->
                         <ul class="galleries">
-                            <?php foreach ($shop['gallery'] as $gallery) { ?>
+                            <?php
+                                $gallery_con = 0;
+                                foreach ($shop['gallery'] as $gallery) {
+                                    $gallery_con++;
+                                if($gallery_con > 1) {?>
                                 <li class="gallery">
-                                    <img class="gallery-img" src=<?php $gallery['image_path'] ?> />
+                                    <img class="gallery-img" src=<?= $gallery['image_path'] ?> />
                                     <p class="gallery-text">
                                         <?php echo $gallery['text'] ?>
                                     </p>
                                 </li>
-                            <?php } ?>
+                            <?php }} ?>
                         </ul>
                     </div>
                 </div>
             <?php } ?>
         </section>
-        <?php if (!empty($shop['gallery'])) { ?>
+        <?php if (count($shop['gallery']) > 1) { ?>
             <div class="separator"></div>
         <?php } ?>
         <section id="access-section" class="section">
