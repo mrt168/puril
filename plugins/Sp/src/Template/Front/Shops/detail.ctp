@@ -60,7 +60,7 @@ use App\Vendor\Code\ImagePositionType;
                         </h1>
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
         <section class="section">
             <div class="section-padding-inner top-section-inner">
@@ -535,7 +535,7 @@ use App\Vendor\Code\ImagePositionType;
         </section>
         <div class="separator"></div>
         <section id="gallery-section" class="section">
-            <?php if (count($shop['gallery']) > 1) { ?>
+            <?php if (count($shop['shop_images']) > 1) { ?>
                 <div class="section-padding-inner">
                     <!-- DBから取得 -->
                     <h2 class="section-inner-title">
@@ -545,17 +545,28 @@ use App\Vendor\Code\ImagePositionType;
                         <!-- DBから取得 -->
                         <ul class="galleries">
                             <?php
-                                $gallery_con = 0;
-                                foreach ($shop['gallery'] as $gallery) {
-                                    $gallery_con++;
-                                if($gallery_con > 1) {?>
-                                <li class="gallery">
-                                    <img class="gallery-img" src=<?= $gallery['image_path'] ?> />
-                                    <p class="gallery-text">
-                                        <?php echo $gallery['text'] ?>
-                                    </p>
-                                </li>
-                            <?php }} ?>
+                            $imagenum = count($shop['shop_images']);
+                            if ($imagenum === 1 || $imagenum > 1) :
+                                foreach ($shop['shop_images'] as $shopImage) {
+                                    echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img brand-top-img'));
+                                    break;
+                                } else :
+                                echo $this->Html->image('Shop/noimage.jpg', ['alt' => 'NoImage']);
+                            endif;
+                            ?>
+                            <?php
+                            $gallery_con = 0;
+                            foreach ($shop['shop_images'] as $gallery) {
+                                $gallery_con++;
+                                if ($gallery_con > 1) { ?>
+                                    <li class="gallery">
+                                        <?php echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'gallery-img')); ?>
+                                        <p class="gallery-text">
+                                            <?php echo $gallery['text'] ?>
+                                        </p>
+                                    </li>
+                            <?php }
+                            } ?>
                         </ul>
                     </div>
                 </div>
