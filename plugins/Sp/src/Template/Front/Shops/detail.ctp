@@ -545,16 +545,6 @@ use App\Vendor\Code\ImagePositionType;
                         <!-- DBから取得 -->
                         <ul class="galleries">
                             <?php
-                            $imagenum = count($shop['shop_images']);
-                            if ($imagenum === 1 || $imagenum > 1) :
-                                foreach ($shop['shop_images'] as $shopImage) {
-                                    echo $this->Html->image(['controller' => 'images', 'action' => 'shopImage', $shopImage['shop_image_id']], array('class' => 'top-img brand-top-img'));
-                                    break;
-                                } else :
-                                echo $this->Html->image('Shop/noimage.jpg', ['alt' => 'NoImage']);
-                            endif;
-                            ?>
-                            <?php
                             $gallery_con = 0;
                             foreach ($shop['shop_images'] as $gallery) {
                                 $gallery_con++;
