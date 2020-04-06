@@ -183,8 +183,7 @@
       color: #B5B5B5; }
 
 .brand-datsumou {
-  padding: 10px;
-  border-bottom: 1px solid #eeece4; }
+  padding: 10px;}
   .brand-datsumou .brand-part-list {
     display: -webkit-box;
     display: -webkit-flex;
@@ -242,11 +241,6 @@
 .brand-kuchikomi .brand-kuchikomi-list .brand-kuchikomi-item .brand-kuchikomi-item-below .shop-kuchikomi-item-detail-wrap .shop-kuchikomi-item-detail .shop-kuchikomi-item-detail-text {
   font-size: 14px;
   padding: .5em 0; }
-
-.brand-kuchikomi {
-    border-top: 1px solid #eeece4;
-    border-bottom: 1px solid #eeece4;
-}
 
 .brand-kuchikomi .content-title {
   padding: 1em 16px; }
@@ -308,8 +302,8 @@
 
 .brand-info-detail {
   padding: 15px 16px;
-  border-top: 1px solid #eeece4;
-  border-bottom: 1px solid #eeece4; }
+  border-top: 0px solid #eeece4;
+  border-bottom: 0px solid #eeece4; }
   .brand-info-detail .content-title {
     padding-bottom: .5em; }
   .brand-info-detail .brand-info-detail-area-wrap .brand-info-detail-area:not(:first-child) {
