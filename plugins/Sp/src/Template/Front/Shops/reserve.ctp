@@ -86,217 +86,219 @@ use App\Vendor\Code\ImagePositionType;
                 </div>
             </div>
             <script src="./reserve.js" type="text/javascript"></script>
-            <table id="reserve_table" data-date-options="8" data-time-start="9" data-time-end="21" data-probability="25" data-visit-options="3" data-week-options-en="sunday,monday,tuesday,wednesday,thursday,friday,saturday" data-week-options-jp="日,月,火,水,木,金,土">
-                <thead>
-                    <tr>
-                        <!-- 
+            <div style="height: 345px;overflow: scroll;margin: -10px 0 24px;">
+                <table id="reserve_table" data-date-options="8" data-time-start="9" data-time-end="21" data-probability="25" data-visit-options="3" data-week-options-en="sunday,monday,tuesday,wednesday,thursday,friday,saturday" data-week-options-jp="日,月,火,水,木,金,土">
+                    <thead>
+                        <tr>
+                            <!-- 
                             ここは複雑のため、解説を書いておきます。
                             日時ですが、基本的に24:00時を起点として、2日後の日付を取得して、その順に表示します。
                             例）12日現在だとしたら、14日から表示です。
                         -->
-                        <th rowspan="2">
-                            日時
-                        </th>
-                        <!-- DBから取得 -->
-                        <th scope="col" id="2020/03/26" class="calendar-date thursday_en">
-                            03/26<br><span>（木）</span> </th>
-                        <!-- DBから取得 -->
-                        <th scope="col" id="2020/03/27" class="calendar-date friday_en">
-                            03/27<br><span>（金）</span> </th>
-                        <!-- DBから取得 -->
-                        <th scope="col" id="2020/03/28" class="calendar-date saturday_en">
-                            03/28<br><span>（土）</span> </th>
-                        <!-- DBから取得 -->
-                        <th scope="col" id="2020/03/29" class="calendar-date sunday_en">
-                            03/29<br><span>（日）</span> </th>
-                        <!-- DBから取得 -->
-                        <th scope="col" id="2020/03/30" class="calendar-date monday_en">
-                            03/30<br><span>（月）</span> </th>
-                        <!-- DBから取得 -->
-                        <th scope="col" id="2020/03/31" class="calendar-date tuesday_en">
-                            03/31<br><span>（火）</span> </th>
-                        <!-- DBから取得 -->
-                        <th scope="col" id="2020/04/01" class="calendar-date wednesday_en">
-                            04/01<br><span>（水）</span> </th>
-                    </tr>
+                            <th rowspan="2">
+                                日時
+                            </th>
+                            <!-- DBから取得 -->
+                            <th scope="col" id="2020/03/26" class="calendar-date thursday_en">
+                                03/26<br><span>（木）</span> </th>
+                            <!-- DBから取得 -->
+                            <th scope="col" id="2020/03/27" class="calendar-date friday_en">
+                                03/27<br><span>（金）</span> </th>
+                            <!-- DBから取得 -->
+                            <th scope="col" id="2020/03/28" class="calendar-date saturday_en">
+                                03/28<br><span>（土）</span> </th>
+                            <!-- DBから取得 -->
+                            <th scope="col" id="2020/03/29" class="calendar-date sunday_en">
+                                03/29<br><span>（日）</span> </th>
+                            <!-- DBから取得 -->
+                            <th scope="col" id="2020/03/30" class="calendar-date monday_en">
+                                03/30<br><span>（月）</span> </th>
+                            <!-- DBから取得 -->
+                            <th scope="col" id="2020/03/31" class="calendar-date tuesday_en">
+                                03/31<br><span>（火）</span> </th>
+                            <!-- DBから取得 -->
+                            <th scope="col" id="2020/04/01" class="calendar-date wednesday_en">
+                                04/01<br><span>（水）</span> </th>
+                        </tr>
 
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" id="time_9">
-                            9:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_10">
-                            10:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_11">
-                            11:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_12">
-                            12:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_13">
-                            13:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_14">
-                            14:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_15">
-                            15:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_16">
-                            16:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_17">
-                            17:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_18">
-                            18:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_19">
-                            19:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_20">
-                            20:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="time_21">
-                            21:00 </th>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                        <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                <div class="reserve-subquestion-first want_day" style="padding:0;">
-                    <div style="width:100%;padding: 0 10px;">
-                        <div class="reserve-subquestion-text color-main">来店希望日時</div>
-                        <ul class="calendar-date-time-wrap">
-                            <li class="calendar-date-time">
-                                <p>第1希望　<span id="calendar-date-1"></span></p>
-                                <p><span id="calendar-time-1"></span></p>
-                            </li>
-                            <li class="calendar-date-time">
-                                <p>第2希望　<span id="calendar-date-2"></span></p>
-                                <p><span id="calendar-time-2"></span></p>
-                            </li>
-                            <li class="calendar-date-time">
-                                <p>第3希望　<span id="calendar-date-3"></span></p>
-                                <p><span id="calendar-time-3"></span></p>
-                            </li>
-                        </ul>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" id="time_9">
+                                9:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_10">
+                                10:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_11">
+                                11:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_12">
+                                12:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_13">
+                                13:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_14">
+                                14:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_15">
+                                15:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_16">
+                                16:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_17">
+                                17:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_18">
+                                18:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_19">
+                                19:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_20">
+                                20:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="time_21">
+                                21:00 </th>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                            <td class="calendar-cell" onclick="calendarCellTapped(this)"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div>
+                    <div class="reserve-subquestion-first want_day" style="padding:0;">
+                        <div style="width:100%;padding: 0 10px;">
+                            <div class="reserve-subquestion-text color-main">来店希望日時</div>
+                            <ul class="calendar-date-time-wrap">
+                                <li class="calendar-date-time">
+                                    <p>第1希望　<span id="calendar-date-1"></span></p>
+                                    <p><span id="calendar-time-1"></span></p>
+                                </li>
+                                <li class="calendar-date-time">
+                                    <p>第2希望　<span id="calendar-date-2"></span></p>
+                                    <p><span id="calendar-time-2"></span></p>
+                                </li>
+                                <li class="calendar-date-time">
+                                    <p>第3希望　<span id="calendar-date-3"></span></p>
+                                    <p><span id="calendar-time-3"></span></p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+                <div id="calendar-input-area">
+                    <input type="text" name="visit_date_1" id="visit_date_1" class="datepicker visit_dates hasDatepicker" required="required" autocomplete="off">
+                    <input type="hidden" name="time_01" id="time_01" class="input-time">
+                    <input type="text" name="visit_date_2" id="visit_date_2" class="datepicker visit_dates hasDatepicker" required="required" autocomplete="off">
+                    <input type="hidden" name="time_02" id="time_02" class="input-time">
+                    <input type="text" name="visit_date_3" id="visit_date_3" class="datepicker visit_dates hasDatepicker" required="required" autocomplete="off">
+                    <input type="hidden" name="time_03" id="time_03" class="input-time">
+                </div>
             </div>
-            <div id="calendar-input-area">
-                <input type="text" name="visit_date_1" id="visit_date_1" class="datepicker visit_dates hasDatepicker" required="required" autocomplete="off">
-                <input type="hidden" name="time_01" id="time_01" class="input-time">
-                <input type="text" name="visit_date_2" id="visit_date_2" class="datepicker visit_dates hasDatepicker" required="required" autocomplete="off">
-                <input type="hidden" name="time_02" id="time_02" class="input-time">
-                <input type="text" name="visit_date_3" id="visit_date_3" class="datepicker visit_dates hasDatepicker" required="required" autocomplete="off">
-                <input type="hidden" name="time_03" id="time_03" class="input-time">
-            </div>
-        </div>
     </section>
     <section class="content-base reserve-section">
         <div class="reserve-question">

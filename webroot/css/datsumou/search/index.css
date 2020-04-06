@@ -12,7 +12,8 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   align-items: center;
-  padding: 1em 16px; }
+  padding: 1em 16px; 
+padding-left: 10px!important;}
   .search-condition .search-condition-text {
     line-height: 1.5;
     width: calc( 100% - 110px );
@@ -54,7 +55,8 @@
               align-items: center; }
       .search-shop .search-shop-list .search-shop-item .search-shop-title .search-shop-title-text {
         font-size: 16px;
-        font-weight: bold; }
+        font-weight: bold; 
+      line-height: 21px;}
       .search-shop .search-shop-list .search-shop-item .search-shop-title .search-shop-title-tags {
         display: -webkit-box;
         display: -webkit-flex;

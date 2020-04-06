@@ -31,7 +31,7 @@ use Cake\Routing\Router;
                     <li><a href="/datsumou/search">検索TOP</a></li>
                     <li><a href="/datsumou/search/salon">脱毛サロンを探す</a></li>
                     <li><a href="/datsumou/search/clinic">医療脱毛クリニックを探す</a></li>
-                    <li><a href="/datsumou/search/ranking">ランキングから探す</a></li>
+                    <li><a href="/datsumou/search">ランキングから探す</a></li>
                 </ul>
             </li>
             <li class="datsumou-header-inner__globalmenusp__linkbox">

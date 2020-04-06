@@ -1,7 +1,7 @@
 .ranking-title {
   font-size: 18px;
   font-weight: bold;
-  padding: 1em;
+  padding: 14px 10px 10px !important;
   border-top: 1px solid #e0dccc;
   border-bottom: 1px solid #e0dccc;
 }

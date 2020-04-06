@@ -361,6 +361,7 @@ body {
   text-decoration: none;
   color: #13131e;
   line-height: 46px;
+  font-size:15px;
 }
 .datsumou-header-inner__globalmenusp__link {
   padding-left: 40px!important;
@@ -566,7 +567,7 @@ body {
 }
 .datsumou-search__title {
   padding-top: 20px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   text-align-last: left;
   color: #13131e;
@@ -619,9 +620,11 @@ body {
   display: block;
   width: 100%;
   padding: 20px 10px;
-  color: #13121e;
+  color: #463f2d;
   text-decoration: none;
   font-weight: bold;
+  display: inline-flex;
+  align-items: center;
 }
 .datsumou-area__list > li a .small {
   font-size: 14px;
@@ -630,17 +633,21 @@ body {
 }
 .datsumou-area__list > li a img {
   margin-right: 10px;
-  width: 20px;
+  width: 14px;
 }
 .datsumou-area__list > li a::before {
   margin-right: 10px;
   color: #beba9b;
-  font-size: 20px;
+  font-size: 14px;
 }
 .datsumou-area__list > li:nth-child(2) a::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   /* content: "\f007"; */
+}
+
+.fa-twitter,.fa-facebook-f {
+  color:#6aadbf
 }
 
 .datsumou-area__list > li:nth-child(3) a::before {

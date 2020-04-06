@@ -4,6 +4,7 @@ body {
 
 .reserve-form {
     background: white;
+    border-top: 1px solid #E0DCCC;
 }
 
 textarea {
@@ -260,3 +261,5 @@ textarea {
 .reserve-input-born {
     font-size: 12px !important;
 }
+
+#reserve_table tr, #reserve_table th, #reserve_table td{ border: 1px solid #EEECE4; }

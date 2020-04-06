@@ -171,7 +171,14 @@ body {
   padding: 8px 10px;
   font-size: 18px;
   font-weight: bold;
+  padding-top: 0;
 }
+
+h1 {
+  padding-left: 0!important;
+  padding-right: 0!important;
+  padding-bottom: 0!important;}
+h1 span{ padding-top: 0; }
 
 .Search__input {
   background: #fff;

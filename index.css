@@ -11,7 +11,8 @@
      -moz-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 1em 16px; }
+  padding: 1em 16px; 
+padding-left: 0!important}
   .search-condition .search-condition-text {
     font-size: 13px; }
   .search-condition .button-base.search-condition-change {

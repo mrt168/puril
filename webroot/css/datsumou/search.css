@@ -169,7 +169,13 @@
   padding: 8px 15px;
   font-size: 18px;
   font-weight: bold;
+  padding-top:0
 }
+
+h1{ padding-left: 0!important;
+    padding-right: 0!important;
+    padding-bottom: 0!important;
+    padding-top: 0!important; }
 
 /* .Search__input {
   background: #fff;

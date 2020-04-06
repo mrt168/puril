@@ -368,6 +368,13 @@
     font-weight: bold;
     color:#13131e;
   }
+  .brand-info-detail-remark {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 300;
+    color: #777777;
+    line-height: 16.9px;
+}
 
 .brand-share {
   padding: 15px 16px 15px 16px;
@@ -376,7 +383,8 @@
 
 .brand-shops .content-title {
   padding: 1.5em 16px;
-  padding-bottom: 1em; }
+  padding-bottom: 1em; 
+  padding-top: 0;}
 
 .brand-shops .brand-shops-search {
   position: relative;
@@ -396,6 +404,8 @@
 .brand-shops {
     border-top: 1px solid #eeece4;
     border-bottom: 1px solid #eeece4;
+    padding-left: 0!important;
+    padding-right: 0!important; 
 }
 
 .brand-shops .shop-list {
