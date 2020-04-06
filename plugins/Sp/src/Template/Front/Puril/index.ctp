@@ -215,8 +215,8 @@ use Cake\Routing\Router;
                                             <p class="home-evaluation-panel__thin"><?php
                                                 if(empty($salon['question1_evaluation'])) {
 
-                                                } else if( mb_strlen($salon['question1_evaluation']) > 40) {
-                                                    echo mb_substr($salon['question1_evaluation'],0,40).'...';
+                                                } else if( mb_strlen($salon['question1_evaluation']) > 30) {
+                                                    echo mb_substr($salon['question1_evaluation'],0,30).'...';
                                                 } else {
                                                     echo $salon['question1_evaluation'];
                                                 }

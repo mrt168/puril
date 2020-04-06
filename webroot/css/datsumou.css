@@ -1140,3 +1140,78 @@ body {
 :focus {
     outline: none;
 }
+
+.fv-inner {
+        position: relative;
+    }
+
+    .fv-img-wrap {
+        margin: 0;
+        line-height: 1;
+    }
+
+    .fv-img {
+        width: 100%;
+    }
+
+    .fv-counts-wrap {
+        position: absolute;
+        bottom: 57px;
+        right: 23px;
+        right: 8%;
+        bottom: 23%;
+    }
+
+    .fv-counts-list {
+        padding: 0;
+        margin: 0;
+        display: flex;
+
+    }
+
+    .fv-count {
+        list-style: none;
+        margin-right: 5px;
+    }
+
+    .fv-count-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: normal;
+        align-items: center;
+    }
+
+    .fv-count-middle-text {
+        color: #c5ac60;
+        margin: 0;
+        font-weight: bold;
+        font-size: 11px;
+        text-align: center;
+        line-height: calc(3.1vw);
+        font-size: calc(3vw);
+    }
+
+    .fv-count-text {
+        color: #0094c1c1;
+        font-size: 14px;
+        font-size: calc(3.5vw);
+    }
+
+    .fv-count-after {
+        font-size: 10px;
+        font-size: calc(3.1vw);
+    }
+
+    .fv-count-left,
+    .fv-count-right {
+        width: 21px;
+        width: 5vw;
+    }
+
+    .fv-count-left {
+        margin-right: -3px;
+    }
+
+    .fv-count-right {
+        margin-left: -3px;
+    }

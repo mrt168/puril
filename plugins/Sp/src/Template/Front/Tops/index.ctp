@@ -152,7 +152,7 @@ echo $this->Html->css('datsumou/search');
         echo $this->element('Front/header')
         ?>
 
-        <div class="datsumou-header-mv">
+        <!-- <div class="datsumou-header-mv">
             <div class="datsumou-header-mv-inner">
                 <span class="datsumou-header-mv-inner__text--large">みんな</span>の<br>
                 <span class="datsumou-header-mv-inner__text--middle">脱毛口コミ</span>サイト
@@ -161,7 +161,44 @@ echo $this->Html->css('datsumou/search');
                     <span class="datsumou-header-mv-inner__text--middle">10000件以上！</span>
                 </span>
             </div>
+        </div> -->
+        <div class="fv-wrap">
+        <div class="fv-inner">
+            <h1 class="fv-img-wrap"><img class="fv-img" src="/img/脱毛_sp.png" alt="みんなの脱毛口コミサイト" /></h1>
+            <div class="fv-counts-wrap">
+                <ul class="fv-counts-list">
+                    <li class="fv-count">
+                        <div class="fv-count-inner">
+                            <img class="fv-count-left" src="/img/crown-left.png" />
+                            <div class="fv-count-middle">
+                                <p class="fv-count-middle-text">口コミ</p>
+                                <p class="fv-count-middle-text fv-count-after">
+                                    <!--DBから取得-->
+                                    <span class="fv-count-text">3,000</span>
+                                    件
+                                </p>
+                            </div>
+                            <img class="fv-count-right" src="/img/crown-right.png" />
+                        </div>
+                    </li>
+                    <li class="fv-count">
+                        <div class="fv-count-inner">
+                            <img class="fv-count-left" src="/img/crown-left.png" />
+                            <div class="fv-count-middle">
+                                <p class="fv-count-middle-text">掲載数</p>
+                                <p class="fv-count-middle-text fv-count-after">
+                                    <!--DBから取得-->
+                                    <span class="fv-count-text">6,000</span>
+                                    件
+                                </p>
+                            </div>
+                            <img class="fv-count-right" src="/img/crown-right.png" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </div>
     </header>
     <main class="datsumou-main">
         <div class="datsumou-search">
