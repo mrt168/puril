@@ -372,7 +372,7 @@ const RESERVE_TABLE = [
                 <tr>
                     <th>
                         <div class="th-inner required-question">
-                            <span class="required-expression">必須</span>
+                            <span class="required-expression wide-expression">必須</span>
                             <div class="question-number">7</div>
                             <div class="question-text">
                                 <p>店舗の「接客／サービス」はいかがでしたか？「5点満点の数字＆100文字以上の感想」をお願いします！</p>
