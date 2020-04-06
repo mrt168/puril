@@ -495,7 +495,7 @@ footer {
   width: 100%;
   color: #13121E;
   text-decoration: none;
-  padding-right: 30px;
+  padding-right: 20px;
 }
 .home-evaluation-panel__list > li .voice-box a{
   text-decoration: none;
@@ -521,7 +521,6 @@ footer {
 .home-evaluation-panel__thin {
   margin-top: 0.5em;
   color: #797152;
-  font-weight: bold;
 }
 .home-evaluation-panel__star {
   margin-top: 0.5em;
