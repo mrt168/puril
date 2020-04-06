@@ -90,7 +90,7 @@ use App\Vendor\Code\ImagePositionType;
                 <table id="reserve_table" data-date-options="8" data-time-start="9" data-time-end="21" data-probability="25" data-visit-options="3" data-week-options-en="sunday,monday,tuesday,wednesday,thursday,friday,saturday" data-week-options-jp="日,月,火,水,木,金,土">
                     <thead>
                         <tr>
-                            <!-- 
+                            <!--
                             ここは複雑のため、解説を書いておきます。
                             日時ですが、基本的に24:00時を起点として、2日後の日付を取得して、その順に表示します。
                             例）12日現在だとしたら、14日から表示です。
@@ -99,26 +99,30 @@ use App\Vendor\Code\ImagePositionType;
                                 日時
                             </th>
                             <!-- DBから取得 -->
-                            <th scope="col" id="2020/03/26" class="calendar-date thursday_en">
-                                03/26<br><span>（木）</span> </th>
-                            <!-- DBから取得 -->
-                            <th scope="col" id="2020/03/27" class="calendar-date friday_en">
-                                03/27<br><span>（金）</span> </th>
-                            <!-- DBから取得 -->
-                            <th scope="col" id="2020/03/28" class="calendar-date saturday_en">
-                                03/28<br><span>（土）</span> </th>
-                            <!-- DBから取得 -->
-                            <th scope="col" id="2020/03/29" class="calendar-date sunday_en">
-                                03/29<br><span>（日）</span> </th>
-                            <!-- DBから取得 -->
-                            <th scope="col" id="2020/03/30" class="calendar-date monday_en">
-                                03/30<br><span>（月）</span> </th>
-                            <!-- DBから取得 -->
-                            <th scope="col" id="2020/03/31" class="calendar-date tuesday_en">
-                                03/31<br><span>（火）</span> </th>
-                            <!-- DBから取得 -->
-                            <th scope="col" id="2020/04/01" class="calendar-date wednesday_en">
-                                04/01<br><span>（水）</span> </th>
+                            <?php
+                            $week = [
+                                '日', //0
+                                '月', //1
+                                '火', //2
+                                '水', //3
+                                '木', //4
+                                '金', //5
+                                '土', //6
+                            ];
+                            $weekClass = [
+                                'sunday_en',
+                                'monday_en',
+                                'tuesday_en',
+                                'wednesday_en',
+                                'thursday_en',
+                                'friday_en',
+                                'saturday_en'
+                            ];
+                            ?>
+                            <?php for ($i = 2; $i < 9; $i++) { ?>
+                                <th scope="col" id="<?php date('Y/m/d', strtotime($i . " day")) ?>" class="calendar-date <?= $weekClass[date('w', strtotime($i . " day"))] ?>">
+                                <?=  date('m/d', strtotime($i." day"))?><br><span>（<?= $week[date('w', strtotime($i . " day"))] ?>）</span> </th>
+                            <?php } ?>
                         </tr>
 
                     </thead>
