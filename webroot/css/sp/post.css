@@ -144,6 +144,10 @@ textarea {
     font-weight: 600;
 }
 
+.question-text p{
+    font-size: 14px !important;
+}
+
 .td-inner-wrap {
     padding-right: 10px !important;
     padding-left: 10px !important;
