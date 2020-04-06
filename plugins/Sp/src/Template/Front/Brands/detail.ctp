@@ -387,16 +387,16 @@ echo $this->Html->css('Chart.min.css');
 <?php } ?>
 <section class="content middle-content brand-info-detail">
     <div class="brand-info-detail-area-wrap">
-        <?php
-        if (!empty($brand['affiliate_page_url'])) {
-        ?>
-            <div class="brand-info-detail-area">
-                <h3 class="brand-info-detail-title">特徴・関連情報</h3>
+        <div class="brand-info-detail-area">
+            <h3 class="brand-info-detail-title">特徴・関連情報</h3>
+            <?php
+            if (!empty($brand['affiliate_page_url'])) {
+            ?>
                 <a class="simple-button green" href="<?php echo $brand['affiliate_page_url']; ?>">
                     <span class="button-text">公式サイトへ</span>
                 </a>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
     </div>
     <div class="brand-info-detail-remark"><?= $brand['name']; ?>の店舗情報に誤りがある場合は、以下からご連絡をお願い致します。</div>
     <div class="brand-info-detail-report">

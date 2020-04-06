@@ -86,7 +86,7 @@ use App\Vendor\Code\ImagePositionType;
                 </div>
             </div>
             <script src="./reserve.js" type="text/javascript"></script>
-            <div style="height: 345px;overflow: scroll;margin: -10px 0 24px;">
+            <div style="height: 345px;overflow: scroll;margin: 16px 0 24px;">
                 <table id="reserve_table" data-date-options="8" data-time-start="9" data-time-end="21" data-probability="25" data-visit-options="3" data-week-options-en="sunday,monday,tuesday,wednesday,thursday,friday,saturday" data-week-options-jp="日,月,火,水,木,金,土">
                     <thead>
                         <tr>

@@ -357,45 +357,8 @@ if (!empty($conditions)) {
         <img class="datsumou-bnr" src="/puril/images/cash-back-bnr-sp.png" alt="">
     </a>
 
-    <div class="Search__breadcrumbs">
-        <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemtype="http://schema.org/Thing" itemprop="item" href="<?= Router::url('/') ?>"><span itemprop="name" class="name">TOP</span></a>
-                <meta itemprop="position" content="1">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemtype="http://schema.org/Thing" itemprop="item" href="<?= Router::url('/datsumou') ?>"><span itemprop="name" class="name">脱毛</span></a>
-                <meta itemprop="position" content="2">
-            </li>
-            <span class="breaditem"><a href="<?= Router::url('/' . URLUtil::RANKING . "/") ?>"><span>全国の脱毛施設の口コミランキング</span></a></span>
-            <?php
-            if (!empty($pankuzus)) {
-                $i = 1;
-                $pankzuCnt = count($pankuzus);
-                foreach ($pankuzus as  $pankuzu) {
-                    if ($i == $pankzuCnt) {
-
-            ?>
-                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                            <span itemprop='name' class='name'><?php echo $pankuzu['val'] ?>口コミランキング</span>
-                            <meta itemprop="position" content="<?php echo $i + 2; ?>">
-                        </li>
-                    <?php
-                        continue;
-                    }
-                    ?>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                        <a itemtype="http://schema.org/Thing" itemprop="item" href="<?= $pankuzu['url'] . "/" ?>"><span itemprop="name" class="name"><?php echo $pankuzu['val'] ?><</span> </a> <meta itemprop="position" content="<?php echo $i + 2; ?>">
-                    </li>
-            <?php
-                    $i++;
-                }
-            }
-            ?>
-
-        </ol>
-    </div>
     <?php
+    echo $this->element('Front/search_breadcrumbs');
     echo $this->element('Front/footer') ?>
 </body>
 

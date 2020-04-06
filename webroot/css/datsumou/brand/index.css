@@ -382,10 +382,8 @@
   border-bottom: 1px solid #eeece4; }
 
 .brand-shops .content-title {
-  padding: 1.5em 16px;
-  padding-bottom: 1em; 
-  padding-top: 0;}
-
+  padding: 0px 0px 10px;
+}
 .brand-shops .brand-shops-search {
   position: relative;
   border-top: 1px solid #E0DCCC;
