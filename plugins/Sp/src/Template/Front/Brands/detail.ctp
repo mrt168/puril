@@ -240,8 +240,8 @@ echo $this->Html->css('Chart.min.css');
                 ?>
             </ul>
         </div>
+    <?php } ?>
 </section>
-<?php } ?>
 <?php if (!empty($brand['depilation_sites'])) { ?>
     <div class="separator"></div>
 <?php } ?>
