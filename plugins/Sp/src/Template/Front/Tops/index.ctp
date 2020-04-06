@@ -174,7 +174,9 @@ echo $this->Html->css('datsumou/search');
                                 <p class="fv-count-middle-text">口コミ</p>
                                 <p class="fv-count-middle-text fv-count-after">
                                     <!--DBから取得-->
-                                    <span class="fv-count-text">3,000</span>
+                                    <span class="fv-count-text">
+                                        <?= number_format($kutikomiCnt) ?>
+                                    </span>
                                     件
                                 </p>
                             </div>
@@ -188,7 +190,9 @@ echo $this->Html->css('datsumou/search');
                                 <p class="fv-count-middle-text">掲載数</p>
                                 <p class="fv-count-middle-text fv-count-after">
                                     <!--DBから取得-->
-                                    <span class="fv-count-text">6,000</span>
+                                    <span class="fv-count-text">
+                                        <?= number_format($shopCnt) ?>
+                                    </span>
                                     件
                                 </p>
                             </div>

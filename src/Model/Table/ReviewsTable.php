@@ -310,6 +310,16 @@ class ReviewsTable extends AppTable
     /**
      * 識別子で未削除のデータを検索します.
      */
+    public function countByDelFlg()
+    {
+        $conditions = array(
+            'Reviews.del_flg' => DelFlg::$MI_SAKUJO[CodePattern::$CODE]
+        );
+
+        return $this->query()
+            ->where($conditions)
+            ->count();
+    }
     public function findByIdAndDelFlg($id) {
         $conditions = array (
             'Reviews.review_id'=> $id,

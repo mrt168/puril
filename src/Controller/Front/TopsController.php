@@ -77,7 +77,9 @@ class TopsController extends FrontAppController {
 		// 店舗件数
 		$shopCnt = $shopTable->countByDelFlg();
 
-		$this->set(compact('prefs', 'regionPrefs', 'shopCnt', 'salons', 'rank_brand_salon','rank_brand_clinic'));
+		// 口コミ件数
+		$kutikomiCnt = $reviewsTable->countByDelFlg();
+		$this->set(compact('prefs', 'regionPrefs', 'shopCnt', 'salons', 'rank_brand_salon','rank_brand_clinic', 'kutikomiCnt'));
 
 		// 構造データ
 		$this->set('structureds', [parent::structuredOrganization()]);
